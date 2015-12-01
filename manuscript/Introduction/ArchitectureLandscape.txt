@@ -147,6 +147,47 @@ Here are from my notes on the topic some of the rationale for decisions in EcmaS
 - "Usually we want to learn and understand as little as possible to do the job."
 - "Recipe for making change: figure out how similar change has been done before."
 
-Later I have been doing department-wide architecture in a bank, and I introduced this idea of a Codex of principles guiding all the architecture-sensitive decisions. The Codex was built from the accumulation of concrete cases of decision-making, by trying to elucidate formally the reasoning behind the decision. Often, the principle was already in the head of other senior architects, but it was tacit and nobody else knew about it. This codex proved useful for people involved in architecture. The goal was to publish it for everyone, even if it was incomplete and not always easy to understand. At least it worked to provoke questions and reactions. It was never formally published as far as I know, however its content leaked on many occasions and has been used several times for more consistent decision-making.
+Later I have been doing department-wide architecture in a bank, and I introduced this idea of a Codex of principles guiding all the architecture-sensitive decisions. The Codex was built from the accumulation of concrete cases of decision-making, by trying to elucidate formally the reasoning behind the decision. Often, the principle was already in the head of other senior architects, but it was tacit and nobody else knew about it.
+
+Some of these principles were like the following:
+
+- "Know your golden source" (aka Single Source of Truth)
+- "Don't feed the monster": improving the legacy only helps last it longer
+
+This codex proved useful for everybody involved in architecture. The goal was to publish it for everyone, even if it was incomplete and not always easy to understand. At least it was useful to provoke questions and reactions. It was never formally published as far as I know, however its content leaked on many occasions and has been used several times for more consistent decision-making.
+
+One recent consulting gigs I found it helpful again to express the value referential of the team as a list of preferences, like:
+
+- "Code over XML"
+- "Templating engine is ok but keep the logic out"
+
+Of course it is a good idea to adopt standard principles already documented in the literature too, as a kind of READY MADE DOCUMENTATION. For example:
+
+- "Keep your middleware dumb, and keep the smarts in the endpoints." by Sam Newman
 
 It is very important to keep this codex as a working document, never finished. Whenever we hit a contraction in its principles, then it's time to fix it or evolve it. This did happen, and this should not be seen as a failure, but as an opportunity for collective decision-making to be even more relevant. After all, architecture is a kind of a consensus thing, isn't it?
+
+An architecture codex can be just a text file in the source control, a set of slides, and it can even be expressed in code. The following is an example of using a simple enum to materialize the principles of the codex:
+
+~~~~~~~~
+/**
+ * The list of all principles the team agrees on.
+ */
+public enum Codex {
+
+	/** We have no clue to explain this decision */
+	NO_CLUE("Nobody"),
+
+	/** There must be only one authoritative place for each piece of data. */
+	SINGLE_GOLDEN_SOURCE("Team"),
+
+	/** Keep your middleware dumb, and keep the smarts in the endpoints. */
+	DUMP_MIDDLEWARE("Sam Newman");
+
+	private final String author;
+
+	private Codex(String author) {
+		this.author = author;
+	}
+}
+~~~~~~~~

@@ -23,6 +23,9 @@ The exact wiring of the object tree is determined at runtime, and changes accord
 
 ## Introspecting by reflection
 
+> If it’s an object, we can traverse it 
+> - Arnold Schwarzenegger
+
 Introspecting a tree of objects is nothing but a trivial recursive traversal. From the given (root) instance, we get its class and enumerate each declared field, because that's how classes store their injected collaborators here. For each collaborator, we carry on the traversal through a recursive call.
 
 As usual, we probably need to filter uninteresting elements that we don't want to include in the traversal, classes likes Strings or other low-level stuff. Here the filtering is just based on the qualified name of the classes. If passed an instance of a class that has nothing to do with our business logic, just ignore it.

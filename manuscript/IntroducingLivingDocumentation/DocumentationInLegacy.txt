@@ -30,7 +30,7 @@ W> Rewriting a piece of software is an expensive endeavor, even from a purely te
 W>
 W> I would strongly suggest against rewriting with the same specs. Rewrite a limited portion of the system, and consider it is a project from scratch, with the legacy system, the working application and its source code, as a bonus to draw inspiration from.
 
-Therefore: **In the context a rewriting a part of a legacy system, consider the legacy system as a documentation to complement the discussions on the specifications. Make sure a business person like a domain expert, Business Analyst or Product Owner works closely with the team. Don't fall into the fallacy that the legacy system is in itself a sufficient description of the new system to be rebuilt. Take the opportunity of the rewriting to challenge every aspect from the legacy system: the functional scope, the business behaviors, the way it is structured into modules and so on. Regain control of the knowledge from the start, with clear specifications expressed as concrete scenarios, and a clear design.**
+Therefore: **In the context a rewriting a part of a legacy system, consider the legacy system as a documentation to complement the discussions on the specifications, not as the given specifications. Make sure a business person like a domain expert, Business Analyst or Product Owner works closely with the team. Don't fall into the fallacy that the legacy system is in itself a sufficient description of the new system to be rebuilt. Take the opportunity of the rewriting to challenge every aspect from the legacy system: the functional scope, the business behaviors, the way it is structured into modules and so on. Regain control of the knowledge from the start, with clear specifications expressed as concrete scenarios, and a clear design.**
 
 The ideal configuration is a Whole Team, with all skills and roles inside the team, as described earlier when talking about the 3 Amigos: business perspective, development perspective and quality perspective.
 
@@ -40,15 +40,21 @@ The perfect case is when the legacy system is instrumented, in which case it can
 
 ## Bubble Context (Evans)
 
-*Even in a legacy system, you want to go back to the ideal land where everything is nice and clean.*
+*Even in a legacy system, you want to work as much as possible in the ideal land where everything is nice and clean.*
 
-If you have some amount of features to build, then you may decide to build the new features in their own new clean Bubble Context. It can be a new specific module, namespace or project, that is then easy to document as explained in previous chapters, e.g. using Annotations, Naming Conventions and Enforced Guidelines
+If you have some amount of features to build, then you may decide to build the new features in their own new clean Bubble Context. In practice it can be a new specific module, namespace or project, which means it is then easy to document as explained in previous chapters, e.g. using Annotations, Naming Conventions and Enforced Guidelines. A Bubble Context brings the comfort and the efficiency of writing software from scratch in a brand new project, but integrated within a bigger legacy surrounding.
 
 ![A clean Bubble Context integrated within a legacy mess](images/legacy/legacy_bubble_context.jpg)
 
-Just like architecture and guidelines, the legacy strategy may also be enforced using automated tools. But it is often hard to apply the same level of expectations everywhere, so it is a good idea to be stricter on the new code being written inside the Bubble Context. For example you may want to forbid any new commit from having direct references (java import or C# using) on a deprecated component.
+As a Bubble Context is a project from scratch inside of a legacy project, it is also the perfect place to practice TDD, BDD and DDD on a limited functional area, to deliver a bulk of related business value.
 
-Typically, if you use the Bubble Context approach you can declare demanding requirements for the full bubble as a whole, e.g. using package-level annotations:
+
+
+Therefore: **If you need to make a lot of changes on a legacy system, consider creating a Bubble Context. In this particular Bubble Context, it will be easy to invest in knowledge following a Living Documentation approach. Conversely, if you really need full documentation of a part of a legacy application, consider rewriting this part as a Bubble Context, using the state-of-the-art practices for the tests, the code and the documentation.**
+
+It is a good idea to start with high expectations for the code inside the Bubble Context. Its architecture and guidelines should be enforced using automated tools, as a set of Enforced Guidelines. For example you may want to forbid any new commit from having direct references (java import or C# using) on a deprecated component. You may require and enforce a test coverage higher than 90%, no major violation, a maximum code complexity of 2, and a maximum of 5 parameters by method.
+
+Going further in the coding style, if you use the Bubble Context approach you can declare demanding requirements for the full bubble as a whole, e.g. using package-level annotations:
 
 ~~~~~~~~
 @BubbleContext(ProjectName = "Invest3.0")
@@ -61,15 +67,15 @@ package acme.bigsystem.investmentallocation.domain
 package acme.bigsystem.investmentallocation.infra
 ~~~~~~~~
 
-A Bubble Context is a project from scratch inside of a legacy project. It is the perfect place to practice TDD, BDD and DDD on a limited functional area, to deliver a bulk of related business value.
+The first annotation just declares that this module (package in Java or namespace in C#) is the root of a Bubble Context corresponding to a project named "Invest3.0".
+
+The other annotations document that the expected coding style in this module favors immutability and avoids nulls and side-effects. They can then be enforced by pair-programming or code review.
 
 A bubble context is a perfect technique to rewrite a part of a legacy system, as in the Strangler Application (Fowler) pattern. The idea is to rebuild a consistent functional area which will progressively take over the old system.
 
-Therefore: **If you need to make a lot of changes on a legacy system, consider creating a Bubble Context. In this particular Bubble Context, it will be easy to invest in knowledge following a Living Documentation approach. Conversely, if you really need full documentation of a part of a legacy application, consider rewriting this part as a Bubble Context, using the state-of-the-art practices for the tests, the code and the documentation.**
-
 ## Superimposed Structure
 
-Especially when creating a Bubble Context integrated within a bigger legacy application, it is hard to define the boundaries the old and the new systems. And it is even hard to just discuss about that clearly, because it is hard to talk about a legacy system. You would expect to see a simple and clear structure, but what you actually discover is a big unstructured mess.
+Especially when creating a Bubble Context integrated within a bigger legacy application, it is hard to define the boundaries between the old and the new systems. And it is even hard to just discuss about that clearly, because it is hard to talk about a legacy system. You would expect to see a simple and clear structure, but what you actually discover is a big unstructured mess.
 
 ![Mental Expectations Vs. Actual Situation](images/legacy/legacy_expected_vs_actual.jpg)
 
@@ -139,14 +145,24 @@ The end purpose of a superimposed structure should be to become the primary stru
 
 It is sometime hard to touch and commit in large code bases just to add extra annotations. You don't want to risk introducing random regressions. You don't want to touch commit history. It may be so hard to build that you don't want to build it unless absolutely necessary. Or your boss may refuse you change the code at all "just for documentation".
 
-If it is possible then that's the best way, according to the intrinsic principle.
+In that situation it is still possible to apply most techniques of Living Documentation, except that the internal means of documentation (annotations, naming conventions) has to be replaced by an external document. For example, a text file mapping package names to tags:
 
-Otherwise we can do a proof of concept at smaller scale using external annotations combined with parsing the actual source.
+~~~~~~~~
+acme.phenix.core = DomainModel FleetManagement
+acme.phenix.allocation = DomainModel Dispatching
+acme.phenix.spring = Infrastructure Dispatching
+...
+~~~~~~~~
+
+With that it is possible to build tools which parse the source code and exploit these external annotations just like they would exploit the regular internal ones.
 
 ![Using a registry so that the code is not touched](images/legacy/legacy_annotation_registry.jpg)
 
+The issues with this approach is that it is an External kind of documentation, hence fragile to changes in the legacy system. If you ever rename a package in the legacy, you have to update the related external annotations.
 
 ## Biodegradable Transformation
+
+*Documentation of a temporary process should disappear with it when it is done*
 
 Many legacy ambitions involve transformations from one state to another. This transformation may take years, and may never really reach the end state. However you need to explain this transformation to all teams, and you want to show it as part of your Living Documentation.
 
@@ -155,23 +171,32 @@ Many legacy ambitions involve transformations from one state to another. This tr
 For example, if you're building a [Strangler Application](http://martinfowler.com/bliki/StranglerApplication.html) that is expected to replace an older application over time, this strangler application will probably live in its own Bubble Context.
 
 
-You could just annotate this Bubble Context as being a Strangler Application. However, that it is playing the role of a Strangler is a temporary fact and is not necessarily intrinsic to the new application; when it has successfully strangled the old one, it will just become the nominal application. The Strangler Application strategy is therefore a Biodegradable Transformation.
+You could just annotate this Bubble Context as being a Strangler Application. However, that it is playing the role of a Strangler is a temporary fact and is not necessarily intrinsic to the new application; when it has successfully strangled the old one, it will just become the nominal application, and its annotation will be meaningless. The Strangler Application strategy is therefore a Biodegradable Transformation.
 
 In the meantime every developer needs to know they should use the new strangler application instead of the one being strangled.
 
 Therefore you'd better add a StrangledBy("new bubble context application") annotation to the strangled application to explain that a strangling is pending. When it can be safely deleted the annotation will go away with it.
 
+Of course you could still tag the new application as a StranglerApplication, but you will have to clean this tag eventually, when you are done. And if the strangling never completes, this will another hint pointing to the unfinished initiative.
+
 ![An application annotated as being strangled by another](images/legacy/legacy_strangled_app.jpg)
 
 ### Example: Bankruptcy
 
-- Annotation or attribute in the AssemblyConfig file
+Some legacy applications are so fragile that they break anytime you try to change them, and it takes weeks of work to stabilize them again. When you recognize that, you may decide to declare them officially "bankrupt". This means nobody should change them, ever.
+
+In large legacy systems with new applications strangling older ones, you don't want to perform the maintenance on two applications at the same time, so you can mark the older one as "frozen" or "bankrupt" too.
+
+You can mark the application as "bankrupt" using a number of means:
+
+- Annotation on the package or an attribute in the AssemblyConfig file
 - BANKRUPTCY.txt file explaining what you need to know and to do (or avoid to do)
-- logger or even worst, a prompt to remind user in any non-production environment that they should be aware that they should not work any more on this bankrupt component.
+- Removing the commit privilege to everyone. If anyone tries to commit and asks why it is not possible, it is an opportunity to explain that it is bankrupt.
+- As a weaker alternative, you could monitoring the commits and raise an alert when changes are met in a bankrupt application.
 
 ## Maxims (Ducasse)
 
-*Legacy systems are made of code and people too*
+*Big changes to legacy systems are made by a number of people who share common objectives*
 
 Once you have your legacy transformation strategy, you want to make sure everyone knows about it well. You may have created a Superimposed Structure. You may have annotated your Bubble Context in the code of the project. However of all the things you need to share with everyone, there are a few key decisions you really want everyone to keep in mind at all time.
 
@@ -184,3 +209,5 @@ It has been one of my favorite maxims in a big legacy project. It was meant to r
 > When in Rome, do as Romans do
 
 This was the counterpart to the single work site maxim. When you happen to walk outside of your work site, don't innovate or change much, just do the minimum in the local style, even if you don't like it.
+
+I've found maxims to be a valuable form of documentation. The point is to repeat them often, whenever it makes sense, ideally at least once a day. The maxim format is made to stick, and that is why you may want to give it a try next time. Maxims can also help share the conclusions of your team retrospectives, as agreed upon by the team.

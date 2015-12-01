@@ -1,6 +1,8 @@
 # Enforced Guidelines
 
-*Many companies and teams spend time writing guidelines. Still, the resulting documents are seldom read and often ignored.*
+*The best documentation does not even have to be read, if it can alert you at the right time with the right piece of knowledge*
+
+Many companies and teams spend time writing guidelines. Still, the resulting documents are seldom read and often ignored.
 
 How do you document all the decisions that have been made and that everybody should conform to when doing their work? Examples of these decisions include the main architectural decisions, coding guidelines and other decisions about style and team preferences.
 
@@ -14,11 +16,13 @@ So how do people learn about all the decisions and style they have to conform to
 
 Reading code works well when the code is exemplary, which is not always the case. Of course code review and static analysis help improve that. Code review works well as long as the reviewers have all the decisions and style preferences in mind and all agree with it. Static analysis works well for every rule or decision that doesn't need nuance or contextual interpretation. And because the static analysis tools must be configured to be useful, once configured they are themselves naturally the reference documentation about the all the guidelines.
 
-**Therefore: Use a mechanism to enforce the decisions that have been made into guidelines. Use tools to detect violation and provide instant feedback on the violation. Don't waste time writing guideline documents that nobody reads. Instead, make the enforcement mechanism self-descriptive enough so that it can be used as the reference documentation of the guidelines.**
+**Therefore: Use a mechanism to enforce the decisions that have been made into guidelines. Use tools to detect violation and provide instant feedback on the violation as visible alerts. Don't waste time writing guideline documents that nobody reads. Instead, make the enforcement mechanism self-descriptive enough so that it can be used as the reference documentation of the guidelines.**
 
 Code analysis tools help maintain a high level of quality anywhere in the code, which in turn helps the code to be exemplary. And it also helps as a reference when the programmers have an hesitation about one rule during a code review or while pair-programming, a form on continuous code review.
 
+The point of enforced guidelines is to accept that documentation does not even have to be read to be useful. The best documentation brings you the right piece of knowledge at the right time, i.e. when you need it. Enforcing rules, properties, decisions through tools (or code reviews) is a way to teach the team members with the knowledge they need precisely at the moment they ignore it.
 
+T> Enforced Guidelines: persistent knowledge made interactive again 
 
 ## Some examples of rules
 
@@ -121,7 +125,9 @@ Imagine your set of guidelines for the Domain Model is like the following:
 
 At the time of writing, existing static analysis tools and plugins likely don't support all that out of the box, so you can't do Enforced Guidelines unless you create your own tooling. However, these guidelines are design decisions that can be documented in the code itself, for example using annotations as seen in a previous chapter.
 
-In fact, such design declarations expressed as annotations in turn make it possible to enforce them with analysis tools. Once you declare that your code should be all immutable in a given package, it's not that hard to check using a parser. (see Patternity project on Github)
+In fact, such design declarations expressed as annotations in turn make it possible to enforce them with analysis tools. Once you declare that your code should be all immutable in a given package, it becomes possible to check the main violations using a parser. (see Patternity project on Github)
+
+For example, immutability and null-free expectations can to some extent be enforced programmatically: no setter and no modifiable collection exposed in the API, and no mention of 'null' in the source. This is far from perfect, but this is enough for any new joiner to learn the style after a few commits.
 
 ## Trust-First
 
