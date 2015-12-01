@@ -1,0 +1,158 @@
+"Do style guides help? Eg android style code from Google."
+
+
+%% project management. The goal is to reach a desired system state
+%% single root, or doc
+%% different modules, each with its own arch declaration
+
+
+But also
+
+Arbitrary upfront
+JIT
+
+## Codex
+Coding style / paradigm & idioms (default style of design decisions)
+
+
+---
+
+Hard to change: Everything with a deep investment on: programming language, lock-I'm technology, framework and dependencies spread everywhere... Lost business rules, lack of testability: ironically there are things that are hard to change precisely because of lost knowledge.
+
+That everybody should know: same, plus a focus on the primary concepts and large-scale structures. What you need to know also in order to protect or improve the capacity of the system to be easy to change.
+
+@adampknight: Are 'non-functional requirements' named such because that's what how your software ends up if you ignore them? #testing
+
+"Visible, legible and coherent to the business" Cyrille Dupuy Dauby
+
+@mittie: Architecture should not be defined but rather discovered, refined, evolved, and explained.
+#theFirstMisconceptionAboutArchitecture
+
+--
+Context (Ecosystem) diagram -
+TODO See Simon Brown book/blog
+--
+
+Examples
+
+Business map of groups of concepts with relationships between them -> Derive permissible dependencies
+
+@DomainConcept(BusinessDomain.PreTrade)
+@Concern(Realtime, Critical, HighAvailability)
+
+Or better: BoundedContext(domain = BusinessDomain.PreTrade, concerns = Realtime, Critical, HighAvailability)
+
+Automatically generate diagrams from that. Layout based on constraints and relationships between the respective domains.
+
+--
+
+## Pre-Computer metaphor
+
+At DDDx 2014, Greg Young in his talk suggested to ask the question: "How did they do before computers?" Businesses were certainly able to run fine long before computers, using paper, routing slips and smart business rules. All this  can certainly help make the business activity much more tangible and concrete to start with. It can also trigger ideas on how to solve hard problems with non technical solutions, with no distributed transaction and race condition arguments.
+
+As Greg suggested too, you may go further and play a role game with pieces of paper or stickies representing messages in your system: people write on them and pass them on to other people and so on. You can simulate anomalies like lost messages by stealing a piece of paper in secret, to observe what happens, or what does not happen.
+
+
+## Test-Driven Architecture (Open-Space/workshop)
+
+It's the role of architecture to take care of the required quality attributes. These quality attributes must be primarily defined with respect to the business objectives. For example, the response time for a web pg
+
+My questions: Is it a bad idea? Is there a need? Are all these tests only used one-off or useful over time?
+
+[quick presentation]
+
+Find out problems early, e.g. realistic test data (Roland)
+When there is a need to change the RDBMS for political reasons, these tests can be reused for non-regression, or when we upgrade or patch the DB
+
+It happened to a team to change from pessimistic to optimistic locking in their application; this requires some re-testing too.
+
+Test changeability
+Of course stress and performance tests are useful regularly
+
+They can help be more aware of the architectural decisions, and who this feature is for. As such they are part of the specification efforts.
+
+Of course they are often slow tests. Even it we should keep them does not mean we have to run them all the time. The present value of many tests is greater than their future value. The only limit is to run them often enough so that they remain in sync with the actual application.
+
+How do you choose a framework? e.g. which ORM? which DB? which table layout? You already do something not that far from TDA: you create a script, (e.g. in PERL) to populate just one table with 10M rows, and you look for what happens when you do special operations, or you compare how it performs for various table layouts to find the best one.
+
+These scripts are disposable, and pretty unreadable too, because they are ran only once.
+
+If you only keep them and make them more readable, perhaps BDD-style, you can reuse them as a living documentation of the architectural decisions, to answer the questions of auditors and to justify you thought about that.
+
+And when you say to your customer: "we run on Oracle" and they answer: "well, but we yes DB2" then you are happy to reuse your scenarios when you have to port from Oracle to DB2! This is valuable for software vendors that need their software to work for different customers, with different DBs and middleware. If you only target your own infra it is a bit less essential.
+
+These scenarios should ideally use production data (but that's fragile so I'd better limit to just a few scenarios and not every of them). Just like every test, all-together tests lack the capability to pinpoint the problem when it happens. Separation of concerns remains paramount, and the tests must be time-independent and independent from data .
+
+We need non-regression scenarios for performance, e.g. what happens when 1000 users book at the same time?
+
+Think about operations earlier
+Developers should write the tests and provide them to the production team. It may help them spot a lock in the DB.
+
+What happens to these tests?
+From Jenkins to Nagios
+Include tools like penetration test tools as part of the suite
+
+(were most participating: Roland, Stephan, Franck, Tilman, Patrick)
+
+--
+@TypicalStyle snippet -> to include in a document about style guidelines
+--
+
+--
+Documenting unfinished work, decision points, extension points, alternatives and assumptions
+
+Threshold Tests
+Tags @ Linked Tags
+
+--
+Application, toolkit or framework? Often a bit of all.
+-> You don't document each part the same way.
+
+Applications define everything down to the exact requires behaviors. The scenarios are the real ones.
+
+Toolkit and frameworks offer a set of potential building blocks that can be assembled or extended in many ways for multiple purposes. You can at best propose typical samples of use. For a given need it is common to not need all the code that comes with the toolkit or framework.
+
+For a given deployment you provide specific wiring and configuration to instantiate the concrete application. This is typically managed by Infrastructure as Code.
+
+--
+Documentation segregated between side effect-free stuff vs side-effect stuff (Tetris in Clojure)
+
+--- box---
+## Enforced Architecture
+
+Architecture is a lot about self-imposed constraints:
+restricted dependencies
+segregation of elements by chosen criteria
+hygiene rules and guidelines
+chosen architectural styles...
+
+You can spend time documenting all that in guide books and prescriptive documents. Or you can try to enforce them automatically. For example during the builds you can verify that the code satisfies the hexagonal architecture, using tests or assertions at runtime.
+
+It's interesting to notice that this is often only possible provided that your code is well-annotated.
+
+@ericlemerdy: To respect the Acyclic Dependencies Principle : have only one package
+
+Doing some extra work everywhere is good business when it can pay off many times. Annotations of the code to make it explicit to machines is often good business when it enables other good things, including the automated enforcement of the constraints of the architecture.
+---/box---
+
+Say no when asked for the perfect architecture. Don't over-commit
+
+World map to share mental map and reasoning.
+
+
+
+Optimize for flexibility and macro transparency
+
+Conviction over truth (?)
+
+Visualization guidelines:
+- Make symmetries obvious: manual vs automatic, do nothing vs do something, single vs plural, same intent beyond variety, orthogonal stuff
+- equivalence as--whole: user + UI + daemon = automated consumer
+- no more than 7 things on one page
+- layout matters: proximity, boundaries, left-right, bottom-up, zoom overview-details
+
+intrinsic tags on stuff, (intensional) dynamic filtering
+
+Prioritize by audience (dynamic filtering)
+
+--

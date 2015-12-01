@@ -1,0 +1,97 @@
+# Domain Vision Statement
+
+*Sharing the vision above the business goals*
+
+> "Keep your requirements at a very high & general level until just before use." > - Woody Zuill [on this blog](http://zuill.us/WoodyZuill/2011/09/30/requirements-hunting-and-gathering/)
+
+Goals are high-level information compared to all the details that describe how a system is built. As such, they are more stable, and the higher-level the more stable.
+
+Goals are also long-term, must be known by everyone, and are critical because they drive every further decisions. This means that there is not doubt they must be documented in a persistent fashion. Since they are on the rather stable end of the frequency of change spectrum, traditional forms of documentation fit:
+
+- MS Word documents
+- Slide decks
+
+This does not mean that it's easy to make a good documentation of the goals. It's still all too easy to waste a lot of time into a document that will not be read because it's too long or too boring. This is on the problem side, but there's a documentation concern on the solution side too. The artifact the system is built from seldom document their relationship with the goals they attempt to satisfy.
+
+## Vision Statement
+
+- a short statement
+- a story
+
+## Impact Mapping
+
+Goals, stakeholders, capabilities, with performance targets
+
+Most mind mapping applications (including MindNode, Mindjet MindManager, Curio, and MindMeister) accept indented text as an "import” option.
+
+~~~~~~~~
+Reduce processing cost of song royalties
+  IT dept
+    100x volumes
+    Cheaper processing
+  Sales tracking
+    Hourly stats feeds
+  Billing
+    Online real-time reporting
+~~~~~~~~
+
+Make sure the goals quantified in the impact maps, even if they can't always be automated.
+
+Carefully curated data sets can help describe more precisely the phrasing of the expected performances. For example a recorded file of market data activity during a highly volatile market episode can accurately describe what is meant by "highly-volatile markets", "crash", "quiet period" or "opening rush", and can even be used as a basis for acceptance testing.
+
+## Don't Mix Strategy Documentation with the documentation of its implementation
+
+Agile Testing p.80
+
+> If your organization wants documentation about your overall test approach to projects, consider taking this information and putting it in a static document that doesn't change much over time. There is a lot of information that is not project specific and can be extracted into a Test Strategy or Test Approach document.
+>
+> This document can then be used as a reference and needs to be updated only if processes change. A test strategy document can be used to give new employees a high-level understanding of how your test processes work.
+>
+> I have had success with this approach at several organizations. Processes that were common to all projects were captured into one document. Using this format answered most compliance requirements. Some of the topics that were covered were:
+
+- Testing Practices
+- Story Testing
+- Solution Verification Testing
+- User Acceptance Testing
+- Exploratory Testing
+- Load and Performance Testing
+- Test Automation
+- Test Results
+- Defect Tracking Process
+- Test Tools
+- Test Environments
+
+
+## Traceability to the goals
+
+Annotate key scenarios for intuitiveness, speed, usefulness... measurements, diagram generation, user manual or troubleshooting. Most typical cases, the "nominal" cases, can also be annotated as such so that they are highlighted in the generated specification report.
+
+Materialize the performance targets as thresholds into your monitoring tools, with clear labels that link to the goals documented elsewhere.
+
+----
+
+Meta decisions matters a lot. Tradeoffs have to be made at meta level already, and they influence every decisions
+
+Story mapping
+Impact mapping
+
+May refer to EVO definitions for more precise reference of Scales and Meter
+
+Tips: Properties over examples, but still with concrete examples! Associative, idempotent etc
+
+
+
+Idem with persona and specific profiles
+
+At runtime, add a feature to extract reports (csv) of curated fresh data sets to import into more up to date additional realistic tests
+
+--
+Compliance to external formal framework
+
+Eg agile inside within a CMMI company,
+
+Predefine once the mapping between each activity and artifact.
+
+Then it becomes possible to generate translated documents in the target framework without additional manual work.
+
+%% LD - Documenting Goals

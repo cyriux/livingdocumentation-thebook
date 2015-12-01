@@ -1,0 +1,15 @@
+# Error-Proof API
+
+*Design your API in a way that makes it impossible to misuse. This reduces the need for documentation, since there's nothing to warn the user of.*
+
+http://qedcode.com/practice/provable-apis
+
+Thanks for the link to this good article on how to prevent users from misusing an API. These advises are so fundamental but seldom expressed, I'm really glad to read that.
+
+- Using enums to enumerate every valid combinations of parameters
+- if their number is not too high, detecting invalid properties as early as possible (e.g. catching null directly in the constructor) well before it is actually used then repair whenever possible, such as replacing nulls with null objects in the constructors or setters
+- on a similar idea, putting internal caches to memoize the results of slow computations helps mitigate the risk of users misusing an API; this is commonly done for hashcode() and toString() in objects that tend to be used as keys in Map (Dictionary).
+
+A common objection is that experienced developers don't get caught hence no need to be so defensive; however even good developers have more important things to focus on that avoiding the traps of your API.
+
+In the wording of Don Norman, these advises on how to guide the use of something would all be called "affordances", from his famous book "The Psychology of Everyday Things" (http://www.jnd.org/dn.mss/affordances_and.html)

@@ -1,0 +1,128 @@
+# Enforced Guidelines
+
+*Many companies and teams spend time writing guidelines. Still, the resulting documents are seldom read and often ignored.*
+
+How do you document all the decisions that have been made and that everybody should conform to when doing their work? Examples of these decisions include the main architectural decisions, coding guidelines and other decisions about style and team preferences.
+
+The common approach is to spend time to write these decisions into a guidelines, style book or any other name. The problem is that theses decisions quickly add up to more pages than you expected, and even a 12 pages-long document full of "you shall do this" and "you shall not do that" is far from an exciting read. As a consequence, most of these documents are like legal documents: they are so boring most team members never read them, not even once. They pretend to have read them on arrival, but in fact they hardly went further than the second or third page.
+
+Even when they've actually read them, the format as a list of rules is not memorable, and unless you like all the rules you probably won't remember most of them. In practice these guides are essentially useful as a reference in case of doubt, and not much more.
+
+However without guidelines the code is at the mercy of everybody's own style, preferences or lack of skills. A consistent set of shared guidelines is essential to really work in a collective ownership fashion.
+
+So how do people learn about all the decisions and style they have to conform to for real? They learn all that essentially by reading other people's code, through code reviews, and through the feedback from static analysis tools who catch when they violate a rule.
+
+Reading code works well when the code is exemplary, which is not always the case. Of course code review and static analysis help improve that. Code review works well as long as the reviewers have all the decisions and style preferences in mind and all agree with it. Static analysis works well for every rule or decision that doesn't need nuance or contextual interpretation. And because the static analysis tools must be configured to be useful, once configured they are themselves naturally the reference documentation about the all the guidelines.
+
+**Therefore: Use a mechanism to enforce the decisions that have been made into guidelines. Use tools to detect violation and provide instant feedback on the violation. Don't waste time writing guideline documents that nobody reads. Instead, make the enforcement mechanism self-descriptive enough so that it can be used as the reference documentation of the guidelines.**
+
+Code analysis tools help maintain a high level of quality anywhere in the code, which in turn helps the code to be exemplary. And it also helps as a reference when the programmers have an hesitation about one rule during a code review or while pair-programming, a form on continuous code review.
+
+
+
+## Some examples of rules
+
+Cosmetic rules help for code consistency and when merging code
+
+- Curly brackets must not be omitted
+- Field names must not use hungarian notation
+
+Rules on metrics help discourage overly-complicated code
+
+- AvoidDeepInheritanceTreeRule (max = 5)
+- AvoidComplexMethodsRule (max = 13)
+- Line should not be too long (max  = 120 chars)
+
+Rules are a way to encourage or enforce better code
+
+- DoNotDestroyStackTraceRule
+- Exceptions should be public
+
+Some rules can directly avoid bugs
+
+- ImplementEqualsAndGetHashCodeInPairRule
+- Test for NaN correctly
+
+Even some architectural decisions can be made as rules
+
+- DomainModelElementsMustNotDependOnInfrastructure
+- ValueObjectMustNotDependOnServices
+
+
+## Evolving the guidelines
+
+Guidelines have a purpose, for example to help working together, reduce issues like bugs or errors when merging code, and preserve quality attributes like performance and maintainability. With that in mind, there's no such a thing as the ideal and definitive set of guidelines. Instead, start with something, use it and evolve it to make it as relevant as possible.
+
+The best guidelines don't come from above. The best guidelines grow from the team or teams doing their work and talking to each other to agree on shared guidelines that are useful. Don't hesitate to change the guidelines when necessary. Of course you may not want to change the length of lines of code everyday.
+
+
+A> ### Sample guidelines for a greenfield project
+A>
+A> - Unit Test Coverage >80%
+A> - Complexity by method <5
+A> - LOC by method < 25
+A> - Inheritance depth < 5
+A> - Args number < 5
+A> - Member data fields number < 5
+A> - All base checkstyle rules
+
+## Enforcement or Encouragement
+
+On a greenfield project, you typically start with a lot of enforced guidelines in a strict fashion, and every new line of code that violates them will have its commit rejected.
+
+Other the other hand, on a legacy project you usually can't do that because the existing code would already contain thousands of violations even on a small module. Instead you chose to only enforce the few most important guidelines, and you put every other guidelines as *warnings*.
+
+Another approach is to have stricter rules only for new lines of code.
+
+Some teams start with some guidelines, and once they are comfortable with them they add more rules and make the existing guidelines stricter in order to progress.
+
+When your company requires every application to follow a minimum set of guidelines, each team or application can still decide to make it stricter, but no weaker. Tools like Sonar provide inheritance between sets of guidelines, called 'quality profiles', to help do that. You can define a profile that extends the company profile, and add more rules or make the existing rules stricter to meet your own taste.
+
+## Declarative Guidelines
+
+Because sets of guidelines, 'quality profiles', can be named, their names are also part of the documentation on guidelines. You can simply refer new joiners to the build configuration, where they will find the name of the set of guidelines. From there they can look it up on the tool and find out that it extends the company sets of guidelines. They can browse the rules by categories, severity, check their parameters as they wish, in an interactive fashion. There's even a search engine.
+
+Each given rule has a key, a title and a brief description of what it is and why. With the key or the title you can look up its more complete documentation on the tool or directly on the web.
+
+For example if we lookup *ImplementEqualsAndGetHashCodeInPairRule* on the web, we immediately find its reference documentation, from the Gendarme plugin for .Net:
+
+> This rule checks for types that either override the Equals(object) method without overriding GetHashCode() or override GetHashCode without overriding Equals. In order to work correctly types should always override these together.
+
+This reference documentation usually include several code samples, a bad example, and a good example to illustrate the point of the rule.
+
+This is great, because that documentation that's already there. Why write that again when it has been already done well by someone else?
+
+## A matter of tools
+
+Compilers, Code coverage, static code analysis tools, bug detectors, duplication detectors, dependency checkers are common examples of ways to setup Enforced Guidelines in practice.
+
+Sonar is a popular tool that itself rely on many plugins to actually do its job. When the configuration of the tools is often not meant to be a documentation, with verbose XML and rules identifiers, tools like Sonar (see SonarQube) can make the configurations more accessible in a convenient UI, to the point of becoming the reference about guidelines.
+
+![Browsing the rules by various criteria in Sonarqube.png)
+
+Other guidelines may be enforced by access control. You decided that this legacy component is frozen from now on, nobody has the right to commit on it? Simply revoke the write grants to everyone. But this in itself does not explain why. So expect questions, and the knowledge transfer will happen as a conversation.
+
+Most automated means are not 100% relevant at any time, so sometime the enforcement will be violated anyway. This is not necessarily a disaster, as long as the enforcement maintains enough continuous awareness about the guidelines.
+
+If an element of the guideline is not enforceable, then perhaps it is not really an element of a guideline; otherwise you can add it to a short checklist for manual code review or during pair-programming. But this is not **Enforced Guidelines** any longer.
+
+However if you have new rules, you may consider extending the existing tools with a new rule or new plugin. Compilers often have extension points where you can hook your own additional rules. Tools like Sonar are extensible with custom plugins, and checkers are extensible with new rules, sometime by XML, sometime only with code.
+
+## Guidelines, or Design Documentation?
+
+Imagine your set of guidelines for the Domain Model is like the following:
+
+- functional-first (immutable & side-effect-free by default)
+- null-free
+- no framework pollution
+- no SQL
+- no direct use of a logging framework
+- no import of any infrastructure technology
+
+At the time of writing, existing static analysis tools and plugins likely don't support all that out of the box, so you can't do Enforced Guidelines unless you create your own tooling. However, these guidelines are design decisions that can be documented in the code itself, for example using annotations as seen in a previous chapter.
+
+In fact, such design declarations expressed as annotations in turn make it possible to enforce them with analysis tools. Once you declare that your code should be all immutable in a given package, it's not that hard to check using a parser. (see Patternity project on Github)
+
+## Trust-First
+
+Enforcing guidelines as automated rules or through access restrictions may express a lack of trust to the teams. This actually depends a lot on your company culture. If your culture really is a culture of trust, autonomy and responsibility between everyone then introducing Enforced Guidelines should be decided by consensus after discussions between everyone involved. In the worst case it could send the wrong signal and undermine trust, which would be a greater loss than the benefits you're after.

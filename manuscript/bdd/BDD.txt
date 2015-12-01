@@ -1,0 +1,223 @@
+# A key example of Living Documentation: BDD
+
+> What about documenting the business behavior? (because as you know, business people never change their mind.)
+
+Behavior-Driven Development (BDD) is the first example of a Living Documentation. In the book *Specification by Example*, Gojko Adzic explains that when interviewing many teams doing BDD, one of the biggest benefit them mention is having this Living Documentation always up-to-date that explains what the application is doing.
+
+Before going any further, let's quickly precise what BDD is, and what it's not.
+
+## BDD is all about conversations
+
+If you think BDD is about testing, forget all you know about it. BDD is about sharing knowledge efficiently. This means that you can do BDD without any tool. Before anything else, BDD promotes deep conversations between the 3 amigos (or more) and the use of concrete scenarios to detect misunderstandings and ambiguities early. These scenarios must use the language of the business domain.
+
+BDD with just conversations and no automation is already BDD, and there's already a lot of value of doing just that. However with additional effort to setup automation, you can reach even more benefits.
+
+## BDD with automation is all about Living Documentation
+
+When using a tool like Cucumber, BDD still advocates the use of a domain language between every stakeholder involved and in particular between the 3 Amigos, a focus on the higher-level purpose, and the frequent use of concrete examples, also known as scenarios. These scenarios then become tests in the tool, and become a living documentation at the same time.
+
+## Redundancy + Reconciliation
+
+BDD scenarios describe the behavior of the application, but the source code of the application also describes this behavior: they are redundant with each other.
+
+![Scenarios and code each describe the same behavior](images/bdd-redundancy.jpg)
+
+On one hand hand this redundancy is good news: the scenarios expressed in pure domain language, if done properly, are accessible to non-technical audiences like business people who could never read code. However this redundancy is also a problem: if some scenarios or parts of the code evolve independently, then we have two problems: what should we trust, the scenarios or the code? But we also have a bigger problem: how do we even know that the scenarios and the code are not in sync?
+
+
+This is where a reconciliation mechanism is needed. In the case of BDD, we use tests and tools like Cucumber or SpecFlow for that.
+
+![Tools check regularly that the scenarios and the code describe the same behavior](images/bdd-reconciliation.jpg)
+
+
+These tools parse the scenarios in plain text and use some glue code provided by the developers to drive the actual code. The amounts, dates and other values in the Given and When sections of the scenarios are extracted and passed as parameters when calling the actual code. The values extracted from the Then sections of the scenarios on the other hand are used for the assertions, to check the result from the code matches what's expected in the scenario.
+
+In essence, the tools take scenarios and turn them into automated tests. The nice thing is that these tests are also a way to detect when the scenarios or the code are no longer in sync. This is an example of a reconciliation mechanism, a mean to check redundant sets of information always match.
+
+
+## Anatomy of the scenarios in file
+
+When using a tool like Cucumber or Specflow to automate the scenarios into tests, you create files called Feature files. These files are plain text files, and are stored in the source control just like code. Usually they are stored nearby the tests, or as Maven test resources. This means that they are versioned like the code too, and are easy to diff.
+
+Let's have a closer look at a a feature file.
+
+### Intent
+
+The file must start with a narrative that describes the intent of all the scenarios in the file. It usually follows the template **In order to... As a... I want...**. Starting with "In order to..." helps focus on the most important thing: the value we're looking for.
+
+Here's an example of a narrative, for an application about detection of potential frauds in the context of fleet management for parcel delivery:
+
+~~~~~~~~
+Feature: Fuel Card Transactions anomalies
+ In order to detect potential fuel card abnormal behavior by drivers
+ As a fleet manager
+ I want to automatically detect anomalies in all fuel card transactions
+~~~~~~~~
+
+Note that the tools just consider the narrative as text, they don't do anything with it except including it into the reports, because they acknowledge it's important.
+
+### Scenarios
+
+The rest of the feature file usually lists all the scenarios that are relevant for the corresponding feature. Each scenario has a title, and almost always follows the **Given... When... Then...** template.
+
+Here's an example of one out of the many concrete scenarios for our application on detection of potential frauds, in the context of fleet management for parcel delivery:
+
+~~~~~~~~
+Scenario: Fuel transaction with more fuel than the vehicle tank can hold
+ Given that the tank size of the vehicle 23 is 48L
+ When a transaction is reported for 52L on the fuel card associated with vehicle 23
+ Then an anomaly "The fuel transaction of 52L exceeds the tank size of 48L" is reported
+~~~~~~~~
+
+Within one feature file there are between 3 and 15 scenarios, describing the happy path, its variants, and the most important situations.
+
+There are a number of other ways to describe scenarios, like the outline format, and to factor out common assumptions between scenarios with background scenarios. However this is not the point of this book, and other books or online resources do a great job at explaining that.
+
+
+### Specification details
+
+There are many cases where scenarios alone are enough to describe the expected behavior, but in some rich business domains like finance there are definitely not enough. We also need abstract rules and formula.
+
+Rather than putting all this additional knowledge in a Word document or in a wiki, you can also directly embedded it directly within the related feature file, between the intent and the list of scenarios. Here's an example, still from the same feature file as before:
+
+~~~~~~~~
+Feature: Fuel Card Transactions anomalies
+In order to detect potential fuel card abnormal behavior by drivers
+As a fleet manager
+I want to automatically detect anomalies in all fuel card transactions
+
+Description:
+The monitoring detects the following anomalies:
+* Fuel leakage: whenever capacity > 1 + tolerance,
+where capacity = transaction fuel quantity / vehicle tank size
+* Transaction too far from the vehicle: whenever distance to vehicle > threshold,
+where distance to vehicle = geo-distance (vehicle coordinates, gas station coordinates),
+and where the vehicle coordinates are provided by the GPS Tracking by (vehicle, timestamp),
+and where the gas station coordinates are provided by geocoding its post address.
+
+Scenario: Fuel transaction with no anomaly
+  When a transaction is reported on the fuel card
+  .../// more scenarios here
+~~~~~~~~
+
+These specification details are just comments as free text though, the tools completely ignore it. However the point of putting it there is to have co-located with the corresponding scenarios. Whenever you change the scenarios or the details, you are more likely to update the specification details because they are so close, as we say "out of sight, out of mind". But there is not guarantee to do so.
+
+### Tags
+
+The last significant ingredient in feature files are tags. Each scenario can have tags, like the following:
+
+~~~~~~~~
+@acceptance-criteria @specs @wip @fixedincome @interests
+Scenario: Bi-annual compound interests over one year
+  Given a principal of USD 1000
+  ...//
+~~~~~~~~
+
+Tags are documentation. Some tags describe project management knowledge, like *@wip* that stands for Work In Progress, signaling that this scenario is currently being developed. Other similar tags may even name who's involved in the development: *@bob*, *@team-red*, or mention the sprint: *@sprint-23*, or its goal: *@learn-about-reporting-needs*. These tags are temporary and are deleted once the tasks are all done.
+
+Some tags describe how important the scenario is, like *@acceptance-criteria*, meaning this scenario is part of the few user acceptance criteria. Other similar tags may help curation of scenarios: *@happy-path*, *@nominal*, *@variant*, *@negative*, *@exception*, *@core* etc.
+
+Lastly, some tags also describe categories and concepts from the business domain. For example here the tags *@fixedincome* and *@interests* describe that this scenario is relevant with respect to Fixed Income and Interest financial areas.
+
+Tags should be documented too.
+
+### One folder, one chapter
+
+When the number of feature files grows, it's necessary to organize them into folders. This organization is also a way to convey knowledge, we want the folders to tell a story too.
+
+When the business domain is the most important thing, I'd recommend to organize the folders by functional areas, to show the overall business picture:
+
+- accounting
+- reporting rules
+- discounts
+- special offers, etc.
+
+If you have any additional content as text and pictures, you can also include it in the same folders, so that it stays as close as possible to the corresponding scenarios.
+
+In the book "Specification by Example", Gojko Adzic lists 3 ways to organize stories into folders:
+
+- Organize by functional areas
+- Organize along UI navigation routes (When documenting user interfaces)
+- Organize along business processes (When end-to-end use case traceability is required)
+
+With this approach, the folders literally represent the chapters of your business documentation.
+
+
+*Another example of a full feature from another application is included at the end of this section.*
+
+## Interactive Living Documentation
+
+There's more than just automation as tests, as the scenarios also form the basis of a living documentation. Even better, this documentation is typically interactive, as a generated interactive website.
+
+For example, using Pickle for Specflow, a specific one-page website is generated during each build. It displays all scenarios, together with the test results and their statistics. This is quite powerful, much more so than every paper documentation you've ever seen.
+
+![Generated interactive documentation website, with Pickles](images/bdd-website.jpg)
+
+There's a built-in search engine, allowing instant access to any scenario by keyword or by tag. This is the second powerful effect of tags, they make search more efficient and accurate.
+
+The website shows a navigation pane that is organized by chapter, provided that your folders represent functional chapters.
+
+### Boring paper document
+
+The interactive website is convenient for the team, for fast access to the business behavior knowledge. However there are cases where you have to provide a boring paper document (BPD) e.g for mandatory Compliance requirements.
+
+There are tools for that too. One was developed by my Arolla colleague Arnauld Loyer (@aloyer) and it's called Tzatziki, because it's a Cucumber sauce. It exports a beautiful PDF document out of the feature files. It goes a bit further than what's covered in this section. For example it also includes markdown files and images that are stored alongside the feature files into the document. This helps create nice explanations at the beginning of each functional area chapter.
+
+This is a world in motion. If the tool you need in your context is missing, you should create it on top or as a derivation of existing tools. The sky's the limit.
+
+BDD is a great example of a living documentation: it's not an additional work to be done, it's part of doing the work properly. It's always in sync, thanks to the tools that act as reconciliation mechanisms. And if the feature files in the source code are not enough, the generated website illustrates how a documentation can be useful, interactive, searchable and well-organized.
+
+## Feature File: another Example
+
+Here's a full example of a fictitious yet realistic feature file in the business domain of finance.
+
+To keep this example short, it only contains one outline scenario, along its corresponding data table. This illustrates another style of using Cucumber, Specflow and equivalent tools. The scenario is evaluated for each line of the table.
+
+~~~~~~~~
+Feature: Calculate compound interests on a principal
+  In order to manage the company money
+  As a finance officer
+  I want to calculate the compound interests on a principal on my account
+
+Description:
+Compound interest is when the bank pays interest on both the principal (the original amount of money) and the interest an account has already earned.
+
+To calculate compound interest use the formula below. In the formula, A represents the final amount in the account after t years compounded 'n' times at interest rate 'r' with starting amount 'p'.
+
+  A = P*(1+(r/n))^n*t
+
+
+Scenario: Bi-annual compound interests over one year
+  Given a principal of USD 1000
+  And interests are compounded bi-annually at a rate of 5%
+  When the calculation period lasts exactly 1 year
+  Then the amount of money in the account is USD 1053.63
+
+Scenario: Quarterly compound interests over one year
+//... outline scenario
+
+Examples:
+
+| convention  | rate  | time | amount    | remarks                   |
+|--------------------------------------------------------------------|
+| LINEAR      | 0.05  |  2  | 0.100000   | (1+rt)-1                  |
+| COMPOUND    | 0.05  |  2  | 0.102500   | (1+r)^t-1                 |
+| DISCOUNT    | 0.05  |  2  | -0.100000  | (1 - rt)-1                |
+| CONTINUOUS  | 0.05  |  2  | 0.105171   | (e^rt)-1 (not used often) |
+| NONE        | 0.05  |  2  | 0          | 0                         |
+|--------------------------------------------------------------------|
+
+~~~~~~~~
+
+## A canonical case of Living Documentation in every aspect
+
+BDD has shown that it was possible to have an accurate documentation, always in sync with the code, by doing the specification work more carefully. BDD is a canonical case of Living Documentation (the word itself comes from there), where every principle of Living Documentation are already there:
+
+- **Conversations over Documentation**: the primary tool of BDD is talking between people, making sure that each role out of the 3 amigos (or more) is present.
+- **Targeted Audience**: All this work is targeted for an audience that include business people, hence the focus on clear, non technical language when discussing business requirements.
+- **Idea Sedimentation**: Conversations are often enough, not everything deserves to be written down. Only the most important scenarios, the **key scenarios** will be written for archiving or automation.
+- **Plain Text Documents**: because plain text is hyper convenient for managing stuff that changes, and to live along the source code in source control.
+- **Reconciliation Mechanism**: because the business behaviors are described both in text scenarios and in implementation code, tools like Cucumber or Specflow make sure both remain always in-sync, or at least they show when then don't. This is necessary whenever there is duplication of knowledge.
+- **Accessible Published Snapshot**: Not everyone has or wants access to the source control in order to read the scenarios. Tools like Pickles or Tzatziki offer a solution, by exporting a snapshot of all the scenarios at a current point in time, as an interactive website or as a PDF document that can be printed.
+
+Now that we've seen BDD as the canonical case of Living Documentation, we're ready to move on to other contexts where we can apply Living Documentation too. Living Documentation is not restricted to the description of business behaviors as in BDD, it can help our life in many other aspects of our software development projects, and perhaps even outside of software development.

@@ -1,0 +1,99 @@
+# Design Documentation
+
+*Design is about the all decisions taken. It especially revolves between the things and how they collaborate in a valuable way*
+
+## What is design anyway?
+
+The best answer to this question I know is from Alistair Cockburn:
+
+> If it's your decision to make, then it's 'design'; if it's not, then it is a requirement to you.
+> From [Alistair Cockburn](http://alistair.cockburn.us/A+requirement+is+a+relationship+to+a+decision)
+
+In this view, design is everywhere:
+
+- In the features which are selected, cut into smaller pieces, and how they are interpreted for implementation
+- In the code, with the classes, methods, fields and other constructs depending on your programming language
+- In the relationships between these elements, in the way they are used together or not. In other words, in the empty space between the things.
+
+![Design is between the things and how they collaborate in a valuable way](images/element_of_a_system.png)
+
+%% TODO
+--
+
+> So the advice for on-going documentation runs from these observed problems:
+>
+> - Only use diagrams that you can keep up to date without noticeable pain
+> - Put the diagrams where everyone can easily see them. I like to post them on a wall. Encourage people to edit the wall copy with a pen for simple changes.
+> - Pay attention to whether people are using them, if not throw them away.
+> -- Martin Fowler in [Is Design Dead?](http://martinfowler.com/articles/designDead.html)
+
+## Documenting errors, or avoiding errors?
+
+An important part of documentation is to describe the error cases. But there's a better way: we could avoid the error cases altogether with better design and better coding practices.
+
+Let's take the example of a function that calculates an inverse. If the divisor is zero then there is no result. This is often a case of error management, but an alternative is to make the function a Total Function.
+
+A total function is a function that works for all possible parameters values. In our case, all it takes to make our function total is to extend the number type with the NotANumber special value. Now the function can just return NotANumber when there's a division by zero, instead of going the error management road.
+
+
+
+## Design Rationale
+http://www-di.inf.puc-rio.br/~dschwabe/papers/DesignRationale_and_Ontologies.PDF (funny very academic complicated method that no one will ever use for real)
+
+
+> Designing a software artifact typically involves understanding the problem being addressed, identifying possible solution alternatives, analyzing them, and deciding which solution will be used to construct the final artifact. The final product of this process, the artifacts and its specifications, represent but a fraction of the knowledge employed by designers during the design process. They represent the final solution chosen for the particular design problem, but they do not represent, for instance, the reasons that led the designers to choose that one among the other available alternatives, and why the others were discarded.
+
+Design Rationale, is the reasons behind design decisions.
+
+http://www.developerdotstar.com/mag/articles/reeves_13yearslater.html
+
+> "...auxiliary documentation is as important for a software project as it is for a hardware project."
+
+> The source code may be the master design document, but it is seldom the only one necessary.
+
+
+> Fundamentally, programming languages are just a design notation themselves. I do not see any point in introducing extra translation steps if they can be avoided.
+
+> There are a couple of problems with my "code as design" approach, which I acknowledge. The first is that even the best programming languages have serious weaknesses as tools for expressing certain aspects of a software design. The information is in the code (if it isn't, then it wasn't software design information) but it is very difficult to get it out in human readable form. These are the "other aspects" of a software design mentioned above. The second problem is similar. There is going to be information from the problem space that went into the software design, but that can not be reconstructed from the software design itself. We want to capture this information in case we need to change the software design later. The typical source code comment is not an adequate mechanism.
+
+> Both of these problems mean that auxiliary documentation is as important to software design as it is to any other engineering discipline, if not more so. We must recognize auxiliary documentation as such, however, and not confuse it with the software design
+
+--
+> @nathanmarz: Why do so many engineers think complicated system diagrams are impressive? What's truly impressive are simple solutions to hard problems.
+>
+> @pavlobaron: @nathanmarz @sbtourist the ultimate rule of thumb: if there is at least one line crossing another in a diagram,the system is too complicated
+
+--
+Interfaces + chosen implem
+MongoDBAccount -> Account
+
+The implementation name prefix is a documentation
+
+--
+
+> Many different software design notations are potentially useful - as auxiliary documentation (it would be nice to have some tools that help us generate and maintain auxiliary documentation automatically from the actual source code. This would be particularly useful in maintaining a graphical representation of the structural aspects of the design).
+
+http://www.developerdotstar.com/mag/articles/reeves_originalletter.html 1992
+
+Modularity and separation of concerns
+
+> Separation of concerns. Divide your application into distinct features with as little overlap in functionality as possible. The important factor is minimization of interaction points to achieve high cohesion and low coupling. However, separating functionality at the wrong boundaries can result in high coupling and complexity between features even though the contained functionality within a feature does not significantly overlap.
+
+-  Single Responsibility principle. Each component or module should be responsible for only a specific feature or functionality, or aggregation of cohesive functionality.
+
+
+
+From http://msdn.microsoft.com/en-us/library/ee658124.aspx
+
+> The logical consequence of these principles should be that each element of the programming language (class, module) should be able to clearly declare what concern or responsibility it is responsible for. The same goes beyond what a programming language can express.
+
+> If we adhere to the Information Hiding as advocated by Parnas, the logical consequence of these principles should be that each element of the programming language (class, module) should be able to clearly declare what design decision it is hiding internally.
+
+
+
+Design for change
+
+--
+--
+
+Can you imagine a language where function would refer where they are called, as a list of each call site? It would be quite unmaintainable. Passive patterns participants

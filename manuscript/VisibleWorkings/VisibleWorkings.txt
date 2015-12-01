@@ -1,0 +1,29 @@
+# Visible Workings: Working Software as its own Documentation
+
+## Working software as documentation
+
+The Agile Manifesto says "Working Software over Comprehensive Documentation". What if the working software was itself a kind of documentation?
+
+It is already quite common to design the User Experience so that the users can have successful interactions with an application without ever having to open the user manual. However, it's less common to design the software so that its developers can understand it without even having to open the source code.
+
+It is possible to learn the business domain to some extent just by using a related and well-designed application. The software is by itself a piece of documentation about itself and its business domain. This is why every developer on an application should at least know how to use their application for most standard use-cases, even if it is a complicated application dealing with complicated financial instruments.
+
+T> Anything that can answer a question can be considered documentation. If you can answer questions by using the application, then the application is part of the documentation.
+
+## Visible Workings
+
+A more radical perspective on the software as a documentation is to rely on the software itself to explain how it works inside, something Brian Marick calls **Visible Workings**, i.e. make the internal mechanisms visible from the outside.
+
+There are many ways to achieve that, and they all have in common to rely on the software itself to output the desired form of documentation.
+
+As an example, many application perform calculations like payrolls or bank statements and other forms of data crunching. It is often necessary to describe how the processing is done, for external audiences like business people or compliance auditors.
+
+You may think of Visible Workings approaches like an 'export' or 'reporting' feature, but on the way it works internally. You want to be able to ask the software "How do you compute that?" or "What's the formula for this result?", and it just tells you, at runtime. There should be no need to ask a developer to get the answer.
+
+It's the kind of feature that is not often requested by the customer, but it's a valid answer to a need for more documentation. It's also worth noting that the development team has full latitude to decide to add features that make its own life easier, since the team is obviously one of the key stakeholders of any project. The key is to spend just enough time for the expected benefit. Visible Workings techniques are obviously very useful for the development teams.
+
+This pattern comes in various forms:
+
+- Introspectable Workings
+- Visible Calculation
+- Queryable Object Log

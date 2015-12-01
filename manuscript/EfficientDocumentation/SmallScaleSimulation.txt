@@ -1,0 +1,63 @@
+# Small-Scale Simulation
+
+Large and complex software applications or system of applications are a challenge to documentation. judging by the size of the source code and configuration they're made of, the amount of knowledge that is necessary to describe them is so huge it is useless as-is. And at the same time the critical higher-level design decisions and all the thinking that went into building it are often implicit.
+
+If it was smaller, it would be easier to understand. Just by reading the handful of classes, running the few tests, exploring what happens when playing with the code in a REPL and watching the dynamic behavior at runtime, we would quickly get a sound understanding of its purpose and of how it works. Even if the thinking that led to it was lost, we would be able to recover it from observing the small-scale system in action. This would perhaps be tacit knowledge, but it would still be much better than nothing.
+
+**Therefore: Create a small-scale replica of your software system, as a a stripped-down reimplementation of just the key bits of code with some tests, for the sole purpose of documentation. Through aggressive curation, select a small subset of features and code that focus only on the one or two aspects that matter and that fits on your brain as a whole. Simplify every other distracting aspect, even if it makes it slower and with a limited set of features. Make sure this small-scale replica works realistically, producing accurate, if not perfect, results, but not necessarily in all cases.**
+
+The advantage of small-scale simulation is that it becomes human-scale, it fits in your head. Note that here we're talking small-scale primarily about reduced complexity, not just reduced size.
+
+I've tried this idea several times.
+
+When developing an exchange system for financial products, the core of the matching engine was growing larger and more complex because of various optimizations, with other concerns like timing, scheduling and permissions management blurring the overall picture. We've created a smaller version of the core of the matching engine, with just the minimal set of basic and naive classes that can make a matching work in its most interesting aspects. In this case, the smaller-case system was not a replica but was built mostly from the same elements as the actual system, because the design was flexible enough to accommodate that.
+
+In a very large legacy system with a few applications and many batches running in the background several times a day, the overall behavior of the system was quite nebulous. We've created a Java small-scale, simplified emulation of the most important batch so that we could better understand it and explore its interactions with our new code.
+
+In two startups with rich domain, we paired a few days to create a small-scale model, working for just one very simplified case. However, it was the opportunity to quickly get to explore and map the domain, discover the main issues and stakes, grow a vocabulary, and agree on a shared vision of the whole system. From that small-scale system, later discussions had a concrete reference code to ground the discussions, it's really a communication tool you can point at during conversations.
+
+## The desirable properties of a small-scale simulation
+
+A small-scale simulation must be:
+
+- **Small enough to fit in the brain** of a normal person, or of a developer. This is the most important property, and it implies that the simulation will not account for everything of the original system
+- **Tinker-able and inviting for interactive exploration**. The code should be easy to run partially, by just taking a class of function and being able to do something with it without having to rebuild the full simulation.
+- **Executable to exhibit the Dynamic behavior** at runtime. The simulation must predict results through its execution, and we must be able to observe it easily, even during the computation if possible, in debug mode, with traces or just by running its phases independently.
+
+A small-scale software project that is executable and works in a realistic fashion is a valuable for reasoning on the system. You can reason on its static structure, just by observing it in the code. You can also tinker with it by creating one more test case, or by interacting with it in a REPL.
+
+This approach is also useful also as a cheaper proxy to impractical legacy or external systems; instead of running a complex batch that depends on the state of the database and that has numerous side-effects everywhere, you can run its emulation and have a grasp of its effect in relation with what you're doing.
+
+
+## Techniques to simplify the system
+
+The key thing is to simplify aggressively, with an exclusive focus on the one or two aspects that matter. Just like every documentation, it should explain one thing well, rather than explain 10 things badly (there's already the real system for that). Note that you can still decide to build more than one small-scale simulation, one for each important point to explain.
+
+All this means that the small-scale system will lose a lot of details, and will *NOT* show a lot of otherwise valuable knowledge. This is harder to do that it looks, because when you're attached to a system you've built you'd like to tell about all its interesting facets, but you have to refrain from doing so and learn to focus (something I have a hard time doing when writing this book).
+
+Interestingly, the techniques to build a small-scale simulation are the techniques you probably already use to create convenient tests.
+
+Concretely, we can simplify a system in many ways, always by deciding to ignore one or many distracting concerns:
+
+- **Curation**. Give up the idea that it has to be Feature-Complete. Get rid of all the member data that are not central to the current focus. Ignore side-stories and secondary stuff like special cases that don't intersect the current focus
+- **Mocks, stubs and spies**. Give up performing all the computations. Instead, use the usual test companions to totally get rid of all the non-centrally relevant sub-parts. Use in-memory collections instead of middleware, and simulate third parties.
+- **Approximation**. Give up on strict accuracy and settle only on realistic accuracy, that looks good enough, like the right value without the digits, or 1% correct.
+- **More Convenient Units**. Give up the ability to really put in production the simulation with the actual data. Instead if the dates are only used to decide if something happens before or after a given data, you may replace the dates that are cumbersome to manipulate by hand with plain integers.
+- **Brute Force calculation**. Give up the optimizations that are not central to your current focus. Instead, make it work using the algorithm that's the simplest to grasp, the one with the most explanatory power.
+- **Batch vs. Event-Driven**. Turn the original event-driven approach into a batch mode, or the other way round, if it's simpler to code and understand, assuming it's not central to the current focus.
+
+
+
+## Building the small-scale simulation is half the fun
+
+You learn a lot by creating a small-scale simulation. You have to clarify your thoughts, and nothing's more demanding that simple, working code to force that.
+
+From a design perspective, cutting through the details to focus on the essentials gives a lot insights to improve the design of the original system in turn. For example if you can replace dates with integers in the simulation, perhaps the original functions don't really need to operate on dates, but on just anything comparable.
+
+If the simulation can work without all these distracting aspects, this also means the original design should follow the Single Responsibility Principle and therefore separate all the concerns. By the way, you know when you've reached that state when you can create your small-scale simulation by reusing the same code of the original system, just by assembling a a more naive subset of its elements.
+
+This idea used in the context of starting a project is known under various names in the literature: Alistair Cockburn talks about a [Walking Skeleton](http://alistair.cockburn.us/Walking+skeleton), Pragmatic Programmers Dave Thomas and Andy Hunt talk about Tracer Bullets, while similar ideas have been documented since 1975 and apparently even since the 50's.
+
+It's also similar in many aspects to the pattern *Breakable Toys* described in the book *Software Craftsmanship Apprenticeship Patterns* by Dave Hoover and Adewale Oshineye. A small-scale simulation can be used to try things much faster than the actual system. This comes handy to perhaps try two or three competing approaches quickly to decide on the best based on actual facts rather than on opinions.
+
+Such a tinkerable system is very valuable so that new joiners can build their own mental model about it. If as Peter Naur claims it's very hard to express a theory using codified rules like text, having the ability to form your own theories about a system by just playing with it without risk can help. That's how kids learn about all the laws of physics indeed.

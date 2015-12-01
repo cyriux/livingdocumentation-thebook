@@ -1,0 +1,134 @@
+# Commit Messages as Comprehensive Documentation
+
+*Careful commit messages make each line of code well-documented*
+
+When committing files into source control, it is good practice to add a meaningful comment, the commit message. This is often neglected, in which case you end up wasting time opening the files to discover what the change was about. However when done carefully commit messages become very valuable for several purposes, as yet another HIGH-YIELD ACTIVITY:
+
+- **THINK** You have to think about the work done. Is it one single change or a mix of more than one that should be split? Is it clear? Is it really done? Are there new tests that should have been added or modified along the changes?
+
+- **EXPLAIN** The commit message must make the intention explicit. It is a *feature*, or a *fix*, and the reason should be written, even briefly, as in RECORD THE RATIONALE. This will save time for all readers.
+
+- **REPORT** The commit messages can later be used for various kinds of reporting, published like a *changelog* or integrated in the developer toolchain.
+
+The big idea with commit messages is that on any given line of code, asking the source control for its history gives you a detailed list of reasons and, hopefully, of rationales explaining why this line of code is what it is. As Mislav Marohnić writes in his blog post [Every line of code is always documented](http://mislav.uniqpath.com/2014/02/hidden-documentation/), "a project's history is its most valuable documentation."
+
+Looking at the history of a given line of code tells you who did the change, when, and what other files were changed together, like tests. This helps pinpoint to the new test cases that were added, acting as a built-in mechanism for *code to test* traceability. In the history you would also find the commit message explaining the change and the reasons for the change.
+
+To get the best of commit messages, it may be a good idea to agree on a standard set of commit guidelines if the current quality of the messages is not good satisfactory. Using a standard structure and standard keywords have several benefits. It is more formal, and therefore more concise. With a formal syntax we can write:
+
+> fix(ui): change the color of the submit button to green
+
+which is shorter to write and to read than the equivalent full English sentence:
+
+> "This is a fix on the UI area, to change the color of the submit button to green
+
+In many cases and depending on the writing skills of the committer, the structure message may be less ambiguous. More importantly, the structure message enforces that the required information like the "type of commit" and "location of the change" will not be forgotten. And a formal syntax turns the messages into machine-accessible knowledge, for even more goodness!
+
+**Therefore: Take care of the commit messages. Agree on a set of commit guidelines, with a semi-formal syntax and a standard dictionary of keywords. Work collectively, or use peer pressure, code reviews or enforcement tools to ensure the guidelines are respected. Design the guidelines so that tools can use them to help you more.**
+
+Commit messages are comprehensive documentation for each line of code. It is available in command line, or on the graphical interface on top of your source control, like shown below.
+
+![The blame view on Github shows every contribution for each line, here shown for the famous Junit project](images/github_blame_view.png)
+
+
+## Commit Guidelines
+
+A good example of such guidelines is the [Angular commit guidelines](https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit), which has strict rules over how the commits messages must be formatted. From the Angular website
+
+> We have very precise rules over how our git commit messages can be formatted. This leads to more readable messages that are easy to follow when looking through the project history. But also, we use the git commit messages to generate the AngularJS change log.
+
+In this particular set of guidelines, the commit message must be structured as a header section, an optional body section and an optional footer section, each separated by a blank line.
+
+~~~~~~~~
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+~~~~~~~~
+
+The type must be one of the following types:
+
+- feat: A new feature
+- fix: A bug fix
+- docs: Documentation only changes
+- style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- refactor: A code change that neither fixes a bug nor adds a feature
+- perf: A code change that improves performance
+- test: Adding missing tests
+- chore: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+All breaking changes must be declared in the footer, starting with the word *BREAKING CHANGE*, followed by a space and the detailed explanation of the change and of the migration aspects.
+
+If the commit is related to issues in a tracker, the issue should be referenced in the footer as well, with the identifier of the issue in the tracker.
+
+Here is an example of a feature related to the scope "trade feeding":
+
+~~~~~~~~
+feat(tradeFeeding): Support trade feeding for negative-coupon bonds
+
+Some bonds have negative coupon rates, e.g. -0.21 percents. Change the validation to not reject trades on bonds with negative coupons.
+
+Closes #8125
+~~~~~~~~
+
+## Scope of the change
+
+The little syntax before is semi-formal, with a combination of keywords and free text. The first keyword denotes the type of change (feature, fix etc.) out of a small list. The second keyword denotes the scope of the change in the system or application, and is specific to your own context.
+
+These scope can cover various aspects of your system:
+
+- Environment: prod, uat, dev
+- Technology: rabbitmq, soap, json, puppet, build, jms
+- Feature: pricing, authentication, monitoring, customer, shoppingcart, shipping, reporting
+- Product: books, dvd, vod, jewel, toy
+- Integration: twitter, facebook, g+
+- Action: create, amend, revoke, dispute
+
+Your commit guideline could require on mandatory main scope, but you could add some more, like:
+
+    feat(pricing, vod): increase the rate on prime time
+    ...
+
+Of course these lists of scopes has to be defined by yourself, ideally as a whole team, including the 3+ amigos, and everyone involved in the devops close collaboration. Every change which could be committed to the source control should be covered in at least one of the scopes.
+
+Going further, a smart list of scopes opens the door to reasoning about impacts.
+
+## Machine-Accessible information
+
+A semi-formal syntax for the commit messages also has the benefit of making it possible for machines to make use of them to automate more chores, like generating the *[changelog](http://keepachangelog.com)* document. Let's have a closer look again at Angular.js which is a neat example in this area.
+
+Under Angular.js conventions, the change log is made of three optional sections for each version, where each section is only shown when it is not empty:
+
+- new features
+- bug fixes
+- breaking changes
+
+Below is an excerpt from an Angular.js changelog (links have been removed here):
+
+> ## 0.13.5 (2015-08-04)
+> ### Bug Fixes
+>
+> - **file-list**: Ensure autowatchDelay is working. (655599a), closes #1520
+> - **file-list**: use lodash find() (3bd15a7), closes #1533
+>
+> ### Features
+>
+> - **web-server**: Allow running on https (1696c78)
+>
+
+The change log is in the Markdown format, which enables links for convenient navigation between commits, versions and ticketing systems. For example, each version in the changelog links to the corresponding *compare* view in Github, showing the differences between this version and the previous one. Each commit message also links to their particular commits, and even links to the corresponding issue(s) when applicable.
+
+Thanks to this kind of structured commit guidelines, it is possible to extract and filter the commits through command line magic, as shown in the example below borrowed from the Angular.js documentation:
+
+~~~~~~~~
+List of all subjects (first lines in commit message) since last release:
+>> git log <last tag> HEAD --pretty=format:%s
+
+New features in this release
+>> git log <last release> HEAD --grep feature
+~~~~~~~~
+
+The changelog shown above can be generated by a script when doing a release. There are many open-source projects to do that, and you can create, like the [conventional-changelog](https://github.com/ajoslin/conventional-changelog) project. This changelog automation script relies strongly on your chosen commit guidelines, and already supports several of them (atom, angular, jquery etc.). It is smart enough to filter out the commits and their revert when it happens.
+
+This automation is convenient, even if a human should review and edit the generated changelog skeleton before actual release to the public.

@@ -1,0 +1,82 @@
+Humor
+
+(a la Living Documentation Borat quotes)
+
+(Conversations between a stupid boring manager rigid and a candid engineer)
+
+- What about UML? - I find your insistence on using UML disturbing.
+
+- But UML is a standard! Yes, and <EJB, Beta2000, whatever failed old standard> was a standard too.
+
+Why do you insist on UML? UML is standard, but it's not popular. UML is fine, as long as it's kept simple like using only the 10% that everybody knows. It will not make things much clearer all by itself. TODO: show small code with 2-3 classes and their equivalent UML, to show it's pretty much the same.
+
+- What about case tools? - I don't want to use that tool, it's a time sink! - But you must use it, we have already bought an unlimited enterprise license and there's a support team of 4 people to help!
+
+- But with Enterprise Architect it's different! No.
+
+- Should I use Word? No. (LOL)
+
+- How many pages should I write? - How does a car cost?
+
+- Should we write every decision? Yes. It's called coding.
+
+- What about wikis? - Wikis is where knowledge goes to die, without anybody noticing.
+
+- But we have SharePoint, it's different! You mean it's worse?
+
+- How do we do documentation with Sharepoint? - You do Living Documentation without it, and you invent something to do with it to demonstrate it's used  (like putting your vacations pictures there).
+
+- What template of document do you use? - All. By the way, when I joined 6 months ago there were 43 templates, 3 months later there were 46, and today there are 49.
+
+- We don't need to care about documentation at all, because we have professional technical writers. - Yes, they extract the knowledge from thin air.
+
+
+- Our product is have lots of troubles, we need of write a big troubleshooting document
+
+- Let's just have conversations, so that I can tell you what you need to know. - Boss is say "talking is not working"
+
+- Look! We can replace all these big documents with this plain text scenarios and some automation! - But how I can cover my ass if I don't write a big document? (How can I prove I work a lot?)
+
+- But how I can blame the other then?
+
+- The good thing with Living Documentation is that it exposes the design flaws so that we can fix them! - What if I'm not competent and it will show?
+
+- This assumes you want the project to succeed...
+
+- I don't want to share my knowledge, I want to be the only one who knows
+- I risk losing my job if I tell everything
+
+
+- I can't document it all, because it's not totally legal what we're doing there
+
+- This is highly confidential stuff, so the more obscure it's written the better
+- It's good is developers don't know what the product does, because it's confidential
+- I love to write documentation, cause I can just dump a lot of random sentences that talk about all I know; nobody reads it, and I can show the boss I do a lot of work.
+- I'm not very good as a developer and I don't understand the code so I write documentation instead to be useful.
+
+@dwhelan: Puts lots of comments in your code so you don't have to spend time thinking how to make code more understandable. #shittyprogrammertips
+
+
+
+---
+A> ### When annotations go too far...
+A>
+A> [Google Annotations Gallery](https://code.google.com/p/gag/)
+
+---
+What if you wrote your comments as click baits?
+[commitstrip](http://www.commitstrip.com/en/2014/08/07/our-cto-has-discovered-an-incredible-way-of-making-developers-read-his-commit-messages-you-wont-even-believe-how-he-did-it)
+- Next Time Someone Asks You How To Fix This, Remember this Commit
+- This Bug Has Driven Lots Of Developers Completely Mad. You Won't Believe How It Ended Up Being Fixed
+- It's Possible! You Can Turn a 50-Lines Code Chunk Into Just 3 Lines. Here's How.
+[storify link](https://storify.com/anirvan/buzzfeed-style-commit-messages)
+- This bugfix will SHOCK you!
+- This one weird trick to make the server run faster, DEVOPS HATE HIM
+- With these 6 lines you can automate all the things!
+- The app crashed. What happened next is AMAZING!
+- "Our site crashed, you won't believe what happened next…
+- This might be the most important semicolon you'll forget all year.
+- "You won't believe how bad the code was that put our QA Lead in tears"
+- "7 bugs you won't believe were real"
+- The 7 Deadly Security Holes You Never Saw in That Last Commit
+- The five-line bug that made the world cry

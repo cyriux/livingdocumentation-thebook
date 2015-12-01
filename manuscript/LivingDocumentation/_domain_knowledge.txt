@@ -1,0 +1,46 @@
+# Documenting the business knowledge
+
+
+
+
+## Domain Immersion
+
+à la investigation wall
+
+
+
+## Scenario's Digest
+annotate scenarios with intrinsic properties: nominal, sexy... so that to automatically extract a digest of them for a particular editorial purpose: user manual, stakeholders-specific documentation, one-tip-a-day etc
+
+## Code Digest
+Not all code is worth reading. Books typically show some very cleaned-up version
+
+## Signal Noise Ratio & other metrics to monitor
+DDD tactical patterns, Clean Code
+
+Compute alignment metrics:
+- outbound dependencies to deprecated stuff
+- total inbound dependencies to deprecated stuff
+- ratio of words from Ubiquitous Language within scenarios or other general text documentation
+- broken links
+- word clouds & missing definition for lost popular words
+- rate of technical jargon within Ubiquitous Language etc, as defined from blacklists
+- violations of rules etc
+
+
+## Compiled Sample Code
+Don't manually copy paste sample code, embed a link to code actually compiled. This applies to user guides and Javadoc-like comments.
+
+## Curated Datasets
+Carefully selected Datasets that represent a specific situation of interests. It may be typical, or extreme, or whatever is of interest from a business domain standpoint. Curated or Generated Datasets can be named and can belong to the Ubiquitous Language.
+
+
+## Visible Tests
+Tests that produce an output for human review
+
+--
+
+
+Living Glossary examples
+
+Festival ticketing system: festival series, festival event, location, partners, capacity, overbooking strategy, pricing strategy (over time), line-up, ticket (unique id), ticket, legal notes // from kickstart example

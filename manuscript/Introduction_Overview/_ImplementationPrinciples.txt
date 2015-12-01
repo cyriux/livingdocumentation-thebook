@@ -1,0 +1,29 @@
+# Implementation Principles in a nutshell
+
+* **Reliable**
+  - Single source of truth (code, tests, runtime...)
+  - Reconciliation mechanism (tests, validations)
+
+* **Low-Effort**
+  - Simplicity (nothing to declare)
+  - No documentation (avoiding the need for documentation: standard etc)
+  - Perennial knowledge (stuff that does not change)
+  - Refactorable knowledge (stuff that can change automatically)
+  - Intrinsic knowledge + collocated (stuff that to together)
+
+
+* **Collaborative**
+  - Conversations over documentation
+  - Knowledge decantation
+  - Accessible knowledge (make accessible to all audiences)
+  - Collective ownership (developers don't own the documentation, they just own the technical responsibility)
+
+* **Insightful**
+  - Deliberate design (do I know what I'm doing? + tooling can help change behaviors)
+  - Embedded learning
+  - Emotional feedback (feedback with a sense of good or bad)
+
+
+--
+Anecdote de Claude Falguière
+> Specs écrites, mais incompréhensibles. Les devs suggèrent de faire des revues des specs, les analystes décident de faire d'abord des revues entre eux. La semaine suivante, au reporting : "les revues on les a pas faites, car on n'arrive pas à relire et comprendre les specs" lol

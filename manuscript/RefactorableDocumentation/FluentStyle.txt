@@ -1,0 +1,100 @@
+# Fluent Style
+
+One of the most obvious way to make the code more readable is to make it mimic natural language, a style that is called **Fluent Interface**. Let's take this example taken from a software application to calculate mobile phone billing:
+
+~~~~~~~~
+Pricing.of(PHONE_CALLS).is(inEuro().withFee(12.50).atRate(0.35));
+~~~~~~~~
+
+This reads just like English: "The Pricing of phone calls is in Euro, with a fee of 12.50, at a rate of 0.35".
+
+It can grow bigger while remaining readable as a quasi English sentence:
+
+~~~~~~~~
+Pricing.of(PHONE_CALLS).is(inEuro().withFee(12.50).atRate(0.35))
+.and(TEXT_MESSAGE).are(inEuro().atRate(0.10).withIncluded(30));
+~~~~~~~~
+
+## An Internal DSL
+
+As seen before, this technique usually relies a lot on method chaining, among other tricks. A Fluent Interface is an example of an Internal DSL, a domain-specific language built on the programming language itself. The advantage is that you get the power of expression without giving up all the good things around your programming language: compiler checking, auto-completion, automated refactoring features etc.
+
+Creating a nice Fluent Interface takes some time and effort, so I would not recommend to make it the default programming style in all situations. It's especially interesting for your Published Interface, the API you expose to all your users, and for anything about configuration, and for testing so that the tests become a living documentation readable by anyone.
+
+
+A famous example of a Fluent Interface in .Net is the LINQ syntax. It's implemented through Extension Methods, and it manages to mimic SQL quite closely (sample from Wikipedia):
+
+~~~~~~~~
+var translations = new Dictionary<string, string>
+                   {
+                       {"cat", "chat"},
+                       {"dog", "chien"},
+                       {"fish", "poisson"},
+                       {"bird", "oiseau"}
+                   };
+
+// Find translations for English words containing the letter "a",
+// sorted by length and displayed in uppercase
+IEnumerable<string> query = translations
+	.Where   (t => t.Key.Contains("a"))
+	.OrderBy (t => t.Value.Length)
+	.Select  (t => t.Value.ToUpper());
+~~~~~~~~
+
+Here's another example of a Fluent Interface for data validation:
+
+~~~~~~~~
+using FluentValidation;
+
+public class CustomerValidator: AbstractValidator<Customer> {
+  public CustomerValidator() {
+    RuleFor(customer => customer.Surname).NotEmpty();
+    RuleFor(customer => customer.Forename).NotEmpty().WithMessage("Please specify a first name");
+    RuleFor(customer => customer.Discount).NotEqual(0).When(customer => customer.HasDiscount);
+    RuleFor(customer => customer.Address).Length(20, 250);
+    RuleFor(customer =>
+  }
+~~~~~~~~
+
+https://github.com/JeremySkinner/FluentValidation
+
+## Implementing a Fluent Interface
+
+Like in the first step of writing tests in TDD: start by dreaming. Write examples of using the ideal fluent interface, by imagining it's there and perfect, even though you haven't started to built it yet.
+
+Then take a subset of it and start to make it work. You'll probably find difficulties that will force to re-consider alternative ways to express the same behavior.
+
+http://martinfowler.com/bliki/FluentInterface.html
+http://martinfowler.com/books/dsl.html
+
+
+## Fluent Tests
+
+A Fluent style is particularly popular for testing. JMock, AssertJ, JGiven and NFluent are well-known libraries to help write tests in a fluent style. When tests are easy to read, they become the documentation of the behaviors of the software.
+
+NFluent is a test assertion library in C# created by Thomas Pierrain. Using NFluent, you can write your test assertions in a fluent way, like this:
+
+~~~~~~~~
+int? one = 1;
+Check.That(one).HasAValue().Which.IsPositive().And.IsEqualTo(1);
+~~~~~~~~
+
+Through method chaining and many other tricks, in particular around the C# generics, the library allows for a very readable style of tests.
+
+~~~~~~~~
+var heroes = "Batman and Robin";
+Check.That(heroes).Not.Contains("Joker").And.StartsWith("Bat").And.Contains("Robin");
+~~~~~~~~
+
+An equivalent in Java is AssertJ.
+
+http://n-fluent.net/
+http://joel-costigliola.github.io/assertj/
+
+## Fluent All the Things! Not.
+
+Fluent is not an end to itself, and coding with a Fluent style is not always the right thing to do:
+
+- It's more complicated to create the API, hence it's not always worth to spend the extra effort
+- A Fluent API is sometimes harder to use when writing the code, because of non-idiomatic use of the programming language. In particular it can be confusing to know when to use method chaining or nested functions, or object scoping.
+- The methods used as part of a Fluent style have names that are not meaningful on their own, like *Not(), And(), That(), With() or Is()*.

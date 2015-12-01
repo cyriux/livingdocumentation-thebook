@@ -1,0 +1,106 @@
+# The Pet Store 100% described by patterns
+
+Here is an experiment: given the richer vocabulary we now have thanks to various books (Evans, Fowler, GoF and other), can we account for the complete design of an application using nothing but patterns? If we can succeed, the result would be a form of data compression on the design of the application: instead of talking about many classes and their many relationships, we would talk for example about Aggregates, Composites and Data Mappers.
+
+I have chosen the usual Sun Java Pet's store to perform this experiment, because it is simple and realistic enough while still exhibiting enough diversity. My approach is based on domain-driven design, an approach I strongly recommend. (useful links are at the bottom). To assist in this exercise, the Sun Java Pet's store website provides lots of details.
+
+## The big picture
+
+Let's start with the big picture. The application as a whole deals with the e-commerce domain. The description on the Sun website is not far from a Ubiquitous Language:
+
+> Through a Web browser, a customer can browse the catalog, place items to purchase into a virtual shopping cart, create and sign in to a user account, and purchase the shopping cart contents by placing an order with a credit card.
+
+Some of the implementation part of the solution is already decided: there is an "interactive user interface", which uses a "web browser", and the ordering to the warehouse goes through a "messaging queue".
+
+## The Domain Modules
+
+We can identify several modules, one for each particular domain and a certain context:
+
+- Catalog (browse, search)
+- Customer (fill  in information)
+- Shopping Cart (add to cart)
+- Ordering (checkout to send message to warehouse)
+
+We'll ignore the User management and single sign-on and just assume it is being taken care of somewhere. Now let's study each module in turn. Remember our goal is to try to express as much as possible of the application using patterns from the literature.
+
+### The Catalog module
+
+We want to declare explicitly what this module is, how we will address its implementation and its intrinsic properties:
+
+The Ubiquitous Language is qualified within a Bounded Context.
+
+- BoundedContext: "Catalog"
+- UbiquitousLanguage: "Users can browse and search the catalog by category, product and item."
+- Attributes: Persistent, Read-Mostly
+- DesignApproach: DB Queries
+
+The domain model is basically a Containment Hierarchy with the Catalog as the root, levels of Category and Product, and Items as leaves. In usual DDD, each concept would be an Entity, but in our REPORTING approach it makes less sense to do so, and they will just be plain DTO to pass to the presentation.
+
+The Containment Hierarchy fully describes the relationships between the concepts (a basic tree indeed) and the literature also tells us this could be implemented into a database through various means, most notably Nested Sets, or naively All In One Table.
+
+On the whole module, the published operations are simply Finder operations on the Catalog hierarchy: find by Category, by Product, by Item, and search by Item.
+
+The properties Safe is a constraint (there must be no way to change the data in the catalog), while the property Persistent translates into a concern Persistence, easily solved by using a database.
+
+### The ShoppingCart module
+
+This module is simply built on a full domain model:
+
+    Domain: "ShoppingCart" that references the Domain model in the BoundedContext "Catalog"
+    UbiquitousLanguage: "Users add and remove items to their Shopping cart, and see the items count and the total amount"
+    DesignApproach: DOMAIN_MODEL
+    Intrisic Properties: Idempotent, Persistent
+
+The domain model is basically a Composite pattern with a Shopping Cart (Entity) as Composite, Cart Item (Value Object) as Leaf, and the mutual capability of being valued as the Component (e.g. a Capability interface named Valuable).
+
+The Composite pattern describes the relationship between the Shopping Cart and its Cart Items (a simple directed association), but must be declared as a Keyed Association where the key is the Item the Cart Items refer to. This can be implemented in memory with a simple Map, and into a database through a join between two tables
+
+The Shopping Cart is also the root of the Aggregate made of itself and all its cart items. In database this would translate into cascade on save and on delete.
+
+On the whole module, the published operations are the CRU(d) operations: update quantity of item, remove item.
+
+The properties Idempotent is a constraint (repeating the operation several times must not change the resulting state), while the property Persistent translates into a concern Persistence, easily solved by using a database.
+
+We did not care about additional concerns yet, which are required however: every un-safe operation must be transactional, and every operation must be secured so that only the owner user can access them.
+The Customer module
+
+    SupportingDomain, that could be externalized and/or moved into its own BoundedContext, perhaps as a COTS CRM software, downstream of a CONFORMIST or ACL strategic relationship
+    Entities: Customer, Root@CRUd ->(by id) User
+    Services: CRUd(Customer:Aggregate) //CRUd not only on Entity but on the whole Aggregate
+    ValueObjects: Profile, Account, ContactInfo, Address, CreditCard
+    Patterns: Aggregate(root=Customer, elements=ValueObjects)
+    Intrinsic properties: Security
+
+The Ordering module
+
+This module is yet another special case, where the domain becomes very much technical, with words like XML and messaging queue:
+
+    Application Layer "Ordering"
+    Associated Story: "On customer checkout, the Shopping Cart and the customer information are serialized into XML and sent over the messaging queue to reach to the warehouse"
+    DesignApproach: INTEGRATION
+    Intrisic Properties: Idempotent
+
+The domain model can be summed up as a convertor (ACL doing Context Mapping) from object models to an XML document that grammar is in another BoundedContext.
+
+It manipulates concepts from the Shopping Cart, the Catalog and the Customer domains, along with the grammar of the target XML document.
+
+    Paradigm: FP, async, messaging
+    Application: InteractiveApplication(Agent=Human)
+    Entity: Order Processing System (OPS) Ack //actually an XML snippet
+    Services: SendOrder, SendEmailConfirmation
+    Patterns: Mashaller(in=ShoppingCar:Portfolio, out=XML dialect),  Mashaller(in=ShoppingCar:Portfolio, OPS Ack, out=human readable text), AsyncRequestReply(requestor=SendOrder, callback=SendEmailConfirmation) //AsyncRequestReply is one kind of Conversation // ShoppingCar:Portfolio clarifies that the full portfolio including its elements is the input
+    Intrinsic properties: async(AsyncRequestReply)
+
+Implementation
+
+Can the implementation fully derive from the pattern-based description above? Yes and no indeed. But my point was to go through the process for the sake of suggesting that we're not that far from the goal. With some more investigation to really understand what is to be done in essence, and what are the patterns that represent this essence, we could describe 100% of the application at design level.
+
+References:
+
+Sun Java Pet's store
+
+http://www.methodsandtools.com/archive/archive.php?id=97
+
+http://dddstepbystep.com
+
+http://domaindrivendesign.org/

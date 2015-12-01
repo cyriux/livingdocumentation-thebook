@@ -1,0 +1,117 @@
+# Type-Driven Documentation
+
+Types are powerful vehicles to store and convey knowledge, for developers, and  for tools to assist too. With a type system you need no Hungarian notation, the type system knows which type is there. That's part of your documentation, regardless of being compile time (Java, C#) or runtime (Javascript, Clojure).
+
+In a Java or C# IDE you can see the type of everything by putting the mouse over it, and a tooltip will tell you about its type.
+
+Primitives are types, but types really shine when you use custom types instead of primitives. For example using:
+
+~~~~~~~~
+int amount = 12000; // EUR
+~~~~~~~~
+
+Does not tell the whole story that this quantity is supposed to represent an amount of money, and you need a comment to tell the currency. But if you create a custom type Money, for example as a class, it becomes explicit: now you know it's an amount of money, and the currency is part of the code:
+
+~~~~~~~~
+Money amount = Money.inEUR(12000);
+~~~~~~~~
+
+There are many advantages to create types for every concept, but documentation is a very important one. This is not a random integer anymore, it's an amount of money, the type system knows that and can tell you.
+
+We can also check the Money type to know more about it. For example here its class Javadoc comment description:
+
+~~~~~~~~
+/**
+* A quantity of money in Euro (EUR), for accounting purpose, i.e. with an accuracy of exactly 1 cent. Not suited for amounts over 1 trillion EUR.
+*/
+class Money {
+...
+}
+~~~~~~~~
+
+That's valuable information, and it's best located in the code itself rather than in random document somewhere else.
+
+**Therefore: Treat your types as an essential part of your documentation. Type everything, and name the types carefully. Add just enough documentation on the type itself. **
+
+### From primitives to type
+
+In the following example, the code switches on a String, i.e. not a type:
+
+~~~~~~~~
+validate(String status)
+  if (status == "ON")
+  ...
+  if (status == "OFF")
+  ...
+  else
+    // some error message
+~~~~~~~~
+
+This kind of code is shameful. Because a String can be anything, we need an additional *else* clause to catch any unexpected value. All this code describes the expected behavior, but if this behavior was done by the type system, e.g. by using a typed enum, there would simply be no code to write at all:
+
+~~~~~~~~
+switch (Status status){
+  case: ON ...
+  case: OFF ...
+}
+~~~~~~~~
+
+### Documented Types and Integrated Documentation
+
+A type is a perfect place to put documentation about a concept, in a Javadoc section or its C# equivalent. Such documentation will evolve through the life of the type: it's created when the type is created, and if the type is deleted its documentation will go away with it. If the type is renamed or moved, its documentation remains attached to it, so there is no maintenance.
+
+The only risk is that if you change the definition of the type without changing its documentation you may still end up with misleading documentation. However this risk is as low as possible since the documentation is co-located with the type declaration.
+
+An obvious benefit of using types with their documentation is that this gives you an **Integrated Documentation**, directly within your IDE. When you mouseover a type name, the IDE shows a small popup with the related documentation, anywhere in the code. When you're using the auto-completion, a brief excerpt of the documentation is shown in front of each auto-completion proposal.
+
+### A Touch of Type-Driven Development
+
+When using types, even if we didn't name the variables we could still know a lot about them thanks to their type. Consider the following variable declaration:
+
+~~~~~~~~
+FuelCardTransactionReport x = ...
+~~~~~~~~
+
+The type name tell it all. The variable name will only be useful if there's more than one instance of the same time in the scope.
+
+The same goes for functions and methods. Any function that takes a ShoppingCart as argument and returns a Money has probably something to do with pricing or tax calculation, even without knowing its name. By just looking at the function signature you can have a reasonably good understanding of what the function can do.
+
+In reverse, if you're trying to find the code doing the pricing of the shopping cart, you have two options:
+
+- guess how the class or method is named and perform a search from this guess
+- guess its signature in terms of type and perform a search by signature
+
+In Haskell there's a documentation tool called *Hoogle* that will show every function with a given signature. In Java using Eclipse (Kepler), you can also search by method signature. In the search menu, select the Java Search tab, select the radio buttons *Search For*: Method, *Limit To*: Declarations, then type in the Search string:
+
+~~~~~~~~
+*(int, int) int
+~~~~~~~~
+
+![Search by method signature in Eclipse](images/type_signature_search_int.png)
+
+You'll get a lot of search results of methods that take two integers as parameters and return another integer, for example:
+
+~~~~~~~~
+com.sun.tools.javac.util.ArrayUtils.calculateNewLength(int, int) int
+com.google.common.math.IntMath.mean(int, int) int
+com.google.common.primitives.Ints.compare(int, int) int
+org.apache.commons.lang3.RandomUtils.nextInt(int, int) int
+org.joda.time.chrono.BasicChronology.getDaysInYearMonth(int, int) int
+...
+~~~~~~~~
+
+It does not just work for primitives like integers, but for any type. For example if we're looking after a method to calculate the distance between two Coordinates (Latitude, Longitude) objects, we would search for the following signature, using the fully qualified type names:
+
+~~~~~~~~
+*(flottio.domain.Coordinates, flottio.domain.Coordinates) double
+~~~~~~~~
+
+Which would find the service we were looking for, without knowing its name:
+
+~~~~~~~~
+GeoDistance.distanceBetween(Coordinates, Coordinates) double
+~~~~~~~~
+
+You may have heard about Type-Driven Development, or Type-First Development (TFD). These approaches develop around similar ideas around types.
+
+http://techblog.realestate.com.au/the-abject-failure-of-weak-typing/

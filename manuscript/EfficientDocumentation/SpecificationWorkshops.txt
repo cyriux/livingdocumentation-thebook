@@ -1,0 +1,64 @@
+# Concrete Examples-Driven Specification Workshops
+
+*Make sure to have every attendee agree on concrete examples during all meetings on specifications.*
+
+Notice the lost opportunity in this sentence from the business analyst at the end of a meeting?
+
+"Now that we're in agreement on how this screen should be modified, we can stop this meeting. You will work on a mockup that we'll discuss later. In the meantime, feel free to ask me if you have questions when creating the mockup screen".
+
+The lost opportunity is that everyone involved will most likely waste time in the long run while trying to save time now. The collective agreement during the meeting is often an illusion. Since the devil hides in the details, it's only when starting to create the mockup for the new screen that the issues will really start to jump out of the box. And the poor soul doing that will suddenly find himself or herself quite alone when it happens.
+
+Of course, when a challenging question arise, it's still possible to call the other amigos, ask by chat or email, or plan another meeting. But what a waste of time! This will probably cost hours of days before the topic is closed. Not good.
+
+A better approach would be to answer with this unorthodox proposition:
+
+> Why no start to create a concrete example together, like right now, during this meeting?
+
+Sure, it will waste a few minutes of your time while you observe your colleague slowly performing the collage of buttons and panels on the big screen. However the key thing is that as the same time you save much more time in decision-making, because everybody is there.
+
+**Therefore: Whenever there's a workshop on specifications, make sure to have every attendee agree on concrete examples during the meetings. Resist the temptation to save time by doing it offline. Acknowledge that decision-making is often the main bottleneck, in contrast to drafting concrete examples. Some of the resulting examples will be an important part of your documentation.**
+
+It does not matter if the examples are scenarios expressed in text, data tables, flip-chart sketching, or visual screen mockups in a tool projected on a big screen, or whatever else. What matters is that everyone involved understands the examples so that they can immediately notice there's something wrong in them. For that purpose it's also essential for examples to be concrete. Don't settle on abstract agreement. Everybody agrees that "the discount is 50%"", but how do we do when the price is $1.55? How do we take care of the rounding? You need the concrete examples to notice that.
+
+## In practice
+
+There are many common objections you'll hear the first time you'll try to request creating concrete examples during the meeting. Concrete looks verbose and slow, whereas abstract looks concise and fast. They are in the very short term, but in the longer term in the context of specifications, it's rather the opposite: concrete is faster.
+
+In fact you're painfully aware of that, so you may be the first to suggest to do the examples offline: "I don't want to waste your time, tell me how to do it, and I'll do it later on my own".
+
+Instead, consider the following sentence: "Sorry you'll have to wait for 3mn while I fire the tool, but then we know for sure we're in agreement on the solution. This way we can avoid a ping-pong of emails and further meetings in the coming days and weeks."
+
+So when it comes to specifications, where communication is particularly fallible, keep in mind these Do & Don't:
+
+- **DON'T** "We can stop there to save time, I'll go on alone then we'll have another meeting to discuss the results"
+- **DO** "Let's go as far and as quickly as we can together, so that we know quickly what are the troubles and where we may disagree"
+
+## Fast Media and prior preparation
+
+Of course it helps to chose fast media to create the consensus on concrete examples:
+- Flip-chart or whiteboard and markers, writing carefully so that everybody can read
+- Big pages of paper on the table, with pens
+- People talking and a spokeperson taking verbatim notes, restating the notes regularly to other attendees
+- A simple text editor on a big screen
+- A screen mockup tool that you know well so that you're fast with it
+- MS Powerpoint to do a collage of pre-selected screenshots, again if you're comfortable with the solution.
+
+It helps to come with some prior preparation, with some ready-made materials. I've seen a colleague who was carrying a big slip full of screenshots from all the important screens, printed diagrams of the main workflows of the application in every meeting, just to improve communication during discussions, even spontaneous ones. I've done a similar approach but electronically, keeping a default Powerpoint full of screenshots and other stuff, just in case it would be needed during specification workshops to answer a question or be reused as part of a screen collage.
+
+The same idea can be generalized to other aspects of the specifications, like its quality attributes. When discussing performances, latency, fault-tolerance requirements, it would be a good idea to not only define the expectations, but also go the extra mile and collectively agree on the acceptance criteria. This acceptance criteria should then become a test that will not only document but also enforce that the quality attributes are actually met.
+
+## Together, Now
+
+The power of "Together, Now" suggests going the extra mile after an agreement until all attendees agree to a solution proven by concrete examples: UI mockup, interaction workflow, impact map, scenarios of the expected business behavior, as text or sketches with accurate numbers on it, etc.
+
+
+Productive specification meetings that really produce concrete examples are valuable. They rely on face-to-face conversations for effective communication, while producing quality documentation as an outcome.
+
+The canonical example is of course the **Specification Workshops** where the 3+ amigos define the key scenarios (Gojko Adzic).
+
+There are many similar examples of interactive collaborative creation of concrete results in the literature on agile software development:
+
+- **Mob-programming**: "all the brilliant minds together, on the same task, on the same machine"
+- **CRC Cards**, a technique for instant, interactive and collaborative modeling with CRC cards on a table (Ward Cunningham and Kent Beck)
+- **Modeling with stickers** on the wall, as in Model Storming (Ambler) and Event Storming (Alberto Brandolini)
+- **Codeanalysis**: modeling directly in code in a programming language during the meeting with the domain expert (Greg Young)

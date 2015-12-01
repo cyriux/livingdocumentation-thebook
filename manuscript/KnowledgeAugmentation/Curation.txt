@@ -1,0 +1,143 @@
+# Dynamic Curation
+
+*Too much information is as useless as no information.*
+
+It's not because all the works of art are already there in the collection that there is nothing to be done to make an exhibition out of it.
+
+In art exhibitions, the curator is as important as the director in a movie. In contemporary art, the curator selects and often interprets works of art. For example the curator searches for the prior work and places which were an inspiration for the artist, and he or she proposes a narrative or a structured analysis that links the selected works together in a way that transcends each individual piece. When a work that is essential for the exhibition is not in the collection, it will be borrowed from another museum or from a private collection, or sometime even commissioned to the living artist. In addition to selecting works, the [curator](https://en.wikipedia.org/wiki/Curator) is responsible for writing labels, catalog essays, and oversees the scenography of the exhibition which helps convey the chosen messages.
+
+%% TODO image
+
+When it comes to documentation, we need to become our own curators, working on all the knowledge that is already there to turn it into something meaningful and useful.
+
+Curators select works or art based on many objective criteria like the artist name, date and place of creation or the private collectors who first bought them. They also rely on more subjective criteria like the relationships to Art Movements or to majors events in the History like wars or popular scandals. The curator needs the metadata about each painting, sculpture or video performance. When these metadata are missing, the curator has to create them, sometime by doing researches.
+
+Curation is something that you already do, perhaps without being aware of it, for example when asked to demo the application to a customer or to a top manager. You have to chose just a few use-cases and screens to show in order to convey a message like "everything is under control" or "buy our product because it will help you do your job". If you have no underlying message, it's likely that your demo with be an unconvincing mess.
+
+But in contrast to art exhibitions, in software development what we need is more like a living exhibition with content that adjusts according to the latest changes. As the knowledge evolves over time, we need to automated the curation on the most important topics.
+
+**Therefore: Adopt the mindset of a curator, to tell a meaningful story out of all the available knowledge in the source code and artifacts. Don't select a fixed list of elements. Instead, rely on tags and other metadata in each artifact to dynamically select the cohesive subset of knowledge that is of interest for the long term. Augment the code when the necessary metadata are missing, and add the missing pieces of knowledge when they are needed for the story.**
+
+Curation is the act of selecting relevant pieces out of a large collection in order to create a consistent narrative that tells a story. It's like a remix or a mashup.
+
+Curation is key for knowledge work like software development. Our source code is full of knowledge about many facets of the development and of various importance. On anything bigger than a toy application, extracting knowledge from the source artifacts immediately overflows our regular cognitive capabilities with too many details, becoming totally meaningless hence useless. Too much information is as useless as no information at all.
+
+The solution is to aggressively filter the signal from the noise for a particular communication intent. What would be the noise in a particular perspective would be the signal in another perspective. For example the method names are an unnecessary detail in an architecture diagram whereas they may be important in a close-up diagram about how two classes interact with one being an Adapter to the other.
+
+
+Curation as its core is the selection of pieces of knowledge to include or to ignore according to a chosen editorial perspective. It's a matter of scope. Dynamic curation goes one step further, with the ability to do the selection continuously on an ever-changing set of artifacts.
+
+## Examples
+
+A Twitter search is an example of an automated dynamic curation, and it is a resource in itself that you can follow just like you would follow any Twitter handle. People on Twitter are also doing curation indeed, but a manual form of curation, when they retweet content they have (more or less) carefully selected according to their own editorial perspective (if any).
+
+A Google search is another example of a simple automated curation.
+
+Selecting an up-to-date subset of artifact based on a criteria is something we do everyday when using an IDE:
+
+- Show every type with a name that ends with "DAO"
+- Show every method that calls this method
+- Show every class that references this class
+- Show every class that references this annotation
+- Show every type that is a subtype of this interface
+
+When a tag is missing to help select the pieces, it's the right time to introduce it with annotations, naming conventions or any other mean. When a piece of knowledge is missing in order to show a complete picture, then it's the right time to add it too, in a just in time fashion.
+
+## Editorial curation
+
+Curation is an editorial act. Deciding on an editorial perspective is the essential step. There should be one and only one message at a time. A good message is a statement with a verb, like "No dependency is allowed from the domain model layer to the other layers", rather than just "Dependencies between layer" where there is no message and it's up to the reader to guess what is to understand. At the minimum, a dynamic curation should be named with an expressive name reflecting the intended message.
+
+## Low-maintenance dynamic curation
+
+Selecting subsets of knowledge can be hazardous if done in a rigid way. For example a direct reference to a list of classes, tests or scenarios will rapidly becomes obsolete and will require maintenance. It is a form of copy-and-paste, making change more expensive and with the risk to forget to update it. This is not a good practice and it should avoided at all cost.
+
+W> Avoid direct reference to artifacts by their name or URL.
+
+Instead, find mechanisms to select pieces of knowledge based on criteria that are stable over time, so that the selection will remain up-to-date without any manual action:
+
+T> Select artifacts indirectly, based on stable criteria.
+
+You can describe the artifacts of interest in a stable way by using one of the stable selection criteria described below.
+
+- **Folder organization**: "everything in the folder named 'Return Policy'"
+- **Naming conventions**: "every test with 'Nominal' in its name"
+- **Tags or Annotations**: "every scenario tagged as 'WorkInProgress'"
+- **Links Registry** that you have control on: "the URL registered under this shortlink". The registry may need some maintenance from time to time, but at least it is in a central place
+- **Tool Output**: "every file that has been processed by the compiler, as visible in its log"
+
+By using stable criteria, the work is done by tools which automatically extract the latest content that meets the criteria to insert it into the published output. Because it is fully automated, this can be ran as often as possible, perhaps continuously on each build.
+
+## One corpus of knowledge for multiple uses
+
+Everything can be curated. Code, configuration, tests, business behavior scenarios, datasets, tools data etc. This can be considered as a huge corpus, accessible via automated means for analysis and curated extractions.
+
+Provided the content of the knowledge corpus is adequately tagged, it is possible to extract by curation out of it a business view of a glossary (see Living Glossary), a technical view of the architecture (see Living Diagram), and any other perspective one can imagine:
+
+- Audience-specific content, like business readable content only vs. technical details
+- Tasks-specific content, like "how to add one more currency"
+- Purpose-specific content, like Overview content vs. Reference section
+
+Curation is only possible to the extent that metadata about the source knowledge are available to enable relevant selection of material of interest.
+
+A good example of dynamic curation is **Scenario Digest**, where the corpus of business scenarios is curated under various dimensions in order to publish reports tailored for particular audiences and purposes.
+
+## Scenario Digest
+
+%% @LivingDocument @BDD
+
+Curation is not just code, it's also about tests and scenarios.
+
+When a team makes use of BDD together with an automated tool like Cucumber, a large number of scenarios are written in feature files. Not all scenario is equally interesting for everyone and for every purpose, so we need a way to do a dynamic curation of the scenarios, and for that we need to have the scenarios marked with a nicely designed system of tags.
+
+Remember:
+
+A> Tags are documentation.
+
+Each scenario can have tags like the following:
+
+~~~~~~~~
+@acceptancecriteria @specs @returnpolicy @nominalcase @keyexample
+Scenario: Full reimbursement for return within 30 days
+  ...
+
+@acceptancecriteria @specs @returnpolicy @nominalcase
+Scenario: No reimbursement for return beyond 30 days
+  ...
+
+@specs @returnpolicy @controversial
+Scenario: No reimbursement for return with no proof of purchase
+  ...
+
+@specs @returnpolicy @wip @negativecase
+Scenario: Error for unknown return
+  ...
+~~~~~~~~
+
+Note that almost all the tags are totally stable and intrinsic to the scenario they relate to. I say almost, as *@controversial* and *wip* (work in progress) are actually not meant to last for too long, but they are convenient for a few days or weeks for easy reporting.
+
+Thanks to all these tags, it becomes easy to extract only a subset of scenarios, by title only or complete with their step by step description.
+
+- When meeting the business experts with very limited time, perhaps we could only focus on the @keyexample and on the @controversial stuff.
+
+~~~~~~~~
+@keyexample or @controversial Scenarios:
+- Full reimbursement for return within 30 days
+- No reimbursement for return with no proof of purchase
+~~~~~~~~
+
+- When reporting to the sponsor about the progress, the @wip and @pending scenarios are probably more interesting for this audience, along with the proportion of @acceptancecriteria passing green.
+
+~~~~~~~~
+@wip, @pending or @controversial Scenarios:
+- Error for unknown return
+~~~~~~~~
+
+- When on-boarding a new team member, just going through the @nominalcase scenarios of each @specs section may be enough.
+
+~~~~~~~~
+@nominalcase Scenarios:
+- Full reimbursement for return within 30 days
+- No reimbursement for return beyond 30 days
+~~~~~~~~
+
+- For the compliance officers, they want everything that is not @wip. However, even in that case, they may want to have the big document show a summary of the @acceptancecriteria first, and the rest of the scenarios in addendum, if they find it more convenient.

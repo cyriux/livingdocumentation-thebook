@@ -1,0 +1,7 @@
+DocumentationMigration_BRIEF
+# Documentation Migration
+
+Migration of existing documentation? Gilles: Strangle your specs/documentation! Deprecate / remove + redirect, perhaps with a one-off migration from Word to Markdown so that further maintenance and strangling can be done with just plain test in source control.
+
+
+## Semantics from the use / proximity with other concepts (Mathieu Pauly)

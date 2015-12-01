@@ -1,0 +1,127 @@
+# Unorthodox Media
+
+## Posters & Maxims & Domestic Ads:
+
+Electronic
+
+banners on build walls, wallpaper, idle screens, pair-programming blocker screens...
+
+Goodies
+
+T-shirts, card decks, cheat sheets, large posters, mugs... with maxims and important messages / logo on.
+
+## Maxims
+
+T> **Pro Tip** Use wifi password as a maxim (you have to carefully type it manually!):
+
+T> **Pro Tip** If it rhymes it's more credible
+
+
+à la Banksy street art
+
+Some examples:
+
+Are you awesome?
+<Mr T. Picture>
+Close the door once you're done.
+
+You can turn technical recommendations into motivational maxims:
+
+Fix a bug?
+Add a test.
+
+Fight Legacy code
+Write unit tests
+
+The only way to go fast is to go well
+<climbing with rope safety picture>
+
+Mutable state kills.
+<"poison" label on bottle manually overwritten with "orange juice" by mistake>
+Kill mutable state!
+
+Easy to do with a meme generator
+
+
+
+
+## Infodecks
+
+http://martinfowler.com/bliki/Infodeck.html
+
+there are advantage to these infodecks.
+- You can use spatial layout to help explanation
+- They discourage long prose that people don't read
+- It's easy to include diagrams as primary elements in the communication
+
+"more approachable and easier to communicate information than a traditional prose text"
+
+"Infodecks are an interesting form to me, if only because it seems nobody takes them seriously.""
+
+"we are communicating on computer devices and not using paper. Modern computers have bright multi-color screens, and aren't worried about conserving paper. So a colorful, diagram-heavy approach that uses lots of virtual pages is an effective form of document - especially as tablets become more prevalent.""
+
+
+## Drawing when you don't know how to draw
+
+- Collage of stuff found on the Internet
+Use icons, comics balloons
+- Learn visual facilitation tips
+- Practice on every occasion
+- Search Google Images for similar stuff to find inspiration
+- Tell stories, that involve people and their emotions
+- 4 steps on one slide is perfect for a workflow
+- 7 elements on a diagram is a lot already
+- Don't mix perspectives
+- Should be visible at a distance
+- proximity, grouping and containment, horizontal and vertical directions and alignment matter
+
+Ref: Craig Larman UML book
+
+## Comics
+Comics telling stories of frustrated users now, and their dream of a better software (explain project rationale). Or stories of users doing their job and sharing their most important stakes (explain fundamental business stakes).
+
+I've used child-ish comics in very corporate environments to explain a process for the development team. I've used less child-ish comics to help explain a governance process to senior management too.
+
+Cheat Sheet or Card Decks are also interesting media to spread important ideas, and may be branded too.
+
+## Visualizations & Animations
+
+Animations are perfect to explain temporal behaviors.
+
+Beautiful visualization of Distributed Consensus in Raft: http://thesecretlivesofdata.com/raft/
+How sort algorithms sound: http://m.youtube.com/watch?v=kPRA0W1kECg
+
+Company blog
+
+Company chat, and chatbot
+IA on knowledge base
+
+## Congruent Media
+
+
+## Gamification / playful
+
+Offer interactive ways to share knowledge through attractive and engaging interactions
+- mob programming, pairing (dev-dev, )
+- timeboxing challenges
+- arbitrary constraints challenges
+- be weird manifesto, retrospectives experiments
+- stackoverflow style social network, I like, retweets
+- embedded games & contests
+Taking into account human mechanisms of reward / effort to make it work
+
+
+
+## Information Radiators
+
+
+## Tangible Media
+
+The most well-known examples of tangible documentation are : Build walls, Nabaztag etc. Other examples include the use of legos during meetings, and other avatars as well.
+
+Furniture
+
+Even your furniture tells stories. Perhaps each table represents a project team, perhaps the Mac hints at designers whereas Linux machines suggest developers.
+
+---
+3D printed models are now easy to produce. This means you could project a particular view of your application and print it in a solid material. This helps everyone use their visual and world-sensing strength to grasp visually and by touching the elements. 3D and removable layers are useful to represent several dimensions of the problem stacked on each other, and well aligned.

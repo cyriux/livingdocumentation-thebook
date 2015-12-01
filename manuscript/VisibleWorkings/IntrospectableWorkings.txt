@@ -1,0 +1,104 @@
+# Introspectable Workings
+
+At runtime the code often takes the form of an object tree. This is the tree of objets that you create by using the new operators, factories or builders, or Dependency Injection frameworks like Spring or Unity.
+
+Often, the exact nature of the object tree may vary according to the configuration or even on a by-request basis.
+
+![Object tree at runtime may vary by configuration or even request-by-request](images/introspectable.png)
+
+How do you know what the object tree really looks like at runtime for a given request?
+
+The regular way is to look at the source code and trying to imagine how it will wire the object tree. But we would still like to check if our understanding is correct.
+
+**Introspect trees of objects at runtime in order to display the actual arrangement of objects, their actual objects types, and their actual structure.**
+
+In languages like Java or C# this can be done through reflection, or through methods on each member of the structure to be introspected. The simplest form of this idea is just to rely on the toString() methods of each element to tell about itself, and about its own members with some indentation scheme. When using DI containers, you may as well try to ask the container to tell what it constructed.
+
+![Introspecting the object tree, from its root ](images/introspecting.png)
+
+Let's take the example of a little search engine of Hip-Hop beats loops. It's made of an engine, at the root, that itself queries a reverse index for fast search queries. For indexing purposes, it also browses a repository of links contributed by users of the service, using a loop analyzer to extract the significant features of each beats loop to put into the reverse index. The analyzer itself makes use of a waveform processor.
+
+Each of the engine, reverse index, links repository and loop analyzers are all abstract interfaces with more than one implementation each.
+The exact wiring of the object tree is determined at runtime, and changes according to configuration by environment.
+
+## Introspecting by reflection
+
+Introspecting a tree of objects is nothing but a trivial recursive traversal. From the given (root) instance, we get its class and enumerate each declared field, because that's how classes store their injected collaborators here. For each collaborator, we carry on the traversal through a recursive call.
+
+As usual, we probably need to filter uninteresting elements that we don't want to include in the traversal, classes likes Strings or other low-level stuff. Here the filtering is just based on the qualified name of the classes. If passed an instance of a class that has nothing to do with our business logic, just ignore it.
+
+~~~~~~~~
+final String prefix = "org.livingdocumentation.visibleworkings.";
+
+public void introspectByReflection(final Object instance, int depth) throws IllegalAccessException {
+    final Class<?> clazz = instance.getClass();
+    if (!clazz.getName().startsWith(prefix)) {
+      return;
+    }
+    // System.out.println(indent(depth) + instance);
+    for (Field field : clazz.getDeclaredFields()) {
+      field.setAccessible(true);// necessary
+      final Object member = field.get(instance);
+      introspectByReflection(member, depth + 1);
+    }
+  }
+~~~~~~~~
+
+With this code, if we just print each element with the proper indentation, the console displays:
+
+~~~~~~~~
+SingleThreadedSearchEngine
+..InMemoryLinkContributions
+..MockLoopAnalyzer
+....WaveformEnergyProcessor
+..MockReverseIndex
+~~~~~~~~
+
+Our Engine is a SingleThreaded one, and it uses an InMemory repository of contributed links, together with a mock of a loop analyzer, and another mock of a reverse index.
+
+With the same code, we can instead build a dot diagram with each element and the proper relations between them:
+
+![Introspecting the object tree, in practice ](images/introspectable-generated.png)
+
+This diagram shows the same information here, but each relationship could show additional information.
+
+## Introspecting without reflection
+
+To introspect an object tree without using reflection, all the objects in the tree must exhibit an accessible way to enumerate their collaborators. You could do that with public fields, but I'd not recommend that. Instead they can expose a public method that returns the list of their members.
+
+In the simplest case, every element would implement some interface like Introspectable, becoming an instance of the Composite pattern:
+
+~~~~~~~~
+interface Introspectable {
+  Collection<?> members();
+}
+~~~~~~~~
+
+Thus the traversal of the tree is again nothing but the recursive traversal of the composite:
+
+~~~~~~~~
+private void traverseComposite(Object instance, int depth) {
+  final String name = instance.getClass().getName();
+  // Add this node to the diagram
+  digraph.addNode(name).setLabel(instance.toString());
+  if (!(instance instanceof Introspectable)) {
+      return;
+  }
+  final Introspectable introspectable = (Introspectable) instance;
+  for (Object member : introspectable.members()) {
+    traverseComposite(member, depth + 1);
+    // Add the relationship from this node to its member to the diagram
+    digraph.addAssociation(name, member.getClass().getName());
+  }
+}
+~~~~~~~~
+
+Obviously this second approach produces exactly the same output than by reflection.
+
+Which approach to chose? If all the object are created by the team and there aren't too many of them, i'd go the composite flavor, as long as it doesn't pollute too much the classes. In this case introspection has to be considered as another responsibility of the code, by design.
+
+In all other cases, the approach of introspection by reflection is the best or only choice.
+
+This approach helps make the inner workings visible. In the case of a workflow, decision-tree or decision table that is built on the fly for each given business request, Introspectable Workings is a way to make the particular structure that was built visible for users and developers alike.
+
+Sometimes however you don't even need any introspection at all. When the procesing is driven by a configuration, hardcoded, from a file or from a database, displaying the workings may be simplified a lot, as this is just a way to display the configuration in a nice way. At a minimum, every workflow or processing that is driven by a configuration should be able to display the configuration that is used for a particular processing.

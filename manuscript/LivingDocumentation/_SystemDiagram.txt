@@ -1,0 +1,48 @@
+# Context Diagram
+
+*Showing the obvious is essential*
+
+%% TODO include the generated system diagram
+
+No system is an island, every system is part of a bigger eco-system with other actors, typically people and other systems. This context is often considered obvious, so we do not talk much about it. However this knowledge is essential and has to be in mind of everybody on the project, so it deserves to be shown on regularly, and in particular before any conversation with a new person.
+
+The context can be expressed as a simple list:
+
+- API (actors using the system)
+ - Fuelo Card API
+ - Fleet Management Teams
+ - Support & Monitoring
+- SPI (actors providing services to the system)
+ - Google Geocoding
+ - GPS Tracking from Garmin
+ - Legacy Vehicle Assignment
+
+But a visual layout has advantages too.
+
+Use-case context diagram derived from Cucumber, but what for?
+
+Roles (stick people or external systems) -->* Features (boxes within the system boundary)
+
+// could it be generated from the Cucumber feature files narratives?
+System diagram
+Roles * --> System
+
+// could it be generated from the use-cases diagrams? (just by hiding the features and only keeping the system boundary)
+
+System diagram with input / outputs
+Inputs * --> System -->* Outputs
+
+// where to find the inputs and outputs? From methods highlighted as the published API/SPI + injected collaborators? Return types = outputs? Parameter types = inputs? Some parameter types may be callbacks to actually output stuff, or to query stuff in too.
+
+// or just declare the stuff at macro-level, either in code or as plain DSL text? But would require maintenance too.
+
+--
+
+Example from the web
+
+@ComponentInput(
+description = "The frequent itemsets found by an <i>Apriori</i> module. These are ” + "the item combinations that frequently appear together in the original examples.”, name = "Frequent Item Sets”)
+final static String DATA_INPUT_FREQ_ITEM_SETS = "Frequent Item Sets”;
+
+@ComponentOutput(
+description = "A representation of the association rules found and accepted by this module. ” + "This output is typically connected to a <i>Rule Visualization</i> module.”, name = "Rule Table”)

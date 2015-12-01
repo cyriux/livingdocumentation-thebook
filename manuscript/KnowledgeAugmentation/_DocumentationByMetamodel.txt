@@ -1,0 +1,24 @@
+# Documentation by Meta-Model
+
+*Sometime the best media to describe code is just code.*
+
+Compared to free text, code has many advantages: it's structured, offers auto-completion thanks to your IDE, is checked by the compiler, can itself be documented and annotated, and still has all the benefits of being plain text.
+
+This makes code a great tool for documentation purposes!
+
+As an example, let's describe a full Information System using code as a model. We'll see how we can even use this model to reason about our system and its testing strategy.
+
+~~~~~~~~
+describeInformationSystem()
+
+Service
+Component
+
+InformationSystem
+EndUserApp
+FrontService
+BackEndService
+DataStore
+~~~~~~~~
+
+%% TODO insert Simon Brown example

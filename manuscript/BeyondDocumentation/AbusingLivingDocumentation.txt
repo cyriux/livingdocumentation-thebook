@@ -1,0 +1,31 @@
+# Abusing Living Documentation
+
+So you' now a fan of Living Documentation and now you're generating diagrams during each build. You like the idea so much that you spend your time figuring out what new kind of diagram could be generated. You want to generate all the things!
+
+You pretend to apply Domain-Driven Design but you actually spend your time on exciting tools that generate diagrams, if not code or bytecode. Because we all know that DDD is primarily about tools, right? Oh, yes, you remember some folks used to do that seriously, and they called it MDA. Ouch!
+
+You prefer working on the diagram generator rather than fixing bugs in the production code. Of course, it's way more fun than boring production issues!
+
+Is all that really a good thing?
+
+## Living Documentation with Moderation
+
+It's easy to abuse Living Documentation, and it can backfire. If you spend too much time on tools to generate glossaries, reports and diagrams, instead of doing the work to be done, it's not professional, and the management may decide to stop and forbid any documentation-improving initiative. You don't want that.
+
+**Therefore: Keep your efforts in automating living documentation reasonable compared to the actual delivery work. Remember they are just a mean to an end and not an end in itself. The actual goal of living documentation is to help deliver more and with a better quality, not just producing documentation or having fun. Ideally, every effort in improving your living documentation should yield short-term demonstrable benefits in delivery, quality or user satisfaction.**
+
+As the author of the book on living documentation, I don't want this topic to have a bad press because of people abusing it. Please don't say that this book is asking you to put in place every example described into your own project, because it's not true. All the examples are, well, examples, not requirements.
+
+This is true that the point of this book is to excite the inner geek inside you to try the living documentation ideas. Still I would never advise you to do it all without a good reason for each of the ideas in the book.
+
+## Procrastinate on Living Documentation
+
+![Oops I've done it again.](images/over-complicated.png)
+
+As developers, we are always tempted to make things more complicated than they need to be. This is true for production code, and it also true for your living documentation tools.
+
+When the everyday work looks so boring, making it technically more complicated is a great way to have fun. However, you know, it's not professional. If you consider yourself as a software craftsman or craftswoman, you know you should not be doing that. However we all fall for it from time to time, even without being aware of it.
+
+**Therefore: If really you need a space where you can have fun and make things needlessly over-complicated, then by all mean do it in the code of your living documentation tools, not in your production code. Your life and the life of your colleagues will be better as a result.**
+
+This is not an advice to gold-plate your living documentation tools. This is just a preference between two abuses that are both not professional. If you're lucky enough to have some slack time for you to have fun with code, then this advice is for you!

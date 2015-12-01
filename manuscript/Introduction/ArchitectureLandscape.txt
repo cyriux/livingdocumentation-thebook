@@ -1,0 +1,152 @@
+# Living Architecture
+
+## Architecture and documentation
+
+There is a close relationship between architecture and documentation.
+
+How do you document the architecture of your system? The short answer is that whatever what you call architecture, doing architecture is in itself an act of documentation between every people involved in the project.
+
+Many definitions of architecture have been proposed over the past decades, but the following two are my favorite:
+
+1. Things that everybody should know
+1. Things that are hard to change
+
+The first definition in itself admits that architecture is totally a matter of shared knowledge, hence a matter of documentation. The second definition is more precise, but it seems likely that the things that are hard to change should also be known by everyone.
+
+
+### Understanding the problem
+
+Architecture always starts with really understanding all the objectives and constraints of the problem to solve. You won't build the same point-of-sale system for a brand with 50 hot dog stands in the street as you would for a 1500 high-end pret-à-porter shops around the world, even if they have the same high-level basic features.
+
+The high-level goals, and the main constraints are "Things that everybody should know", and as such they are always part of the architecture. Make sure the knowledge about the problem, at least in the big-picture level is well described in a persistent form, and that it is in everybody's mind.
+
+### Explicit Assumptions
+
+When knowledge is incomplete, like it usually is at the beginning of any interesting project, we make assumptions. Assumptions make it possible to move on, but at the expense of potentially being shown wrong later on. It is a matter of documentation to make it cheaper to rewind the tape when you reconsider an assumption. A simple way to do that is to explicitly mark decisions with the assumptions they depend upon. This way, when an assumption is reconsidered, it is possible to find all its consequences, to reconsider them in turn. For this to work efficiently, it should all be done as an Internal Documentation, in place within the decisions, i.e. usually in the source code itself.
+
+
+### Easy to explain
+
+A good architecture is simple and looks obvious. It is also easy to describe in just a few sentences. A few key decisions, sharp and opinionated and which guide every other decision is an architecture.
+
+If that is not the case, then trying to express the architecture is a test of its quality. If it takes many hours and many sentences to explain the architecture, then it can probably be improved a lot.
+
+### Evolving continuously
+
+The best architecture is an evolving creature, since it is hard to get it right at first try, and then it has to adapt to the changing context.
+
+A good architecture is easy to explain succinctly and minimizes the number of decisions that are hard to change. But whatever is left hard to change or that everybody should know has to be documented. It has to be persistent over time and made accessible to everyone, by definition.
+
+This means that whatever makes the architecture or its documentation hard or expensive to change must be avoided. Your team should learn how to make reversible decisions, or to defer irreversible decisions. And if you fear changing the architecture because you have a lot of static documentation about it that would have to be redone, then your documentation is harming you and you should reconsider how you do it.
+
+Therefore: **Whatever your definition of architecture, make sure it is considered as much a documentation challenge as a technical one. Focus the discussions and their written records on the problems to solve, not just on the solutions. Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better. And keep it all evolving, removing any process or artifact which would impede continuous change.**
+
+### The project vs. system confusion
+
+Another thing to clarify is the distinction between a project and a system. A project builds or changes a system. A project starts, stops, has a purpose, a team, stakeholders, and a budget. A system exists, also has a vision, purpose, users and stakeholders, and is made of components or services on top of infrastructures. A system exhibits behaviors and has quality attributes.
+
+> The distinction is the same as the distinction between a balance sheet and a general ledger. The balance sheet describes the overall effect (the system) of all the transactions on the ledger (the projects). At the end of the year, we only care about the balance sheet, not about each individual transaction.
+
+The system and the project only match in the case of the first project whose sole goal is to build a system from scratch. But there are many other situations than this simple case, many systems go through more than one project over their lifetime, and even their death is yet another project.
+
+It is important to sort out precisely the knowledge about the project vs. the knowledge about the system. The knowledge about the project is only useful for the duration of the project, but the knowledge about the system is useful throughout the life of the system.
+
+In general, focus on documenting the knowledge about the system, as the lifetime of the system will far exceed the lifetime of the project. Overall, the system design far outlives the user stories which built it in the first place. After some time, you need to understand the system, and nobody (except auditors) cares how the user stories were split and prioritized.
+
+> ## An Example
+>
+> Keep all the knowledge about the project planning, teams and management in Jira, and use internal documentation for all the knowledge about the system.
+>
+> Releases, Iterations and User stories are project artifacts. Use stickers on the wall or a tool like Jira for them. At the time of coding the system, you create key scenarios (or acceptance criteria) and you write the code. These are knowledge about the system, which is best expressed as Internal documentation, in the source control, as automated scenarios (tests) and other means as shown in this book.
+>
+> Notice that the sentences on the user story: "In order to... As a... I want..." will often end up as the narrative on top of your key scenarios files in the source control. This little duplication ensures that the system owns all its documentation in a standalone fashion. The source code repository is self-documented without the tracker.
+
+## Stake-Driven Architecture Documentation
+
+We've seen before two definitions of architecture: "Things that everybody should know", and "Things that are hard to change. There are many other perspectives on architecture. Some developers consider architecture as being all about the large-scale system with its infrastructure, expensive middleware, distributed components and databases replication. In fact this is normal for different people working on different systems to focus on different aspects of software and call it "architecture": they call architecture the aspects of the software which are most at stake in their context.
+
+This diversity of perspectives is made obvious when doing an Architectural Kata. During this workshop format proposed by Ted Neward, groups of people are tasked in creating an architecture for a given business problem. Each group has 30mn and a big piece of paper with markers to prepare and present a proposal. The rules clearly emphasizes that the group should be able to justify any decision taken. The workshop ends with each group presenting its architecture to everyone else, as if they were defending the proposal in front of a client. Other attendees are invited to ask questions to challenge the proposal, as a skeptical client would do.
+
+This workshop is very interesting to think about architecture. It is in itself a communication exercise. It is not just about the decisions taken, it is also about expressing them in a convincing way. Almost invariably, this kata reveals how different people think very differently about the same problem.
+
+> You may be tempted to use this kata on real business cases, as a form of competitive engineering, with different groups proposing different views which are later compared. However the risk is that on a real case would be to have "winners" and "losers" groups at the end. You should practice it several times as a pure kata first, without real stakes. You will get a lot of value and thinking out of it, and you will also learn how to avoid the "winner vs. loser" effect.
+
+What I learnt from this kata is that different business problems call for a focus on different areas. The main aspect of point of sale system in the street is to be lightweight, cheap in case it is stolen, and easy to use while making hog dogs in a hurry in the middle of a little crowd. In contrast, a mobile app meant to sell itself on an app store has to be primarily visually attractive, whereas an enterprise system meant to serve millions of transactions by second should before all focus on performance as its main stake. And there are systems where the main stake is on their deeper understanding of the business domain.
+
+Therefore: **Identify early the main stake of the project: business domain, technical concern, user-experience level, integration with other systems, or anything else. You may ask the question: "What could most easily make the project a failure?". Focus everyone's attention on this main stake, in conversations, early spikes and prototypes, and in the written artifacts which are produced. In particular, make sure your documentation efforts primarily cover the main stake.**
+
+To caricature, don't spend too much of your time documenting the server technology stack when the main stake of the whole project is on the UX. And by "documentation", we mean in the context of this book, i.e. using any media, from source code and annotations to short evergreen Markdown documents, not necessarily big MS Word documents.
+
+
+
+## Polyglot Architecture and Documentation Landscape
+
+In any significant system, we should give up on the idea of one single architecture. A system is made of several modules, and each should have its own architecture. Of course the design of the modules and how they are related to each other is architecture too, of a high-level kind.
+
+
+Therefore: **Consider your system as several smaller sub-systems, which we will call "modules". They may be physical units, as components or services, or just logical modules at compile time. Document the architecture independently for each module, and describe the over-arching architecture between the modules as one system-level architecture too.**
+
+Typically you would document the architecture of each module with Internal Documentation, using a combination of package naming conventions, annotations in the source code, and a little plain text. You would document the overall architecture with more Evergreen Documents in plain text, and perhaps some specific DSL if you have one that fits. However the documentation of the overall architecture could also use some generated documents built by consolidation of the knowledge extracted from each module.
+
+At each level, ready-made architecture document templates may help, despite the fact that many of them are much too big and pretend to be one-size-fits-all solutions to all problems.
+
+- Arc42
+- IBM/Rational RUP
+- Company-specific set of templates, as a Documentation landscape
+- K's 4+1 and similar ideas like the increasingly popular Simon Brown's C4
+
+
+Most such templates try to plan for every possible architectural documentation need. This makes them terrible as a template to laboriously fill in with random rant. But this also makes them as extensive checklist on what to describe *when it makes sense* in your context. For example, the ARC 42 "Concepts" section is a nice checklist to find out what you've forgotten to think about, as shown below (the list is shortened from the [original template](http://www.arc42.org/))
+
+- Ergonomics
+- Transaction Processing
+- Session Handling
+- Security
+- Safety
+- Communication and Integration
+- Plausibility and Validity Checks
+- Exception/Error Handling
+- System Management and Administration
+- Logging, Tracing
+- Configurability
+- Parallelization and Threading
+- Internationalization
+- Migration
+- Scaling, Clustering
+- High Availability
+- (...)
+
+How many of these aspects do you neglect in your current project? How many of them do you neglect to document?
+
+Draw inspiration from all these established formalisms to derive your own documentation landscape, on a *module by module* basis. According to Stake-Driven Architecture Documentation, focus each documentation landscape on what matters most for the stakes of this sub-system.
+
+On a module with a rich business domain, you would focus primarily on the domain model and its behaviors as key scenarios. On a module more CRUDdy, there may be very little to say, as everything is probably standard and obvious. On a legacy system, the testability and migration may be the most challenging aspects, so you would probably deserve some documentation.
+
+Your documentation landscape can be a plain text file with predefined bullets and tables, but it can take the form of a small annotations library too, to directly mark the source code elements with their architectural contribution and rationale. It could be a specific DSL too. In practice you would mix all these ideas according to what works best. You may even use a Wiki, or even proprietary tools which would instantly solve all your problems...
+
+A typical documentation landscape for a system would have to at least describe the following points:
+
+1. The overall purpose of the system, its context, users and stakeholders
+1. The overall required quality attributes
+1. The key business behaviors, and business rules and business vocabulary
+1. The overall principles, architecture, technical style and any opinionated decision or parti
+
+This does not mean at all that you need to create documents with all that. Living documentation is all about reducing the need for manually written documents, thanks to alternatives which are cheaper and remain up-to-date.
+
+For example, we could use plain text Evergreen Documents for the first point, system-level acceptance tests for the point 2, a BDD approach with automation for point 3, and a mix of a README, a Codex and custom annotations in the source code for point 4.
+
+## Architecture Codex
+
+When describing a solution to people, probably the most critical part is to share the thinking and reasoning which led to the solution.
+
+Rebecca Wirfs-Brock was at the ITAKE un-conference in Bucharest in 2012, and during her talk and the later conversations we had about it, she gave the example of EcmaScript, where the thinking process is clearly documented:
+
+Here are from my notes on the topic some of the rationale for decisions in EcmaScript:
+
+- "Invoke similarities with other existing folklore"
+- "Usually we want to learn and understand as little as possible to do the job."
+- "Recipe for making change: figure out how similar change has been done before."
+
+Later I have been doing department-wide architecture in a bank, and I introduced this idea of a Codex of principles guiding all the architecture-sensitive decisions. The Codex was built from the accumulation of concrete cases of decision-making, by trying to elucidate formally the reasoning behind the decision. Often, the principle was already in the head of other senior architects, but it was tacit and nobody else knew about it. This codex proved useful for people involved in architecture. The goal was to publish it for everyone, even if it was incomplete and not always easy to understand. At least it worked to provoke questions and reactions. It was never formally published as far as I know, however its content leaked on many occasions and has been used several times for more consistent decision-making.
+
+It is very important to keep this codex as a working document, never finished. Whenever we hit a contraction in its principles, then it's time to fix it or evolve it. This did happen, and this should not be seen as a failure, but as an opportunity for collective decision-making to be even more relevant. After all, architecture is a kind of a consensus thing, isn't it?

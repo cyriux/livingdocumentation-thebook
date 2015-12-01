@@ -1,0 +1,257 @@
+# Declarative Automation
+
+*Every time you automate, you should take the opportunity to make it a form of documentation.*
+
+Software development increasingly makes use of automation in all its aspects. Over the last decades, popular tools have changed the way we work, replacing repetitive manual tasks with automated processes. Continuous Integration tools automate the building of the software from its source, and they automate the tests executions, even on remote target machines.
+
+Tools like Maven, NuGet or Gradle automate the burden of retrieving all the required dependencies. Tools like Ansible, Chef or Puppet declare and automate the configuration of all the IT infrastructures.
+
+There's something interesting in this trend: you have to describe what you want in order to automate it. You declare the process, then the tool interprets it to do it so that you don't have to. The good news is that when you declare the process, you actually document it, not just for the machine, but also for humans as you have to maintain it too.
+
+**Therefore: Whenever you automate a process, take the opportunity to make it the primary form of documentation for this process. Favor tools with a  declarative style of configuration over tools that rely on prescriptive style of scripts. Make sure the declarative configuration is meant primarily for human audience, not only for the tool.**
+
+The goal is to have the declarative configuration as the single source of truth for the process. This is a great example of a documentation that is both a documentation for humans and a *Documentation for Machines*.
+
+
+How did we do before all the new automation tools? In the worst case, the process was done manually by someone with tacit knowledge of how to do it. When he or she was away, there was no way we could do it at all. Manual process, tacit knowledge and no documentation at all.
+
+When we were a little more lucky, there was a MS Word document describing the process in a mix of text and command lines. However the few times you tried to use it, you could hardly succeed without asking questions to the author: some parts were missing, and other were obsolete, with wrong indications. Manual process, but deceiving documentation this time.
+
+When we were lucky, there was a script to automate the process. However when it was throwing errors you again had to ask the author for help to fix it, as the script code is quite obscure. And there was a separate MS Word document, rather incomplete and obsolete, pretending to describe the same process to please the management. Automated process, but still no useful documentation.
+
+But now we know better, and the keyword to fix all that are *Declarative*, and *Automation*.
+
+### Declarative style
+
+For an artifact to be considered as a documentation itself, it must be expressive and easy to understand by people. it should also explain the intentions and the high-level decisions, not just the details of how to make it happen.
+
+Imperative scripts that prescribe step by step what to do fail at that for any non-trivial automation. It's all about the 'how', and the interesting decisions and reflexions on too only have comments to be expressed.
+
+On the other hand, declarative tools are more successful at supporting a nice documentation, thanks to two things:
+
+- They already know how to do a lot of typical low-level things, which have been codified well once by dedicated developers into reusable ready-made modules. This is an abstraction layer.
+- They offer a declarative domain-specific language on top, that is at the same time more concise and rather expressive. This DSL is standard and is itself well-documented, which makes it more accessible than your in-house scripting language. This DSL usually describes the desired state in a stateless and idempotent fashion; by moving the current state out of the picture, the explanations become really simpler.
+
+### Automation
+
+Automation is essential to force the declared knowledge to be honest.
+
+With the modern approaches to automation, you tend to run the process very often, even continuously, like dozens of times per hour. This is a nice pressure to keep it reliable and always up-to-date. You have to be smart to reduce its maintenance. Automation you rely upon therefore acts like a **Reconciliation Mechanism** that makes it obvious when the declared process becomes wrong.
+
+Together, all that is a (R)evolution. At last you can have knowledge that is up-to-date and that really explains what we want, the way you would talk about it. Tools are getting closer to the way we think, and that's changing the game in many aspects and in particular with respect to documentation.
+
+In the following sections, we will have a look at various examples of declarative automation for software projects.
+
+## Declarative Dependency Management
+
+In the build automation landscape, *dependency managers*, aka *package managers*, are tools that play a key role as part of the build process. They reliably download libraries, including their transitive dependencies, resolve a large part of the conflicts, and support your  dependency management strategy even across many modules.
+
+Before that automation, dependency management was a chore done manually. You would manually download the libraries in some version into a /lib folder, later stored into the source control system. If the dependency has dependencies, you had to look at their website and download them all too. And you had to redo all that whenever you had to switch to a new version of a dependency. It was not fun.
+
+Popular dependency managers are available for most programming languages: Maven and Apache Ivy (Java), Gradle (Groovy and JVM), NuGet (.Net), RubyGems (Ruby), sbt (Scala), npm (Node.js), leiningen (Clojure), Bower (web), and many other.
+
+To do their job of automating, these tools need you to declare all the direct dependencies you expect. You usually do that in a simple text file often called a *manifest*. This manifest is the Bill of Materials that dictates what to retrieve in order to build your application.
+
+When using Maven, the declaration is done in an XML manifest called pom.xml
+
+~~~~~~~~
+<dependency>
+   <groupId>com.google.guava</groupId>
+   <artifactId>guava</artifactId>
+   <version>18.0</version>
+</dependency>
+~~~~~~~~
+
+In leiningen, the declaration is of course done in Clojure:
+
+~~~~~~~~
+[com.google.guava/guava "19.0-rc1"]
+~~~~~~~~
+
+Whatever the syntax, the declaration of the expected dependencies always consists in a tuple of the three values: group-id, artifact-id, requested version.
+
+In some of the tools the requested version can be not only a version number like *18.0*, but also a range *[15.0,18.0)* (meaning: from version 15.0 to version 18.0 excluded), or a special keyword like *LATEST*, *RELEASE*, *SNAPHOT*, *ALPHA*, *BETA*. We can see with these concepts of range and keywords that the tools have learnt to work at the same level of abstraction we think at as developers. The syntax to express the necessary dependencies is declarative, and it's a good thing.
+
+As we're in a case of Declarative Automation, the declaration of the requested dependencies is also the single source of truth for the documentation of the dependencies. The knowledge is already there, in your dependency manifest.
+
+As a consequence, there is no need to list these dependencies again in another document or in a Wiki, or it would just mean taking the risk to forget to update it and it would then be misleading.
+
+But as usual, there's one thing missing so far in the declaration of the dependencies: we'd like to declare not just what we request to the tool, but also the corresponding rationale. We need to record the rationale so that future newcomers can quickly grasp the reason behind each dependency included. Adding one more dependency should never be done too easily, so it's good to always be able to justify them with a convincing reason.
+
+One way to do that is just with comments next to each dependency entry in the file:
+
+~~~~~~~~
+<dependencies>
+  <!-- Rationale: A very lightweight alternative to JDBC, with no magic -->
+  <dependency>
+  	<groupId>org.jdbi</groupId>
+  	<artifactId>jdbi</artifactId>
+  	<version>2.63</version>
+  </dependency>
+<dependencies/>
+~~~~~~~~
+
+We could be tempted to add a description, but we don't even have to since it's already included in the pom of the dependency itself. In IDE like Eclipse it's very easy to navigate to the pom of the dependency by pressing Ctrl (or Cmd when using Mac OS X). As your mouse hovers over the dependency element in your pom, it turns into a link to directly jump to the pom of the dependency.
+
+![Navigating the Maven dependencies in Eclipse POM Editor](images/eclipse_pom_navigation.png)
+
+That's integrated documentation mixed with declarative automation. Pure awesomemess!
+
+Is that knowledge accessible? It depends on the audience. For developers, looking at the manifest and using the IDE is the most accessible way, hence there's no need to do anything more. One issue may be that when using ranges or keyword for the versions you don't know the exact version being retrieved at a given point in time just by looking at the manifest. However developers know how to query the dependency manager to have this information on-demand.
+
+For example in Maven they would run: *mvn dependency:tree -Dverbose*
+
+For non developers you would want to extract and publish the interesting content into an Excel document or to the Wiki. But are non-developers really that interested in that kind of knowledge?
+
+
+## Declarative Configuration Management
+
+Configuration Management is much more complex than dependency management. It's about resources like applications, daemons, files etc. each with many attributes and with all their dependencies. However some tools have taken a declarative approach similar to the dependency managers and their manifests.
+
+The most popular tools to manage configuration are *Ansible*, *Puppet*, *CfEngine*, *Chef* and *Salt*. However among them some are imperative (Chef) while others are declarative (Puppet, Ansible).
+
+For example, Ansible states:
+
+> Ansible's philosophy is that playbooks (whether for server provisioning, server orchestration or application deployment) should be declarative. This means that writing a playbook does not require any knowledge of the current state of the server, only its desirable state.
+
+Puppet have a similar philosophy. Here's an excerpt of a Puppet manifest for managing NTP:
+
+~~~~~~~~
+# Some comment if necessary...
+service { 'ntp':
+  name      => $service_name,
+  ensure    => running,
+  enable    => true,
+  subscribe => File['ntp.conf'],
+}
+
+file { 'ntp.conf':
+  path    => '/etc/ntp.conf',
+  ensure  => file,
+  require => Package['ntp'],
+  source  => "puppet:///modules/ntp/ntp.conf",
+}
+~~~~~~~~
+
+
+Puppetlabs emphasize that Puppet manifests are self-documented and proof of compliance even for many regulatory bodies:
+
+> **Self-documentation**
+>
+> Puppet manifests are so simple, anyone can read and understand them, including people outside your IT and engineering departments.
+
+> **Auditability**
+>
+> Whether it's an external or internal audit, it's great to have proof that you pass. And you can easily validate to your own executives that compliance requirements have been met.
+> [Puppetlabs Blog](https://puppetlabs.com/blog/puppets-declarative-language-modeling-instead-of-scripting)
+
+A declarative language like used in these tools allows to communicate the expected desired state, not only to the tool, but to the other humans on your team or even to external auditors.
+
+Again, what's often missing to make these manifests a complete and useful documentation for humans is the rationale for each decision. This can be done with comments, If we consider that a Puppet manifest as-is is accessible to all the interested audience, then it would make sense to document the rationales and other high-level informations into the manifest, for example as comments.
+
+Because the knowledge about the configuration is declared in a formal way for the tools, it also becomes possible to generate Living Diagram when it can help reasoning. For example Puppet includes a *graph* option that generates a .dot file of a diagram showing all the dependencies. This is useful when you experience an issue in the dependencies or if you want to have a more visual view of what's in the manifests.
+
+Here's an example of a generated diagram from Puppet:
+
+![A diagram of the resources dependencies, generated by Puppet (John Arundel)](images/puppet-graph-complex.png)
+
+This kind of diagram can also be handy to refactor the manifests to make them cleaner, simpler and more modular. As John Arundel write in [his blog](http://bitfieldconsulting.com/puppet-dependency-graphs):
+
+> As you develop Puppet manifests, from time to time you need to refactor them to make them cleaner, simpler, smaller and more modular, and looking at a diagram can be very helpful with this process. For one thing, it can help make it clear that some refactoring is needed.
+
+## Declarative Automated Deployment
+
+Similar to configuration management, there are a number of tools that can automate your deployment, including the necessary company workflows, rollback procedures, and deploying only what needs to be changed. Some of these tools include Jenkins with custom or standard plugins, Octopus Deploy (.Net).
+
+Here's an example of a deployment workflow from the Octopus website:
+
+- Redirect load balancer to a "down for maintenance" site
+- Remove web servers from load balancer
+- Stop application servers
+- Backup and upgrade the database
+- Start application servers
+- Add web servers back to load balancer
+
+In a tool like this, the deployment and release workflow is typically setup by clicking on its UI, and persisted in a database behind. Still, the workflow is described in a declarative manner, that everyone can understand when looking at the tool screens. Whenever you want to know how it's done, you just have to look it up in the tool.
+
+Because it's declarative and because the tool knows about the basics of deployment, we can describe complex workflows in a concise way, closer to the way we think about it. For example, we can apply standard patterns of Continuous Delivery like Canary Releases and Blue-Green Deployment. Octopus Deploy manages that with a concept they call *Lifecycle*, an abstraction useful to easily take care of this kind of strategies.
+
+Thanks to tools like that, not only they automate the work itself and reduce the likelihood of errors, but they also provide a ready-made documentation for the standard patterns you could, or should, be using. This means this is another documentaton you don't have to write by yourself!
+
+Imagine that you decide to adopt Blue-Green deployment for your application. You can configure the tool to take care of it, and here is all you have to do now:
+
+- Declare in a stable document like the README file that you have decided to do Blue-Green Deployments
+- Link to an authoritative literature on the topic, e.g. the [pattern on Martin Fowler website](http://martinfowler.com/bliki/BlueGreenDeployment.html)
+- Configure the tool and the lifecycle to support the pattern, and
+- Link to [the page on the tool website](http://docs.octopusdeploy.com/display/OD/Blue-green+deployments) that describes how the pattern is taken care of specifically in the tool.
+
+By the way, below is that description of the pattern in the context of the tool:
+
+> Staging: when blue is active, green becomes the staging environment for the next deployment
+>
+> Rollback: we deploy to blue and make it active. Then a problem is discovered. Since green still runs the old code, we can roll back easily
+>
+> Disaster recovery: after deploying to blue and we're satisfied that it is stable, we can deploy the new release to green too. This gives us a standby environment ready in case of disaster
+
+For an automation to be a case of declarative automation that provides documentation, the important thing is that the configuration of the tool has to be genuinely declarative, be it in text or on a screen and a database. It also to be at an abstraction level close to what matters for everyone involved. In particular, it cannot be obscure imperative steps with a lot of conditionals based on low-levels details like the absence of a file or the state of an OS process.
+
+### Scaffolding Over Step by Step guide
+
+Whenever you join a new team or a new project, you need to setup your work environment, and you need some documentation for that. At least that's how many company still do. There's a Newcomers page on the wiki with a long list of steps to go through in order to start working on the application.
+
+I've seen many times that this list is never totally up-to-date. Links are broken. Essential information is missing because it was obvious in the mind of the author. And these issues exist even when newcomers join regularly.
+
+Some teams have taken a step further, by providing an installer for newcomers. You run the installer, it prompts for some specific questions, and you're done! They don't always work quite well when they're custom in-house scripts, but the idea is there: why document in text what could be automated, and documented, as a tool?
+
+This approach is often called Scaffolding, and is not just for newcomers, but also to start an application quickly. Ruby On Rails is probably the most popular tool with this approach.
+
+Many tools can be used to do scaffolding. You can do scaffolding with custom scripts, Maven archetypes, Spring Roo, JHipster and many others. Configuration management tools may sometimes also be used to setup a working setup for new team members, or to setup templates of applications that can be modified later. Standard tools
+
+If the resulting automation is rock-solid, documentation of what it does is less of an issue, but in general we would favor standard tools over in-house scripts, and tools that are themselves well-documented, maintained and with a declarative configuration that can be considered itself as the documentation.
+
+The scaffolding has to be really easy to use without a user guide.
+- asking simple questions, step by step
+- with sensible default values
+- with very good example of answers
+
+
+Here is an example of an Open-Source tool for scaffolding called [JHipster](http://drissamri.be/blog/technology/starting-modern-java-project-with-jhipster/). It works with a command-line wizard, and here are some of the questions prompted when creating a new application from scratch:
+
+- What is the base name of your application?
+- Do you want to use Java 8?
+- Which *type* of authentication would you like to use?
+- Which *type* of database would you like to use?
+- Which *production* database would you like to use?
+- Do you want to use Hibernate 2nd level cache?
+- Do you want to use clustered HTTP sessions?
+- Do you want to use WebSockets?
+- Would you like to use Maven or Gradle?
+- Would you like to use Grunt or Gulp.js for building the frontend?
+- Would you like to use the Compass CSS Authoring Framework?
+- Would you like to enable translation support with Angular Translate?
+
+For each question, there is a clear narrative explaining the possible answers and the consequences to help make the decision. This is an inline, tailored help. The resulting code is the consequence of all the decisions. If you've chosen MySQL as the database, then you have a MySQL database setup.
+
+It would be interesting to record the responses to all the questions of the wizard into a file (they're only kept as logs or in the console) to provide a high-level technical overview of the application. It may be included into the README file for example.
+
+A particular, degenerate, example of a wizard is to design helpful exceptions that precisely tell you what how and where to fix the problem when thrown.
+
+## Machines Documentation
+
+Before the Cloud, we had to know our machines one by one, so there was often an Excel spreadsheet somewhere with a list of machines and their main attributes. And it was often obsolete too.
+
+Now that the machines are moving somewhere in the cloud, we can no longer affort to do that, as it changes much too frequently, sometime many times a day. But since the Cloud itself is automated, very accurate documentation now comes for free, through the Cloud API.
+
+This is very similar to declarative automation. You declare what you want: "I want a Linux server with Apache", and then you can query your current inventory of machines available and all their attributes. Many of these attributes are tags and meta-data that add a higher level of information to the picture: it's not just a "2.6GHz Intel Xeon E5", but it's a "High-CPU machine.", in the
+
+
+## Remarks on automation in general
+
+People are good for novel stuff. Machines are good for repeated stuff.
+
+Automation provides benefits at a cost. It is not an end in itself, but a mean to save time and to improve reliability on repeated tasks. But there is always a point where the cost exceeds the benefits. Invest in automation as long as the cost is low compared to the recurring benefits. Decide what to keep manual.
+
+> Don't do the same thing twice. If it's déjà-vu, then it's time to automate.
+> -- Woody Zuill in a conversation
+
+On the other hand, if a task is new or different each time, wait until you see enough repetition somewhere in the task before thinking about automation.

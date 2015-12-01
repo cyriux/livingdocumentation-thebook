@@ -1,0 +1,30 @@
+# Highlighted Core (Eric Evans)
+
+%% curation
+%% code digest
+
+*Some elements of the domain are more important than others*
+
+In the book Domain-Driven Design, Eric Evans explains that when a domain grows to a large number of elements, it becomes difficult to understand, even if only a small subset of them are really important. A simple way to guide developers focus on these particular subset is to highlight it in the code repository itself.
+
+**Flag each element of the CORE DOMAIN within the primary repository of the model, without particularly trying to elucidate its role. Make it effortless for a developer to know what is in or out of the CORE.**
+
+Using annotations to flag the core concepts directly into the code is a natural approach, one which evolves well over time. Code elements like classes or interfaces get renamed, move from one module to another, and sometime end up  deleted.
+
+~~~~~~~~
+/**
+ * A fuel card with its type, id, holder name
+ */
+@ValueObject
+@CoreConcept
+public class FueldCard {
+  private final String id;
+  private final String name;
+  ...
+~~~~~~~~
+
+This is a perfect simple example of curation by annotations. It is an internal  documentation integrated into the search capabilities of your IDE. You can see the list of all core concepts just by searching every reference of the annotation in the project, always up to date.
+
+![The highlighted core is available instantly and at any time in your IDE through a search on all references of the @CoreConcept annotation](images/highlighted_core_eclipse_search.png)
+
+And of course, tools can also scan the source and use the highlighted core as a convenient and relevant way to improve their curation. For example, a tool to generate a diagram may show everything when there are less than 7 elements, and focus only on the highlighted core when there are many more elements. A living glossary typically uses that to highlight the most important elements in the glossary too, by showing them first, or by printing them in a bold font.

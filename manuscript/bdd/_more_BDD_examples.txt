@@ -1,0 +1,23 @@
+
+
+
+With the support of tools, you can the use all these good things and make them into automated tests and a living documentation at the same time.
+
+The scenarios are just plain text in files called feature files. To bridge the gap between the text in the scenarios and the actual production code, you create a little set of "steps". Each is triggered on a particular text sentence and then it calls the production code. The text sentence may have parameters that are parsed and used to call the production code in many different ways.
+
+For example:
+Given the VAT rate is 9.90%
+When I but a book at a ex-VAT price of EUR 25
+Then I have to pay an inc-VAT price of EUR 2.49
+
+To automate this scenario you need a step definite for each line. For example:
+
+The sentence
+"When I but a book at a ex-VAT price of EUR <exVATPrice>"
+
+Triggers the glue code
+Book(number exVATPrice)
+Service = LookupOrderService();
+Service.sendOrder(exVATPrice);
+
+The result of this plumbery is that the scenarios become automated tests. These tests are driven by the scenarios and the values they declare. If you change the rounding mode of the price in the scenario without changing the code the test will fail. If you change the rounding mode of the price in the code without changing the scenario the test will fail too: this is a reconciliation mechanism to signal inconsistencies between both sides of the redundancy.

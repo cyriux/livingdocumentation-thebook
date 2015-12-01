@@ -1,0 +1,32 @@
+> Document WHY things are what they are, and not WHAT they are -- Robert Virding at a conference
+
+If @rvirding didn't mean this as a direct message to Haskell library writers, he should have. -- @bodil tweeting about the conference
+
+this is actually why I'm against religious "code is your documentation". Because code is the what and not the why. -- ‏@karlprosser
+
+I'd still believe that excellent code already tells 'what' and 'why'. The problem lies in 'why not' missing. -- Jonne Itkonen ‏@batalyx
+
+
+Don't agree with you. Excellent code will tell you 'what' and maybe explain 'how' http://www.geekherocomic.com/2008/11/12/real-programmers-dont-write-documentation/ -- Robert Virding ‏@rvirding
+
+@rvirding @bodil don't get me wrong. Code is the only source of real truth of what and how, but often the nuances of why are lost in folklore -- @karlprosser
+
+...
+
+The story @rvirding just shared was one where they thought the why was obvious but it wasn't.
+
+
+@karlprosser @bodil @rvirding but the why is frequently inarticulate screaming, which is hard to serialized as ASCII -- Gary Bernhardt ‏@garybernhardt
+
+that's why we now have emoji -- @hirojin
+
+...
+
+"Because [Regulatory Compliance Guy] says so" is the most common comment in our code base.
+
+Code should ideally self-document *what* it's doing (it should be clear what). But that's only a part of docs. -- Anthony Ferrara ‏@ircmaxell
+
+"Things that are not documentation” - http://www.drmaciver.com/2015/04/things-that-are-not-documentation/ - Kristian Glass ‏@doismellburning 
+
+
+Code is the most reliable documentation, not the best one. Of course, the "Why" isn't always clear -- Claudio Zizza ‏@SenseException

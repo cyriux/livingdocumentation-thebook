@@ -1,0 +1,54 @@
+# Property-based testing
+
+
+An evolution from an accumulation of individual test cases
+
+%% need examples
+
+What's fabulous about properties being tested automatically is that it's the direct documentation of invariants: a higher level of abstraction for the documentation, but it does not replace lower level concrete examples as a way to make sure the property is really what we wanted.
+
+A case of declarative documentation, running as tests on generated samples, with a reconciliation mechanism to detect when either the code or the declared property become wrong.
+
+I'm not aware of tools supporting that, but it would be desirable at least from a documentation perspective to be able to declare higher-level properties like mathematical structures like monoids, groups or vector spaces. These mathematical structure are already defined by their properties. For example a monoid is a set and an operation closed under the set, with the operation being associative and there's a neutral element.
+
+--
+We could actually derive low-level details from higher-level principles, if we can identify them.
+
+## Strict invariants
+
+Conservation of a quantity over parts or over time: zero-sum games over every participant
+
+Neutrality of something: every traded package, aka strategies on bonds, swaps or option is delta-neutral at time of trade: Sum of sensitivity = 0
+
+Initial balance: every derivative value is zero at time of initial trade
+
+Shape theory: the dimensions of the result matrix for a matrix product can be calculated easily without doing the actual calculation
+
+Time-independence: changing the time of the system does not change the effect
+
+Isolation between sub-systems, aggregates, "Chinese walls": the price of a product once referenced in an order must not change, even if the price changes in the catalogue; change each attribute then check no impact on other elements expected to be independent
+
+Persistent effect: a change remains after shut-down or logout
+
+Fairness: Repeating a same unbalanced operation does not always favour the same participant: list of results from a search, allocation of money between participants with rounding error...
+
+## Principles
+
+Hierarchy of preferred goals / favoured stakeholders: the calculable benefit of each stakeholders must be ordered: protect the system (against unbounded loss) > protect the user (from error)
+
+Partial / total order: an order book is supposed to be sorted at least by price
+
+Nesting: Every date used inside a financial contract must lie inside the date range of its enclosing contract; same for a travel package with transport, accommodation and activities
+
+Continuity: A journey with several legs must be continuous in locations and time between every leg in order.
+
+Equivalence: two different representations of something must remain equivalent at all times, even if they evolve: trade execution == trade allocations in books; double-entry accounting;
+
+Enhancement: check the process actually enhances some calculable benefit for some stakeholder; check the process does not destroy value
+
+Entropy: check the sum of some quantity always decreases by a limited amount, due to fees, and frictions of all kinds; overall sum of money in a casino must almost always flow from gamblers to the casino.
+A reminiscence of supple design
+
+## Non-functional and orthogonal concerns
+
+audit, security, responsiveness, statelessness, commutativity, idempotence, purity...

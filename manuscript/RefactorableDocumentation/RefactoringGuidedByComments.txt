@@ -1,0 +1,82 @@
+# Case Study: An example of refactoring the code, guided by comments
+
+
+Let's start with this random class, taken from a legacy C# application:
+
+~~~~~~~~
+public class Position : IEquatable<Position>
+{
+    //could be just DealId
+    private IEnumerable<Position> origin;
+
+    // Position properties to be definied ...
+    private double Quantity { get; set; }
+    private double Price { get; set; }
+
+    // MAGMA properties to dispatch a job
+    public int Id { get; set; }
+    public string ContractType { get; set; }
+    public string CreationDate { get; set; }
+    public string ModificationVersionDate { get; set; }
+    public bool FlagDeleted { get; set; }
+    public string IndexPayOffTypeCode { get; set; }
+    public string IndexPayOffTypeLabel { get; set; }
+    public string ScopeKey { get; set; }
+    // end MAGMA properties to dispatch a job
+
+    #region constructors
+...
+~~~~~~~~
+
+Notice that most comments delimitate sections. For example the last comment basically tells in plain English: from here to there, this is a sub-section that is used only by the application MAGMA". Unfortunately plain English is code for people, and it takes developers, like you to deal with it each time and time again.
+
+We can do better than these free text comments to describe sections: we can turn them into formal sections represented by distinct classes. This way we turn the fuzzy knowledge in plain English into a strict knowledge expressed in the programming language instead.
+
+Let's do that for the last section:
+
+~~~~~~~~
+public class MagmaProperties
+{
+    public int Id { get; set; }
+    public string ContractType { get; set; }
+    public string CreationDate { get; set; }
+    public string ModificationVersionDate { get; set; }
+    public bool FlagDeleted { get; set; }
+    public string IndexPayOffTypeCode { get; set; }
+    public string IndexPayOffTypeLabel { get; set; }
+    public string ScopeKey { get; set; }
+}
+~~~~~~~~
+
+We could apply this approach once or twice again here, on the subsets of the fields. For example, Creation Date and Modification Version Date probably go together as a Versioning sub-section that could become a generic shared class:
+
+~~~~~~~~
+public class AuditTrail
+{
+    public string CreationDate { get; set; }
+    public string ModificationVersionDate { get; set; }
+}
+~~~~~~~~
+
+Doing that opens opportunities to think deeper about what we're doing. For example while naming it AuditTrail it becomes now obvious that it should probably be immutable to prevent mutating the history.
+
+*IndexPayoffTypeCode* & *IndexPayoffTypeLabel* also probably go together, as suggested by their similar naming:
+
+~~~~~~~~
+IndexPayoffTypeCode
+IndexPayoffTypeLabel
+~~~~~~~~
+
+The prefix of the name acts like a poor-man module name or namespace. Again this would be well-expressed as an actual class:
+
+~~~~~~~~
+public class IndexPayoffType
+{
+    public string Code { get; set; }
+    public string Label { get; set; }
+}
+~~~~~~~~
+
+We could go on and on, improving the code and its design, purely guided by comments, and naming. Use the formal syntax of your languages instead of fragile and ambiguous text comments.
+
+Comments, sloppy naming and other shameful signals suggest opportunities for improving code. If you see recognize that and you don't know the alternative techniques, this also means you need some external help on Clean Code, Object-Orientated Design or Functional Programming style.

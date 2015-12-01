@@ -1,0 +1,13 @@
+# Fun
+
+Fun is important for sustainable practices. If it's not fun, you'll not want to do it so often and the practice will progressively disappear. For practices to last, they'd better be fun. It's particularly important on so boring a topic like documentation.
+
+**Therefore: Chose practices that help satisfy the needs according to the principles, while being as fun as possible. If it's fun, do more of it, and if it's totally not fun, look for alternatives, like solving the problem in another way or through automation.**
+
+This assumes that working with people is fun, because there's no good way around that. For example, if coding is fun, we'll try to document as much as possible in code. That's the idea behind many suggestions in this book. If copying information from one place to another is a chore, then it's a candidate for automation, or for finding a way for not having to move data at all. Fixing the process or automating a part of it are more fun, so we're back to something that we feel like doing. That's lucky.
+
+![Fun starts with automating the chores](images/chore_automation.png)
+
+A> ## A rant that is not fun
+A>
+A> One more thing: there's nothing wrong with having fun at work, as long as we're professional in our work. This means doing our best to solve the problems that matter, delivering value, reducing risk. With that in mind, we're free to chose the practices and tools that make our life more fun. After 15 years in programming I'm now confident it's always possible to do professional work while having fun. The idea that work should be boring and unpleasant because it's work, or because we're paid for it to compensate for this very unpleasantness, is just stupid. We're paid some money to deliver value worth even more money. Delivering value is fun, and behaving professionally is pleasant too. And fun is essential for working efficiently as a team, in a pleasant atmosphere.

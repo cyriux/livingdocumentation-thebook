@@ -1,0 +1,79 @@
+# Internal Documentation
+
+*The best place to store documentation is on the documented thing itself*
+
+You've probably seen the pictures of the Google datacenters and of the Centre Pompidou in Paris. They both have in common a lot of color-coded pipes, with additional labels printed or riveted on the pipes themselves. On the Pompidou Center, air pipes are blue, water pipes are green. This logic of color-coding expands beyond the pipes: electricity transport is yellow, and everything about people transport is red, like the elevators and stairways.
+
+This logic is also ubiquitous in Google datacenters, with even more documentation printed directly on the pipes: arrows to show the direction of the water flow, and labels to identify them. In the real world, such color-coding and ad hoc marking is often mandatory for fire prevention and fire fighting: water pipes for firefighters have very visible labels riveted on them indicating where they come from. In a situation of crisis, you don't have time to look for the plan, you need the answer in the most obvious place: on the thing itsef.
+
+All the examples below illustrate the concept of Internal documentation.
+
+## Internal vs. External documentation
+
+Persistent documentation comes in two flavors: external or internal.
+
+External documentation is when the knowledge is expressed in a form that has nothing to do with the chosen implementation technologies of the project. This is the case of the traditional forms of documentation, with separate MS Office documents on shared folders, or wikis with their own database.
+
+The advantages of an external documentation is that it can use whatever format and tool that is most convenient for the audience and for the writers. The drawback is that it's extremely hard, if not impossible, to ensure that an external documentation is up-to-date with respect to the latest version of the product. External documentation can also simply be lost.
+
+
+In contrast, an internal documentation directly represents the knowledge by using the existing implementation technology. Using Java annotations or naming conventions on the language identifiers to declare and explain design decisions is a good example of an internal documentation.
+
+The advantages of an internal documentation is it's always up-to-date with any version of the product, as it's part of its source code. Internal documentation cannot be lost as it's embedded within the source code itself. It's also readily available and comes to the attention of of any developer working on the code just because it's under their eyes.
+
+Internal documentation also means you can benefit from all the tooling and all your the goodness of your fantastic IDE, like autocomplete, instant search, and seamless navigation within and between elements. The drawback is that your expressing the knowledge is limited to the possible extension mechanisms built-in the language. For example, as far as I know there's little we can do to extend the Maven XML with additional knowledge about each dependency. Another big drawback is that knowledge expressed as internal documentation is not readily accessible to non developers. However we know how to workaround that limitation with automated mechanisms that extract the knowledge and turn it into the kind of documents accessible to the right audience.
+
+> If you're familiar with the book Domain-Specific Languages by Martin Fowler and Rebecca Parsons, you'll recognize the similar concept of an internal vs external DSL. An external DSL is independent from the chosen implementation technology. For example the syntax of regular expressions has nothing to do with the programming language chosen for the project. In contrast, an internal DSL uses the regular chosen technology, like the Java Programming Language, in a way that makes it look like another language in disguise. This style is often called a Fluent style, and is common in mocking libraries.
+
+## Examples
+
+Examples of internal documentation
+
+- Self-documenting code and Clean Code practices, including
+- Class and method naming, using Composed Methods
+- Types
+- Annotations that add knowledge to elements of the programming language
+- Javadoc comments on public interfaces, classes and main methods
+- Folder organization, modules and submodules decomposition and naming
+
+It's not always easy to tell whether it's internal or external, as it's sometime relative to your perspective. Javadoc is a standard part of the Java Programming Language, so it's internal. But from the Java implementors perspective it's another syntax embedded within the Java syntax, so it would be external. Regular code comments are just in the middle grey area. They're formally part of the language, but do not provide anything more than free text. You're on your own to write them with your writing talent, and the compiler will not help check for typos beside the default spell-checking based on the English dictionary.
+
+We'll take the point of view of the developer. From the perspective of the developer, every standard technology used to build the product can be considered as a host for internal documentation. Whenever we add documentation within the their artifacts, we benefit from the our standard toolset, with the advantage of being in the source control, close to the corresponding implementation so that it can evolve together with it.
+
+- Feature files
+- Markdown files and images next to the code with a naming convention or linked to from the code or feature files
+- Tools manifests: dependency management manifest, automated deployment manifest, infrastructure description manifest etc.
+
+Examples of external documentation
+
+- README and LICENSE files
+- Checkstyle configuration
+- Any HTML, MS Office document about the project
+
+## Choosing between external or internal documentation
+
+In this book I'm definitely in favor of internal documentation, coupled with just enough automation for the cases where it's necessary to publish more traditional documents out of it. I'd suggest choosing internal documentation by default, and at least for all knowledge that's at risk of changing regularly.
+
+Even for stable knowledge I'd go for internal documentation first, and I would only chose to do external documentation when there's a clear value added, for example for a documentation that must be maximally attractive, perhaps for marketing reasons. In that case I'd do hand-crafted slides, diagrams with careful manual layout, and appealing pictures. The point of using external would be to be able to add a human feel to the final document, so I'd use Apple Keynote or MS Powerpoint, select or create beautiful quality pictures, and beta test the effectiveness of the documents on a panel of colleagues to make sure it's well received.
+
+Note that appeal and humor are two things that are hard to automate or to encode into formal, but it's not impossible either (See Google Annotation Galery).
+
+## In situ Documentation
+
+Internal documentation is also an *in situ documentation*
+
+> In situ: situated in the original, natural, or existing place or position
+>
+> in situ. Dictionary.com. Dictionary.com Unabridged. Random House, Inc. http://dictionary.reference.com/browse/in situ (accessed: August 10, 2015).
+Based on the Random House Dictionary, (C) Random House, Inc. 2015.
+
+This implies that the documentation is not only using the same implementation technology, but that it's also directly mixed into the source code, within the artifact that build the product. In Big Data space, "in situ data means bringing the computation to where data is located, rather than the other way". That's the same with in situ documentation, where any additional knowledge is directly added within the source code that is most related.
+
+This is convenient for the developers. Like in designing user interfaces, where the term in situ means that a particular user action can be performed without going to another window, consuming and editing the documentation can be performed without going to another file or to another tool.
+
+## Machine-readable documentation
+
+Good documentation focuses on high-level knowledge like the design decisions on top of the code, and the rationale behind these decisions. We usually consider this kind of knowledge to be only of interest to people, but even tools can take advantage of them. Because internal documentation is expressed using implementation technologies, it's most of the time parseable by tools. This opens new opportunities for tools to assist the developers in their daily tasks. In particular it enables automated processing of the knowledge, for curation, consolidation, format conversion, automated publishing or reconciliation.
+
+%% NarrativeOverview
+%% Refactorable doc + living doc brief examples

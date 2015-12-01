@@ -1,0 +1,21 @@
+# Knowledge is already there
+
+Every interesting project is a learning journey to some extent, producing specific knowledge. We usually expect documentation to give us the specific knowledge we need, however the funny thing is that all this knowledge is already there: in the source code, in the configuration files, in the tests, in the behavior of the application at runtime, in memory of the various tools involved, and of course in the brain of all the people working on it.
+
+> ## Knowledge is already there
+>
+> In a software project most of the knowledge is present in some form somewhere in the artifacts.
+
+The knowledge is there somewhere, but this does not mean that there is nothing to do about it. There are a number of problems with the knowledge that's already there.
+
+**Not Accessible**: The knowledge stored in the source code and other artifacts is not accessible to non technical people. For example, source code is not readable by non developers.
+
+**Too Abundant**: All the knowledge stored in the project artifacts is in huge amounts, which makes it not usable efficiently. For example, each logical line of code encodes knowledge, but for a given question, only one or two lines may be relevant to give the answer.
+
+**Fragmented**: There is knowledge that we think of as one single piece but that is in fact spread over multiple places in the projects artifacts. For example, a class hierarchy in Java is usually spread over multiple files, one for each subclass, even if we think about the class hierarchy as a whole.
+
+**Implicit**: A lot of knowledge is present but implicitly in the existing artifacts. It's 99% there, but is missing the one more 1% to make it explicit. For example when you use a design pattern like a Composite, the pattern is visible in the code, but only if you're familiar with the pattern.
+
+**Unrecoverable**: It happens that the knowledge is there but there is no way to recover it because it's excessively obfuscated. For example business logic is expressed in code but the code is so bad that nobody can understand it.
+
+**Unwritten**: In the worst case, the knowledge is only in people's brain, and only its consequences are there in the system. For example, there is a general business rule but it has been programmed as a series of special cases, so the general rule is not expressed anywhere.

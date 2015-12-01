@@ -1,0 +1,10 @@
+Tip 68
+"Build Documentation In, Don't Bolt It On"
+
+"In general, comments should discuss why something is done, its purpose and its goal. The code already shows how it is done, so commenting on this is redundant—and is a violation of the DRY principle."
+
+What we don't want:
+Misleading names
+Hungarian notation
+Revision history -> source control
+List of files this file uses -> parser or dependency manifest

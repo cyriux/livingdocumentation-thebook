@@ -1,0 +1,81 @@
+# A Gateway Drug to DDD
+
+*Get closer to Domain-Driven Design by investing on Living Documentation*
+
+Living Documentation is a practical way to guide a team of a set of teams in their adoptions of the DDD practices. It helps make these practice more concrete with some attention on the resulting artifacts. Of course the way we work with the DDD mindset is much more important than the resulting artifacts. Still, the artifacts can at least help visualize before what DDD is about, and then they can help make visible any clear mis-practice, as a guidance on how well it's done or not.
+
+
+## Domain-Driven Design in a nutshell
+
+Domain-Driven Design is an approach to tackle complexity in the heart of software development. It primarily advocates a sharp focus on the particular business domain being considered. It promotes writing code which expresses the domain knowledge literally, with no translation between the domain analysis and the executable code. As such, it calls for **modeling directly in code written in a programming language**, in contrast with a lot of literature on modeling. All this is only possible if there is the possibility of frequent and close conversations with domain experts, with everyone using the same **Ubiquitous Language**, the language of the business domain.
+
+Domain-Driven Design calls for focusing the efforts on the **Core Domain**, the one business area with the potential to make a difference against the competition. As such, DDD encourages developers to not just to deliver code, but to contribute as partners with the business, in a constructive two-way relationship where the developers grow a deep understanding of the business and gain insights on its important stakes.
+
+Domain-Driven Design is deeply rooted in Kent Beck's Extreme Programming, with the leitmotiv "Embracing Change". It also built on top of the pattern literature, most notably Martin Fowler's Analysis Patterns, and Rebecca Wirfs-Brock Responsibility-Driven Design, the book which coined the habit of naming practices in an "xDD" fashion.
+
+The DDD book also includes numerous patterns to apply DDD successfully. Probably the single most important one is the notion of **Bounded Context**. A bounded context defines an area of the system where the language can be kept precise and without ambiguity. Bounded Contexts are a major contribution to system design, to simplify and partition large complicated systems into several smaller and simpler sub-systems (one by Bounded Context) without much downside. As splitting systems and work between teams efficiently is quite hard, the notion of Bounded Contexts is a powerful design tool in the tool belt.
+
+Since the book was launched in 2003, most examples were proposed for application in object-oriented programming languages, but it has become clear since then that DDD applies just as well, with functional programming languages. In fact I often make the claim that DDD advocates a functional programming style of code even in object oriented programming languages.
+
+## Living Documentation and Domain-Driven Design
+
+This book is on Domain-Driven Design on several aspects:
+
+- It promotes the use of DDD in your project, in particular through the chosen examples
+- It shows how documentation can support the adoption of DDD and how it can act as a feedback mechanism to improve your practice
+- It is in itself an application of DDD on the subject of documentation and knowledge management, in the way this topic is approached
+- In particular, many of the practices of Living Documentation are actually directly DDD patterns from Eric Evans' book.
+- The point of writing this book is to actually draw attention to design, or lack of thereof, through documentation practices which make it visible when the team sucks at design.
+
+Does this make this book a book on DDD? I would think it does. As a fan of DDD, I would definitely love it to be.
+
+
+Living Documentation is all about making each decision explicit, with not only in the consequences in code, but also with the rationale, context and the associated business stakes expressed, or perhaps we should say *modeled*, using all the expressiveness of the code as a documentation media.
+
+What makes a project interesting is that it addresses a problem we have no standard solution for. The project has to discover how to solve the problem through **Continuous Learning**, with a lot of **Knowledge Crunching** while exploring the domain. As a consequence, the resulting code will change all the time, from small changes to major breakthrough.
+
+> "Try, Try Again" requires a Change-Friendly Documentation
+
+However, at all time it is important to keep the precious knowledge that took so much effort to learn. Once the knowledge is there, we turn it into a valuable and deliverable software by writing and refactoring source code and other technical artifacts. But we need to find ways to keep the knowledge through this process.
+
+DDD advocates "Modeling with code” as the fundamental solution. The idea is that code itself is a representation of the knowledge. Only when the code is not enough do we need something else. Tactical patterns leverage on that idea that code is the primary medium, and they guide the developers on how to do that in practice using their ordinary programming language.
+
+
+## When Living Documentation is an application of DDD
+
+Living Documentation not only supports DDD, it is also in itself an example of applying the DDD approach on the domain of managing knowledge throughout its lifecycle. And in many cases, Living Documentation is directly an applied case of DDD under a slightly different name.
+
+> ## A story of mutual roots between BDD, DDD, XP and Living Documentation
+>
+> The word Living Documentation was introduced by Gojko Adzic in the book Specification by Example, which is a book on Behavior-Driven Development (BDD). BDD is an approach of collaboration between everyone involved in software development which was proposed by Dan North. Dan introduced BDD by combining Test-Driven Development (TDD) with the Ubiquitous Language of Domain-Driven Design. As a consequence, even the term of "Living Documentation" already has roots in Domain-Driven Design!
+
+For example, Living Documentation strongly adheres to the following tenets of DDD
+
+- **Code is the model** (and vice-versa), so we want to have as much as the knowledge of the model in the code, which is by definition the documentation
+
+- **Tactical techniques** to make the code express all the knowledge: we want to exploit the programming languages to the maximum of what they can express, to express even knowledge is not executed at runtime
+
+- **Evolving the knowledge all the time**, with the DDD whirlpool: the knowledge crunching is primarily a matter of collaboration between business domain experts and the development team. Through this process, some of the most important knowledge becomes embodied into the code and perhaps into some other artifacts. Because all the knowledge evolves or may evolve at any time, any documented knowledge much embrace change without impediment like the cost of maintenance
+
+- **Making it clear what's important from what's not**, in other words a focus on curation: "focus on the core domain", "highlighting the core concepts" are from the DDD Blue Book, but there's much more we can do with curation to help keep the knowledge under control despite our limited memory and cognition capabilities
+
+- **attention to details**: Even though it is not written as such, many DDD patterns emphasize that attention to details is important in the DDD approach. Decisions should be deliberate and not arbitrary, and guided by concrete feedback. An approach of  documentation like Living Documentation has to encourage that, by making it easier to document what's deliberate, and by giving insightful feedbacks through its very process
+
+- **Strategic design & large-scale structures**: DDD offers techniques to deal with evolving knowledge at the strategic and large-scale scales, which are opportunities for smarter documentation too.
+
+
+It is hard to mention all the correspondances between the ideas of Living Documentation and their counterpart of Domain-Driven Design without re-writing parts of both books. But some examples are necessary to make the point.
+
+|Living Documentation pattern    | DDD pattern (from the book contents or from later contributions)      |Notes  |
+|---------------|------------------------------------|-----------|
+|Ready-Made Knowledge; Acknowledge Bibliography |Draw on Established Formalisms, When You Can; Read the Book; Applying Analysis Patterns | Clearly declare all the ready-made knowledge used with references to the sources |
+|Evergreen Document |Domain Vision Statement |Higher-level knowledge is a great example of stable knowledge that can be written in an Evergreen document  |
+|Code as Documentation |Model-Driven Design; Intention-Revealing Interfaces; Declarative Design; The Building Blocks of a Model-Driven Design (to enable expressive code) |DDD is about modeling in plain code, with the purpose of having all the domain knowledge embodied in the code and its test |
+|Living Glossary |Ubiquitous Language |When the code literally follows the Ubiquitous Language it becomes the single reference for the glossary of the domain |
+|Listen to the documentation | Hands-On Modelers |Modeling in code with a living documentation extracted from it gives a fast feedback on the quality of the design, in a Hands-on fashion |
+| Change-Friendly Documentation | Refactoring Toward Deeper Insight; Try, Try Again; Refactoring Toward Deeper Insight | "Embracing Change" is a permanent leitmotiv from Extreme Programming, DDD and Living Documentations |
+|Curation |Highlighted Core; The Flagged Core; Segregated Core; Abstract Core |Segregating what is particularly important from the rest is a key driver in DDD, to best allocate effort and cognitive attention |
+
+
+
+Living Documentation exploits all that to go beyond traditional documentation and its limitations. It elaborates on the DDD techniques and advices for knowledge about the business domain but also for the knowledge about the design, and even about the infrastructure and delivery process, which are technical domains too with respect to the project stakeholders. The ideas from Domain-Driven Design are essential to guide developers on how to invest in knowledge in a tactical and strategic way, dealing with change in the short term and in the long term as well. As such, as you are going the Living Documentation route you are learning Domain-Driven Design too.

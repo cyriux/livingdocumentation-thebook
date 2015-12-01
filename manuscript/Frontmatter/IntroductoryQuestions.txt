@@ -1,0 +1,17 @@
+# A simple question
+
+## Are you happy with the documentation you create?
+
+X> yes / no
+
+When you read documentation material, are you suspicious that it is probably a bit obsolete?
+
+X> yes / no
+
+When you use external components, do you wish their documentation was better?
+
+X> yes / no
+
+Do you believe that the time you spend doing documentation is time that could be better spent?
+
+X> yes / no

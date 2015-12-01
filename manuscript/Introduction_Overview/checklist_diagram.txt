@@ -1,0 +1,43 @@
+# No Documentation Checklist // reducing the waste
+
+%% to render, e.g at http://sandbox.kidstrythisathome.com/erdos/
+
+root [label="I want more documentation!"];
+why [label="why?"];
+who [label="who?"];
+need [label="do we really need it?"];
+trust [label=" trust?"];
+std [label=" standard? -> Focus on specific knowledge"];
+now [label="do we really need it now? -> JIT, Cheap Option, Upfront, For Review"];
+talking [label="Conversation & Working together is enough?"];
+keep [label="Persistent? Large Audience? Critical?"];
+written [label="Written & Self Documented Artifacts!"];
+
+root -> why;
+why -> who;
+who -> need;
+need -> trust;
+need -> std;
+std -> now;
+now -> talking;
+now -> keep;
+keep -> written;
+--
+# Knowledge Exploitation & Augmentation Checklist // knowledge already there
+
+Where's the knowledge right now?
+In people's head? -> encode somewhere as text, code, metadata etc.
+Already represented?
+
+exploitable, or obfuscated or unrecoverable?
+too abundant?
+accessible for the intended audience?
+in one single place or fragmented?
+What's missing to make it 100% explicit?
+
+--
+# Knowledge Evolution // maintenance, stable vs. volatile
+
+How stable is this knowledge?
+If it changes, what does change at the same time?
+If there's a redundant knowledge, how to make the redundant sources in sync?

@@ -1,0 +1,100 @@
+# Shameful Documentation
+
+> Just because it is documented, it doesn't make it less stupid.
+> -- Dalija Prasnikar on Twitter
+
+Documentation where its existence is in itself revealing issues that should be fixed rather than documented
+
+Documentation, when up-to-date and accurate, is often considered a good thing. However there are a number of cases where this is quite the opposite: the existence of the documentation in itself demonstrates  the presence of a problem. The infamous Troubleshooting Guide is probably the best example in this category. Someone decided to take the time to document the known troubles, usage traps and other anomalies of behavior, and this effort demonstrates that the issues are important enough to be worth documenting. However, this also means that these issues are not fixed, perhaps not even planed to be fixed.
+
+This is a kind of shameful documentation, documentation you should be ashamed of. This documentation, by its sole existence, should be seen as a confession of something to be fixed. Going further, the time spent creating the documentation should have been allocated fixing the troubles instead.
+
+**Therefore: Recognize the situations when documentation is a poor substitute for actually fixing a problem. Whenever possible, decide against adding more documentation and allocate time to fix the problem instead.**
+
+Of course there are many reasons for teams to add documentation instead of fixing the issues:
+
+- Budget: there is money allocated for documentation but no more money for working on the code
+- Laziness: it may seem easier to add a quick documentation on troubleshooting rather than actually tackling the root issue
+- Lack of time: documenting the issue is faster than fixing it
+- Cost: it may be genuinely difficult to address some issues. For example somes issues would require releasing a new version of the application to dozens of clients, which makes it prohibitively expensive.
+- Missing knowledge: sometime the team knows about the issues but missing knowledge and skills on where and how to fix the issues.
+
+
+If there is no time available to fix now, then the right place to document the issue is the defect tracker. However in the mindset of Shameful Documentation, a defect tracker is also in itself a demonstration of a deeper issue: defects should not accumulate, they should be prevented earlier or fixed immediately as much as possible. And are defects that can remain for a long time without being fixed really defects?
+
+If a feature is implemented so badly that it requires a manual with many pages of warnings and workaround instructions, or a lot of assistance from the support team, you may consider removing it until it is implemented correctly; chances are that almost nobody manages to use it anyway, or that using it is so expensive that it's not worth it.
+
+## An example
+
+In a past mission at a customer, I discovered a 16-pages-documentation on How to run and test a application. This is a guide for the all users, including end -user. We'll call this application Icare to protect the innocents. This is not a new project, it's used several times every day by dozens of people in the company. This document is full of screenshots highlighted in red color bubbles to show how to proceed, which is not so unintuitive. However most of the 16 pages describe where to "pay attention".
+
+> "Pay attention...[this may not work properly] Please note that...[there is a bug here] etc."
+
+This document is indeed full of warnings! "Pay attention, Icare is launched from another directory!". "Take really good care to not launch these tasks anytime because it will kill everything on the corresponding environment!".
+
+Pay attention, we're not professional.
+
+Almost half of everything written is about a trap waiting to bite you. "Pay attention to the name of the trigger, sometimes, it's not correctly named, so check in the trigger". Remember this is a document for the end users.
+
+And it gets even better: "After an export in XML, you should make a test of re-import to be sure that it works well". Okay, we can see that a developer had the time to write this document instead of fixing the code.
+
+And again: "Pay attention, partitions Icare_env1 and Icare_env2 are inversed between UAT and PROD!!!" Ah this time you mean everyone knows and it's been like that for years, but it's not in anyone plan to fix that? Or maybe the process is so heavyweight you'd first have to find a sponsor to pay for the fix first.
+
+
+## The Troubleshooting Guide
+
+And finally you see that at the end of the documentation, the infamous "known problems" section:
+
+~~~~~~~~
+1 Known problems
+
+1.1 Icare Job does not start
+
+It often happens. First of all, try to launch ift directly from Icare (so launch the application manually from the correct directory [c:/icare/uat1/bin for UAT, c:/icare/prod/bin for PROD]).
+
+
+If you are not able to launch it manually, it's because configuration of the job is not correct (missing or incorrect parameter date or calculation date, etc.). If it runs well, there is a problem when launching Icare in command line, so you need to check the log (to find where it logs, check the icarius_mngt.exe.log4net).
+
+In the past, there was also a problem for the first execution. It requires to have made a manual connection to the environment with the good login (IcariusId). When a first connection was established, the batch mode was correctly working.
+~~~~~~~~
+
+By the way notice the unconsistent naming of the application Icarius or Icare.
+
+Shameful documentation does not always means bugs, it may instead suggest opportunities for a better Ops-friendliness:
+
+~~~~~~~~
+"you have to check the caches are up otherwise they will hit the DB and degrade performance results"
+[...]
+"Very important : As we are not able to guarantee the synchronization of the two environments for the duration of jobs, we cannot launch different type of jobs".
+~~~~~~~~
+
+Once you begin to listen carefully to the documentation, it becomes a source of suggestions. What about a way to automatically monitor the caches, or even better, a mechanism to ensure they are always preloaded before operations?
+
+What about adding a safety mechanism so that if you do the error you're warned and you avoid the issue?
+
+## Don't tolerate the documented pain
+
+Don't tolerate the documented pain. Say no. Writing the documentation is wasting time, and reading it is wasted time too, and it will not even prevent anyone from falling into the trap completely, which will waste time again and again.
+
+
+The Troubleshooting Guide is not the only example of Shameful Documentation. Any document that is getting too big becomes a case of a Shameful Documentation in itself. A Developer Guide with 100 pages, or a thick user manual reveal issues of code quality and user-friendlyness respectively. You need a big user guide when the application is not intuitive to use, but addressing the real issue instead would probably be a better investment if you care about the users.
+
+## Shameful code documentation
+
+The same applies for software design. If it takes a lot of pages and many diagrams to explain the design of an application, then it also demonstrates that the design is poor.
+
+*See the dedicated chapter for more about that.*
+
+Finally, Shameful Documentation also applies to code. Every time the developer feel the urge to add a comment like:
+
+~~~~~~~~
+// beware this tricky case
+...
+// should never happen
+...
+// FIXME: remove this hack!
+~~~~~~~~
+
+it should instantly trigger a reaction to remove the comment and immediately fix the questionable code instead.
+
+There are many other examples of code that suggests improvements. They are discussed later.

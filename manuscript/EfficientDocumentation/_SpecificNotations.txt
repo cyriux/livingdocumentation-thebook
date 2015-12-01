@@ -1,0 +1,21 @@
+# Specific Notations, not only Generic Notations
+
+%% Specific Notations (Domain, Design...)
+%% Reggio Emilio: 100 languages
+
+%% an old blog to completely re-edit with the point that generic notation lack expressiveness compared to custom, dedicated diagrams where even the layout can have a carefully chosen meaning
+
+I've feeling a bit nervous when it comes to taking modeling / diagramming tools too seriously. I've used a lot of them, and though sometime useful, creating diagrams and using diagramming tools to author them exhibits many limitations in practice:
+
+- Once created, diagrams must be maintained otherwise they become misleading once no longer up to date. This means in practice that it is best to only maintain a small number of diagrams, e.g. to explain the big picture and the few aspects that are otherwise hard to understand on your own
+
+- Sharing models (XML schema etc.) instead of pictures makes communication to anyone not equipped with the right modeling tool much harder, which opposes the very point of diagrams that is to improve communication to many stakeholders, not only to developers
+- It takes a lot of time to author a diagram in a modeling tool, even with reverse engineering or round-trip, because it always takes a lot of time to select what to show and what to hide, i.e. select the focus of the diagram.
+- Hand-drawn diagrams are much faster to create, hence for many situations sketching with pen and paper or whiteboard is good enough
+- The code is the model (like it or not), and is the only up-to-date and really executable model. Fortunately modern IDE can answer many typical UML-ish questions quickly and on the fly, such as type hierarchy, call stack, packages organization…
+- In many cases there is just no efficient standard notation to express the aspect you intend to express, hence custom diagrams remain absolutely useful. To illustrate that, in the book The Architecture of Open Source Applications 25 open source projects are described by their own authors, and UML is almost absent from the whole book.
+
+
+In some cases the model can be considered the reference, e.g. using PowerAMC logical and physical models to generate the DDL scripts. In this case the model is just another kind of code, kept in source control just like the C# code (and the generated scripts should never be manually edited). However nowadays there are many alternatives (LiquiBase etc.) for a similar purpose, that all go very well with your source control too, and that could even be considered alternate forms of modeling.
+
+I don't believe there is that much to gain from spending time on modeling notation and tooling, as opposed to spending time on writing better code that is easier to understand when you read it, with all its tests as a documentation, and with just a few diagrams (in any format) required to provide the big picture.

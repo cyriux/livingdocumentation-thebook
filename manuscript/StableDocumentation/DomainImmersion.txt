@@ -1,0 +1,55 @@
+# Domain Immersion
+
+When working on a new business domain, there is a lot to learn quickly on this new domain.
+
+Traditionally, the project itself is the main way to learn. Task after task, each work part brings new vocabulary and new concepts that are learnt on the job, because this is necessary to do the job.
+
+This presents a number of weaknesses.
+
+There is not enough time to deliver a task and to study seriously a part of the business domain more in-depth. Learning remain superficial.
+
+Many tasks can be done with only superficial understanding of the underlying business. It may appear to work by coincidence, while really being a time bomb for next business requirements.
+
+Even if you decide to dedicate 2h out of the task to learn, the domain experts may not be available at that time, and maybe not before next week.
+
+Whenever the lack of domain knowledge is the bottleneck, it's an attractive proposition to invest some time early on to learn the domain. One of the best way to do that is by immersion.
+
+**Therefore: Invest time early to immerse the team into domain. Visit the place where the business actually takes place. Take pictures. Get copies of the documents being used. Listen carefully to the conversations of the business people. When possible, ask questions. Make sketches of what you see and take plenty of notes.**
+
+Domain Immersion is also an effective practice for new joiners to quickly discover what the domain is about. As such, it is an alternative form of knowledge transfer, directly from the field, which also means it is a genuine form of documentation.
+
+Sometime it is not possible, or prohibitively expensive to go to the field, in which case we need cheaper alternatives for this precious knowledge, like an Investigation Wall or simply trainings.
+
+## Investigation Wall
+
+You may even create a wall of findings, much like investigation walls in criminal investigation movies, where the detectives cover the walls with lot a of pictures, notes, maps with pins to fully immerse with the dossier.
+
+Similarly you can dedicate a space on the wall with pictures, notes, sketches and sample business documents to keep a feel of the actual business domain while you work for it.
+
+## Domain Training
+
+Once there, the next step would be to register the team, or part of the team, to specialized trainings about the business domain.
+
+In one of my past projects we've decided to invest in domain knowledge early, when the pressure was not so strong: twice a week, we dedicated 30 mn after lunch for a mini-training session. A business analysis or a product manager that was identified with a particular area of expertise joined the team as the domain expert to explain all we needed to know on one concept at a time: one session on bond coupons, another about standard financial options, another on a new regulation etc. It was considered useful by the team, all the developers enjoyed it.
+
+## Live-my-Life Sessions
+
+Going even further, you may try "live my life" sessions. For a period of time from half a day to 2 days, one or two developers stay close to someone doing business operations, to see what's really like to work in the business, using the software tools they have. It may be in the back, trying not to interfere and just watching passively. However it's best to have the ability to ask questions at any time, or during some predefined pauses.
+
+The experiment may be more involved, like being an assistant of the business person. Some companies go further and have employes completely switch their role for one day. As a developer, doing the job of an accountant for one day can be one of the best way to get to appreciate their stakes, and therefore to improve their software. It can also do wonders for the User Experience.
+
+## Shadow User
+
+A variant of this idea is to watch the behavior of the users as a "shadow user". You login as another real user, in a readonly fashion, and you see their screen in realtime. This is very valuable to watch how they actually use the software to achieve their business objectives.
+
+This is obviously not feasible in many cases, mainly for privacy reasons, or because the installed software is not accesible. You also need this feature of "shadow  user" in order to do that.
+
+## A long-term investment
+
+All this can be seen as an *investment*, because the business domain is usually quite stable. The details of doing the business do change all the time, but the business still uses the same old concepts.
+
+I realized that in 2007 when I opened a book on Finance written in 1992. The book was still relevant in all its content, except the examples were no longer realistic: interest rates in 1992 were often around 12-15% in some currencies, whereas 15 years later they were closer to 2%. And at the time of writing this book, they now are around 0.2%!
+
+Even books written well before the advent of computers would remain interesting.
+
+Another direct way to look at that an an investment is that all this contextual knowledge will inform many decisions every day, every minute, to make them better. And all the domain-specific words learnt as an investment will make discussions during meetings more efficient. You won't spend the first part of each meeting on clarifying the vocabulary any more.

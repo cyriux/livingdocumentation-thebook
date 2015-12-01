@@ -1,0 +1,35 @@
+# Integrated Documentation
+
+This documentation is even more integrated into your coding thanks to the autocompletion. This is sometimes called "intellisense" for its ability to guess what you need from the context. As you write code, the IDE shows what's available.
+
+Write the name of a class and press the dot key. Instantly the IDE Showa a list of every method of the class. In fact it's not every method, it's filtered to only show what you can really access in the context of your code under the cursor. It won't show the private method if you're not within he class for example.
+
+This is a form of documentation that is task-oriented and highly curated for your context.
+
+## Type Hierarchy
+
+A class hierarchy diagram is a classic element of a reference documentation. Because they usually use the UML notation they take a lot of screen real estate. In contrast, your IDE can display a custom type hierarchy diagram on the fly from any selected class. The diagram is interactive: you select whether to display the hierarchy above or below the selected type; you can expand or fold branches of the hierarchy. And because it's not using UML it's quite compact, so you can see a lot in a fraction of the screen.
+
+Imagine you're looking for a concurrent list with a fixed length but you can't remember its name. Select the standard 'List' super type and ask the IDE for its type hierarchy.
+
+The IDE displays every type that is a list. Now you can examine each type by their name, have a look at their Javadoc by mouse over, and select the one you want. Look ma, no documentation!
+
+Indeed, this is documentation. Just different. Again, this is a form of documentation that is task-oriented and interactively curated for your context.
+
+## Code search
+
+It would be unfair to talk about the IDE without mentioning their searching capabilities.
+
+When you're looking after a class but don't remember its name, you can just type stems that belong to its name and the interval search engine will display a list of every type that contains the stems. The same works with just initials of each stem. For example You can type "bis" as a shortcut for "BufferedInputStream".
+
+(An example please)
+
+## Semantics derived from the actual usage
+
+A colleague at Arolla, Mathieu Pauly, once told me about the idea that meaning comes from the associations between things. One way to learn what a class means is by looking at its relationships with all other classes that we already know.
+
+Superficially this is something that you probably do. Imagine that you need to find every transactional service within the codebase. If the services use annotations like '@Transactional' then it's easy. Select the annotation anywhere, and ask the IDE to find all usage.
+
+Otherwise, let's suppose that transactions are done through the standard Java class 'Transaction' and it's method 'Commit()'. You can ask the IDE to retrieve the call stack for this method. Every class calling directly or indirectly this transaction stuff should be a transactional service. The IDE is an assessment tool.
+
+It's far from perfect. You have to translate your actual goal into what the IDE offers. Still, all these capabilities replace advantageously a lot of documentation that would otherwise be necessary. The IDE is a great integrated documentation tool.

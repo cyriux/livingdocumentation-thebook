@@ -1,0 +1,68 @@
+
+curation + scenario digest
+intrinsic
+
+======= August 15
++
+
+2O+ parts
+
+Dear readers,
+Thanks for your support on this book! Here's another update of the book, with more than 20 new parts, for example on Conversations & Working Collectively.
+
+There's a chapter dedicated to having the code be its own documentation, and other patterns that also leverage code and configuration files for documentation purposes: Declarative Automation & Small Scale Simulation. This is just a subset. The book is still a draft, but now it gives a clear ideas of what it's about. Don't hesitate to send feedback on what you like or what you'd expect, and ask any questions.
+
+Cyrille
+
+
+Introduction/KnowledgeLifecycle.txt
+Introduction/Checklist.txt
+Introduction/_Overview.txt
+---Problem, WhatIsDocumentation (soon: CorePrinciples)
+KnowledgeExploitation/ReadyMadeKnowledge.txt
+NoDocumentation/Conversations.txt
+NoDocumentation/WorkingCollectively.txt
+NoDocumentation/DeclarativeAutomation.txt
+EfficientDocumentation/StackOverflowDocumentation.txt
+EfficientDocumentation/SpecificationWorkshops.txt
+EfficientDocumentation/SmallScaleSimulation.txt ->
+Introduction_Overview/SpineModel.txt
+
+KnowledgeExploitation/SingleSourcing.txt
+KnowledgeExploitation/Reconciliation.txt
+KnowledgeExploitation/InformationConsolidation.txt
+
++
+RefactorableDocumentation/CodeAsDocumentation.txt
+RefactorableDocumentation/TypeDrivenDocumentation.txt
+RefactorableDocumentation/ComposedMethod.txt
+RefactorableDocumentation/FluentStyle.txt
+RefactorableDocumentation/RefactoringGuidedByComments.txt
+RefactorableDocumentation/PlainTextDiagram.txt // TODO add code sample to generate one (Diagrammr is dead)
+
+RefactorableDocumentation/DiagramInCode.txt //pending
+
+==============
+June 30th
+
++ KnowledgeAugmentation/DocumentationByConvention.txt
++ BDD made a real chapter
++ LivingDocumentation/HexagonalArchitectureDiagram.txt
++ Beyond Doc:
++ Abusing LD
++ Listen to the doc
++ Deliberate Design
++ Biodegradable doc
++ Hygienic Transparency
++ Enforced Guidelines
+
+==============
+STATUS:
+
+Publisher ideal is 288 pages (270 - 320 pages, including biblio and index, around 10-20 pages, not so much needed for an e-book)
+
+Publisher ideal = 90 - 100K words
+
+Sandro Book: 83K words
+
+About 30 lines per page

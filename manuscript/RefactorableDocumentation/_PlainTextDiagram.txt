@@ -1,0 +1,26 @@
+# Plain-Text Diagram
+
+Tools that take a bunch of text files to render them into beautiful documents can help. Here are some examples:
+
+- Markdown, yaml, even json for the content in itself, plus tools to render that into other documents
+- interactive slideshow from markdown files with Reveal.js
+- ASCIIDoc
+- d3.js
+
+- Diagrammr-like
+- Structurizr
+
+
+# Diagram in Code
+
+An alternative flavor of a plain-text diagram would be to use code as a way to declare the nodes and their relationships. There are benefits
+
+- You benefit from auto-completion
+- The code will benefit from the automated refactoring to remain in sync with all changes
+
+and some drawbacks too
+
+- Code itself is less readable by non-developers
+- Identifiers names cannot contain whitespace
+
+*To be continued with an example*

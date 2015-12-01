@@ -1,0 +1,47 @@
+During QCon 2015, Dan North talked about a model where code is either so old and well established that everybody knows how to deal with it, or that's so young that the people doing it are still there so they know well about it. Problems happen when you're in in the grey zone between these two modes.
+
+This thinking emphasizes the central role of knowledge sharing and knowledge preservation as a key ingredient of successful teams. But Dan also goes further and suggests alternative ways to deal with this issue.
+
+
+# Replaceability-First
+
+You don't need much documentation for components you can replace easily. Sure, you need to know *what* the components were doing, but you don't have to know *how* they were doing it.
+
+In this mindset you could give up maintenance. If you have to change something, you could just rebuild it all. For this approach to work every part has to be reasonably small, and as independent as possible from every other component. This shifts the attention on the contracts that are between components.
+
+**Therefore: Favor a design that makes it easy to replace a part within the whole. Make sure that everybody knows exactly what the part does. Otherwise, you need documentation for the behavior, for example the working software you can easily play with, self-documented contracts of the inputs and outputs, or automated and readable test.**
+
+When the team does not care enough about design, the components just grow and get hairy. They quickly get coupled to everything. As a result you can never really replace them totally. Making the code easy to replace is still an act of design, it does not happen out of pure luck or without skills and care. It takes discipline. One obvious way is to limit the size of the component, for example up to one page on the screen. Another way is to decide strict restrictions on what components can call each other and how they should not share data storage. For more on all these ideas please check books on micro-services.
+
+Even with an approach that favors Replaceability, design skills remain necessary. For example the Open-Close Principle is indeed a case of making the implementation replaceable easily, along with it's good friend the Liskov Substitution Principle. The other SOLID principles also help. They are usually discussed at the class and interface level. Yet, they also apply at the bigger granularity of components or services. But to be really replaceable at low cost they have to be small, hence the idea of "micro"-services.
+
+# Consistency-First
+
+Consistency in the code base is when code that you've never seen looks familiar so that you can deal with it easily (Dan North).
+
+In practice consistency is hard to maintain beyond bounded areas: consistency is more natural within one component, within one programming language, and even within one layer. You often don't follow the same programming style for GUI than for server-side domain logic.
+
+For a given area of the code base with a  consistent style of code, once you know the style there's nothing more to say for all elements in the area. Consistency makes everything standard. Once you know the standard there is nothing else to tell.
+
+This all depends on the surrounding culture: for example, in a JEE-heavy company, there is no need to tell why you decided to use EJB, but you'd need to explain when you decide not to use them. In another company with better taste, that would be the opposite.
+
+If you decide as a team that no method is allowed to return null within your domain model, then this decision only has to be documented in one place, for example in the root folder of the domain model source control. Then there's no need to talk about that any more on each method.
+
+**Therefore: Agree as a team on concrete guidelines to apply within chosen bounded areas. Document them briefly in one place.**
+
+There has to be exceptions to the rule. Not every class will be consistent. However as long as the number of exceptions is low, it's still cheaper to document the derogations explicitly than to document everything on every class.
+
+Here's an example of the guidelines that a team decided for a Domain Model:
+
+- No abbreviation in naming of public signatures
+- Business-readable names in all public interfaces and their methods
+- Null-free: no null allowed as return type or as method parameter
+- All classes immutable by default
+- All methods side-effect-free by default
+- No SQL
+- No import of frameworks at all, including javax.*
+- No import of infrastructure (middleware etc.)
+
+
+
+**Enforced Guidelines** are a way to document the guidelines in a way that is effective even if nobody reads them.

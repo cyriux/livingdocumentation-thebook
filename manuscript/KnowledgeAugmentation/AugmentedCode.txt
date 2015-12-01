@@ -1,0 +1,44 @@
+# Augmented Code
+
+> The source code might have code that is never executed, variable and procedure names that are lies, and is in general a poor way to learn the programmer's intention. To me, design is as much the decisions and the reasons as the results of the decisions. Sometimes code makes that clear, but usually it doesn't.
+>
+> -- RalphJohnson http://c2.com/cgi/wiki?WhatIsSoftwareDesign
+
+Software is built from its source code. Does this mean that the source code tells everything there is to know over the lifecycle of the application?
+
+Sure, the source code tells a lot, and it has to. The source code describes how to build the software, for the compiler to do it. Clean Code goes further, it aims at making knowledge as clear as possible for the other developers working on it.
+
+Still, code is often not enough.
+
+## When programming languages are not enough
+
+Most programming languages have no predefined way to declare the key decisions, to record the rationale and to explain the choice made against the considered alternatives. We need a way to add the knowledge behind these decisions into the code. But programming languages can never tell everything. They focus on their key paradigm, and then rely on other mechanisms to express the rest: naming, comments, libraries etc.
+
+A> Consider the infamous metaphor of a construction of a bridge. A bridge is built from its technical drawings. However if we are to replace its wood timbers by new ones in a new material like steel, the original technical drawings won't be enough. They will tell the dimensions chosen for the wooden timbers, but they won't tell where the dimensions come from. They won't tell about the calculations of resistance of materials, of fatigue of materials, of resistance against strong waters and extreme wind forces. They won't tell what was considered "extreme" at the time. Perhaps it should be reconsidered now to accommodate more extreme conditions in the light of recent events, like a tsunami that were thought unlikely at the time of construction but that we now know actually happens.
+
+When it comes to documenting design decisions and their rationale, programming languages can't help much beyond simple standards decisions like the typical visibility of members, or inheritance. When a language does not support a design practice, workarounds like naming conventions do the job. Some languages with no way to express private methods prefix them with an underscore. Languages without objects adopt a convention of having a first function parameter called 'this', and so on. Yet even with the best programming language, a lot of what's in the developer's head still cannot be fully expressed by the sole language.
+
+It's possible to add knowledge as code comments. But comments lack structure, unless you hijack structured comments like Javadoc. Also refactoring do not apply to comments as well as they apply to the code.
+
+**Therefore: Augment your programming language so that the code can tell the full story, in a structured way. Define your own way to declare the intentions and the reasoning behind each key decision. Declare the higher-level design intentions, the goals and the rationales.**
+
+**Don't rely on plain comments for that. Use strong naming conventions, or the extension mechanisms of the language, like Java annotations and .Net attributes, the more structured the better. Don't hesitate to write a little code solely for this documentation purpose. Create your DSL or reuse one if needed. Rely on conventions when suitable.**
+
+**Keep the augmented knowledge as close as possible to the code it is related to. Ideally they should be collocated to be totally refactoring-proof. Make the compiler check for any error. Rely on the autocompletion of the IDE. Make sure the augmented knowledge is easily searchable in your editor or IDE, and that it is easily parseable by tools to extract living documents out of the whole augmented code.**
+
+With Augmented Code, even after all documentation has been lost, the code still contains a lot of valuable hints for the future maintainers.
+
+One important consideration when adding knowledge related to the code is how it evolves when the code changes. Code will change, because that's the way it is. As a consequence it's essential that the additional knowledge either remains accurate, or changes at the same time as the code, with no or as little manual maintenance as possible. What happens when a class or package is renamed? What happens when a class is deleted? The extra knowledge we want to add should be refactoring-proof.
+
+Augmented Code is great to make decisions explicit in the code, and to add the rationale behind the decisions.
+
+Because it is structured, Augmented Code is also easy to search and to navigate in the IDE, without plugins. This means that it also works the other way: from a chosen rationale you can find all the code that is related to it. That's quite valuable for traceability or impact analysis.
+
+
+Augmented Code in practice can be done with several approaches:
+
+1. by Annotation
+1. by Convention
+1. with Sidecar files
+1. with a Metadata database
+1. with a DSL

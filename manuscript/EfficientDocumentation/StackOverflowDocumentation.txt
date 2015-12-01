@@ -1,0 +1,15 @@
+# StackOverflow Documentation
+
+*Don't write all the documentation, let people on SO do it for you.*
+
+Several times I heard colleagues or even candidates tell that SO is by far the best place to go for documentation, and my experience tends to corroborate this. Official documentation pages are often boring and seldom task-oriented. The funny thing is that people answering on SO often had to use the official documentation pages to build their own knowledge, together with trial and errors or even by having to read the source code sometime.
+
+People answer questions very quickly on SO. It's another form of *living* documentation: contribute a question, then people all over the world will quickly contribute answers, making the documentation a really living thing.
+
+**Therefore: When the topic is popular enough, let SO provide a good task-oriented documentation on top of your reference documentation you provided. Let your teams post questions on SO, and let them answer other people's questions as well.**
+
+This requires your project to be published online, usually with its source code. It especially requires the project to be successful with enough demand to attract contributors.
+
+Or you can keep it internal and closed source and use an equivalent [on-premises Stack Overflow clones](http://meta.stackexchange.com/questions/2267/stack-exchange-clones). However a domestic Stack Overflow clone may probably miss the scale to work as efficiently as the true worldwide site.
+
+One downside with Stack Overflow is that if your product is crap it will show. However you can't prevent that happening on the web, unless you make the product better of course. You may also dedicate many employees to answer questions in a positive way to improve a bit the user experience too.

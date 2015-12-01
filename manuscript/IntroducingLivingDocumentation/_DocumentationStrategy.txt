@@ -1,0 +1,175 @@
+# Defining a Documentation Strategy
+
+%% Relax! Not too serious. Demand-Driven. Short. To the point. Just a checklist to make sure no topic is forgotten.
+
+Astonishment report from all newcomers
+
+# Documentation Landscape (Andrea Ruping)
+
+Content Ordering:
+narrative, logical, dramatic
+
+Decision / Task Oriented
+
+Intention Revealing
+
+
+> If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better
+> @ploeh on Twitter
+
+
+- Goals? why?
+- A matter of retrospective
+- Clarify the requirements
+- Let the team decide (how to meet the requirements)
+- Ready-made strategy: this book lists many techniques you can include to create your own strategy, you can reuse and refer to it directly.
+- Auditing and compliance
+When LD is not the rignt fit
+
+## Ready-made
+
+
+
+## Segregate asset vs temporary information
+Sprint vs System/product
+%% insert picture 18/12/2013
+
+## A Strategy must match people aspirations
+
+Developers:
+- Don't like writing documentation
+- Like to write code
+- Love code, doing more with code is appealing
+- Hate manual, repetitive tasks
+- Love automation
+- Are proud of beautiful code
+- Love plain text and their favorite tools
+- Love logical things: text-first, DRY
+- Love to exhibit mastery and geek culture
+- Want recognition of skills
+- Empathize with real-life messy situations (like everyone)
+
+Managers:
+- Love to see things they usually don't see
+- Love to see things presented in ways they can feel, and understand whether it's getting better or worse
+- Love documentation to be more turnover-proof
+
+Resonate with that. It's critical for a documentation strategy to exhibit a vision that everybody would genuinely like to happen.
+
+Nancy Duarte (Resonate) offers suggestions on how stimulate excitement and enthusiasm through the way you present. For example if you've decided to introduce Living Documentation into your team or company, you could start with asking yourself "Why do I want to share and promote that? Why am I excited?"
+
+To illustrate that, I would say that I decided to write this book to share about Living Documentation because:
+- I love to code
+- I hate doing the same thing twice
+- I have documentation but I acknowledge there's a need to be fulfilled
+- I tried many ideas to fix that, and many of them made my life easier, so now I'm hooked
+
+What is, to be contrasted to the new world:
+- You don't write documentation, and you feel guilty about that
+- You write documentation, and you'd prefer write instead
+- You're looking for documentation and when you find some you cannot trust it because it's out of date
+- When you create diagrams you're frustrated it takes some much time
+- Looking for the right document itself takes so much time for little result that you often give up and try to do the work on your own
+- When you collaborate the agile way with lots of conversations, you feel uncomfortable because your organization expects to deliver more traceable and archived documents
+- You do a lot of tedious work manually, including deployment, explaining stuff to external people, and paperwork
+
+
+## An example of a maxim on improving the documentation everyday
+
+> **Make the value you've added permanent**
+> -- Andy Schneider
+
+> - Comment code that you are working on so the next person doesn't have to go through the same pain.
+> - Find design documents to update and update them.
+> - Document how to run any tests you've developed.
+> - Give any useful scripts you've developed to the local toolsmith (there is always one).
+
+%% Insert Guest testimony here
+
+
+# Skills Matrix (automated from source control? Declarative?)
+
+From [Jim Heidema](http://www.agileadvice.com/2013/06/18/agilemanagement/leaving-your-title-at-the-scrum-team-room-door-and-pick-up-new-skills/)
+
+This is a chart that can be posted in the room to identify the skills needed and the people on the team.   On the left column you list all the team members.  Along the top you list all the various skills you need on the team.  Then each person reviews their row, looking at each skill, and then identifies how many quadrants of each circle they can fill in, based on the range below the chart.  The range is from no skills through to teach all skills in a given column.  After filling the columns and rows, now the work begins.  By using pair programming (an extreme programming method) and other methods like self-study and taking additional courses, the team member can begin to learn other skills.  The objective is to have at least two persons on each team who possess each of the skills at the level of performing all the tasks of a specific skill.  The goal is not to have every one do everything but to have a least enough people with specific skills to cover sicknesses and vacations so that required tasks are performed.  This is a method to capture the full extend of each person's current knowledge, skills and abilities and expand on it.
+
+Since they are hard to see, here are the labels for the number of quadrants:
+0: no skill
+1: basic knowledge
+2: perform basic tasks
+3: perform all tasks (expert)
+4: teach all tasks
+
+--
+%% from blog, to re-edit
+The challenges with automated generation of design documentation
+
+Producing a documentation of the design of a software project manually requires a lot of work, and becomes obsolete very quickly after the next change or refactoring. Manually drawing meaningful UML diagrams is very time consuming, and even choosing what to display takes a lot of time.
+
+Domain-Driven Design states that the code is itself the model, but code lacks the ability to clearly express larger-than-class structures and collaborations. This is why some additional, carefully selected, design documentation makes sense.
+
+Generating design documentation
+
+One idea that we want to explore is the use patterns to help with the process of generating a design documentation. Patterns naturally lie "on top" of the language elements. They address a particular problem within a context, discuss a solution and have a clear intent. They involve a collaboration of several elements from the language, such as a collaboration of several classes or just relations between fields and methods within a class. Each pattern is a chunk of design knowledge. When comes the time to automate the description of the design, it sounds natural to chunk the automation process by pattern as well.
+
+Our experiment is to declare the patterns used in the code (using annotations), then let a tool derive from them a macro structure of the software design. Display instructions and hints are encoded as procedures and attached to each pattern definition. From the patterns declared in the code, the tool can then generate a design documentation informed by the knowledge chunked pattern by pattern.
+
+## The project to be documented
+
+Let's assume that we have a project with source code well organized into packages, layers etc. Its Vision Statement, the Bounded Contexts and their Ubiquitous Language are stored as text files at the root of the project. The relationships between contexts and the possible Anti-corruption layers used could also be described there.
+
+During development many of the programming language elements (interfaces, classes, methods, packages) have been annotated with patterns annotations to declare every pattern (DDD, GoF, Fowler Analysis and PoEAA patterns in particular) that we know are present at the design and architecture levels.
+
+Even the frameworks used may have been also declared using the pattern vocabulary. For example the ORM would be declared as being a Data Mapper.
+
+## Navigation Path
+
+Create a Navigation Path, which is like a journey that goes through the various aspects of the project in a sensible order, with a sense of continuity and of progressive refinement, from the general to the detail.
+
+We can decide to build a path by decreasing priority, such as if you had to stop at any point, you would still have seen the most important so far. Another objective of a navigation path is to walk through the complete project (or at least the most important part), and too avoid duplication.
+
+This navigation path is made of a sequence of Frames. Each frame describes a limited scope of the project. A frame can be a diagram, or a piece of text, or a table.
+
+Each frame has a clear and deliberate perspective on what message it must convey: an Editorial Perspective. For example, a layer diagram is usually used within the editorial perspective of showing the coarse-grain dependencies, rather than within a perspective of data flow.
+
+For each frame, we only Focus on a selection of Elements (programming language elements and patterns on top of them) and on a selection of their Associations. This also means that every other element and association is left out. This selection is dependent on the editorial perspective.
+5 - 7 items at a time
+
+Only display or describe no less than 2 and no more than 7 elements at a time, ideally 5-7 items at a time. The issue is that this constraint propagates to every other aspect of navigation path planning!
+
+If for a given frame there are too many items, they must be ranked by decreasing importance, then the 7 first are selected for display, while the other are left for the next frame, and so on until they are all presented, no more than 7 at a time. So far this is just a kind of Pagination. Anyway the next frame must usually reference one or two elements from a previous frame, such as the interface at the top of their type hierarchy, which complicates the pagination a bit.
+
+If there are too many pages, the last pages may be skipped altogether or moved as Addendum or reference, because they may not be of high importance.
+
+On the other hand, to help focusing on 5-7 elements at a time, if a frame does not have much to present (for instance only 2 elements) and if another frame the next frame itself does not contain much (for instance only 4 elements), then we can merge the two frames into one. This Frame Merge can also be done recursively, for instance we could merge 5 frames of only one element into one with 5 elements. A merge can only be done between frames that share a consistent editorial perspective and that describes related elements (e.g. elements with associations between them).
+
+Navigation path planning & Dimensions of navigation
+
+Many navigation paths are possible, along the many dimensions of a software project, each with its distinct editorial perspective and focus:
+
+-  By module or folder containment: à la "Russian Dolls", simply recursively traverse projects and sub-projects, modules and sub-modules, classes and their members. The natural ranking is given by how each scope is nested within another.
+
+-  Specs Vs. Implementation: Present the Vision Statement, Ubiquitous Language and the Business Domains, then describe  to the corresponding modules: this requires the ability to link modules to their context.
+
+-  By contexts map that shows the relationships between contexts, perhaps including strategic design downstream or upstream links, ACL etc.
+
+-  Domain Vs. Cross-cutting concerns: this requires that the patterns definitions or patterns occurrences explicitly declare which domain or concern they address
+
+-  By view (deployment, data flow...); this requires that the patterns definitions (or patterns occurrences) explicitly declare which view is relevant for them
+
+-  By pattern: drill down "architectural" patterns (desktop app, client-server, smart UI, 3-tiers, PoEAA MVC, layers, transaction scripts, table modules, frameworks viewed as arrangements of patterns): this requires either a fixed predefined ordering of the patterns definitions, or a manual configuration of the drill down, or the capability to sort the patterns and their relationships by some sort of topological sort
+
+A navigation path may also interleave several drill-down along various axes, in a similar approach to the breadth-first traversal where we explore several branches in parallel, level by level.
+Ranking strategies
+
+When the navigation dimension does not provide a natural ranking of its elements, we can use explicit ranking strategies:
+
+-  By relative importance = level of distillation: rank from Core concepts to Supporting concepts; from highlighted part of the Core Module to other parts
+
+-  By most depended upon: Depended upon first is a good approach that estimates the relative importance of each element, a a similar way to the Page Rank of search engines
+
+-  By frequency of participation in patterns
+
+-  By abstractness: Abstract first; this can be seen as a consequence of sorting most depended upon elements first since super types are more depended upon than concrete classes
+
+-  By topological sort in the graph of patterns, which again is a consequence of "depended upon first" sorting

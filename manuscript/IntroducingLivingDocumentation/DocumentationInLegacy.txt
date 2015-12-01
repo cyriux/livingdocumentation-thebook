@@ -1,0 +1,187 @@
+# Documenting Legacy Applications
+
+
+> The universe is made of information, but it doesn't have meaning - meaning is our creation. Searches for meaning are searches in a mirror. - @KevlinHenney
+
+## Documentation Bankruptcy
+
+This quote illustrates the case of legacy systems: they are full of knowledge, but it is usually encrypted and we have lost the keys. Without tests, we have no clear definition of its expected behavior. Without consistent structure, we have to guess how it was designed, for what reasons, and how it is supposed to be evolved. Without a careful naming, we also have to guess and infer the meaning of variables, methods and classes, what code is responsible for what.
+
+In short, we call systems 'legacy' when their knowledge is not readily accessible. They exemplify what we could call a "documentation bankruptcy".
+
+Legacy applications are quite valuable, they cannot be simply unplugged. And most attempts to completely rewrite large legacy systems eventually fail. legacy systems are a problem of rich organizations, and that is a good problem to have.
+
+Still, legacy applications raise issues when they have to evolve due to changing context, because they are usually expensive to change. This prohibitive cost of change is related to many flaws like duplication and lack of automated testing, but also directly in the lost knowledge. Any change requires a long and painful reverse-engineering of the knowledge from the code base, including a lot of guesswork, before one line of code is eventually touched at the end.
+
+All is not lost anyway. In this chapter we'll see a few Living Documentation techniques which particularly apply for legacy systems in the context of a project to change them.
+
+## Legacy application as a complementary documentation
+
+*Legacy systems should not be considered blindly as a reliable documentation to rewrite new systems*
+
+We've seen before that anything that can answer a question can be considered documentation. If you can answer questions by using the application, then the application is part of the documentation. This is of great relevance in the case of a legacy system with lost specifications. You have to use it to know how it behaves.
+
+In the context of rewriting a part of a legacy system, this may be handy since the new system will probably inherit a significant part of the behaviors of its predecessor. For each feature that will make it into the new system, the specifications can draw on the former system. In practice, while doing the specifications workshops, you can check how the legacy application behaved as an inspiration for the new one.
+
+W> ## The "rewriting with the same specs" fallacy
+W>
+W> One common failure mode of rewriting legacy systems is to rewrite them with the "exact same specifications". It makes little sense to rewrite a system without changing anything, it is just a lot of risk and a lot of waste. Changing only the technology stack is hardly a good idea either, unless your hardware is no longer available commercially and there is no emulator.
+W>
+W> Rewriting a piece of software is an expensive endeavor, even from a purely technical perspective, and the best way to improve the return is by taking the opportunity to reconsider the specifications at the same time. Many features are no longer useful. Many features should be adapted to new usages and context. The UI and its UX probably has to change drastically, with impacts on the underlying services. You'll also want the new application to be cheaper to deliver more frequently, so you'll want automated testing too, which come cheaper when you start from clear specifications as concrete examples, as advised by BDD.
+W>
+W> I would strongly suggest against rewriting with the same specs. Rewrite a limited portion of the system, and consider it is a project from scratch, with the legacy system, the working application and its source code, as a bonus to draw inspiration from.
+
+Therefore: **In the context a rewriting a part of a legacy system, consider the legacy system as a documentation to complement the discussions on the specifications. Make sure a business person like a domain expert, Business Analyst or Product Owner works closely with the team. Don't fall into the fallacy that the legacy system is in itself a sufficient description of the new system to be rebuilt. Take the opportunity of the rewriting to challenge every aspect from the legacy system: the functional scope, the business behaviors, the way it is structured into modules and so on. Regain control of the knowledge from the start, with clear specifications expressed as concrete scenarios, and a clear design.**
+
+The ideal configuration is a Whole Team, with all skills and roles inside the team, as described earlier when talking about the 3 Amigos: business perspective, development perspective and quality perspective.
+
+Having access to both the working legacy application and to its source code is a nice bonus compared to projects starting purely from scratch. It's like having another expert in the team, even if it is an old, sometimes irrelevant, expert. After all, the legacy system is the result of a patchwork of the decisions of many different people over a long period of time. It's a fossil.
+
+The perfect case is when the legacy system is instrumented, in which case it can also provide answers to the question "how often is this feature used?".
+
+## Bubble Context (Evans)
+
+*Even in a legacy system, you want to go back to the ideal land where everything is nice and clean.*
+
+If you have some amount of features to build, then you may decide to build the new features in their own new clean Bubble Context. It can be a new specific module, namespace or project, that is then easy to document as explained in previous chapters, e.g. using Annotations, Naming Conventions and Enforced Guidelines
+
+![A clean Bubble Context integrated within a legacy mess](images/legacy/legacy_bubble_context.jpg)
+
+Just like architecture and guidelines, the legacy strategy may also be enforced using automated tools. But it is often hard to apply the same level of expectations everywhere, so it is a good idea to be stricter on the new code being written inside the Bubble Context. For example you may want to forbid any new commit from having direct references (java import or C# using) on a deprecated component.
+
+Typically, if you use the Bubble Context approach you can declare demanding requirements for the full bubble as a whole, e.g. using package-level annotations:
+
+~~~~~~~~
+@BubbleContext(ProjectName = "Invest3.0")
+@Immutable
+@Null-Free
+@Side-Effect-Free
+package acme.bigsystem.investmentallocation
+
+package acme.bigsystem.investmentallocation.domain
+package acme.bigsystem.investmentallocation.infra
+~~~~~~~~
+
+A Bubble Context is a project from scratch inside of a legacy project. It is the perfect place to practice TDD, BDD and DDD on a limited functional area, to deliver a bulk of related business value.
+
+A bubble context is a perfect technique to rewrite a part of a legacy system, as in the Strangler Application (Fowler) pattern. The idea is to rebuild a consistent functional area which will progressively take over the old system.
+
+Therefore: **If you need to make a lot of changes on a legacy system, consider creating a Bubble Context. In this particular Bubble Context, it will be easy to invest in knowledge following a Living Documentation approach. Conversely, if you really need full documentation of a part of a legacy application, consider rewriting this part as a Bubble Context, using the state-of-the-art practices for the tests, the code and the documentation.**
+
+## Superimposed Structure
+
+Especially when creating a Bubble Context integrated within a bigger legacy application, it is hard to define the boundaries the old and the new systems. And it is even hard to just discuss about that clearly, because it is hard to talk about a legacy system. You would expect to see a simple and clear structure, but what you actually discover is a big unstructured mess.
+
+![Mental Expectations Vs. Actual Situation](images/legacy/legacy_expected_vs_actual.jpg)
+
+Even when there is a structure, it is often arbitrary and can mislead more than it helps.
+
+![Unlucky project structure](images/legacy/legacy_bad_modules.jpg)
+
+With legacy code you usually start with lots of effort to make it testable. These tests enable to make changes but are not enough. In order to do changes you also need to reconstruct a mental model of the legacy application in your head. This can be local within a function, or as big as the full business behavior plus the complete technical architecture.
+
+For that purpose you read code, you interview older developers, you fix bugs to better understand the behavior. At the same time you use your brain to make sense of what you see. The result is a structure in your head that you *project* over the existing application. Since the existing application does not show this structure, it is up to you to superimpose a new clear structure onto the existing application.
+
+Therefore: **In the context of creating a Bubble Context, adding a feature or fixing a difficult bug in a legacy system, create your own mental model of the legacy system. This model does not have to visible at all in the legacy code, instead it is meant to be the most convenient model to perform your task. Then superimpose this model to the legacy code, and clarify how this model and the actual legacy code meet.**
+
+The funny thing here is that the documentation will emerge from thin air, and not directly from the system as built. It will often be the documentation of the system *as it should have been built*, in retrospect, now that we know better.
+
+You can create a superimposed structure as a plain sketch that you show to everyone involved. You can invest in making it a proper slidedeck to present to every stakeholder during a roadshow. You can also decide to make it visible within the code itself to make it more obvious and to pave the way towards further transformations.
+
+Some examples of mental models superimposed on top of legacy systems are:
+
+-  **Business Pipeline**: this perspective of the business is similar to the standard Sales Funnel of salespeople. It focuses on the system as a pipeline of stages in the order they happen in a typical user journey: a visitor navigates the catalog (catalog stage), adds items to the shopping cart (shopping cart stage), reviews the order (order preparation stage), pays (payment stage), receives a confirmation and the product, followed by a after-sale service when things go wrong. This model assumes that the volume decreases by a large factor at each stage, which is a nice insight to design each stage technically and from an operational point of view.
+
+- **Main Business Assets**, as in "Asset Capture" (Fowler): this perspective simply focuses on the 2 or 3 main assets of the business domain, like the Customer and the Product in the case of an e-commerce system. Each asset can be seen as a dimension which can be itself split into segments, like customer segments and product segments.
+
+- **Domains and sub-domains**, i.e by Bounded Contexts (Evans). This perspective requires some maturity on both DDD and the overall business domain, but it also has the most benefits, especially in addition to the other views.
+
+- A mix of these views, for example 3 dimensions: customer, product, and processing stage, each segmented in stages, customer segment and product segments.
+
+Whatever the superimposed structure, once you have it it becomes simpler to talk about the system. You can propose to "rewrite everything about the payment stage, starting with products that can be downloaded as a first phase". You can decide to "rewrite the catalog part only for B2B customers". Communication becomes more efficient.
+
+However it is up to every member of the team to interpret these sentences the way they see it. It would be useful to make this superimposed structure more visible.
+
+## Highlighted Structure
+
+*Making a superimposed structure visible in relation with the existing source code*
+
+The superimposed structure can be linked to the existing code. If you're lucky, the mapping between the superimposed structure and the existing structure of the code is just a large number of messy one-to-one relationships.
+
+![Example of mapping between a technical structure and a business-driven structure](images/legacy/legacy_modules_mapping.jpg)
+
+You can add the intrinsic information of the superimposed structure on each element. For example, this DTO is part of the Billing domain, this one is part of the Catalog domain, etc.
+
+In order to make the new structure visible, you can use annotation on classes, interfaces, methods and even modules or projects-level files. Some IDE also offer ways to tag files in order to group them, but this depends on the IDE and the tags are not usually stored within the files themselves.
+
+~~~~~~~~
+module DTO
+- OrderDTO @ShoppingCart
+- BAddressDTO @Billing
+- ProductDTO @Catalog
+- ShippingCostDTO @Billing
+~~~~~~~~
+
+This will help prepare the next step: move the classes that deal with Billing into the same Billing module. But even if you don't do that, your code now has an explicit structure showing the business domain.
+
+~~~~~~~~
+module Billing
+- BillingAddressDTO //renamed
+- ShippingCostDTO
+- ShippingCostConfiguration
+- ShippingCost @Service
+~~~~~~~~
+
+The end purpose of a superimposed structure should be to become the primary structure of the system, i.e. no longer "superimposed". Unfortunately in many cases this will never happen since the effort will not reach the "end state". This should not stop you from following this approach since the approach will help deliver precious business value in the meantime.
+
+## External Annotations
+
+*Sometime we don't want to touch a fragile system just to add some knowledge in it*
+
+It is sometime hard to touch and commit in large code bases just to add extra annotations. You don't want to risk introducing random regressions. You don't want to touch commit history. It may be so hard to build that you don't want to build it unless absolutely necessary. Or your boss may refuse you change the code at all "just for documentation".
+
+If it is possible then that's the best way, according to the intrinsic principle.
+
+Otherwise we can do a proof of concept at smaller scale using external annotations combined with parsing the actual source.
+
+![Using a registry so that the code is not touched](images/legacy/legacy_annotation_registry.jpg)
+
+
+## Biodegradable Transformation
+
+Many legacy ambitions involve transformations from one state to another. This transformation may take years, and may never really reach the end state. However you need to explain this transformation to all teams, and you want to show it as part of your Living Documentation.
+
+### Example: Strangler Application
+
+For example, if you're building a [Strangler Application](http://martinfowler.com/bliki/StranglerApplication.html) that is expected to replace an older application over time, this strangler application will probably live in its own Bubble Context.
+
+
+You could just annotate this Bubble Context as being a Strangler Application. However, that it is playing the role of a Strangler is a temporary fact and is not necessarily intrinsic to the new application; when it has successfully strangled the old one, it will just become the nominal application. The Strangler Application strategy is therefore a Biodegradable Transformation.
+
+In the meantime every developer needs to know they should use the new strangler application instead of the one being strangled.
+
+Therefore you'd better add a StrangledBy("new bubble context application") annotation to the strangled application to explain that a strangling is pending. When it can be safely deleted the annotation will go away with it.
+
+![An application annotated as being strangled by another](images/legacy/legacy_strangled_app.jpg)
+
+### Example: Bankruptcy
+
+- Annotation or attribute in the AssemblyConfig file
+- BANKRUPTCY.txt file explaining what you need to know and to do (or avoid to do)
+- logger or even worst, a prompt to remind user in any non-production environment that they should be aware that they should not work any more on this bankrupt component.
+
+## Maxims (Ducasse)
+
+*Legacy systems are made of code and people too*
+
+Once you have your legacy transformation strategy, you want to make sure everyone knows about it well. You may have created a Superimposed Structure. You may have annotated your Bubble Context in the code of the project. However of all the things you need to share with everyone, there are a few key decisions you really want everyone to keep in mind at all time.
+
+Maxims are a powerful answer for that, and they have been for ages.
+
+> Only one work site at a time!
+
+It has been one of my favorite maxims in a big legacy project. It was meant to remind everyone not to get distracted when working on the project; they had to focus on the main worksite only.
+
+> When in Rome, do as Romans do
+
+This was the counterpart to the single work site maxim. When you happen to walk outside of your work site, don't innovate or change much, just do the minimum in the local style, even if you don't like it.

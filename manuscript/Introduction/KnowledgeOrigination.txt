@@ -1,0 +1,29 @@
+# The Knowledge Origination
+
+Where does knowledge come from?
+
+Knowledge primarily comes from **conversations**. We develop a lot of knowledge through conversations with other people. This happen during collective work like pair programming, or during meetings, or at the coffee machine, on the phone, or via a company chat or emails.
+
+Examples: BDD specification workshops, 3 amigos, concrete examples
+
+However as software developers we have conversations with machines too, which we call **experiments**. We tell something to the machine in the form of code in some programming language, and the machine runs it and tells us something in return: the test fails or goes green, the UI reacts as expected, or the result is not what we wanted, in which case we'll learn something new.
+
+Examples: TDD, Emerging Design, Lean Startup experiments
+
+Knowledge also comes from observation of the context. In a company you learn a lot by just being there, listening to other people conversations, behavior and emotions.
+
+Examples: Domain Immersion, Obsession Walls, Information Radiators, Lean Startup "Get out of the building"
+
+> ## Conversations, Experiments, Context
+>
+> Knowledge comes from conversations with people and experiments with machines in an observable context.
+
+
+
+## How does that knowledge evolve?
+
+Some knowledge is stable in years, whereas other is living all the time, over months or even over hours.
+
+This means that whatever we do about documentation has to consider the cost of maintenance, and to make it as close to zero as possible. For stable knowledge everything's simple, and traditional methods of documentation work. But in most cases the knowledge is changing frequently enough that writing text and updating it on every change is just not an option.
+
+The effect of acceleration in the software industry means that we want to be in a position to evolve the software so quickly that it's obviously impossible to spend time writing pages and pages of documentation. And yet we want all the benefits of documentation.

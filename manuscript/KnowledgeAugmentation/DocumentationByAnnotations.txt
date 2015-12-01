@@ -1,0 +1,124 @@
+# Documentation by Annotations
+
+This is my favorite method to augment code in languages like Java or C#. Annotations do not impose any constraint on naming, code structure, which means they work in most codebases. And because they are almost as structured as the programming language itself, it's possible to rely on the compiler to prevent errors, and to rely on the IDE for autocompletion, navigation and search.
+
+**Explain the design and its purpose using structured annotations. Create, grow and maintain a catalogue of predefined annotations, then simply include these annotations to enrich the semantic of the classes, methods and modules.**
+
+You can then create little tools that can exploit the additional information in the annotations, for example to enforce constraints, or to extract knowledge into another format.
+
+Once you have the annotations and you know them, it becomes faster to declare a design decision: just add the annotation.
+
+Annotations can represent class stereotypes like Values, Entities, Domain Services, Domain Events. They can represent active patterns collaborators, like a Composite or an Adapter. They can declare styles of coding and 'default preference unless stated otherwise'.
+
+It's important that your annotations correspond to standard techniques with standard names as much as possible. If you need your own custom ones then they must documented in a place that everybody knows.
+
+Putting an annotation to declare your decisions in terms of standard knowledge and standard practices encourages Deliberate Practice. You have to know what you're doing, and you have to know how it's called in the industry literature. In the case of using standard design patterns this has been shown to reduce time required to complete a task some studies.
+
+The annotations are also searchable in your IDE, and this is handy. From an annotation, it's easy to find every class where it's used, which gives a new way to navigate the design.
+
+
+Structured annotations are a powerful tool, however they are probably not enough to completely replace all other forms of documentation to describe all design decisions and their intentions. You still need conversations between everyone involved. There is also knowledge and insights that are best explained through clear writing with a sense of nuance, something that's hard to do with annotations.
+
+You may also find desirable to keep track of a few emotional aspects, and other media like plain text are better for that.
+
+Lastly, the knowledge declared via annotations is machine-readable, which opens opportunities for tools to exploit this knowledge to help the team. Living Diagrams and Living Glossary for example rely on such possibilities. Imagine what you could do, or what you could have tools do for your indeed, once tools can understand your design intents!
+
+## Annotations are more than tags
+
+Annotations in Java and attributes in .Net are genuine citizens of their programming language. They have a name and a module name (package or namespace). They also hold parameters, and can themselves be annotated by other annotations. And being classes, they also benefit from the structured comments syntax used by documentation generators like Javadoc.
+
+All this means you can convey a lot of knowledge through simple annotations.
+
+As a technical example, annotations use meta-annotations to describe where they can be applied. For example here the annotation Adapter can be applied to types and packages:
+
+~~~~~~~~
+@Target({ ElementType.TYPE, ElementType.PACKAGE })
+public @interface Adapter {
+}
+~~~~~~~~
+
+A more useful example involves annotations with parameters. If we were to annotate an instance of a builder pattern, we could describe the type that the builder produces as a parameter of the annotation:
+
+~~~~~~~~
+public @interface Builder {
+	Class[] products() default {};
+}
+
+@Builder(products = {Supa.class, Dupa.class})
+public class SupaDupaBuilder {
+  //...
+}
+~~~~~~~~
+
+Often the declared return types and implemented interfaces can already tell a lot of similar information, however they miss the precise semantics that additional annotations convey. In fact, more precise annotations like that open the door to more automation because it gives tools a way to interpret the source code with a higher-level semantics.
+
+Just like the Semantic Web aims at transforming the unstructured data into a web of data, a code base with annotations that clarify the semantics of the source code becomes a web of data that machines can begin to interpret.
+
+
+## A good place to describe the rationale behind the decisions
+
+One of the most important piece of information worth recording for the future generations is the rationale behind each decision. What may seem a stupid choice years later was probably not that stupid when it was decided.
+
+Most importantly, when the rationale is referring to a context at some point in time, and now the context is different, you are in a better position to reconsider the decision now.
+
+For example, an expensive database was chosen long ago because it was one of the few to be able to cache data fully in memory. Reading this rationale now you may consider NoSQL datastores for the same purpose.
+
+As another example, your application has layers talking to each other through XML everywhere, which makes your life cumbersome, and with performances issues. The rationale for this decisions explains that this architecture was meant to be distributed physically between layers in order to scale. However after many years, it has become clear that this will never happen, so you know now that you could remove all this extra complexity. Without a clear rationale, you would always wonder if you missed something and perhaps you would never dare reconsidering the whole thing.
+
+## Annotations for learning on the job
+
+At a minimum, annotations should themselves be documented. If you have an annotation named "Adapter", then its comments should explain what an Adapter is. My favorite way to do that is to link to a clear online definition like the corresponding Wikipedia page: http://en.wikipedia.org/wiki/Adapter_pattern, along with a brief description text within the comment itself:
+
+~~~~~~~~
+/**
+ * The adapter pattern is a software design pattern that allows the interface of
+ * an existing class to be used from another interface.
+ *
+ * The adapter contains an instance of the class it wraps, and delegates calls
+ * to the instance of the wrapped object.
+ *
+ * Reference: See <a href="http://en.wikipedia.org/wiki/Adapter_pattern">Adapter pattern</a>
+ */
+public @interface Adapter {
+}
+~~~~~~~~
+
+This is more important than it seems. From now on, every class with this annotation is only a tooltip away from a complete documentation of its design role. Let's take the example of a random adapter class in a project, here it's an adapter on top of the RabbitMQ middleware:
+
+~~~~~~~~
+@Adapter
+public class RabbitMQAdapter {
+	//...
+}
+~~~~~~~~
+
+When this class is open in any IDE, then when the mouse hovers over it, the tooltip displays its documentation:
+
+![Overview of a Living Glossary](images/annotation_tooltip.png)
+
+The brief description does its best to provide an explanation, that is probably more useful for developers who already know and just need to be refreshed. For others who don't know, the link is one click-away to redirect them to the place where they can start to learn. They will probably ask questions in the process, but at least there's an easy entry point to the learning. In this case, the annotations not only describe that the class is an instance of the Adapter pattern, it also acts as a gateway drug to learn more about the Adapter pattern.
+
+It's possible to elaborate a lot on this simple idea. The annotation could also link to the book or books that best explains the topic. They could link to the company e-learning program.
+
+As an alternative to the links in comments, every annotation from the same book could have a meta-tag representing the book.
+
+For example, both the Adapter and the Decorator are from the Gang of Four book "Design Patterns", so the information about the book can be factored in an annotation specifically about the book:
+
+~~~~~~~~
+/**
+* Book: <a href="http://books.google.fr/books/about/Design_Patterns.html?id=6oHuKQe3TjQC">Google Book</a>
+*/
+@Target(ElementType.ANNOTATION_TYPE)
+public @interface GoF {
+}
+
+@GoF
+public @interface Adapter {
+}
+
+@GoF
+public @interface Decorator {
+}
+~~~~~~~~
+
+This is only an example, and of course it is not limited to documenting design patterns! Feel free to elaborate your own scheme for organizing your knowledge based on these ideas.

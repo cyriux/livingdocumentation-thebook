@@ -1,0 +1,38 @@
+# Perennial Naming
+
+Naming is one of the most powerful tools available to transfer knowledge. Unfortunately, many kinds of  names change frequently, like marketing brands and product names, project code names or teams names. When this happens, it costs maintenance work: somebody has to chase every place where the old name is used and update them.
+
+Not all names are equal in how often they change. For example, it's common for marketing names, legal names and company organization names to change every 1-to-3 years. These names are volatile.
+
+Choosing names judiciously so that they don't change often is important to reduce the amount of maintenance work in all kinds of artifacts. This is important in the code, and in all other documents.
+
+**Therefore: Use stable names over volatile names in all documentation that you maintain. Name classes, interfaces, methods, code comments and every document after stable names. Avoid references to volatile names in all documents.**
+
+## Organizing artifacts along stable axes
+
+At the macro-level, how do you organize your documentation?
+
+There are many different ways to organize the documents:
+
+- by application name (CarPremiumPro, BestSocksOnline)
+- by business process (Sell Car in Retail, sell socks online)
+- by target clients (individual car buyers, urban middle-class men; B2B or B2C)
+- by team name (team B2B, team Ninjas)
+- by team purpose (Software Delivery Paris, R&D London)
+- by project name (MarketShareConquest, GoFastWeb)
+
+For each other these organization mode, the important question is: how does it evolve over time? If you think back about your past work experiences, which ones remained unchanged, and which ones were changing from time to time or even several times a year?
+
+Projects start and end. They are cancelled, and sometimes resuscitated under a new name. Applications last longer, but in turn they end up being decommissioned and replaced by another that provides similar business benefits.
+
+## Stability-Oriented
+
+Names describing business benefits are more stable, often over decades. Business  is changing, but from a high-level perspective it's still about selling, purchasing, preventing losses and reporting for example. If you open an old book about doing business in your domain, you'll recognize that although the typical way of doing business has evolved since then, most words in the book are still valid and still mean the same thing. Business domain vocabulary is on the stable end of the spectrum.
+
+On the other end of the spectrum, everything about the organization, legal stuff and marketing is volatile: company name, subsidies, brands and trademarks change all the time. Avoid using them in more than one place. Prefer stable names instead.
+
+Look at the company org chart now and compare with the one 2 or 3 years ago: how is it different? New executives often change the org structure. In some companies the top management switches every 3 years. Departments are split and merged, and renamed. It is a game of perpetual business and politics-driven refactoring that changes the org structure without changing the underlying business operations much.
+
+Do you want to spend time changing words everywhere in your code and in your documents because of those changes? I certainly don't want that, therefore I chose to go for stable names whenever I can, with a preference for business domain names.
+
+A> I noticed that arbitrary code names, like "SuperOne" that don't describe anything are more volatile than common names that describe what they do. Even if you just work with a company for a 2 or 3 years you will see some of these names changing. But arbitrary names are more attractive, perhaps that's because we change them often to match the current fashion. On the other hand, common words that describe the things, like "AccountingValuation", are dull, but they are less likely to be renamed, hence more stable. More importantly, in the later case, the name itself is an element of documentation. Without anything else, you may know what this component does.

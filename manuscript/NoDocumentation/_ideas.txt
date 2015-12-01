@@ -1,0 +1,62 @@
+The principle of least surprise
+
+
+--
+
+--
+## NoDocumentation
+Some extreme practices reduce the need for documentation altogether: mob programming (permanent full-team cross-training on everything), and programmer anarchy (Don't understand the code? Redo it! )
+
+Disposable or single-use software doesn't need much documentation either. But keep in mind that most of the time it is actually reused and maintained for much longer than expected.
+--Steve McConnell
+
+
+## Writing On-Behalf of the team
+It does not matter who actually writes down and commits the knowledge, it is always on behalf of the whole team. That egoless programming generalized.
+
+## Collaborative Artifacts as Code
+Every artifact that materializes authoritative knowledge shall be considered as code, with the same requirements of safe storage, version control, branching and merging as programming code.
+
+
+### Declarative Code
+
+In Java, using annotations. In C# using attributes or lambdas.
+Hibernate
+Jersey
+Spring
+
+REST Level 3 (HATEOAS) introduces discoverability, providing a way of making a protocol more self-documenting
+
+Contracts Documentation
+(Apiary, Swagger...)
+
+## Expressive design (out of the 4 rules of Simple Design)
+
+One adapter by referential, ISP, so that the list of interfaces / injection wiring explicitly represents the bill of materials of the component.
+
+Even if the same adapter is implementing them all for convenience.
+
+SRP: It's hard to maintain or evolve code that mixes different responsibilities and different concerns. It's also hard to describe classes or modules that mix many different responsibilities and concerns.
+
+Good design also means good documentation, by construction.
+
+---
+Autonomation (Lean & Toyota TPS) spectrum automation-autonomy
+
+OBSTACLES AND PATTERNS TO MAXIMIZE FLOW IN IT CLOUD OPERATIONS
+
+The key to doing anything well is "intentionality"
+
+Jidoka (Quality at the Source) Jidoka is "autonomous automation"
+
+Systems Thinking (Dr. Russell Ackoff)
+
+ - A system is a whole that cannot be divided into independent parts
+ - The essential properties of a system are those which none of its parts have
+ - A system is not the sum of the behavior of its parts, but its the product of their interactions
+
+.
+
+http://gotocon.com/dl/goto-aar-2013/slides/BenRockwood_and_GeneKim_ObstaclesAndPatternsToMaximizeFlowInITOperations.pdf
+
+http://gotocon.com/dl/goto-aar-2013/slides/GeneKim_and_JezHumble_DevOpsCultureAndPracticesToCreateFlow.pdf

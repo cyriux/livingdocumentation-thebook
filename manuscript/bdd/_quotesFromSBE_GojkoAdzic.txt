@@ -1,0 +1,119 @@
+QUOTES
+
+%% testing the documentation
+
+Use a descriptive title and explain the goal using a short paragraph
+
+Show and keep quiet
+When: Someone is working on specifications alone
+In order to: Check whether a specification is self-explanatory
+
+
+--
+%% tacit knowledge
+
+Cooper suggested looking at living documentation as an alternative user interface to the system. If this interface is hard to write and maintain, the real user interface will also be hard to write and maintain.
+
+--
+
+Living documentation p. 27
+
+All the specifications for all implemented features will be validated frequently, most likely by an automated build process. This helps to prevent functional regression issues while ensuring that specifications stay current. The team will use the practices from chapter 10 so that frequent validation goes smoothly.
+When the entire user story is implemented, someone will first validate that it's done and then restructure the specifications so that they fit in with the specifications for features that were already implemented. They'll use the practices from chapter 11 to evolve a documentation system from the specifications in increments. For example, they might move the specification for free delivery into the hierarchy of features related to delivery, potentially merging them with other free-delivery examples triggered by different factors. In order to make the documentation easier to access, they might set up links between the specification for free delivery and the specifications for other delivery types.
+
+Then the cycle starts again. Once we need to revisit the rules for free delivery—for example, when working on the advanced bonus schemes or in order to extend the functionality to split orders with books from orders with other items—we'll be able to use the living documentation to understand the existing functionality and specify changes. We can use the existing examples to make specifying collaboratively and illustrating us- ing examples more effective. We'll then produce another set of key examples, which will lead to an increment of the specification for free delivery that will ultimately be merged with the rest of the specifications. And the cycle will repeat.
+
+Chapter 3
+
+the artifacts of Specification by Example are valuable as documentation over the long term.
+
+****
+Good documentation is useful for more than software development.
+
+Many companies could benefit greatly from having good documentation about their business processes, especially as more and more businesses are becoming technology-driven.
+****
+[the cost of documentation maintenance]
+
+Business-process documentation is as hard to write and as costly to maintain as any kind of system documentation.
+
+The ideal solution would be a documentation system that's easy and cheap to maintain, so that it can be kept consistent with the system functionality even if the underlying programming language code is changed frequently. The problem with any kind of comprehensive documentation is, in fact, costly maintenance.
+
+From my experience, changing the parts that are outdated doesn't contribute significantly to cost. Often, cost is the result of time spent on finding what needs to be changed.
+
+Tests can be good documentation
+
+[test as knowledge base for support]
+
+Andrew Jackman said that the Sierra team uses test results as a knowledge base for support:
+
+"Business analysts see the advantage of this all the time. When someone asks where some data in Sierra comes from, they often just send the link to a test result —and it is reasonable documentation. We don't have specifications in Word documents."
+
+Tim Andersen of Iowa Student Loan said that he trusts only this kind of documentation:
+
+"If I cannot have the documentation in an automated fashion, I don't trust it. It's not exercised."
+
+[up-to-date]
+
+Executable specifications create a body of documentation, an authoritative source of information on the functionality of a system that doesn't suffer from the "not entirely correct" [documentation] problem and that's relatively cheap to maintain. If specifications with examples were pages, the living documentation system would be the book.
+
+[a replacement for user manuals etc?]
+
+A living documentation replaces all the artifacts that teams need for delivering the right product; it can even support the production of external user manuals (although probably not replace them). It does that in a way that fits nicely with short iterative or flow processes.
+
+[not it does not completely replaces when the domain is complicated; you need something more]
+
+Because we can define the specifications as we grow the underlying software system, the resulting documentation will be incremental and cheap to write. We can build business-process documentation at the same time as the supporting sys- tems and use that documentation to evolve the software and help run the business. The world doesn't have to stop for six months while someone is compiling 500 pages of material.
+
+André Brissette from Pyxis says this is one of the least-understood parts of agile development:
+"Beginners think that there is no documentation in agile, which is not true. It's about choosing the types of documentation that are useful. For people who are afraid that there is no documentation, this kind of test is a good opportunity to secure themselves and see that there is still documentation in an agile process, and that's not a two-feet-high pile of paper. This is something lighter, but bound to the real code. When you ask, "does your system have this feature?” you don't have a Word document that claims that something is done; you have something executable that proves that the system really does what you want. That's real documentation."
+
+Most automation tools used for Specification by Example already support managing specifications over websites or exporting test results in HTML or PDF form, which is a good start for creating a documentation system. I expect there will be a lot of innova- tion in the tools over the next several years to assist with building up documentation from specifications with examples. One interesting project is Relish...
+
+---
+Many teams I interviewed replaced the heart of their system or rewrote large parts of it while keeping specifications with examples and using them to guide the whole ef- fort. This is where the investment in living documentation really pays off. Instead of spending months on system archeology and verifications, a living documentation system already provides requirements for technical updates and changes.
+
+I think teams should consider living documentation as a separate artifact that's as important as the system they're delivering. The idea that the documentation is a key deliverable is at the core of the documentation-centric model
+
+---
+Focusing on creating a business-process documentation system should help you avoid the most common long-term maintenance problems with specifications and tests:
+- avoids overly technical specifications and keeps the specifications focused on what the system is supposed to do from a business perspective, not on test scripting.
+- Cleaning up test code no longer requires a separate explanation.
+- Enhancing the structure or clarity of tests is no longer something to put on the technical debt list: It's part of the standard list of tasks for delivery.
+- The flaw in delegating the work on acceptance tests to junior developers and testers suddenly becomes obvious.
+- The fact that useful documentation has to be well organized should prevent teams from piling up thousands of incomprehensible tests in a single directory.
+- By considering the living documentation a separate artifact of the delivery process, teams can also avoid over-investing in it. They can discuss up front how much time they want to spend building the living documentation system and avoid falling into the trap of gold-plating the tests at the expense of the primary product.
+- I suspect that keeping specifications too abstract might be a potential pitfall of the documentation model.
+
+---
+On scope:
+
+Fred Brooks quote: In The Mythical Man-Month 4 he wrote, "The hardest single part of building a software system is deciding precisely what to build.” Albert Einstein himself said that "the formulation of a problem is often more essential than its solution.”
+
+--
+P. 85 Try informal conversations
+
+Dan North points out that requirements listed as non functional usually imply that there's a stakeholder whom the team hasn't yet explicitly identified.
+
+--
+Use Lo-fi prototypes for UI
+
+Several teams I interviewed use Balsamiq Mockups,4 a web/desktop application for low-fi user interface prototyping.
+
+I find paper prototypes easier to work with because we can use cutouts and write notes, but a software system works better when we want to share our work.
+
+At RainStor, Adam Knight took this approach even further by creating an interactive prototype to explore vague requirements with clients. He says:
+
+"Rather than a paper prototype we put together some example command line prototype interfaces using shell scripts and then walked these through with the customer, asking them to give us details on how they'd use the new functionality in our system." [then we could keep them as miniatures]
+
+---
+Scripts are not specifications
+
+Business users will often think about performing an action through the user interface or through several steps, explaining how they'd use the system to achieve something instead of what the system is supposed to do. Such examples are scripts, not specifications.
+
+A script explains how something can be tested. It describes business functionality through lower-level interactions with a system. A script requires the reader to work back from the actions and understand what's really important and what exactly is being illustrated.
+
+Scripts also bake the test into workflow and session constraints, which might change in the future even when the underlying business rules don't change.
+
+Scripts are not good as communication tools.
+
+--

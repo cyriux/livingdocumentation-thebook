@@ -1,0 +1,82 @@
+# Working Collectively
+
+Conversations are good. When creating software, we need to have conversations, and we need to program code. It's often a great idea to do all that at once, continuously, together with one or more colleagues.
+
+There are many good reasons for working collectively, like improving the quality of the software for its users and for its maintainers, thanks to the continuous review and the continuous discussions on the design.
+
+But working collectively, with frequent conversations, is a particularly effective form of documentation too. Pair-programming, Cross-programming, Mob-programming and the 3 Amigos totally change the game with respect to documentation, as knowledge transfer between people is done continuously and as the same time the knowledge is created or applied on a task.
+
+## Pair-Programming
+
+Pair-Programming is a key technique from Extreme Programming. If code reviews are good, why not do them all the time?
+
+> Pair-Programming is an agile software development technique in which two programmers work as a pair together on one workstation. One, the driver, writes code while the other, the observer, pointer or navigator, reviews each line of code as it is typed in.
+>
+> https://en.wikipedia.org/wiki/Pair_programming
+
+
+In Pair-programming, the driver writing code talks his or her mind out loud for the observer to follow what's happening, who's in turn replies with acknowledgement, remarks, corrections or any other kind of feedback. The observer, also known as the *navigator*, talks to the driver to guide the work in progress, suggesting possible next steps and expressing the strategy for solving the task.
+
+Working in pair is not something you are comfortable and good at immediately, it's something you learn through practice, on the job or in coding dojos or code retreats. There are various styles of pair-programming, like the ping-pong pairing: one of the pair writes a failing test then passes the keyboard for the other to make it pass and refactor.
+
+For sharing the knowledge as much as possible in order to have true Collective Ownership, in pair-programming it's common to change the partners in the pairs on a given task regularly. Depending on the teams, this pairs rotation can happen as frequently as every hour, or every day, or just once a week. Some teams don't have a fixed frequency but require that any task cannot be finished by the pair who started it.
+
+> Pair programming: the best way to do less email, attend fewer meetings, AND write less documentation!
+> -- @sarahmei on Twitter
+
+## Cross-Programming
+
+>
+> Cross-Programming is a variant of Pair-Programming where the observer is not a developer but a business expert. Whenever the programming task requires a deep understanding of the business domain, it's a form of collaboration that is highly efficient but also very effective as all decisions taken by the pair in front of the computer are more relevant to the business.
+>
+> https://speakerdeck.com/fakih/cross-programming-forging-the-future-of-programming
+>
+
+## Mob-programming
+
+Mob-programming is a recent addition to the bestiary of collective forms of programming, and has quickly gained popularity. If extreme programming turned the code review knob to the max (10), mob-programming goes even further, turning it to 11.
+
+>
+> Mob programming is a software development approach where the whole team works on the same thing, at the same time, in the same space, and at the same computer. This is similar to pair programming where two people sit at the same computer and collaborate on the same code at the same time. With Mob Programming the collaboration is extended to everyone on the team, while still using a single computer for writing the code and inputting it into the code base.
+>
+> "All the brilliant people working at the same time, in the same space, at the same computer, on the same thing" -- Woody Zuill
+>
+> mobprogramming.org
+
+
+In Mob-programming there is no question of pair rotation as everybody's always present on any task so everybody knows about every task. That's literally collective ownership, in the same place at the same time.
+
+If a team of 5 people doing mob-programming full time, knowledge sharing is no longer an issue, it's done continuously, every second. Whenever someone has to attend a meeting outside, the rest of the team keeps on working, almost unaffected.
+
+
+> ## The 3 Amigos (or more)
+>
+> a Product Owner, a Developer, and a Tester sit down to talk about something that the system under development should do.  The Product Owner describes the user story. The Developer and Tester ask questions (and make suggestions) until they think they can answer the basic question, "How will I know that this story has been accomplished?""
+>
+> No matter how or when it's done, these three amigos (to borrow a term from my friends at Nationwide) must agree on this basic criteria or things will go wrong.
+> http://blog.gdinwiddie.com/2009/06/17/if-you-dont-automate-acceptance-tests/
+
+The concept of the 3 Amigos working together during *Specification Workshops* is central to the BDD approach. In contrast with Pair-programming, Cross-programming and Mob-programming, they are not working on code but on concrete scenarios describing the expected business behavior of the software to build. Still, everyone involved owns the scenarios, and it does not matter who writes them down on paper or in a the test automation tool like Cucumber, as it's on behalf of every other. We use the term "3 amigos", but in practice they may be more than three whenever another perspective is key for the success of the work. There may be a need for a UX expert, an Ops etc.
+
+## Continuous Documentation
+
+Collective forms of work optimize for continuous documentation. Because face-to-face interactive conversations are the most efficient form of communication, Pair-programming, Cross-programming, the 3 Amigos or Mob-programming organize the work precisely to maximize the opportunities for effective conversations. Documentation happens at the very time the knowledge is necessary. Everyone who must know about it is present. They can immediately ask questions to clarify a point.
+
+When the task is done, they remember some of the key parts of knowledge, and can forget the rest. If someone goes on vacations, the knowledge is safe in his or her colleagues mind, so it does not impede the work in progress.
+
+## Truck Factor
+
+Working collectively is very good to improve the Truck Factor of a project.
+
+> ## Truck Factor
+>
+> "The number of people on your team who have to be hit with a truck before the project is in serious trouble"
+
+The Truck Factor is a measurement of the concentration of information in individual team members. a truck factor of one means that only one person knows critical parts of the system, and if that person is not available it would be hard to recover the knowledge.
+
+When several team members collaborate on every part of a project, knowledge is naturally replicated in more people. When they leave, or go on vacations or just leave for a meeting, the work can carry on without them.
+
+A small truck factor usually means someone is a hero on the project, with a lot of knowledge not shared with other team mates. This is definitely a problem for the resilience of the project that the management should be aware of. Introducing collective forms of programming is a nice answer to mitigate that risk. Moving the hero to another team nearby is another way to deal with that.
+
+
+Conversations and working collectively represent the ideal form of documentation for most knowledge. However it's not enough for knowledge that is essential in the long term, when all team members are gone or have forgotten knowledge from the remote past. It's not enough for knowledge that is of interest to a large number of people, and it's not enough for knowledge that's too critical to be left as spoken words.

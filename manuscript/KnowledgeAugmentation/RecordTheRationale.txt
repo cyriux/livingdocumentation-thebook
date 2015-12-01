@@ -1,0 +1,54 @@
+# Record Your Rationale
+
+In the book "97 Things Every Software Architect Should Know", Timothy High says: "As explained in the axiom "Architectural Tradeoffs", the definition of a software architecture is all about choosing the right tradeoffs between various quality attributes, cost, time, and other factors." There are tradeoff in software architecture, whatever it is, but also everywhere in your code and around, and more generally everywhere a decision with a choice is made.
+
+Decisions are stories. Humans love stories, and remember them better. Decisions tell the context. The context of past decisions is necessary to re-evaluate them in the new context. Past decisions are learning tools to learn from the thinking of the predecessors. Many decisions are also smaller information-wise than their consequences, hence they are easier to transfer from one brain to another than all the details that result from the decision.
+
+**Therefore: Record the rationale of all decisions with important consequences in some form of persistent documentation. Include the context and the main alternatives. Listen to the documentation, if it's hard to formalize, the decision may not be deliberate enough. **
+
+
+## What's in a rationale?
+
+Any decision happens in a context, and is one of the considered answers to a problem. Therefore a rationale is not only the reason behind the chosen decision, but also
+
+- The **context** at the time: main stakes and concerns, for example the current volume: "Only 1000 end users using the application once a week" or the current priority: "Priority is exploring the market-product fit as quickly as possible", or an assumption: "This is not expected to change", or a people consideration: or "The development teams don't want to learn Javascript"
+
+- The **problem** or **requirement** behind the choice: "The page must load in less than 800ms to not lose visitors", or "Decommission the VB6 module"
+
+- The decision itself of the **chosen solution**, with the main reason or reasons: "The Ubiquitous Language is expressed with English words only, as it's simpler and every current stakeholder prefers it that way", or "This facade exposes the legacy system through a pretty API, because there is no good reason to rewrite the legacy but we still want to consume it with the same convenience as if it was brand new"
+
+- The **main alternatives** that were considered seriously, and perhaps why they were not selected, or why they would be selected if the context was different: "Buying an off-the-shelves solution would be a better choice if the needs were more standard","A graph structure would be more powerful but is harder to map with the Excel spreadsheets of the users", "A NoSQL datastore would be a better choice, if we didn't have all this investment with our current Oracle DB"
+
+## Make it explicit
+
+- **Ad hoc document**: Explicit document about the requirements, including all quality attributes. This needs to evolve slowly but still at least once a year; only done for the main attributes which span large areas of the system, not for more local decisions
+
+- **Annotations** They can be standalone or with a reference to the requirements; they can evolve with most the refactoring, but not strictly always, so you may still need some maintenance in the infrequent case when the rationale itself changes
+
+- **Blog post**: A blog post takes more time to write, and the best writing style the better; it also has to be searched and scanned when a question arises on a past decisions. However in return you have a human account of the reasoning and the human context behind a decision, perhaps even with the politics and personal agenda mentioned between the lines, which is more valuable.
+
+
+## Beyond Documentation: Motivated Design
+
+Recording the rationale is not just for the future generations or your future self, it is also useful right now, at the time of doing it. As usual, listen to what's hard as a signal that something could be improved. It if it hard to come up with rationale, or its context, perhaps the decision was not thought about seriously enough, and this should be an alert.
+
+If it is hard to come up with 2 or 3 credible alternatives, then perhaps the first solution that fit was chosen without the diligence to explore possibly simpler or better solutions. Your current decision may not be optimal, and it may have consequences as lost opportunities in the future. Of course one rationale can always be "First solution that fit was chosen to go to market as quickly as possible", but at least it is deliberate and we understand the consequence, like being well aware that we will reconsider it next time.
+
+With or without decision, structure just is. In the worst case, in the absence of deliberate design decisions, and with a complete lack of skills, there will be just a random structure. It's just a soap of details, and the only way out is guessing the intentions behind that. This is typical in legacy code, which we discuss in details in a next chapter.
+
+## Don't document speculation
+
+In the book "Building Microservices", Sam Newman advices against documenting solutions to speculative needs. He's got a shot at the traditional architecture documentation "Diagram after diagram, page after page of documentation, created with a view to inform the construction of the perfect system, without taking into account the fundamentally unknowable future. Utterly devoid of any understanding as to how hard it will be to implement, or whether or not it will actually work, let alone having any ability to change as we learn more."
+
+Rationale are decisions taken on actual needs, proven to be necessary. In incremental approaches, as in emerging design, we grow the solution slice by slice, where each slice is driven by the most important need at each instant. We often work in a just-in-time fashion, precisely because it is an antidote to speculation: we build it just when it becomes necessary to be built.
+
+Overall, only document what has been built, in response to actual needs.
+
+## Skills as pre-documented rationales
+
+There are many smaller decisions where the thinking process is already solved and documented in the literature. For example, the Single Responsibility Principle mandates to split a class which does two things into two classes which do one thing each. There is no need to document each occurrence of that happening, but you may document once, in a single place, all these principles you consistently follow, as explained in the **Acknowledge your Influences** pattern in this book.
+
+
+## Beyond Documentation: Recording the rationale as an enabler for change
+
+It's easier to dare making changes when you know all the reasons behind the past decisions, so that you can respect then or reject them deliberately. The best way to know them in a reliable way is to have them recorded, otherwise the reasoning will be forgotten. Without the explicit rationale behind the past decisions, one can just wonder if a change may have unexpected impacts with respect to a concern we don't have in mind. If you're prudent, you'll never be sure enough to decide to change, and the status quo dominates, even though the opportunity to improve is there in front of your eyes. If you're not prudent, you may actually cause harm inadvertently because of a forgotten concern that we cannot see as it was not recorded.

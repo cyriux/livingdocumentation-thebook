@@ -1,0 +1,38 @@
+# Collaborative Artifact as Code
+
+A software development project is a collaborative endeavor. Several team members work together and produce artifacts that evolve continuously over time, a process that Alberto Brandolini (@ziobrando) calls Collaborative Construction. Regularly, these artifacts are taken in their current state and transformed into something that become a release. Typically, source code is compiled and packaged into some executable.
+
+The idea of Collaborative Artifacts as Code is to acknowledge this collaborative construction phase and push it one step further, by promoting working as much as possible on the collaborative artifacts as plain text files stored in the same source control. Everything else, like slides, PDF documents or website, is then generated, rendered or archived by the build process.
+
+Collaborative artifacts are the artifacts the team works on and maintains over time thanks to the changes done by several people through a source control management such as SVN, TFS or Git, with all their benefits like branching and versioning.
+
+## Keep together what varies together
+
+The usual way of storing documentation is to put MS Office documents into a shared drive somewhere, or to write random stuff in a wiki that is hardly organized. Either way, this documentation will quickly get out of sync because the code is continuously changing, independently of the documents stored somewhere else, and as you know, "Out of sight, out of mind”.
+
+We now have better alternatives. Over the last decade, there has been changes in software development. Github has popularized the README.md overview file written in Markdown. DevOps brought the principle of Infrastructure as Code. The BDD approach introduced the idea of text scenarios as a living documentation and an alternative for both specifications and acceptance tests. Even mind-maps can be stored as text files.
+
+All this suggests that we could replace most traditional documents and liberate knowledge imprisoned within proprietary tools by favoring plain-text, standard alternatives, and we could have all these files collocated within the source control together with the source.
+
+**Therefore: Agree as a team to collaborate on plain-text files, in a standard syntax, stored on the source control together with the source code. Treat these collaborative artifacts as the authoritative single source of knowledge. At build time, generate every other document from them through automated means.**
+
+In any given branch in the source control we would then have our collaborative artifacts acting like their own documentation like this:
+
+- **Source code** (C#, Java, VB.Net, VB, C++)
+- **Stable overall documentation** through plain README.md and perhaps other .md files wherever useful to give a high-level overview on the code
+- **SQL code** as source code too, or through Liquibase-style configuration
+- **Behavior Documentation as tests and BDD scenarios** (SpecFlow/Cucumber/JBehave feature files) as living documentation
+- **Business Roadmap documentation**, as Markdown documents to render to HTML or PDF. Impact Maps (and every other mindmaps), may be stored as text then rendered via tools like text2mindmap too.
+- **Human-authored diagrams**, in UML or any other notation, defined in a plain-text format like .dot files, then rendered through tools (Graphviz, yUml).
+- **Dependencies declarations** are already there in the form of the manifests for the dependency manager (Maven, NuGet...), rather than ad hoc step by step documentation
+- **Infrastructure Configuration and Deployment code** as Puppet manifests or deployment tool configuration in XML, JSON or yaml, instead of paper documentation on how to do it manually
+
+## Plain Text Obsession is a good thing!
+
+Nobody creates software by editing directly the executable binary that the users actually run at the end, yet it is common to directly edit the MS Word document that will be shipped to the customers during a release.
+
+Collaborative Artifacts as Code suggests that every collaborative artifact should be text-based to work nicely with source control, and to be easy to diff and merge between versions.
+
+Text-based formats shall be preferred whenever possible, e.g. .csv over xls, rtf or .html over .doc, otherwise the usual big PPT files must go to another dedicated wiki where they can be safely forgotten and become instantly deprecated…
+
+This approach is nothing really new (think about LateX...), and many of the tools we need for it already exist (Markdown renderers, diagram auto-layout tools), web site generators (Maven), website generator to organize and display Gherkin scenarios (Pickles).

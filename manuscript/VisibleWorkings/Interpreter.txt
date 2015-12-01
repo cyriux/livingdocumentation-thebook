@@ -1,0 +1,12 @@
+
+## Interpreter
+
+From the perspective of a living documentation, this approach is like cheating. Instead of having to document how the code is doing a processing,  let the description of how to do the processing drive the code literally.
+
+**Write the formula or processing description as a "script" using a convenient syntax of your choice. This may be a custom syntax, a DSL or another programming language. Make sure this description is as easy to read as possible, especially for non-developers. Then write code that simply interprets this description to perform its job. This interpreter code should have as little calculation knowledge as possible, because the point is to have all this knowledge in the script. Make sure to make the scripts accesible at runtime in an easy way.**
+
+Examples: using Lua, Javascript, BPMN and other declarative workflow syntaxes, custom Structurer Syntax etc.
+
+This approach is common in many large software systems from vendors, because they need a lot of flexibility to accomodate the varying needs of each customer. If this approach is pushed to far, the result is that the application becomes a kind of SDK in which many developments are done in the specific syntax. This means work has to be done in a rather poor development environment: no unit-testing, no autocompletion, no syntax highlighting, no compile-time checks, no debugger etc. However the Interpreter approach works very well when used reasonably.
+
+This is Single Source of Truth at its finest.

@@ -1,0 +1,79 @@
+# Documentation by Convention
+
+Using plain conventions to document your decisions is convenient. For example in Java every identifier starting with an upper case letter is a class, whereas identifiers starting with a lower case letter are variable names.
+
+There are conventions for every situation, in all technologies, and you can always add your own conventions on top of any technical environment, be it code, XML, Json, assembly or SQL. Even old projects with old technologies rely on conventions to communicate knowledge, describe their structure and help navigation.
+
+Here are some examples of documentation by convention:
+
+- Packages names by layer: everything in a package named \*.domain.* represents domain logic, whereas everything in a package named \*.infra.* represents infrastructure code.
+- Packages names by technical class stereotype: \*.ejb.* , \*.entity.* , \*.pojo.* , \*.dto.\*
+- Commit comments with conventions like "[FIX] issue-12345 free text", where the square brackets categorize the type of commit out of FIX, REFACTOR, FEATURE or CLEAN, and the issue-xxx references the ticket id in the bug tracker.
+- The full Ruby on Rails style of *Convention over Configuration*
+
+## Legacy with conventions has opportunities for Living Documentation
+
+Whenever you have an existing code base that follows conventions, you have an opportunity to go the Living Documentation route by exploiting all these conventions, without even having to touch the source code to add anything, in contrast to Documentation by Annotation.
+
+For example imagine an existing application that follows a Layered Design. If you're lucky its package names represent the layers directly through naming conventions:
+
+~~~~~~~~
+/record-store-catalog/gui
+/record-store-catalog/businesslogic
+/record-store-catalog/dataaccesslayer
+/record-store-catalog/db-schema
+~~~~~~~~
+
+Your documentation is already there in the naming of the Java packages (namespaces or sub-projects in C#)
+
+## Document the Conventions
+
+If everyone in the team is familiar with this style, then it's enough. If you simply adopt conventions published by another company, then it's an example of READY-MADE DOCUMENTATION and you just have to create a reference to the external documentation of the sets of conventions in the README file. In practice though I'd always recommend to document the conventions in the README file. Here's an example of documenting conventions as in a real code base:
+
+~~~~~~~~
+README.txt
+
+This application follows a Layered Architecture, as described here (link).
+Each layer has its own package, with the following naming conventions:
+
+
+/gui/*
+/businesslogic/*
+/dataaccesslayer/*
+/db-schema/*
+
+The GUI layer contains all the code about the graphical user interface. All code responsible for display or data entry must be there.
+
+The business logic layer contains all the domain-specific logic and behavior. This is where the domain model is. Business logic should only be there and nowhere else.
+
+The data access layer contains all the DAO (Data Access Objects) responsible to interact with the database. Any change of storage technology should only impact this layer and no other layer (in theory at least :)
+
+The DB Schema contains all the SQL scripts to setup, delete or update the database schema.
+
+Important Rule: Each layer can only depend on the layers below. No layer can depend on the layer or layers above, this is forbidden! Note that no layer should depend on the DB Schema layer, this is a pseudo layer ;)
+~~~~~~~~
+
+Some conventions carry a cost, especially when they add noise to the naming. For example putting prefixes or suffixes on identifiers: VATCalculationService, DispatchingManager or DispatchingDTO is a standard practice, but it's not Clean Code. The names in your code do not belong to the business domain language anymore!
+
+When every interface in a package is a service, then adding the *Service* prefix adds no information, just noise. Every class is in a /dto/ package may not need the *DTO* suffix, or it's redundant information.
+
+## Discipline-Driven
+
+Documentation by Convention only works to the extent that everyone has enough discipline to adhere to the conventions consistently. The compiler does not care about your conventions and won't help much to enforce them.
+
+One typo, and you're already not following the convention! You can of course tweak the compiler, your IDE parser or use static analysis tools to detect some violations of conventions. Sometime it's a lot of work, but other times it's surprisingly easy so you may give it a try.
+
+If you rely on Documentation by Convention to help produce Living Documents like Living Diagrams, then it will encourage and reward following the conventions: if you break the convention, then your Living Documents will fail, which is nice.
+
+
+## Conventions have limitations
+
+Conventions work well to categorize sections of code, but they quickly show their limits when you try to enrich them with additional knowledge like rationale, alternatives etc. In contrast, annotations are a better fit to include such additional knowledge.
+
+Conventions are often little more than free text meant for humans. However you may still get some tool support for your conventions:
+
+- You can configure your IDE with templates for each convention; you type a few characters and it will print the full name properly that adheres to the convention; for a commit comment with a more complicated convention, it will print a placeholder that you can just fill in.
+- You can have your Living Document generators interpret the conventions to perform their work
+- You can enforce rules like dependencies between layers based on the naming conventions, for example using JDepend or your own tool built on top of any code parser.
+
+Compared to annotations, conventions also have the advantage to not disrupt old habits. If your team and managers are very conservative you may prefer going the Documentation by Convention route rather than the Documentation by Annotation route. But I guess you understood that my preference goes to Documentation by Annotation.

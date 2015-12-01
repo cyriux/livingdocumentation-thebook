@@ -1,0 +1,29 @@
+
+Assertion in code are documentation of your assumptions
+
+@tottinge: Code is documentation. Period. Bad, clumsy, ugly code is just really lousy documentation.
+
+--
+Thread macro clojure, F# |> to document visually
+
+--
+
+Code is not literature. Code is not enough. No way you can save the effort from learning the domain, the code is just its materialization.
+
+### abstract/generic vs domain-meaningful & potential vs actual
+Worst: for many reasons we chose to reduce duplication and that leads to more abstraction.
+
+Example in Clojure from Gilles Ph.
+Fetch-all
+Fetch from repository = Fetch-all (repository)
+Fetch from users = Fetch-all (user)
+
+When we do that, the code tends to becomes mostly abstract & domain-agnostic, except when we instantiate the generic bits to tell the domain story.
+
+Example of JScience doing matrix calculations on plain math structures. (Generic sub-domains)
+
+Well-factored code tends toward  building blocks that can be composed in many combinations. For each combination, some of the building blocks are often not used. The set of all building blocks forms a toolkit. This is the set of all bits add piece you may need in some situation, but not always.
+
+If your code has building blocks, then the documentation should simply describe it as such. But because each block in itself is not much useful, you also need to provide a gallery of concrete useful examples that use the building blocks.
+
+These examples will be like tests, except they don't have to assert anything except that they compile successfully. These examples may be organized by task, e.g. "How to solve this problem".

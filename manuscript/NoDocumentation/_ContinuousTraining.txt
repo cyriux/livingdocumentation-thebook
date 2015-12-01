@@ -1,0 +1,12 @@
+# Continuous Training
+
+*Common *
+
+- Coding Dojos on code kata
+- Short Training sessions
+- Embedded Interactive Mini-Trainings
+- Time for deliberate practice
+
+Get to learn standard skills to reuse -> use more ready-made knowledge that comes with its READY-MADE DOCUMENTATION -> less specific stuff to document
+
+More consistency of skills and shared culture to help faster decision-making, which again reduces the need to explain everything. Of course it's not about removing all diversity in the team, since diversity is an essential ingredient. Still, we don't need all diversity in every detail, and there's a lot that we can make more consistent without loosing much.

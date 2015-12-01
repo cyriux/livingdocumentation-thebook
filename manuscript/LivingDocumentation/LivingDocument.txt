@@ -1,0 +1,28 @@
+# Living Document
+
+*A document that is evolving at the same pace than the system it describes*
+
+**A living document is a document that is evolving at the same pace than the system it describes. It's prohibitively time-consuming to do manually, hence it's usually achieved through automation.**
+
+As the names suggest Living documentation relies a lot on living documents, whenever Code as Documentation, Evergreen Documents and Tools History are not enough.
+
+A living document works like a reporting tool that produces a new report after each change. A change is usually a code change, but could be just a key decision done during a conversation.
+
+In this chapter we'll present a few key examples of Living Documents, like Living Glossary and Living Diagram.
+
+## Anatomy of a living document.
+
+A Living Document typically works in 4 main steps:
+
+1. Select a range of data stored somewhere, for example source code in source control
+1. Filter the data according to the objective of the document
+1. For each piece of data that made it out through the filter, extract the subset of its content that is of interest for the document. It can be seen as a projection, and it's totally specific to the purpose of the diagram
+1. Convert the data, and their relationships into the target format to produce the document. For a visual document it can the API of the rendering library. For a text document it can be a list of text snippets, or the library to produce a PDF.
+
+If the rendering is very complex, the last step of converting into another model may be done twice, by creating an intermediate model that is then used to drive the final rendering library.
+
+The hard part in each step is the interplay between the Editorial Perspective and the Presentation Rules. What data to select or ignore? What information to add from another source? What layout?
+
+## Presentation Rules
+
+There are rules for a good document, such as showing or listing no more than 7+/-2 items at a time. There are also rules for choosing a particular layout, a list or a table or chart so that it is congruent with the structure of the problem. This is not a book on that topic, however some awareness on these presentation rules will help you make your documents more efficient.

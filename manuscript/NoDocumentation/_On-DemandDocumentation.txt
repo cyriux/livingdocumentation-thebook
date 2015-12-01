@@ -1,0 +1,57 @@
+## On-Demand Documentation
+
+> Don't do something twice: once I have to answer the same question twice, I start the documentation about it. Docker file is the golden source. (?)
+
+"Success of products depends a lot on the quality of the documentation." Jerome Petazzoni, Docker
+
+
+## On-Demand (pull)
+Documentation is best introduced just in time
+
+Need for documentation is feedback - Knowledge gap signal - Missing Documentation Signal
+> todo lean pictures
+
+- Voting Mechanism
+- Documentation Analytics
+
+Assessment: the best documentation is often the one that is missing! On-demand documentation is important
+
+JIT documentation & Promoted Documentation
+
+# Explain along the road.
+
+It's very hard to guess in advance what information will be useful for other people we don't know yet, trying to do tasks we can't predict.
+
+Therefore: when a team member asks for help on something, explain interactively, using whatever existing and improvised support: browsing the source code, searching and visualizing in the IDE, sketching on paper or whiteboard, or even in PowerPoint. Then immediately refactor the key parts of the explanation into a little section of documentation. You know what parts the explanations are key mainly from the interactions with the colleague. If it was difficult to understand, or surprising, or if it was recognized as a "Aha! Moment" by your counterparty, then it's probably worth keeping for other people later.
+
+It's already hard enough to just explain what was built, in particular because of the Curse of knowledge. Once you know something it's hard to remember how it's like not knowing the the thing.
+
+A> The Curse of knowledge
+
+
+Every time you're asked for information that you don't have any documentation already available for, log the request as a sticky on a wall.
+
+Whenever you have repeated requests for a similar kind of information you can decide as a team to invest some minimal work to create it. It's a voting over time mechanism.
+Start manual and informal; observe and challenge how it's still useful or not over time; throw away or promote into a clean automated documentation as a result.
+
+
+
+The best documentation is the one that you really need and that suits your purpose. Often, the best way to achieve that is to create the documentation on-demand, in response to an actual need. The need we have right now is certain, it's not a speculation of what someone could find useful in the future. The need we have right now is precise and has a purpose, and can be expressed as questions. Therefore the documentation to be created will just have to answer the questions, which makes it simpler and faster to create.
+
+### Astonishment Report
+
+Ask every newcomer to report all their surprises. Make sure they don't all come from the same company or from a similar background in order to bring fresh perspectives. Improve based on the remarks. Also make sure try write their remarks immediately, and ideally within the first two days. Two days are enough to get accustomed enough so that weird stuff is no longer that weird. It's important to preserve the candor.
+
+
+Fixing bugs or making small evolutions, from the code to production, is a great way to learn quickly about an application and its complete development process. That's why many startups include such tasks as part of the immediate on-boarding process for newcomers.
+
+For example it's a common policy in startups that you have to deliver something into production by yourself, with some guidance though, within the first two days on the job. It forces you to discover quickly the full process and all colleagues involved, if any. It's a mark of trust, you are trusted enough to be allowed to deliver something immediately, for real. It's also a mark of confidence in the process, in particular its tests and deployment automation strategy.
+
+But it's also a great way to get fresh feedback on the process. If the installation all the pre-requisite workstation setup takes two days or more, there's no way it can be done. If someone has to help often during the local developer setup, then you need better documentation at the minimum, or preferably better automation of this process. The same goes for the full delivery pipeline, and any other matter.
+
+If you have a weird in-house or proprietary stuff that new joiners have to learn, newcomers will tell you that there is a standard alternative that you could switch to.
+
+
+
+
+￼

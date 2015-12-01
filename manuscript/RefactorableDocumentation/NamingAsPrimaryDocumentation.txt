@@ -1,0 +1,20 @@
+# Naming As The Primary Documentation
+
+*Searching for just the right words is a valuable use of time while designing.*
+
+One of the most important tools is just naming. Despite its unattractiveness, naming should never be overlooked. More often than not, the names left by the original authors are the only element of documentation available to retrieve their knowledge. Good naming is extremely important. Good naming is immensely important.
+
+But good naming is hard. Names as social convention: need agreement and shared connotations. Thesaurus, conversations, active listening & overheard, names voting to the rescue!
+
+## Naming: browsing a thesaurus
+
+Also good names are not just useful when reading them, they are also useful when you're searching for something. Good naming makes sure all names are searchable. For an example of naming that fails on the Search-able aspect, the programming language named "Go" is quite unlucky, especially considering that it originates from the "Search Company" known as Google.
+
+## Composed methods, you need to name them.
+
+Names don't live in isolation. In object-oriented programming languages, the set of class names form a language, and the words have various relationships to each other, gaining expressivity as a whole. In the paper "A Laboratory For Teaching
+Object-Oriented Thinking" (1989), @KentBeck and @WardCunningham write:
+
+> The class name of an object creates a vocabulary for discussing a design. Indeed, many people have remarked that object design has more in common with language design than with procedural program design. We urge learners (and spend considerable time ourselves while designing) to find just the right set of words to describe our objects, a set that is internally consistent and evocative in the context of the larger design environment.
+
+For more on naming and practical advices, I suggest reading the chapter on naming written by Tim Ottinger in Robert C. Martin's book "Clean Code".

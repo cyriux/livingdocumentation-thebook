@@ -1,0 +1,34 @@
+# Modeling questions heuristics
+
+## Before
+
+- Do your homework: read about the topics, books, Google search, Wikipedia, investopedia, XML standards of the field.
+- Know your patterns: design, DDD, analysis
+- Train in various modeling techniques: CRC Cards, UML in Color, Event Storming etc.
+
+## During interview
+
+- Always ask **"WHY?"** (several times if needed)
+- Ask **"FOR WHO?"** Identify stakeholders: "Who decides that?" "Who would disagree with that?"
+- Note the exact words, **verbatim**.
+- Don't interrupt the business people, **write down your questions** to ask them minutes later.
+- While listening, **scan your notes** to find your next questions.
+- On your notes, **mark each word mentioned for the first time**.
+- Ask for the definition of each new words: **"How would you define X?"**.
+- Ask often **"Gimme an example please!"** (you can't abuse this question).
+- Challenge respectfully the domain experts: they may not always be right, they may even be wrong or lack perspective. Don't tell them they're wrong though.
+- Pay attention to **side remarks**, and note them. They may reveal the hidden side of the iceberg.
+- **Pay attention to hesitations and unconvincing answers**.
+- Ask for clarification whenever it seems that **different words** are used indifferently: this may suggest distinct Bounded Contexts.
+- Challenge internal consistency: confront two previous **statements that could contradict** with each other.
+- Look for **invariants** (properties that should be always true).
+- Challenge invariants, even obvious ones: **"in what conditions this would not be alway true?"**..
+- Ignore technology: How was this done before we had computers?
+- If you already suspect the relevance of a **known pattern** (e.g. Analysis Patterns), ask domain questions to know better..
+
+## After
+
+- Immediately code what you understood
+- Note every question, hesitation, contradiction for the next interview
+
+**Iterate**

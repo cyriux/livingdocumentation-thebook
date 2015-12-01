@@ -1,0 +1,114 @@
+#  Hexagonal Architecture Living Diagram
+
+## The idea
+
+The Hexagonal Hexagonal Architecture is an evolution of the Layered Architecture, and goes further with respect to dependencies constraints.
+
+This architecture basically only has two layers: an inside, and an outside. And there's a rule: dependencies must go from the outside to the inside, and never the other way round.
+
+The inside is the domain model, clean and free from any technical corruption. The outside is the rest, and in particular all the infrastructure required to make the software work in relation with the rest of the world. The domain is in the center, with sometime a small application layer around (in red in the picture below). Around the domain model there are adapters to integrate the domain model and the ports that connect to the rest of the world: databases, middleware, servlets or REST resources etc.
+
+![Hexagonal Architecture in a nutshell](images/hexagonal.jpg)
+
+Now we have to create a documentation for it, perhaps because the boss asked for it, or because we'd like to explain this nice architecture to our colleague. How do we do that?
+
+## The architecture is already documented
+
+The first thing to realize is that this architecture is already documented in many places in the industry literature, starting with the website of Alistair Cockburn, who first described this pattern.
+
+![Hexagonal Architecture diagram on Alistair Cockburn's website](images/alistair_hexagonal.png)
+
+This architecture pattern is also described in many books, like Growing Object-Oriented Software, Guided by Tests (GOOS), Implementing DDD (IDDD), or the to-be-published book Clean Architecture by Uncle Bob. It is also known in the .Net circles as the Onion Architecture by Jeffrey Palermo.
+
+This means that there is no need to explain much about Hexagonal Architecture yourself. You can just link to an external reference, where it is well explained. Why trying to rewrite what's been already written by a better writer?
+
+> That's Ready-Made Architecture Documentation
+
+## The architecture is already in the code
+
+So the architecture itself is already documented in the literature, but what about its particular implementation in our custom project?
+
+Because we're serious about our craft, the Hexagonal Architecture is already there in the code: the domain model is in its own package (read namespace or project in .Net), and the infrastructure is in one or several other packages, clearly segregated from the domain model.
+
+With some experience about this pattern, you can recognize it just by looking at the packages and their content. Such a clean and strict segregation never happens by pure chance, it demonstrates a clear design intent. If you can recognize the Hexagonal Architecture just by looking at the code, we're done then!
+
+Not really. Not everyone knows about Hexagonal Architecture, and architecture is by definition something everybody should be aware of. We need to make the architecture explicit in some way. It's 99% already there, we need to add the missing 1% to make it fully visible to everyone. We need to do some Knowledge Augmentation, using annotations or naming conventions. Both work well here.
+
+The naming convention in fact is already there:
+
+- Every class, interface, enum is in a package under the root package \*.domain.*
+- Every infrastructure code is under \*.infra.*
+
+We need this convention documented, and stable of course.
+
+We could also use annotations instead. This would enable adding more information, like a rationale:
+
+~~~~~~~~
+@HexagonalArchitecture.DomainModel(rationale = "Testability + Independence from the frameworks and technologies", alternatives = "DDD.Conformist")
+package flottio.fuelcardmonitoring.domain;
+
+import flottio.annotations.hexagonalarchitecture.HexagonalArchitecture;
+~~~~~~~~
+
+
+## Creating the living diagram
+
+### Knowing what we want
+
+What we want is a diagram with an hexagon (or any shape indeed) at the center, representing the domain model with its most important elements inside. Outside and around this shape we expect to have every significant element of the infrastructure, with arrows showing how they depend with the domain elements inside. Something like this:
+
+
+![A quick sketch of the kind of diagram we'd like to generate](images/hexagonal-sketch.jpg)
+
+We want a layout that flows from left-to-right, from the calls to the API to the domain, and then to the service providers and their implementations in the infrastructure.
+
+### Where's the knowledge right now?
+
+As we've seen, the biggest part of the knowledge about the Hexagonal Architecture is in the naming convention of the packages. The other part of the knowledge is simply the list of every class, interface, enum contained in these packages, along with their relationships.
+
+A convenient convention when drawing Hexagonal Architecture is to have every element consuming the domain model on the left, while every element providing services to the domain model are more on the right. How do we extract that information from the source code?
+
+In our current application we have several opportunities for simplification: every class that calls the domain model does so through its member fields, and every service provider integrates with the domain model by implementing one of its interfaces. This is a common situation, but not a rule, e.g. a caller may be get its response through a callback. In other cases you may have to declare explicitly who's on the API side and who's on the SPI (service provider) side if you care about that in the diagram layout.
+
+### Filtering out irrelevant details
+
+Even in small projects, the source code contains a lot of information, so we always need to carefully decide what to keep out of the diagram:
+
+- Every primitive
+- Every class that act as a primitive (like the most basic Value Objects)
+- Every class that is not related to other classes mentioned in the diagram
+
+We're going to include classes in the following fashion:
+
+- Include all classes and interfaces within the domain model (appart from quasi-primitives like units of measurement etc.). Being in the domain model is a matter of naming convention, or being in a package annotated as such.
+- Include their mutual relationships that make sense. We may want to fold type hierarchies into their super type to save diagram real estate.
+- Include infrastructure classes that have a relationship with elements already included in the domain model
+- For each infrastructure class, include their relationship with respect to the domain classes, and between infrastructure too. In order to have a directed diagram in the API to SPI direction from the left to the right, we make sure that *call* and *implement* relationships are in opposite directions: *A Calls B* and *A implements B* must be in opposite direction. If you don't understand this now, no problem, this is my fault, and you will understand it clearly as soon as you try to make it work!
+
+All this is just one example that works fine in one context. It is by no mean a universal solution for this kind of diagram, you should expect to try various alternatives, and you may have to filter more aggressively if your diagram gets too big. For example you may decide to only show the core concepts, based on additional annotations.
+
+### Scanning the source code
+
+For a living diagram like this one, all you need is a way to iterate through all the classes, and the ability to introspect them. Any standard parser can do that, and you can even do that without any parser just by using reflection. Because the focus is on the Hexagonal Architecture and nothing else, it's all about segregation of elements and highlighting the dependencies between them.
+
+In this example of diagram, I just use standard Java reflection, with the help of the Google Guava *com.google.common.reflect.ClassPath* to scan the full classpath conveniently. I use my own utility library DotDiagram as a convenience wrapper on top of the Graphviz Dot syntax to create the .dot files. Then it's up to Graphviz Dot to do the auto-magical layout and rendering.
+
+Here's an example of a diagram we get after rendering:
+
+![Hexagonal Architecture Living Diagram generated from the source code](images/hexagonal_living-diagram.png)
+
+### One month later
+
+We are not happy with a name 'Trend' of the domain interface, and we decide to rename it into 'SentencesAuditing'. No need to update the diagram by hand, a new, up-to-date diagram is generated on the next build with the new name.
+
+## Possible Evolutions
+
+The Hexagonal Architecture constraints dependencies: they can only go from the outside to the inside, and never the other way round. However our living diagram shows all dependencies, even those that violate the rule. This is very useful to make the violations visible.
+
+It's possible to go even further and to highlight all violations in a different color, e.g. with big visible red arrows when they are in the wrong direction. This illustrates that the line is very thin between a living diagram and static analysis to enforce guidelines.
+
+***
+
+You may have mentioned that it's impossible to talk seriously about a living diagram without talking deeply about the purpose of the diagram, in other words, without talking about design.
+
+This is no coincidence. Useful diagrams must be relevant, and to be relevant when you're supposed to describe a design intent you must really understand this design intent. This suggests that doing design documentation well converges with doing design well.

@@ -1,0 +1,77 @@
+# Traceable Value
+
+*A Value Object that keeps track internally of its own history*
+
+The approaches below all focus on describing the calculation from the point of view of the calculator. Another way to describe the calculation is to focus on the values being calculated.
+
+The idea is to have the values keep track of how they are created, so that they can tell their story, from the first step to the final result and each step in between.
+
+The values must be first-class types, which provides a lot of other advantages. For a value to become a traceable value it must have a field to record what happened before it was born. This field should account for the complete history of its ancestors.
+
+## An example
+
+Consider the following calculation
+
+| Listed Price     | 25 |
+| Loyalty Discount | -2 |
+| Special Offer    | -3 |
+| Shipping cost    | 7  |
+| ** Total **      | 27 |
+
+A simple class Amount represents the type of value being calculated. The listed price, each discount and the shipping cost are all amounts, and so is the total. This one ignores the currency, but for real I would never ignore currencies.
+
+~~~~~~~~
+public final class Amount {
+  private final int value;
+  private final String history;
+
+  //...
+
+  public Amount add(final Amount other) {
+    return new Amount(value + other.value,
+                          history() + " + " + other.history());
+  }
+
+  public String history() {
+    return history == null ? "" + value : history;
+  }
+~~~~~~~~
+
+The class has a field *value* to hold the amount, and another field called *history* to record where the value comes from. Both are final, because that's a typical way to make the value object immutable, which it must be.
+
+The *add* operation does the calculation, and at the same time computes the new history for the resulting value. Both the calculated value and its history are then returned as a new instance.
+
+The calculation above can then be expressed directly as an addition of amounts:
+
+~~~~~~~~
+Amount listedPrice = new Amount(25);
+Amount loyalityDiscount = new Amount(-2);
+Amount specialOffer = new Amount(-3);
+Amount discount = loyalityDiscount.add(specialOffer);
+Amount shipping = new Amount(7);
+
+Amount total = listedPrice.add(discount).add(shipping);
+
+total.value(); // 27
+total.history(); // "25 + -2 + -3 + 7"
+~~~~~~~~
+
+The big idea is that the value takes care of itself in every aspect. It performs the calculations, and makes sure to remember each calculation step.
+
+### Discussions
+Note that it is a simple case, but similar cases abound in business domains. There are many possible variants of this idea. The history may be a list instead of a text. It may even be a tree. It may keep references to the ancestors values, like in a persistent data structure. The history may be available to the user to add labels to the value too:
+
+
+~~~~~~~~
+new Amount(25, "Listed Price");
+~~~~~~~~
+
+## Limits
+
+One of the most difficult part of this pattern is to deal with the nesting and precedence of expressions in the history and in the way to format it into text.
+
+You may need extra processing around the plus or minus signs.
+
+You may need parenthesis everywhere, however if none of your use-cases challenge needs that level of care, I suggest you ignore it. The value object is not meant to be general-purpose. It's tailored for the actual use-cases within a specific business area.
+
+Another issue with this idea is that it blurs the equality of the value objects. The choice for the equality is either to consider the history or not.  is 25 "listed price" equal to 25 "20 + 5"? You decide, based on what makes most sense for your use-cases.

@@ -1,0 +1,32 @@
+# Documenting Business Behavior
+
+With BDD and specification by examples you get living documentation for each example or scenario. Thanks to automation, if the code of the scenario becomes out-of-sync, some tests fail and tell us we need to fix the discrepancy.
+
+But in many complex cases the scenarios are not enough to explain all the behavior, you need higher-level description in the form of rules, maths formula or principles.
+
+Many write that kind of knowledge in a wiki. The problem of a wiki is that it  lives in a distinct space time. It has its own structure, and its own distinct lifecycle. You often need to use the search feature to find the right answer quickly, and the probability to forget to update the wiki when you update the code or the scenarios is quite high. Lastly, a wiki has its own distinct scheme of versioning.
+
+- Collocation
+- Companion markdown file with same name
+- Trigger on commit "You changed the scenario without changing the companion file, did you check they are still in sync?"
+- Wiki on same source control and with same organizing structure than the BDD scenarios
+- run code and insert the results (self-explaining formula, object graph, config...) into the documentation a la Dexy
+
+--
+Standalone set of scenario titles
+  The set of scenario titles can be understood without looking at the content and gives a good idea of the functional coverage of the scenarios
+
+No duplication between the scenario title and its content
+  Don't repeat what the scenario does in its title
+
+Higher level of abstraction in the scenario name compared to the content
+  The title provides a higher-level describtion of what the scenario intends to do.
+
+Scenarios tests as a system
+
+Feature describes the context and the perspective every scenario belongs to; each scenario only has to locate itself within this perspective
+
+E.g. A given B and C, or B given A and C…
+
+Features files as substitutes for specifications (?)
+  It is legal to embed a few paragraphs to describe the expected behavior from a higher-level point of view, including formula and links to external resources and  diagrams.

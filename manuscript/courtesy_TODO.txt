@@ -1,0 +1,13 @@
+
+Cucumber, Specflow logos
+Pickles screenshot
+ask Alistair for hexagonal diagram, modes of communication diagram
+
+excessive uml diagram
+meme generator Living Doc
+
+puppet-graph-complex.png diagram from http://bitfieldconsulting.com/puppet-dependency-graphs
+
+Q: ask review by JHipster
+
+Q: as far as I know there's little we can do to extend the Maven XML with additional knowledge about each dependency.

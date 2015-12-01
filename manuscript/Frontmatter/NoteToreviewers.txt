@@ -1,0 +1,34 @@
+# Note to reviewers
+
+Many thanks for reading this early draft of the book! This is work-in-progress, so everything can change at anytime, although the more it will change the more work for me.
+
+I need your feedback. Please, don't hesitate to send me your feedback, even if you only read one chapter.
+
+I especially need feedback on:
+
+- **What is interesting and needs to be elaborated in more details**
+- What is not or less interesting
+- **What you strongly disagree with, or you think is plain wrong**
+- Suggestions of any additional examples
+- Suggestions of any additional illustrations
+- More generally, overall feedback on the content, not form
+
+Also if you have already put in practice some of the ideas of the book and want to be quoted about it, don't hesitate to tell me about it.
+
+Please **don't** send me feedback (not yet) about:
+
+- Poorly written sentences
+- Typos
+- Low-quality images
+
+There would be too many issues to raise (I'm not English-native). The copy-editing will be done later.
+
+Please send all feedback or other comment through the Leanpub feedback form:
+
+[Leanpub Email the author](https://leanpub.com/livingdocumentation/email_author/new)
+
+(or at my personal email if you manage to get it :)
+
+Thanks!
+
+ -- Cyrille

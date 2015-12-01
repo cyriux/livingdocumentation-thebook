@@ -1,0 +1,42 @@
+# Hygienic Transparency
+
+*Transparency leads to higher hygiene, because the dirt cannot hide.*
+
+Internal quality is the quality of the code, design and more generally of all the process from the nebulous needs to working software that delights people. Internal quality is not meant to satisfy ego or to be pride of it, by definition it is meant to be economic beyond the short term. It is desirable to save money and time sustainably, week after week, year after year.
+
+The problem with internal quality is that it's internal, hence you can't see it from the outside. That's why so many software systems are awful in the inside, provided you have developers eyes. Non developers like managers and customers can hardly appreciate how bad the code is inside. The only hints for them are the frequency of defects and the feeling that it gets slower and slower to deliver new features.
+
+Everything that improves the transparency of how the software is made helps improve its internal quality. Once people can see the ugliness inside, there's a pressure to fix it.
+
+**Therefore: Make the internal quality of the software as visible as possible to anyone, developers and non-developers alike. Use living documents, living diagrams, code metrics and other means to expose the internal quality in a way that everyone can appreciate, without any particular skill.**
+
+**Use all this material to trigger conversations and as a support to explain how things are, why they are this way, and to suggest improvements. Make sure the living documents and other techniques look better when the code gets better.**
+
+Note that the techniques that help make the software more transparent can't prove the internal quality is good, however they can highlight when it is bad, and that's enough to be useful.
+
+![In a house with everything painted in white, dirt is immediately visible](images/visible_hygiene.png)
+
+A> ## Le Corbusier and The Law of Ripolin
+A>
+A> Le Corbusier in his book intitled "The Decorative Art of Today" explains his fascination for the Ripolin, a brand of paint famous for his white paint. In the chapter titled: "A coat of Whitewash: The Law of Ripolin", he imagines every citizen being required to replace everything with a plain coat of ripolin white paint:
+A>
+A> "*His home* is made clean. There are no more dirty, dark corners. Everything is shown as it is. Then comes *inner* cleanness [...] once you have put ripolin on your walls you will be the master of *your own house*."
+A>
+A> Good documentation should have a similar effect on the inner cleanness of the code, its design and basically any other aspect that becomes visible for everyone to see its dirty facets.
+
+
+## Diagnosis tools
+
+The border is very thin between typical documentation media like diagrams and glossaries, and diagnosis tools like metrics or word clouds.
+
+### Word Clouds
+
+Word Clouds are very simple diagrams that only show words with more frequent words shown in a bigger font than less frequent words. One way to quickly assert what your application is really talking about is to generate a **word cloud** out of the source code.
+
+What does this word cloud really tell you about your code? If technical words dominate, then it's factual that the code does not really talk about the business domain.
+
+Another similar low-tech idea to visualize the design of the code out of the source code is the "signature survey" proposed by Ward Cunningham (http://c2.com/doc/SignatureSurvey/). It's probably possible to imagine similarly low-tech yet useful plain text visualization approaches. Let me know if you have any idea.
+
+## A Positive Pressure to clean the inside.
+
+%% TODO

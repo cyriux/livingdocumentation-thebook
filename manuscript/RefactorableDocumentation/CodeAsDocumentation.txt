@@ -1,0 +1,107 @@
+# Code is Documentation
+
+> "Programs are meant to be read by humans and only incidentally for computers to execute."
+> -- H. Abelson and G. Sussman (in "Structure and Interpretation of Computer Programs")
+
+Code is literally documentation. Code is written for machines of courses, but that's the easy part. The hard part is that code is also written for human beings to understand it for its maintenance and evolution.
+
+> That, yes, but more. The source code is also the ONLY document in whatever collection you may have that is guaranteed to reflect reality exactly. As such, it is the only design document that is known to be true. The thoughts, dreams, and fantasies of the designer are only real insofar as they are in the code. The pictures in the reams of UML are only veridical insofar as they are in the code. The source code is the design in a way that no other document can claim. One other thought: maybe gloss isn't in the writing, maybe it's in the reading.
+>
+> -- RonJeffries
+
+It takes a lot of skills and techniques to improve the ability of the code to be quickly and clearly understood by people. It's a core topic in the Software Craftsmanship community, with many books, articles and conference talks on the topic, and this book is not meant to replace all that. Instead we'll focus on a few practices and techniques that are especially relevant, typical, or original with respect to the idea of code being itself documentation. As Chris Epstein once said during a talk, "be kind to your future self." Learn how to make the code easy to understand.
+
+
+Many books have been written on writing code that is easy to read. Of particular importance are Clean Code by Robert Cecil Martin (Uncle Bob), and Implementation Patterns, by Kent Beck.
+
+In this later book, Kent Beck advocates to ask yourself: "What do I want to say to someone when they read this code? [...] Not just, "What will the computer do with this code?" but, "How can I communicate what I am thinking to people?"
+
+
+## Text Layout
+
+We usually think of code as a linear medium, however code is itself is a graphical arrangement of characters in the 2-dimensional space in the text editor. The 2D layout of the code can be used to express meaning.
+
+The most common example are the guidelines on the ordering of the members of a class:
+
+1. class declaration
+1. fields
+1. constructors and methods
+
+With this ordering, even the class is declared as plain text, there is a visual aspect implied by the layering of the blocks of text on the page. This is not that far from how a class is visually represented in UML:
+
+![UML visual notation for a class](images/uml_class_notation.png)
+
+The main difference between the code layout and the visual notation is the absence of the border lines around the blocks of text in the code.
+
+Let's have a look at other cases of code layout.
+
+### Tabular Code Layout
+
+Take the example of a socket considered as a state machine. This state machine can be fully described through its *state transition table*, which can be expressed literally as code. In this case, the layout really matters, the vertical alignment of the current states, the transitions and the next states is in itself meaningful.
+
+![The transition table of a socket as a state machine with its expressive code layout](images/table_code_layout.png)
+
+This is easy to do with code, except that the automatic code formatting of the IDE may often break this alignment. Putting empty comments sections /**/ at the beginning of lines can prevent the formatter from re-ordering the lines, but it's hard to preserve the whitespaces. Of course this all depends on your IDE and its capabilities to auto-format in a smarter way.
+
+### Arrange - Act - Assert
+
+Unit tests also offer examples of how the 2D graphical layout of the code can be used to express meaning. The convention *Arrange - Act - Assert* advocates organizing the code in three different sections, each below the previous one, as shown in the example below:
+
+![The convention Arrange - Act - Assert in a unit test](images/arrange_act_assert.png)
+
+Once you're familiar with this convention, the vertical layout makes it graphically obvious what each section is doing, just by looking at the composition of text versus whitespace.
+
+Another convention in unit tests is about considering that a unit test is basically about matching a given expression on the left with another expression on the right. In this approach the horizontal layout is meaningful: we want the full assertion on one single line, with the two expressions on both sides of the assertion, as shown in the example below:
+
+![A test is about matching the expressions on the left with the expression on the right](images/matching_expressions.png)
+
+There is much more to say about every possible way to organize your code graphically, but this is not the point of this book, appart from drawing your attention on this universe of possibilities.
+
+
+## Coding Conventions
+
+%% From http://coding.smashingmagazine.com/2012/10/25/why-coding-style-matters/
+
+
+
+Programming has always been relying on conventions to convey additional meaning to the code. The programming language syntax does a lot of the job, for example In C# and Java it's easy to recognize a method *play()* from a variable *play* because methods have parentheses. But this is not enough to tell the difference between class identifiers and variable identifiers.
+
+As a result we rely on naming conventions to quickly distinguish between a class name and a variable name, just by its particular use of lower and upper case. Such conventions are so ubiquitous that they can be considered mandatory.
+
+For example in Java, class names must be in mixed case with the first letter of each internal word capitalized, e.g. *StringBuilder*. This convention is sometime named *CamelCase*. Instance variables follow the same convention except that they must start with a lowercase first letter, e.g. *myStringBuilder*. Constants on the other hand should be all uppercase with words separated by underscores ("_"), e.g. *DAYS_IN_WEEK*. Once familiar with this convention, we don't even think about it any more, and we instantly recognize Classes, variables and CONSTANTS from their case.
+
+Note that the standard Java and C# notation are redundant with the coloring and syntax highlighting of your IDE. Instance variables are in blue color, whereas static variable are underlined etc. So in theory we should not even need the naming convention any longer.
+
+The Hungarian notation is an extreme example of using naming convention to store information, and is definitely not a convention I would recommend.
+
+Hungarian notation is an identifier naming convention in computer programming, in which the name of a variable or function indicates its type or intended use. (Wikipedia)
+
+The idea is to encode the type into a short prefix, e.g. (examples from Wikipedia):
+- lAccountNum : variable is a long integer ("l")
+- arru8NumberList : variable is an array of unsigned 8-bit integers ("arru8")
+
+The visible drawback of this notation is that it makes identifiers ugly, as if they were obfuscated.
+
+> A convention is more than just a matter of convenience, it's also a social construct, a social contract between all developers in a community. Once familiar with a convention, we feel at home with it, and feel disturbed whenever we encounter a different convention. Familiarity of a notation also makes it almost invisible, even if it's very cryptic to everyone else.
+
+The Hungarian notation originated in languages without a type system, so you had to use such a notation to remember the type of each variable. However, unless you're still coding in BCPL it's very unlikely you need such notation. It impedes code readability too much, for almost no benefit.
+
+
+W> It's unfortunate that C# has kept the convention of prefixing every interface with 'I', as this is reminiscent of Hungarian notation, and has no benefit. From a design perspective we should not even know whether a type is an interface or a class, it does not matter from a caller point of view. In fact we would often start with a class, and later generalize into an interface when really needed, and it should not change the code much. However it's part of the standard convention, so it should be followed, unless all developers involved in the application agree not to.
+
+In language with not built-in support for namespaces, it's common practice to prefix all types with a module-specific prefix:
+
+- *ACMEParser_Controller* // module ACMEParser
+- *ACMEParser_Tokenizer* // module ACMEParser
+- *ACMECompiler_Optimizer* // module ACMECompiler
+
+This is usually a bad practice, as it pollutes the class names with information that could be factored out in their package (Java) or namespace (C#):
+
+*acme.parser*
+- *Controller*
+- *Tokenizer*
+
+*acme.compiler*
+- *Optimizer*
+
+As we've seen, coding conventions try to extend the syntax of the programming language to support features and semantics that are missing. When you have no type, you have to manage the type by hand with some help from the naming convention. On other hand, if you have types they can help a lot for documentation.

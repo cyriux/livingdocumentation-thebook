@@ -1,0 +1,66 @@
+# Accuracy Mechanism
+
+When it comes to documentation, the main evil is that it's not accurate, usually because of obsolescence. Documentation that is not 100% accurate all the time cannot be trusted. As soon as we know it can be misleading from time time, it looses its credibility. It may still be a bit useful, but it will take more time to find out what's right and what's wrong in it. And when it comes to creating documentation, it's hard to dedicate time on it when we know it won't be accurate for long, it's a big motivation killer.
+
+But updating documentation is one of the most ungrateful task ever. Almost everything is more interesting and rewarding than that. This is why we can't have nice documentation.
+
+But in fact we can have a nice documentation, if we take the concern seriously and decide to tackle it with a well-chosen mechanism to enforce accuracy at all times.
+
+**You need to think about how you address accuracy of your documentation**
+
+
+## Documentation by Design
+
+As we've seen before, the authoritative knowledge, the one we can trust, is already somewhere, usually in the form of source code. In this perspective, the poison of documentation is to have duplicated knowledge, because it would multiply the cost of updating it in the case of change. This applies to source code, of course, and this applies to every other artifact too. We usually call "design" the discipline of making sure that change remain cheap at any point in time. We need design for the code, and we need the same design skills for everything about documentation.
+
+**A good approach for documentation is a matter of design. It takes design skills to design a documentation that is always accurate, without slowing down the software development work.**
+
+## Accuracy Mechanism for a reliable documentation for fast-changing projects
+
+With knowledge that can change at any time, there are a number of approaches to keep documentation accurate. They are listed below, ordered from the most to the least desirable
+
+### Single Sourcing
+
+The knowledge is kept in a single source, that is authoritative. And that's it. This knowledge is only accessible to the people who can read the files. For example source code is a natural documentation of itself for developers, and with good code there's no need for anything else. For example a manifest to configure the list of every dependencies for a dependency management tool like Maven or NuGet is a natural authoritative documentation for the list of dependencies. As long as this knowledge is only of interest for developers, it's just fine as it is, there's no need for a publishing mechanism to make the knowledge accessible to other audiences.
+
+Single Sourcing is the approach to favor whenever possible.
+
+### Single Sourcing with a Publishing Mechanism
+
+The knowledge is kept in a single source, that is authoritative. It's made available under various forms as a published and versioned document thanks to an automated publishing mechanism. Anytime there's a change it's updated there and only there.
+
+As an example, source code and configuration files are often the natural authoritative homes for a lot of knowledge. When necessary, the knowledge from this single source of truth is extracted and published in another form, but it remains clear that there is only one place that is authoritative. The publishing mechanism should also be automated to be ran frequently, and without introducing manual errors in the process.
+
+Javadoc even without the additional comments is a good example of that approach: the reference documentation is the source code itself as parsed by the Javadoc Doclet, and it's published automatically as a website for everyone to browse the structure of interfaces, classes and methods, including the class hierarchies, in a convenient and always accurate manner.
+
+
+### Redundant Sources with a Propagation Mechanism
+
+The knowledge may be duplicated in various places, but there's a reliable tooling that automatically propagates any change in one place to every other places. Automated refactorings in your IDE are the best examples of that approach. The class names, interfaces names and method names are repeated everywhere in the code, yet it's easy to rename them becase the IDE knows how to reliably chase every reference and update it correctly. This is far superior and safer than the good old *Find and Replace* that has the risk to replace random strings by mistake.
+
+In a similar fashion documentation toolchains like *AsciiDoc* offer buit-in mechanisms to declare attributes once that you can then embed everywhere in the text; thanks to the built-in include and substitutions features you can rename and make changes in one place while propagating the change to many places at no cost.
+
+### Redundant Sources with a Reconciliation Mechanism
+
+The knowledge is declared in two sources, so one source may change without the other. As it's a bad thing, there's a need for a mechanism to detect whenever the two sources don't match. The reconciliation mechanism should be automated and ran frequently to ensure permanent consistency.
+
+BDD with automation tools like Cucumber is an example of this approach, with the code and the scenarios as the two sources of knowledge, both describing the same business behavior. Whenever a test running the scenarios fails, it's a signal that the scenarios and the code are no longer in sync.
+
+### Human Dedication (anti-pattern)
+
+In this case there is no mechanism, and it's an anti-pattern. The knowledge may be duplicated in various places, and people in the team supposedly make sure everything remains consistent at all times through a lot dedication and hard grunt work. In practice it does not work, this is not recommended an approach
+
+
+There are a few cases when there is no need for an accuracy mechanism:
+
+### Single-Use Knowledge
+
+Sometime accuracy is just not a concern when the knowledge recorded at some place will be disposed right after use, within hours or a few days. This kind of transient knowledge does not age, does not evolve, hence there's not consistency concern about it, as long as it's actually disposed immediately after use, and assuming it's used for a short period of time. For example, conversations between pair in pair-programming and the code during each baby steps in TDD don't matter once the task is done
+
+### Account from the Past
+
+An account of past events like a **Blog Post** does not have issues of accuracy, because it is clear for the reader that there is no promise of being accurate forever. The point is solely to describe a situation as it happened, with the thinking at the time, and the related emotions perhaps.
+
+Such knowledge that is accurate at a point in time and that's recorded in the context of this point in time does not raise the same issues as obsolete documentation. The knowledge in the blog post does get outdated over time, but this is not a problem as it's clearly in the context of a blog post with a date and a story that's clearly in the past. This is a smart way to archive episodes of work and the big idea behind a story in a persistent fashion, without pretending its Evergreen. In the context of a blog post, it won't mislead anyone as it's clear it's an account of a past reflection, in the system as it was as this past time. As a story anchored in the past, it's always an accurate story, even if you can't trust the particular code or examples that may be quoted. It's like reading a book on History, and there's a lot precious lessons to be learnt regardless of in what context they happened.
+
+The worst that may happen to an account from the past is to get irrelevant, when the concerns long ago are probably not the concerns you have now. Still, you can learn valuable lessons from this kind of letters from the past, even if the particular details are no longer relevant.

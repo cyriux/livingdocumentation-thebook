@@ -1,0 +1,28 @@
+# Stable Requirements 
+
+
+## Goals Statement
+
+
+If you can answer all these questions, does it mean that everyone in the team also has this knowledge?
+
+This knowledge is often just oral tradition: you need to talk to someone who was there at the time to get some of the answers to these questions.
+
+Commonly you can also find some of the answers at random places in comments in the code, in your emails archives, somewhere in the wiki, or in documents spread over a department shared drive.
+
+There are several issues with that:
+* The knowledge is not structured and may be ambiguous or mixing various topics in the same document
+* It is not easy to find
+* The information is only for humans
+* It is often project-related, and will therefore quickly become irrelevant
+
+**Therefore:
+
+If you're really lucky the team is doing story mapping, or even better Impact Mapping, or is using the EVO method. If it's not the case then you should really consider starting Impact Mapping.
+
+
+... Not clear
+
+Need to make it into code or DSL. A mind map is a tree, that's easy to encode in a programming language. This code can then render itself into a syntax ready for mind mapping tools to render nicely laid out diagrams.
+
+More importantly, you can now reference the nodes and leaves of the impact map directly from code. For example, you can add annotations to declare what impact your module is targeting: @Impact(MyImpacts.REDUCE__PROCESSING_COST).

@@ -1,0 +1,13 @@
+# Biodegradable Documentation
+
+Biodegradable Documentation
+
+**Therefore: Consider what it would take for documentation to become unnecessary. This becomes the direction you should move towards.**
+
+It becomes clear at this point that Living Documentation is not an end in itself, but a mean to an end. Trying to setup a Living Documentation reveals issues about the design, or any other aspect. This becomes an opportunity to improve the root cause, which is above all good for the project and the product, and that in turn makes it possible to have a living documentation, or helps improve the living documentation. Doing that repeatedly leads to a stream of simplifications and standardizations. By this logic, everything becomes so simple and so standard that you don't need documentation any longer. And that would be perfect.
+
+It does not matter that you actually reach this point or not, but it has to be the goal. The goal of a living documentation initiative is to achieve the level of quality where documentation is mostly unnecessary. The goal of living documentation is not to end up with a lot of beautiful generated diagrams and documents. Instead, they should be considered as workaround solutions or intermediate steps towards better solutions that need less documentation.
+
+![Living Documentation long term goal is for documentation to become unnecessary](images/biodegradabledoc.png)
+
+In the book *Software Craftsmanship Apprenticeship Patterns*, Dave Hoover and Adewale Oshineye advocate: "Create feedback loops". A living documentation with generated diagrams, glossary, word cloud or any other media is such a feedback look to help criticize what you're doing and to check against your own mental model. This feedback loop becomes particularly useful when your mental model and the content of the generated documents don't match.

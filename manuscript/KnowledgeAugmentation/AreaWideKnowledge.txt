@@ -1,0 +1,70 @@
+# Area-Wide Knowledge
+
+*Knowledge that spans a number of artifacts that have something in common is best factored out in one place.*
+
+In a software project, an area (aka sector or parcel) is a set of artifacts (essentially packages and classes) that are manipulated together, as a whole, in some context. On each area we can define properties that apply to all the elements contained within the area. It can be design properties and quality attributes requirements like being read-only, serializable, stateless, expected volumetry and the corresponding quality of service.
+
+We can also define which programming paradigm we intend to favor within the area: Object-oriented, functional or even procedural or reporting style.
+
+A area is also ideal to declare quality attributes and architecture constraints. For example we would have distinct areas for code written from scratch with high quality standard, and for legacy code with more tolerant standards. In each area we define preferences of style like Checkstyle configuration, metrics thresholds, unit test coverage, and allowed or forbidden imports accordingly.
+
+**Therefore: When there is additional knowledge that spans a number of artifacts but that is not already present in their code, identify the most stable criteria to identify all the related artifacts and declare this additional knowledge in one single place with a reference to the criteria. Don't reference the artifacts directly by their name. Instead, when necessary, augment the artifacts by using the preferred techniques of Augmented Code like annotations or naming conventions.**
+
+Each area is a potential unit of deployment and of distribution in a physical tier. When choosing to distribute a area (in this case it would often be one or two layers) to the client tier, we'd like to be able to check that it meets the requirements for this distribution, like being fully serializable, with no server-side import and with reduced code size for download.
+
+A area is also a unit of focus for documentation, for instance for generating one diagram that focus on one aspect at a time.
+
+## Many kinds of areas
+
+Packages are the most obvious areas in Java and in other languages. But a package x.y.z actually defines more than one area: the area of its direct members x.y.z.*, and the area that also include every artefact included in its subpackages: x.y.z.** Modules in Domain-Driven Design are just packages.
+Very similarly, a class also represents a area for its member fields, methods and nested classes: x.y.z.A#*, and x.y.z.$*.
+
+Eclipse "working sets" also define areas as simple collections of classes and other resources. Tools like Ant also define filesets using lists of files and regular expressions: {x.y.z.A, x.y.z.B, x.y.*.A}. Working sets and filesets are named for easy reference.
+
+Source folders, e.g. src/main/java or src/test/java obviously define coarse-grain areas. Maven modules define even bigger areas, at the scale of sub-projects. Pointcuts of Aspect Oriented Programming also defines natural areas across a code base.
+
+Inheritance and implementation implicitly define areas, such as a the area of every subclass of a class or implementation of an interface: x.y.z.A+, and if it includes every member of every nested member: x.y.z.A++
+
+Stereotypes of any kind, including single-class patterns, implicitly define the area of their occurrences i.e. the pattern ValueObject implicitly defines the area of every class that is a ValueObject: @ValueObject.
+
+Collaboration patterns such as MVC and Knowledge Level also imply areas, such as the Model part of the MVC, or each level of the Knowledge Level pattern: KnowledgeLevel.KnowledgeLevel.* A group of classes manipulated collectively, for example the set of widgets in a graphical interface API is itself a area that I often call a family, very similar to working sets.
+
+"Every abstract participant of a collaborative pattern" (@AbstractFactory.Abstract.*), and "every concrete participant of a collaborative pattern" (@AbstractFactory.Concrete.*) are two additional implied areas in many patterns.
+
+There are many other areas implied by concepts like layers (logical layer, not tiers that are physical), domains, bounded contexts and aggregate roots. The areas implied are orthogonal to each others or nested. Curiously enough, these implied areas are often not materialized in the code.
+
+## Area Arithmetics
+
+The only operations available for areas are Union and Intersection. Of course named areas also need a mechanism to resolve the name into their composition.
+
+Some areas are nested to each other (packages -> packages, classes -> member fields, methods, classes; domains -> subdomains, bounded contexts -> aggregates) in which case we have an order relation between them, and we could talk about subsumption. Other areas are totally orthogonal to each other.
+
+The problem with large areas is their huge number of items, leading to concerns of ranking and paging.
+
+## Intrinsic declarations only
+
+areas are defined by some criterion; if this criterion is intrinsic to the area, then we can declare the area directly in itself i.e. in the containing class or package, ideally using annotations directly attached to them.
+
+But this is not always the case, for example tiers are not really intrinsic to code. Code should be written with constraints in mind, like being serializable and with no direct use of database access, but the choice of actually distributed to the client tier or to another tier is a distinct matter, called tiered distribution (MSDN P&P).
+
+I have a problem on how to declare the domains being either Core, Generic / Supporting Subdomain or even Cohesive Mechanism, because Core, Generic, Supporting suggest a relative point of view, hence not intrinsic. Information that is not intrinsic to an artifact or area must not be declared within it, and may only declared outside on the other artifact or area using it, i.e. downstream.
+
+What's clear is that each Core Domain, Generic / Supporting Subdomain has its own domain, which must be declared. Cohesive Mechanism on the other hand has no particular domain. Domains exist in the air, independently of any application, and every representation of a domain is actually a model and its Ubiquitous Language living within its particular Bounded Context. The closest to a pure domain evocation would be a small text file with links to books of the domain.
+
+## In practice
+
+All the techniques we've seen to augment the code with additional knowledge beyond what's already there apply for area-wide knowledge too: annotations, naming conventions, sidecar files or ad hoc metadata database or a DSL.
+
+A common way to add documentation to a Java package is by using a special class named *package-info.java* as a location for the Javadoc and any annotation about the package. This special pseudo class with a magic name is also itself an example of a sidecar file.
+
+With naming convention, it's a matter of naming a package with a standard name, like *something.domain* to mark it as a domain model.
+
+## When the area does not match the natural organization of the artifacts
+
+Sometime you'd like to augment the code with knowledge that is only related to *every readonly service within a module*. You need a form of curation for that, based on filtering criteria.
+
+If the filtering criteria are not already present in the source artifacts, you first need to augment each of them in whatever way you like, for example with a @Readonly annotation on just the services that are readonly. Then you can declare the additional cross-cutting knowledge in one central place through a kind of query.
+
+In fact this kind of approach is something you already do when you use Aspects in Aspect-Oriented Programming. The pointcuts augment the code with tags that can then be used to select subsets of elements to apply the cross-cutting transformation to.
+
+This can be a formal query, as in AOP, or it can just be a plain text description of the subset of elements: "Every service marked as @Readonly is expected to be cached...", or "every service not marked as @readonly must be idempotent to support more than once delivery". A well-known example in Java again would be that "every DTO must implement Serializable". In this example, a DTO can be declared by a mere naming convention \*.dto.*.

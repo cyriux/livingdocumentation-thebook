@@ -1,0 +1,31 @@
+Any team working collectively is already doing reviews, just all the time. For most critical software, this probably does not reduce the need for external reviews by an expert, but it will be less likely for serious defects to be found in these reviews.
+
+On testing, a team following a Behavior-Driven Development approach is also doing testing already, thanks to the involvement of a tester early as part of the 3-Amigos specifications workshops. Further test automation and practices like Test-Driven Development also go a long way towards reaching the goals of your compliance office or of the regulators. This definitely does not remove the need for more testing done by other professional testers, but at least the test results won't be polluted by a number of stupid trivial errors, releasing the cognitive load for everyone to focus on more critical issues.
+--
+
+http://continuousdelivery.com/2010/11/continuous-delivery-and-itil-change-management/
+
+Best article
+
+
+http://reevesresults.blogspot.fr/2011/03/agile-vs-itil.html
+
+It is much more than the question of automation or traceability - it is a mindset / mental perspective of the integration of knowledge - and finally teamwork.
+
+"implementing" ITIL word for word from the book which is not the intent.
+
+ITIL recommends using - adopting - the best practices, as they suit the organization and its needs.
+
+Often people believe that rapid deployment / continuous deployment / daily builds etc. can't work in a an environment that is highly process oriented, where rules and process have to be followed. (Usually they just don't like someone else's rules.)
+
+Well, the process is there to ensure consistency, responsibility, accountability, communication, traceability, etc. and of course it CAN be designed to be a hinderance. It. alternatively, CAN be designed to allow quick passage of releases. People blaming process or ITIL are just being immature. They may as well blame the weather.
+
+ITIL vs. DevOps vs. Agile vs. Cloud vs. Automation vs. chaos vs. …
+
+http://ppenny.varrowblogs.com/?p=199
+
+As Paul Penny [says](http://ppenny.varrowblogs.com/?p=199): "ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business".
+
+Because, contrary to the horribly poor implementations many folks have experienced, ITIL is NOT all about being slow and inflexible. ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business. Last time I checked, this is still something that is expected from IT.
+
+The art is in applying these principles, along with available tools and other enabling processes and methodologies, to attain an appropriate balance of speed, cost, and risk mitigation for each service, and for each unique organization

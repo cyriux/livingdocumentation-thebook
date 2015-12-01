@@ -1,0 +1,113 @@
+# Designing Custom Annotations
+
+%% should be right next READY-MADE KNOWLEDGE
+
+*Evolve your vocabulary of tags and annotations from standard literature, with additions and extensions to be more specific to your own context*
+
+Off the shelf literature is essential to learn quickly based on the experience of others, and to share a common vocabulary whatever the company, department or continent you are in. However the problem with such literature is that in order to be shared with everyone it has to give up what is specific to each particular context.
+
+You should use this standard body of knowledge, and you can also extend it to make it even more expressive.
+
+For example we more or less all agree on a standard circle of 6 colors, but in your own visual charter you certainly use custom variants of these colors, which are specific to you. Your "light blue" is certainly a "blue", but it is up to you to define what "light" means.
+
+## Stereotypical Properties
+
+When we design code, we think in terms of working behavior but also in terms of properties, desirable or not. Here are some examples of desirable properties:
+
+- NotNull, for a parameter which cannot be null. Life is so easier when you use it almost always!
+- Positive, for a parameter which has to be positive
+- Immutable, for a class (or at least observed as immutable). This is not the place to elaborate on all the benefits of immutable objects, but immutable objects are good, eat them!
+- Identity by value, where equality is defined as the equality of data
+- Pure, a.k.a. Side-Effect Free, for a function, or by extension for every function of a class. This is a good idea to design as much as your code in a pure way.
+- Idempotent: for a function which has the same effect when called more than once. This single property is a life-saver for distributed systems.
+- Associative, for a function + such as (a + b) + c = a + (b + c). This property is useful when doing map-reduce kind of things.
+
+
+Whenever we think about these properties, we naturally want to make it clear into the code. We do that with the type system whenever possible. For example it is possible to express the possibility of having no result with the *Option* or  *Optional* built-in the language, or provided by a standard libraries. Using a Scala *case class* is in itself a shorthand for *(Immutable, Identity by value)*. When it is not possible we express the properties with comments, or with custom annotations, along with automated tests and property-based testing.
+
+%% TODO example of custom properties on functions, classes etc.
+
+## Stereotypes and tactical patterns
+
+In a language like Java or C#, everything is a class, but not every class is of the same kind or has the same purpose. Please note that in FP languages, everything is a function, but not every function has the same purpose either. Domain-Driven Design proposes some fundamental categories of classes, like *Value Object*, *Entity*, *Domain Service* and *Domain Event*. It also suggest borrowing from other patterns like design patterns, with the *Strategy* and the *Composite* patterns mentioned as examples, the point being that some (not all) design patterns are also domain patterns.
+
+What is interesting is that these categories of classes are compressed ways to express a lot of information. For example when I say that the class "FueldCardTransaction" is a Value Object, this means that its identity is only defined by its values, that it is immutable, should be without any side-effect, and should be transferable. It is therefore natural to declare explicitly these patterns as a simple way to do documentation.
+
+Therefore we would introduce a set of custom annotations in our project:
+
+- @ValueObject
+- @Entity, or @DomainEntity to prevent any ambiguity with the annotations of similar names from all the technical frameworks
+- @DomainService
+- @DomainEvent
+
+And we can declare the consequence explicitly by using the properties
+
+%% meta annotations
+
+Each category of class comes with pre-defined properties. For example a value object should have Identity by value, be Immutable and Side-Effect Free. We can easily make that explicit in our little system of annotations, by putting annotations on annotations:
+
+~~~~~~~~
+@Immutable
+@SideEffectFree
+@IdentityByValue
+public @interface ValueObject {
+...
+~~~~~~~~
+
+When we mark a class as being a value object, we indirectly mark it with the meta annotations as well. This is also a convenient way to group properties which go together into bundles, to declare them all with only one equivalent declaration. Of course the bundle should have a clear name and meaning, not just a random bunch of properties together.
+
+This approach enables additional enforcement of the design and architecture if you wish. For example @DomainEntity, @DomainService and @DomainEvent imply being part of a Domain-Model and perhaps related restrictions on the allowed dependencies as a result, which can all be enforced with static analysis.
+
+## Module-wide declarations
+
+Note that annotations in Java can be put on packages. This makes it simple to declare properties once to collectively mark every element of the package. I like to use that in a "unless specified otherwise" fashion. For example we could define a custom annotation named @FunctionalFirst, meant to be put on whole packages, which would mean @Immutable and @SideEffectFree by default for every type, unless stated otherwise explicitly on a particular type.
+
+There are many other catalogues of patterns and stereotypes of interest to express efficiently a lot of design and modeling knowledge. It is ready-made knowledge and vocabulary about your job as a developer, doing design, modeling and solving infrastructure problems. But you can go further and extend the standard categories into finer grain categories.
+
+For example, it is possible to refine the kind of *Value Object*. Martin Fowler wrote about the *Quantity* pattern, the *NullObject* pattern, the *SpecialCase* pattern, the *Range* pattern, and they are all specialized cases of Value Objects. It goes even further, with the Money pattern being itself a special case of the Quantity pattern. You can use all these patterns, choosing the most specific as possible. For example I would chose *Range* over just *Value Object* if it applies. It is common knowledge that a range is a Value Object.
+
+Again we would make explicit that a Range is a special case of a Value Object with an annotation on the annotation:
+
+~~~~~~~~
+@ValueObject
+public @interface Range {
+...
+~~~~~~~~
+
+You can also create your own variants. In a past project we had a lot of value objects, but they were more than that. They were also instances of the Policy pattern, the domain pattern equivalent of the Strategy pattern. More importantly, in the business domain of finance, we would usually call them standard market "conventions". So we created our own @Convention annotation, and make it clear it is at the same time a value object and a policy.
+
+~~~~~~~~
+@ValueObject
+@Policy
+public @interface Convention {
+...
+~~~~~~~~
+
+## Meaningful annotations package names
+
+When you create a custom annotation, you have to chose its package name. You can chose it to have a meaning. I like to encode the reference place of the idea in the package name. When the annotation is drawn from a book, I would use the book name, or its most used abbreviation: *com.acme.annotation.gof* for the book "Gang of Four", *com.acme.annotation.poeaa* for the book "Patterns of Enterprise Application Architecture", and *com.acme.annotation.ddd* for the book Domain-Driven Design. When it is standard knowledge with no one golden book, I would name after the field: *com.acme.annotation.algebra*.
+
+%% DTO (anemic is ok)
+
+
+## Hijacking standard annotations
+
+Many frameworks in Java-land use annotations as a form of configuration, e.g. JPA and Spring are offer the infamous choice between XML and annotations. Even though I advocate annotations for documentation purposes, I am not a big fan of using annotations as an alternative to writing code. I prefer the approach found in some .Net projects like Fluent Nhibernate where we use plain code to define the object-to-relational mappings.
+
+However in Java at the time of writing, we still have to use annotations, unless we prefer XML, which I do not. When we use annotations to drive the behavior of frameworks, the annotations are code indeed, and since most of them relate to infrastructure concerns like persistence or web-service, they often have the annoying habit to pollute domain classes with non-domain noise.
+
+Putting aside this little rant, you probably wonder whether these standard annotations have any documentation value. Since they are code, at the minimum the annotations document what they are doing, just like well-designed code. They tell the *WHAT*.
+
+Let's consider a few examples of particular documentation interest.
+
+- **Stereotyping Annotations (Spring)** This set of annotations includes `@Service`, `@Repository` and `@Controller`. They are used to stereotype classes, in addition to declaring them for registration into the dependency injection mechanism. In fact they alias the `@Component` annotation with more meaning, which is a nice way to hijack these necessary noisy annotations for something more meaningful for humans, not just for Spring.
+
+- **Creating Custom Stereotypes (Spring)**: The approach below also supports your own custom annotations, provided you annotate them with the `@Component` meta annotation.
+
+- **@Transactional (Spring)**: This `@Transactional` annotation is used to declare the transactional boundaries and rules, typically on a service. If you have an Hexagonal Architecture, then the transactional services should be your Application Services, in their own thin layer on top of the domain model. You could thus decide that this Spring annotation in itself also means `@ApplicationService` in the DDD sense. Because most Spring annotations are also meta annotations, you could actually define your own `@ApplicationService` annotation, mark it as `@Transactional` in order to express your intent in a way that Spring can recognize to do its magic too.
+
+- **@Inheritance (JPA)**: This `@Inheritance` annotation and its friends directly documents the design decisions on how to do the mapping between a class hierarchy and a corresponding database schema. This directly relates to the corresponding patterns from Martin Fowler's book "Patterns of Enterprise Application Architecture". For example `@Inheritance(strategy=JOINED)` corresponds to the [Single Table Inheritance](http://martinfowler.com/eaaCatalog/singleTableInheritance.html) pattern, under another name unfortunately.
+
+- **RESTful Web Service (JAX-RS Annotations)**: This set of annotations is clearly declarative: `@Path` identifies the URI path, `@GET` declares the GET request method, and `@Produces` defines the media type as a parameter. The resulting code is self-documented to a large extent. Furthermore, tools like Swagger can exploit these annotations to generate a living documentation of the API.
+
+It is possible to rely on the standard annotations for their particular documentation value, but this is almost always limited to technical concerns, where the annotation is just like particularly declarative code: it tells the **WHAT**, not the **WHY**. But in a few cases, it is possible to do a bit more to extend the standard mechanism to convey additional meaning, while still playing nice with the frameworks you depend on.

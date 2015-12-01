@@ -1,0 +1,57 @@
+# A principled approach
+
+To better organize what is Living Documentation, its values and principles, here's the [The Spine Model](http://spine.wiki/explanation/introduction/) for it. It starts with stating the need we acknowledge and that we decide to address. Then we clarify the main values that we want to optimize for. A list of principles follows, and is there to help change the current situation.
+
+By keeping the needs, the main values and the principles in mind, in this order of importance, we can then apply practices and use tools to get the work done in an effective fashion.
+
+## Need:
+
+**Evolve software continuously, collectively and over the long run.**
+
+We want to deliver software quickly now, and at least as quickly in the future. We need to collaborate as a team, and when necessary with even more people who can't always meet at the same time or at the same place.
+
+We want to take the best possible decisions based on the most relevant knowledge, in order to make the work on the software sustainable in the long run.
+
+## Values:
+
+We optimize for the following values:
+
+1. Deliberate Thinking
+1. Continuous Knowledge Sharing
+1. Fruitful Collaboration
+1. Honest Feedback
+1. Fun
+
+## Principles:
+
+We leverage the following principles to change the way we work:
+
+1. Conversations over Documents
+1. Most Knowledge is Already There
+1. Internal Documentation over External Documentation
+1. Automate for the long term
+1. Enforced Accuracy
+1. Single Source of Truth
+1. Working Collectively
+1. Documentation is also at Runtime
+1. Documentation is Communication
+1. Segregation by Pace of Change
+1. Make Documentation Unnecessary
+1. A Whole Activity (carefully done, with multiple benefits)
+
+## Practices:
+
+We have the following practices available to deliver value:
+
+- Living Diagram
+- Living Glossary
+- Declarative Automation
+- Enforced Guidelines
+- Small-Scale Model
+- and many others that are the focus of this book.
+
+## Tools:
+
+To get the work done, we use tools.
+
+A complete list of tools of interest for a Living Documentation is available in the addendum. This list of tools starts with your regular programming languages, to automation tools on top of your practice of BDD, like Cucumber or SpecFlow, and includes rendering engines for Markdown or AsciiDoc, and automatic layout engine for diagrams like Graphviz.

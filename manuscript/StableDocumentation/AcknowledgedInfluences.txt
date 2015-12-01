@@ -1,0 +1,33 @@
+# Acknowledge your influences
+
+## Project Bibliography
+
+Good books care about their bibliography. For the reader, it's a way to learn more, but it's also a way to check the influences of the author. When a word has different meanings, looking at the bibliography helps find out how to interpret it.
+
+> Read the Book! -- Eric Evans, in Domain-Driven Design
+
+A project bibliography provides a context for the readers. It reveals the influences of the team at the time of building the software.
+
+The project bibliography is composed of links to books, articles and blogs either crafted by hand or extracted from your annotations and comments, or using a mix of both.
+
+## Declare your Style
+
+Like painters that belong to specific painting schools like the Surrealists or the Cubists, there are various schools of thoughts in software development.
+
+Some painters can switch between styles from one work to another; similarly, developers can create a module in a very functional-programming style, with everything pure and immutable, and another using semantic technologies and graph-oriented stores.
+
+To provide context for the readers, it is useful to declare the style and the main paradigm if any that you chose for some area of code, typically for a module or for one project.
+
+This overall statement show some similarity to a resume, but for the team or teams:
+- Modeling Paradigms (DDD)
+- Authors we follow
+- Books we've read, blogs we often go to
+- Languages and frameworks we're familiar with
+- Any kind of inspiration that matters
+- Typical kinds of projects we've mostly done so far (web, server, embedded, crud...)
+
+To be refactoring-proof, this information should reside within the module or project itself. It can be done with annotations @Style(Styles.FP) on packages (Java), attributes on the AssemblyInfo (.Net) or using a style.txt file with a key-value syntax at the root of the module or project.
+
+A> Style is also useful for tools; for example the declared style can be linked to specific rulesets for static analysis.
+
+Declaring your style also helps enforce consistency within area of the code base.

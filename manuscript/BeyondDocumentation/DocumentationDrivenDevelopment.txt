@@ -1,0 +1,23 @@
+# Documentation-First Development
+
+*Start by focusing on your goals or end result, and let it drive the rest of the work*
+
+It is often a good idea to start with a focus on the end result we are aiming for. By focusing on the end, we first focus on where the value is, to make sure it's really there. Then we can derive what's really necessary to achieve the goal, no less and no more, avoiding unnecessary work.
+
+Chris Matts in a talk at the BDD eXchange conference had a great example on a typical british goal: having a cup of tea. Starting with this goal, we can then derive the need for hot water, a clean cup, and a tea bag, and so on.
+
+Some developer find that starting with a piece of documentation helps do that, like Dave Balmer in his blog [I want control of my documentation](https://davebalmer.wordpress.com/2011/03/29/source-code-documentation-javadoc-vs-markdown/):
+
+> I can start by documenting only that which is important. That satisfies the "write this down before I forget” part of documentation, and frees me up to improve it in later drafts.
+
+Test-Driven Development and its close cousin BDD exploit that effect by focusing on the desired behavior first, as a test, or a scenario or example written before starting the coding. So if you're practicing TDD or BDD you're already doing documentation-first development too.
+
+Regardless of your practices, it remains a good idea to dump the inception ideas for the project into a little text file, e.g. the README file, in order to flesh out your expectations. Once materialized on paper, ideas become objects of deeper scrutiny, they can be criticized, reviewed, shared with other people early. And if you are alone, just let the time pass for a few days before going back to these notes: when you see them again with a fresh look, you can review your own work in a more objective fashion, thanks to the documentation from yourself to your future self.
+
+## Documentation to keep you honest
+
+Continuous improvement starts with honest retrospectives on how well we performed. When we work based on assumptions, it is easy at the end to forget about our past assumptions and either blame the environment in case of failure, or congratulate yourself for the success. Opportunities of improvement are in looking back at our assumptions in retrospect, to learn from them. Next time "I will not assume that", or "I will first check the assumption before investing more time".
+
+Therefore: **Document early what you assume and the experiments you try in order to have reliable and honest data when it is time for retrospective.**
+
+This is a way to be a little more data-driven. And there are tools for that! For example growth.founders.as offers a tool to declare your assumptions and to describe your experiments.  

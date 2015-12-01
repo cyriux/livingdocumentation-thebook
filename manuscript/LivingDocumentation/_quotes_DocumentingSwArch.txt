@@ -1,0 +1,153 @@
+QUOTE
+
+LD - Quotes and notes from Documenting Software Architecture
+
+Uses of architecture documentation
+Architecture documentation must serve varied purposes. It should be sufficiently abstract that it is quickly understood by new employees, it should be sufficiently detailed so that it serves as a blueprint for construction and it should has enough information that it can serve as a basis for analysis.
+
+****
+Architecture documentation is both prescriptive and descriptive.
+
+That is, for some audiences it prescribes what should be true by placing constraints on decisions to be made. For other audiences it describes what is true, by recounting decisions already made, about a system's design.
+****
+[
+Prescriptive documentation is best avoided in favor of more efficient forms of communication between stakeholders like conversations. Also because a software should always be ready to change it should not have to prescribe much.
+
+Descriptive documentation, especially self-descriptive documentation is very useful to make the software transparent, with a lot of benefits: arbitrary decisions cannot hide, non technical stakeholders can review everything, no time spent doing just documentation, time is spent foremost on better decisions.
+]
+
+Understanding the uses of architecture documentation is essential, since the uses determine the important forms. ****
+
+Fundamentally, there are three uses of architecture documentation.
+1. Architecture serves as a means of education. The educational use consists of introducing people to the system. The people may be new members of the team, external analysts or even a new architect.
+2. Architecture serves a primary role as a vehicle for communication among stakeholders.
+
+
+---
+Representation connotes a model, an abstraction, a rendition of a thing that is separate or different from the thing itself. Is architecture something more than what someone writes down about it? Arguably yes, but it's certainly pretty intangible in any case. We felt that raising the issue of a model versus the thing being modeled would only raise needlessly diverting questions best left to those whose hobby (or calling) is philosophy.
+
+Documentation connotes the creation of an artifact—namely, a document. (Note to Luddites: "Document” does not have to be a stack of paper. Electronic files and web pages make perfectly fine documents.) Thus, documenting a software architecture becomes a very concrete task of producing a software architecture document. Viewing the activity as creating a tangible product has advantages. We can describe good architecture documents, and bad ones. We can use completeness criteria to judge how much work is left in producing this artifact, and determining when the task is done. Planning or tracking a project's progress around the creation of artifacts (documents) is an excellent way to manage. Making the architecture information available to its consumers and keeping it up to date reduces to a solved problem of configuration control. [LOL]
+
+Documentation can be formal or not, as appropriate, and may contain models or not, as appropriate. Documents may describe, or they may specify. Hence, the term is nicely general.
+Finally, there is a long software engineering tradition to go with the term: Documentation is the task that you are supposed to do because it's good for you, like eating broccoli. It's what your software engineering teachers taught you to do, your customers contracted you to do, your managers nagged you to do, and what you always found a way not to do. So if documentation brings up too many pangs of professional guilt, use any term you like that's more palatable. The essence of the activity is writing down (and keeping current) the results of architectural decisions so that the stakeholders of the architecture — people who need to know what it is to do their job — have the information they need in an accessible, non-ambiguous form.
+--
+
+Advice
+1. Documentation should be written from the point of view of the reader, not the writer.
+2. Avoid unnecessary repetition. ... But expressing the same idea in different forms is often useful for achieving a thorough understanding
+3. Avoid ambiguity.
+4. Use a standard organization.
+- [make documentation easy to reference]
+-  Mark what you don't yet know with TBD "to be determined” rather than leaving it blank.
+5. Record rationale. Record the alternatives you rejected and say why
+6. Keep documentation current but not too current. [No: automate it]
+7. Review documentation for fitness of purpose
+[Beware the curse of knowledge]
+
+---
+In architectural styles
+
+For example, a system might employ a pipe-and-filter style to process input data, but the result is then routed to a database that is accessed by many elements. This system would be a blend of a pipe-and-filter and shared-data styles. Documentation for this system would include a pipe-and-filter view that showed one part of the system, and a shared-data view that showed the other part.
+
+---
+The decomposition view of the A-7E Avionics System is driven by the information-hiding principle[, by responsibility and unique reason to change]. The first-order decomposition produced three modules: hardware-hiding, behavior-hiding, and software-decision-hiding.
+
+Each of these modules is decomposed into two to seven submodules. These are in turn decomposed, and so forth, until the granularity is fine enough to be manageable. A useful design heuristic holds that a module is small enough if it could be discarded and begun again if the programmer(s) assigned to implement it left the project.
+
+---
+[UML generalization and the use of the ellipsis ... to suggest more children!]
+---
+
+[Layering is all about what's allowed or forbidden between partitions aka layers. There is a structure, not just partitions in the wild]
+--
+Layers: stack, onion, segmented stack, stack with a sidecar, or UML packages and dashed links
+
+---
+API
+Server 1
+Corba Communication Substrate
+Server 2
+UI
+Figure 22: A poorly documented C&C view. There is no key; it portrays an API as a component; it uses different shapes for same type of element; it uses the same shape for different types of elements; it confuses context with system to be built; its use of arrows is not explained; it has no explicit interface points.
+---
+
+Data stream styles: Pipe-Filter Style, process control systems, concurrent pipelines, and batch sequential systems.
+
+Call-return styles: styles in which the components interact by requesting services of other components. Client-Server, Peer-to-Peer.
+
+Shared-data Styles: organized around one or more repositories, which store data that other components may read and write. Blackboard
+
+Publish-Subscribe style: components interact by announcing events. Components may subscribe to a set of events.
+
+--
+Acme, a typical architec- ture description language (ADL).
+[don't bother too much with UML]
+
+---
+[exosystem view: thing under focus in the center, all it's neighbors around, using icons or whatever]
+
+[Don't hesitate to add balloons on your diagrams to clarify or comment]
+
+
+Figure 44: A context diagram for an automotive control system. The software system whose context is being defined resides in the box labelled "ECU” at the far left.
+
+--
+Variability
+
+In some situations, decisions about some aspects of an architecture have not yet been made but the options still need to be represented. We distinguish two cases:
+• Variability: the decisions that are yet to be made will be made by a human (a member of the development team), prior to system deployment.
+• Dynamism: the decisions that are yet to be made will be made by the system, itself, during execution.
+
+Variability in an architecture can occur because:
+• some set of decisions has not yet been made during the design process for a single system but options have been explored, or
+• the architecture is the architecture for a family of systems and the option taken will depend on the specifics of the particular member of the family to be constructed.
+• the architecture is a framework for a collection of systems and contains explicit places where extensions to the framework can occur.
+
+In the first two cases, there are three kinds of information that need to be documented:
+1. the variation points. A variation point is the place in the architecture where variation can occur. The options within a variation point are a list of alternatives. Each alternative has, in turn, a list of elements impacted if that option is chosen.
+
+2. the elements that are affected by the option. Each option will affect the existence of an element, the properties of that element or the relations among the elements. An element can exist in one option and not in another, An element can exist in two different options but compute different functions or have different properties. An example was given in [Section tbd] where multiple elements may realize a particular interface. Two elements can be related in one fashion in one option and in another fashion (or not at all) in another option. The elements and relations affected by an option need to be documented.
+
+3. binding time of an option. Choosing different binding time for elements affects their properties. For exam- ple, deciding to bind two components during initial load time will yield different system properties than de- ciding to bind these two components through a dynamic link mechanism, Possible binding times are design time, compile time, link time, load time, or run time. If binding time is an element of an option, it needs to be documented.
+
+- Show what's constant and what's not.
+- Denote whether the alternatives apply at design time, at build time, at run-time, or at compile time or link time.
+- Document dependencies among options?
+- Use scenarios of building different types of systems.
+
+--
+Use Cases, Use Case Maps, Interaction Diagrams, State Charts
+Figure 51: Possible usage of different behavioral descriptions.
+--
+Figure 64: Documenting a view consists of documenting seven parts: (1) the primary presentation; (2) the element catalog; (3) a context diagram; (4) a variability guide; (5) architecture background, including rationale, results of analysis, and assumptions made; (6) a glossary of terms used; and (7) management information. If the primary presentation is graphical, we call it a cartoon. A cartoon must be accompanied by a key that explains the notational symbology used, or points to the place elsewhere in the documentation where the notation is explained.
+
+--
+[Traceability between decision and the underlying constraints and requirements]
+
+Document the rationale behind a design decision[, but not always. Do it] if:
+- it took a lot of time to decide, [or a lot of tensions between stakeholders, or a decisive piece of information was needed. In short if the decision was costly.]
+- the decision is critical to the achievement of some requirement/goal
+- the decision seems to not make sense at first blush, but becomes clear when more context is considered
+- when someone has asked, "Why did you do that?" on several occasions / the issue is confusing to new team members
+- the decision has a widespread effect that will be difficult to undo
+- [it sounds like a good idea to capture it now] you think it's cheaper to capture it now than not capturing it will be later
+
+Include "rejected options rationale” that explores rejected design alternatives and explains why they were rejected -- even if the choice was arbitrary.
+
+"Most rationale seems to be aimed at discouraging future architects from un-doing a decision that was carefully considered. But rationale can also be used to point out where decisions were arbitrary and where other choices might have served equally well or better. In any case, rationale that explores alternatives not chosen that discusses the pluses and minuses of those rejected alternatives is usually highly prized by the future architect."
+
+--
+API design
+
+What to tell and what not to tell. Implementation notes. Usage guide.
+
+[Published is more public than public.]
+
+[preconditions @NotNull, invariants, etc are all essential documentation]
+
+--
+Documentation... Supports the Shared Vision... Is testable and defensible
+
+"The flow chart is a most thoroughly oversold piece of program documentation...
+The detailed blow-by-blow flow chart... is an absolute nuisance, suitable only for initiating beginners into algorithmic thinking.”
+-- F. P. Brooks, Jr. 1975

@@ -1,0 +1,31 @@
+# Intrinsic Knowledge Augmentation
+
+*Only annotate elements with knowledge that is intrinsic to them*
+
+%% @Tough
+%% *Augment elements with their intrinsic knowledge.*
+
+W> This section is more abstract than usual. The concept is important but still particularly subtle. If abstract non-sense is definitely not your thing, you can safely skip it and perhaps come back to it later.
+
+It is important to make the distinction between what things really are for themselves, as opposed to what they are for someone or for a purpose. A car is red, is a coupé, or has an hybrid engine. These properties are really *intrinsic* to the car, they are part of its identity. In contrast, the owner of the car, its location at a point in time, or its role in a company fleet are *extrinsic* to the car. This extrinsic knowledge is not really about the car in itself, but about a relationship between the car and something else. As a consequence it can change for many reasons other than the car itself. Thinking about intrinsic versus extrinsic knowledge has many benefits, for design and for documentation.
+
+If only intrinsic knowledge is attached to an element, then:
+
+- If you were to delete the element, the attached knowledge would go away with it without regret and without modification anywhere else. For example, when the car is recycled, its serial number is crunched at the same time and it is ok.
+
+- Any change that it is not intrinsically about the element would not modify the element or its artifacts at all. For example, selling the car should not modify its user manual.
+
+
+A> I've first learnt about this notion of intrinsic versus extrinsic in the GoF book "Design Patterns", in the introduction of the Lightweight pattern. The chapter considers a glyph used in a word processor. Each letter in the text is printed on the screen as a glyph, the rendered image of a character. A glyph has a size and style attributes like italics or bold. A glyph also has a (x, y) position on the page. The core idea behind the Lightweight pattern is to exploit the difference between intrinsic properties of the glyph: its size, style, versus the extrinsic properties like its position on the page, in order to reuse the same instance of a glyph many times on the page.
+A>
+A> This explanation did have a big influence on the way I design since then. Since we don not talk about it often, it is a secret ingredient to improve the long term relevance of design decisions.
+
+**Therefore: Only annotate elements with knowledge that is intrinsic to them. Conversely, consider attaching all intrinsic knowledge to the element itself. Avoid attaching knowledge that is extrinsic, as it will change often and for reasons unrelated to the element. A focus on intrinsic knowledge will reduce the maintenance efforts of the documentation over time.**
+
+T> You may think of this as a matter of more or less judicious coupling. The key question which we ask once again is: "How would my declared knowledge would have to evolve when I change the element?" The best approach is the one such as you have less work when it changes.
+
+The common use of annotations by popular frameworks regularly does not consider that. For example you have a class which exists in itself and that can be used independently, but then you put annotations on it to declare how it is supposed to be mapped to the database or to declare that it is the default implementation for some interface. If you consider this class to really represent a domain responsibility, then this DB mapping is an unrelated concern; having it attached only makes the class more likely to change for DB reasons too.
+
+Imagine you have a CatalogDAO interface, with two implementations: MongoDBCatalogDAO and PostgresCatalogDAO. Marking the MongoDBCatalogDAO class as the *default implementation of the CatalogDAO interface* is another example of an extrinsic concern forced on the class. The alternative would be to annotate each DAO with an intrinsic attribute like @MongoDB or @Postgres, and separately make the selection *indirectly* via this intermediate attribute.
+
+For example we would mark all MongoDB*DAO implementation with the @MongoDB annotation, and all Postgres*DAO with the @Postgres annotation. This is intrinsic knowledge with respect to the DAO. Separately we would decide to inject every implementation for the technology chosen for a particular deployment. If we deploy with Postgres we would want to inject every @Postgres implementation. This decision to inject one technology is knowledge too, that is deto the DAO.

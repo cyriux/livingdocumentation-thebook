@@ -1,0 +1,7 @@
+# How to read this book?
+
+This book is on the topic of Living Documentation, and it is organized as a network of related patterns. Each pattern stands on its own, and can be read independently. However to fully understand and implement a pattern, there is usually the need to have a look at other related patterns, by reading their thumbnail at a minimum.
+
+As a result I've chosen to make this book a *Duplex Book*, a book format suggested by Martin Fowler: The first part of the book is kept short and focuses on a narrative that is meant to be read cover-to-cover. This part goes through all the content without diving too much into the details.
+
+The rest of the book is the complete list of detailed patterns descriptions. You can read of course this second part upfront, or you may also keep it as a reference to go to whenever needed.

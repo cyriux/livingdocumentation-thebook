@@ -1,0 +1,63 @@
+# Documentation for Compliance requirements
+
+*Even demanding compliance requirements can be satisfied with little additional effort with a Living Documentation approach, as part of a continuous delivery cycle.*
+
+If your domain is regulated or if your company requires a lot of documentation process for compliance reasons, like ITIL, you probably spend a lot of time on documentation tasks. This is where the ideas from Living Documentation can meet the compliance goals, reducing the burden for the teams and saving time, while improving the quality of the produced documentation and of the product at the same time.
+
+Regulators often focus on requirements tracking and change management as a way to improve quality. For example, the U.S. Food and Drug Administration writes in its [General Principles of Software Validation; Final Guidance for Industry and FDA Staff](http://www.fda.gov/RegulatoryInformation/Guidances/ucm085281.htm):
+
+> Seemingly insignificant changes in software code can create unexpected and very significant problems elsewhere in the software program. The software development process should be sufficiently well planned, controlled, and documented to detect and correct unexpected results from software changes.
+
+> Given the high demand for software professionals and the highly mobile workforce, the software personnel who make maintenance changes to software may not have been involved in the original software development. Therefore, accurate and thorough documentation is essential.
+
+The same FDA document also describes the importance of testing and of design and code reviews.
+
+It may looks at first glance that agile practices are less documentation-oriented, and therefore not well-suited for demanding compliance requirements. But it is quite the opposite really. When agile practices which are part of the living documentation spectrum are applied, what you actually have is a documentation process which is more rigorous than all the traditional documentation-heavy processes.
+
+Specification by Example (BDD) with scenarios with automation, Living diagrams and a living glossary provide extensive documentation, on each build. If you commit 5 times in an hour, you get your documentation updated 5 times per hour, and always accurate. Even paper-heavy processes do not dream about that level of performance!
+
+Working collectively, with colleagues in turn to ensure that at least 3 or 4 people know of each change is also an important contribution to various compliance requirements, even though the knowledge is not necessarily written outside of the source code.
+
+You see the idea here: a development teams with a good command of the "agile development" practices and principles, including living documentation and other continuous delivery ideas, is already quite close to checking most compliance requirements, even the notoriously heavy ones like ITIL.
+
+An important remark is that agile practices in general do not necessarily meet the *implementation details* of your company compliance guidelines, which are often full of burdensome procedures and paperwork; still, agile practices often meet or even exceed the higher-level goals aimed for by the compliance bodies, which revolve around risk mitigation and traceability. Agile or not, in the development team or in the compliance office, we all want risk mitigation, some reasonable amount of traceability, quality under control and improving everything. You don't have to follow 2000 pages of boring ITIL guidelines. You can substitute alternative practices which are more efficient, and still be able to check most checkboxes in the checklist of the high-level objectives.
+
+Therefore: **Review the compliance documentation requirements, and for each item identify how it could be satisfied with a Living Documentation approach, typically by using lightweight declarations, knowledge augmentation and automation. Mandatory formal documents based on company templates can easily be generated from knowledge managed in a totally different fashion (e.g. from the source control, the code and the tests). When the compliance expectations are too burdensome, go back to their higher-level goal, and identify how this goal could be directly satisfied with your practices instead. Whenever there is a real gap, then it's likely an opportunity to improve your development process. Finally, make sure that your lightweight process is reviewed from time to time by the compliance team, so that they can grant your team with a permanent pre-approval stamp.**
+
+You'll be surprised how your living documentation can meet or exceed the compliance expectations.
+
+Paul Reeves says in a great article [Agile Vs. ITIL](http://reevesresults.blogspot.fr/2011/03/agile-vs-itil.html):
+
+> Often people believe that rapid deployment / continuous deployment / daily builds etc. can't work in a an environment that is highly process oriented, where rules and process have to be followed. (Usually they just don't like someone else's rules.)
+>
+> Well, the process is there to ensure consistency, responsibility, accountability, communication, traceability, etc. and of course it CAN be designed to be a hinderance. It, alternatively, CAN be designed to allow quick passage of releases. People blaming process or ITIL are just being immature. They may as well blame the weather.
+
+Recent experiences from applying the ideas of Continuous Delivery have shown indeed that it is possible to map from a lightweight, agile, low-cycle-time process inside of the development team to a more traditional, usually slower and paper-intensive process outside. In contrast to common beliefs, your agile process is probably more disciplined than the other project managed in an ITIL-by-the-book fashion: It's hard to beat a process where automation can produce extensive functional documentation, extensive test results and coverage, security and accessibility checks, design diagrams, and release notes with links to the requested features in a tool and archived emails for the release decision, on each build, several times a day!
+
+When strict procedures are important, automation and enforced guidelines are the best way to make sure they are respected, while reducing the burden of manually applying them. Procedures are great for machines, not for people. The right tooling protects the development team and removes the manual chores at the same time. However, and it may seem like a paradox, good tooling still draws attention to the quality expectations by making very visible whenever they are not met. With this protective harness, every team member is learning the quality expectations on the job, while having the satisfaction of always doing a  productive work.
+
+## The ITIL example
+
+Let's focus on the management of requests for change under the ITIL conceptual framework:
+
+### Request for Change management
+
+| Change Activity  | Example of agile practice | Example of documentation media
+|-------|---------------|------------------|
+| Collection of change requests | User Stories or Bugs & Enhancements with description, origin, requestor, date, business priority & expected benefits | Stickers on the wall and a Tracking Tool (Jira...) |
+| Study & Impacts | BDD, TDD, Test Automation | All Living Documentation artifacts |
+| Prioritization | Decision, names of decision makers, target version, date | CAB report (email as PDF) |
+|Follow up | not started, in progress, done), assignee | Tracking Tool (Jira...) |
+
+Note that agile practices promote slicing the work as shortly as possible. This makes it inconvenient to manage every slice in a tracking tool when a single week contains dozens of slices, each only a few hours long. But this level of granularity does not matter that much for the management of request for change; as a consequence you may only track cohesive aggregates of slices in the tool.
+
+### Release management
+
+| Release Activity  | Example of Agile practice | Example of documentation media
+|-------|---------------|--------------------|
+| Content | Release notes with a link to related change(s), dates, downtime, test strategy, impacts (business, IT, infra, security) | Ticketing Tool (may be automated as a mix of pre-written documents and generated release notes) |
+| Impacts | Based on the change study plus the feedbacks from the Iteration Demo | Living Documentation, archived as PDF |
+| Release checks | Automated Test, including tests on SLA, deployments tests in pre-production environments, smoke tests | CI tool, deploy tool results, tests reports |
+| Approval | Decision, names of the decision makers, actual delivery date, target version, rollout date, decision date, go/no-go conditions | Email saved as PDF |
+| Deployment successful | Deployment and post-deployment tests | deploy tool & post-deploy tests reports |
+| Continuous improvement | Retrospectives notes, with names, action plan, issues | Wiki, email, picture of the whiteboard... |

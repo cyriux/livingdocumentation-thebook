@@ -1,0 +1,23 @@
+
+--
+Wiio's Law (...already embedded inside Conversations Over Documentation)
+--
+
+[quote, Georges Dinwiddie, TODO find exact quote]
+http://blog.gdinwiddie.com/2010/08/06/the-use-of-documentation/
+
+Document: very lossy encoding / we prefer conversations instead. Document questions the reader may have. Get it reviewed by multiple people.
+
+"With a conversation, you get real-time feedback from the recipient of the information"
+
+The Rule of Three Interpretations
+Sep 30th, 2002 by Tony in QSM2
+No Comments Comments
+
+> Whenever I'm aware that I'm making an interpretation, I have another choice: I can allow myself to know that more than one interpretation is possible. A good check on premature interpretation is the **Rule of Three Interpretations**:
+
+>  If I can't think of at least three different interpretations of what I received, I haven't thought enough about what it might mean.
+
+> This rule slows down the Interpretation step and gives me, the receiver, a chance to engage my brain before using my mouth. Even after I have thought of three possible interpretations, however, I should always be aware of one more possibility: that my list still may not include your intending meaning.
+
+- Jerry Weinberg, Quality Software Management Vol 2, Chapter 6

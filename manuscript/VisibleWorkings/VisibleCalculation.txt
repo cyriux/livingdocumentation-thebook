@@ -1,0 +1,96 @@
+# Visible Calculation
+
+A common use of software is to perform calculations. Users provide data inputs, typically numbers, then the software returns a result, again typically another number.
+
+**Design calculation code in such as way it can perform the calculations and render itself into a format that is suitable for non-developer audiences, like mathematical formula and data tables. When the calculation is done by a tree of collaborating objects, make each object able to print itself, and make the tree able to print itself by delegating to each of its nodes. **
+
+## Implementation
+
+In its simpler form, this pattern is nothing more than a class with a calculate() method to perform the calculation, and another method printFormula() to print the description of how it's done.
+
+~~~~~~~~
+  private final double threshold;
+  private final double rate;
+
+  // performs the calculation
+  public double calculateTax(int income) {
+    return (income - threshold) * rate / 100.;
+  }
+
+  // prints the formula used for the calculation in ascii
+  public String printTaxFormula(String incomeName) {
+    return "(" + incomeName + " - threshold) * rate / 100.";
+  }
+~~~~~~~~
+
+Because the formula may be used for various purposes, the method to print the formula takes for parameter the name of the income.
+
+
+~~~~~~~~
+// Calling the method with this income name:
+c.printTaxFormula("Household Revenue");
+
+// Returns the following result:
+"(Household Revenue - threshold) * rate / 100."
+~~~~~~~~
+
+An alternative would be to return a text message with variables inside, in other words a template, using plain old Java MessageFormat or something more modern like Moustache:
+
+~~~~~~~~
+"({{income-name}} - threshold) * rate / 100"
+~~~~~~~~
+
+Another way to do that is to have only one method, that returns not just the result as a value but an object that contains both the value of the result, and the formula used for this calculation.
+
+~~~~~~~~
+PayableTax calculate(Income income)
+~~~~~~~~
+
+The astute reader notices that here we've just embedded a little snippet of text as an element of documentation within the code, and there's nothing to prevent it from getting out-of-sync with respect to the actual calculation, and that's true. However it's a small snippet, hence it is not so likely to change all the time, and it's as close to the actual code that does the work as it can be. This proximity makes it reasonably likely that when you change one you don't forget to change the other. But this is not perfect.
+
+In languages like Clojure or even Javascript you have another option to do that, because the code can access itself at runtime. This approach becomes more of an exercice of text manipulation, to convert the source code in its more or less awkward syntax to the desired format. When it is straightforward to do with just a few characters replacements, it becomes a genuine case of Single Source of Truth.
+
+However this approach really shines when the calculation is done by a tree of objects that collaborate between each other. A canonical example is the Abstract Syntax Tree in a compiler. Whenever a calculation have many variants, a way to remove duplication between each variant is to split it into a tree of smaller expressions.
+
+Let's take the example of a simplified and fictious calculation of the price of bonds. The typical formula given in books looks like this:
+
+~~~~~~~~
+Price = N . Sum(K / (1 + r.t))
+~~~~~~~~
+
+And there are many other variants, like:
+
+~~~~~~~~
+Price = N . Sum(C.t / (1 + r)^t))
+~~~~~~~~
+
+Or if the bond is a floating-rate bond:
+
+~~~~~~~~
+Price = N . Sum(r.t / (1 + r)^t))
+~~~~~~~~
+
+The development team didn't want to tackle all these cases that are almost identical on a case by case basis. Therefore they decided to implement them all as one single tree of small terms of calculations, where each term has several variants:
+
+~~~~~~~~
+Price = Sum_i( Coupon / InterestConvention),
+where:
+  Coupon =
+    | K
+    | C.t
+    | r.t
+    | ...
+  InterestConvention =
+    | (1 + r.t)
+    | (1 + r)^t)
+    | (1 + r / 2 . t / 2)
+    | ...
+~~~~~~~~
+
+This is already a form of a simple DSL by the way. There is also probably a Builder to create the tree according to the particular bond given in each calculation request.
+
+Here, there are 2 different terms, each with 2 and 3 variants respectively. This amounts to 6 small calculation snippets that together can accomodate 9 different cases. In actual situations the number of variants is bigger, and the number of possible combinations is much larger: we don't want to write a description for each one.
+
+For each term taken independently, we're back to the simple case above. Each term is able to describe itself. Terms that have children asks each of them to describe itself, then gathers their descriptions to create its own composite description. And again to the root of the tree.
+
+Sure, this is not always applicable to all situations, but it's often worth considering, I've found it work on many occasions, and not just for numeric calculations.

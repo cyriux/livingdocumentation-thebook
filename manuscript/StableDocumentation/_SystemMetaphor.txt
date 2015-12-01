@@ -1,0 +1,14 @@
+# System Metaphor (XP, DDD)
+
+
+System Metaphor (among other things)
+
+What ExtremeProgramming (XP) uses to unify an architecture and provide naming conventions. A simple shared story of how the system works, a metaphor.
+
+from the [C2 Wiki](http://c2.com/cgi/wiki?SystemMetaphor)
+
+--
+Sales Funnel: contexts ordering by successive business stages, from raw material to finished product
+
+--
+theory building (Peter Naur)

@@ -1,0 +1,171 @@
+#  Case Study: Business Overview as a Living Diagram
+
+## The idea
+
+We work for an online shop that was launched a few years ago. The software system for this online shop is a complete e-commerce system made of several components. This system has to deal with everything necessary for selling on-line, from the catalogue and navigation to the shopping cart, the shipping and some basic customer relationship management.
+
+We're lucky because the founding technical team had good design skills. As a result, the components match the business domains in a one-to-one fashion, in other words the software architecture is well aligned with the business it supports.
+
+![Software Components match one-to-one the business domains](images/living-diagram1.jpg)
+
+Because of its success, our online shop is growing quickly. As a result there are an increasing number of new needs to support, which in turn means there are more features to add to the components. Because of this growth we'll probably have to add new components, redo some components, and split or merge existing components into new components that are easier to maintain, evolve and test.
+
+We also need to hire new people in the development teams. As part of the necessary knowledge transmission for the new joiners we want some documentation, starting with an overview of the main business areas, or domains, supported by the system.
+
+We could do that manually, and it would take a couple of hours in PowerPoint or in some dedicated diagramming tool. But we want to trust our documentation, and we know we'll likely forget to update the manually created document whenever the system changes. And we know it will change.
+
+Fortunately after we've read the book on Living Documentation we decided to automatically generate the desired diagrams from the source code. We don't want to spend time on a manual layout, a layout based on the relationships between the domains will be perfectly fine. Something like this:
+
+![Expected style of diagram](images/living-diagram2.jpg)
+
+## Practical Implementation
+
+### The existing source code
+
+Our system is made of components that are simply Java packages:
+
+![Overview of the components as Java packages](images/packages.png)
+
+The naming of these packages is a bit inconsistent, because historically the components were named after the development project code, as it is often the case. For example the code taking care of the shipping features is named "Fast Delivery Pro", because that's how the marketing team used to name the automated shipping initiative 2 years ago. Now this name is not used anymore, except as a package name.
+
+Similarly, "Omega" is actually the component taking care of the catalog and the current navigation features.
+
+We have a naming problem, that is also a documentation problem: the code does not tell the business. For some reasons we can't rename the packages right now, though we hope to do it next year. Yet even with the right names, the packages won't tell the relationships between them.
+
+### Augmenting the code
+
+As a result, we need extra information in order to make a useful diagram. As we've seen before, one great way to add knowledge to the code is to use annotations.
+At a minimum, we want to add the following knowledge to the code, to fix the naming:
+
+~~~~~~~~
+@BusinessDomain("Shipping")
+org.livingdocumentation.sample.fastdeliverypro
+
+@BusinessDomain("Catalog & Navigation")
+org.livingdocumentation.sample.omega
+~~~~~~~~
+
+For that purpose we introduce a custom annotation with just a name:
+
+{title="Introducing a custom annotation to declare a business domain", lang=java}
+~~~~~~~~
+@Target({ ElementType.PACKAGE })
+@Retention(RetentionPolicy.RUNTIME)
+public @interface BusinessDomain {
+	String value(); // the domain name
+}
+~~~~~~~~
+
+Now we'd like to express the relationships between the domains. Basically:
+
+- The items of the catalog are placed into the shopping cart, before they are ordered.
+- Then the items in orders must be shipped,
+- And these items are also analyzed statistically to inform the customer relationship management.
+
+We then extend the annotation with a list of related domains. However as soon as we refer to the same name several times, text names raise a little problem: if we are to change one name, then we must change it everywhere it is mentioned.
+
+To remedy that we want to factor out each name into one single place to be referenced. One possibility is to use enumerated types instead of text. We then make references to the constants of the enumerated type. If we rename one constant, we'll have nothing special to do to update its references everywhere.
+
+And since we also want to tell the story for each link, we add a text description for the link as well.
+
+
+~~~~~~~~
+public @interface BusinessDomain {
+	Domain value();
+	String link() default "";
+	Domain[] related() default {};
+}
+
+// The enumerated type that declares in one single place each domain
+public enum Domain {
+  CATALOG("Catalog & Navigation"),
+  SHOPPING("Shopping Cart"),
+  SHIPPING("Shipping"), CRM("CRM");
+
+	private String value;
+
+	private Domain(String value) {
+		this.value = value;
+	}
+
+	public String getFullName() {
+		return value;
+	}
+}
+~~~~~~~~
+
+Now it's just a matter of using the annotations on each package to explicitly add all the knowledge that was missing from the code.
+
+~~~~~~~~
+@BusinessDomain(value = Domain.CRM, link = "Past orders are used in statistical analysis for customer relationship management", related = { Domain.SHOPPING }))
+org.livingdocumentation.sample.crm
+
+@BusinessDomain(value = Domain.SHIPPING, link = "Items in orders are shipped to the shipping address", related = { Domain.SHOPPING })
+org.livingdocumentation.sample.fastdeliverypro
+
+//etc.
+~~~~~~~~
+
+### Generation of the Living Diagram
+
+Because we need a fully automatic layout that works like magic in all cases, we decide to use the tool Graphviz for the layout and rendering of the diagram. This tool expects a text file with a *.dot* extention that conforms to the dot syntax. We need to create this plain text file before running Graphviz to render it into a regular image file.
+
+Basically the generation process is made of the following steps:
+
+1. Scan the source code, or the class files, to collect the annotated packages and their annotation information.
+1. For each annotated package, add an entry into the dot file:
+  - To add a node that represents the module itself
+  - To add a link to each related node
+1. Save the dot file
+1. Run Graphviz *dot* in command-line by passing it the .dot filename and the desired options to generate an image file.
+1. We're done! The image is ready on disk.
+
+The code to do that can fit inside one single class of less than 170 lines of code. Because we're in Java, most of this code size is about dealing with files, and the hardest part of it is about scanning the Java source code.
+
+You will find the complete code in addendum.
+
+After running Graphviz we get the following Living Diagram:
+
+![Actual diagram generated from the source code](images/rendered1.png)
+
+And after adding some additional style information:
+
+![Actual diagram generated from the source code, with style](images/rendered2bis.png)
+
+### Some time later
+
+The business has grown and the supporting software system had to grow as well. Several new components have appeared, some brand new, some as a result of spliting former components.
+
+For example now we have dedicated components for the following business domains:
+
+- Search & Navigation
+- Billing
+- Accounting
+
+Each new component has its own package, and had to declare its knowledge in its package annotation, like any well-behaved component. Then, without any additional effort, our living diagram will automatically adapt to the new, more complicated overview diagram:
+
+![Actual diagram generated from the source code, with style](images/rendered_later.png)
+
+### Adding other information
+
+Now we'd like to enrich the diagram with concerns like Quality Attributes.
+
+As usual, since this knowledge is missing from the code we need to add it by augmenting the code. Again we'll use package annotations for that:
+
+![Package annotations in package-info.java](images/package-annotations.png)
+
+We can now enhance the Living Diagram processor to extract the *@Concern* information as well in order to include them into the diagram. Once done we get the following diagram, obviously a little less clear:
+
+![Actual diagram generated from the source code, with additional quality attributes](images/rendered4.png)
+
+This is just an exemple of what's possible with a Living Diagram. The only limit is your imagination and the time required to try many ideas that don't always work. However it's worth the try to play with these ideas from time to time, or whenever there's a frustration about the documentation, or about the design. A Living Documentation makes your code, its design and its architecture transparent for everyone to see. If you don't like what you see, then fix it in the source code.
+
+## How does this Living Diagram fit with the patterns of Living Documentation?
+
+This diagram is a **Living Document**, refreshed whenever the system changes, automatically. If we were to add or delete a new module, the diagram would adjust as quickly as the next build. It is also an example of a **Plain-Text Diagram**; if we just want to change a word in a sentence, we can do it simply by editing the source code. No need to fire PowerPoint or a diagram editor.
+
+It's a **Story-Telling Diagram**, that tells a story from on node to the next through links that display a brief description.
+
+This diagram is an example of **Augmented Code** by using annotations to augment each main module with the knowledge of its corresponding business domain. This is also a case of **Consolidation** of information spread across many packages.
+
+Finally the knowledge added to the source code can be used for an **Enforced Architecture**. Writing a verifier is similar to writing a living diagram generator, except that the relationships between nodes are used as a dependency whitelist to detect unexpected dependencies, instead of generating a diagram.

@@ -1,0 +1,317 @@
+# Living Glossary
+
+How to share the Ubiquitous Language of the domain to everyone involved in a project?
+
+The usual answer is to provide a complete glossary of every term that belongs to the Ubiquitous Language, together with a description that explains what you need to know about it. However the Ubiquitous Language is an evolving creature, so this glossary needs to be maintained, and there is the risk it becomes outdated compared to the source code.
+
+In a domain model, the code represents the business domain, as closely as possible to the way the domain experts think and talk about it. In a domain model, great code just literally tells the domain business: each class name, each method name, each enum constant name and each interface name is part of the Ubiquitous Language of the domain*. But not everyone can read code, and there are almost always some code that is less related to the domain model.
+
+**Therefore:
+Extract the glossary of the Ubiquitous Language from the source code. Consider the source code as the Single Source of Truth, and take great care of the naming of each class, interface and public method whenever they represent domain concepts. Add the description of the domain concept directly into the source code, as structured comments that can be extracted by a tool. When extracting the glossary, find a way to filter out code that is not expressing the domain.**
+
+![Overview of a Living Glossary](images/overview.jpg)
+
+A successful Living Glossary requires the code to be declarative. The more the code looks like a DSL of the business domain, the better the glossary. Indeed for developers there will be no need for a Living Glossary, because the glossary is the code itself. A Living Glossary is a matter of convenience, especially useful for non developers who don't have access to the source core in an IDE. It brings additional convenience in being all on a single page.
+
+A Living Glossary is also a feedback mechanism. If your glossary does not look good, or if it's hard to make it work, this is a signal that suggests you have something to improve in the code.
+
+## How it works
+
+In many languages documentation can also be embedded directly within the code as structured comments, and it is good practice to write a description of what a class, interface or important method is about. Tools like Javadoc can then extract the comments and report a reference documentation of the code. The good thing with Javadoc is that you can create your own Doclet (documentation generator) based on the provided Doclet, and this does not represent a large effort. Using a custom Doclet, you can export custom documentation in whatever format.
+
+Annotations in Java and attributes in C# are great to augment code. For example you can annotate classes and interfaces with custom domain stereotypes (@DomainService, @DomainEvent, @BusinessPolicy etc.), or on the other hand domain-irrelevant stereotypes (@AbstractFactory, @Adapter etc.). This makes it easy to filter out classes that do not contribute to expressing the domain language. Of course you need to create this small library of annotations to augment your code.
+
+If done well, these annotations also express the intention of the developer who wrote the code. They are part of a Deliberate Practice.
+
+In the past we have used the complete approach above to extract a reference business documentation that we directly sent to our customer abroad. A custom Doclet was exporting an Excel spreadsheet with one tab for each category of business domain concepts. The categories were simply based on the custom annotations added to the code.
+
+
+## An example please!
+
+Ok, here's a brief example. The following code base represents a cat in all its state. Yes, I know it's a bit oversimplified:
+
+~~~~~~~~
+module com.acme.catstate
+
+// The activity the cat is doing. There are several activities.
+@CoreConcept
+interface CatActivity
+
+  // How the cat changes its activity in response to an event
+  @CoreBehavior
+  @StateMachine
+  CatState nextState(Event)
+
+// The cat is sleeping with its two eyes closed
+class Sleeping -|> CatActivity
+
+// The cat is eating, or very close to the dish
+class Eating -|> CatActivity
+
+// The cat is actively chasing, eyes wide open
+class Chasing -|> CatActivity
+
+@CoreConcept
+class Event // stuff happening that matters to the cat
+  void apply(Object)
+
+class Timestamp // technical boilerplate
+~~~~~~~~
+
+This is just plain source code that describes the domain of the daily life of a cat. However it is augmented with annotations that highlight what's important in the domain.
+
+A processor that builds a living glossary out of this code will print a glossary like the following:
+
+~~~~~~~~
+Glossary
+--------
+
+CatActivity: The activity the cat is doing. There are several activities.
+- Sleeping: The cat is sleeping with its two eyes closed
+- Eating: The cat is eating, or very close to the dish
+- Chasing: The cat is actively chasing, eyes wide open
+
+nextState: How the cat changes its activity in response to an event
+
+Event: Stuff happening that matters to the cat
+~~~~~~~~
+
+Notice how the Timestamp class and the Event method have been ignored, because we they don't matter for the glossary. The classes that implement each particular activity have been presented together with the interface they implement, because that's the way we think about that particular construction.
+
+By the way this is the State design pattern, and here it is genuinely part of the business domain.
+
+Building the glossary out of the code is not an end to itself; from this first generated glossary we notice that the entry "nextState" is not so clear as we'd expect. This is more visible in the glossary than in the code. So we go back to the code and rename the method as "nextActivity()".
+
+As soon as we rebuild the project, the glossary is updated, hence its name of Living Glossary:
+
+~~~~~~~~
+Glossary
+--------
+
+CatActivity: The activity the cat is doing. There are several activities.
+- Sleeping: The cat is sleeping with its two eyes closed
+- Eating: The cat is eating, or very close to the dish
+- Chasing: The cat is actively chasing, eyes wide open
+
+nextActivity: How the cat changes its activity in response to an event
+
+Event: Stuff happening that matters to the cat
+~~~~~~~~
+
+
+## Practical Implementation
+
+Basically this technique needs a parser for your programming language, and the parser must not ignore the comments. In Java, there are many options like Antlr, JavaCC, Java Annotation processing API's and several other Open Source tools. However the simplest one is to go with a custom Doclet. That's the approach described here.
+
+
+T> Even if you don't care about Java, you can still read on; what's important is largely language-agnostic.
+
+In simple projects that cover only one domain, one single glossary is enough. The Doclet is given the root of the Javadoc metamodel and from this root it scans all programming elements like classes, interfaces and enums.
+
+
+For each class the main question is: "does this matter to the business? Should it be included in the glossary?"
+
+Using Java annotations answer a big part of this question. Each class with a "business meaningfull" annotation is a strong candidate for the glossary.
+
+W> It is preferable to avoid strong coupling between the code that processes annotations and the annotations themselves. To avoid that, annotations can be recognized just by their prefix: "org.livingdocumentation.*", or by their unqualified name: "BusinessPolicy". Another approach is to check annotations that are themselves annotated by a meta-annotation like @LivingDocumentation. Again this meta-annotation can be recognized by simple name only to avoid direct coupling.
+
+For each class to be included it then drills down the members of the class and prints what's of interest for the glossary, in a way that is appropriate for the glossary.
+
+## Information Curation
+
+This selective showing and hiding and presentation concerns is not a detail. If it weren't for that the standard Javadoc would be enough. At the core of your Living Glossary there is all the editorial decisions on what to show, what to hide, and how to present the information in the most appropriate way. It's hard to do that outside if a context. I won't tell how to do it step by step. All I can do is give some examples:
+
+Example of selective curation:
+
+- An enum and its constants
+- A bean and its direct non-transient fields
+- An interface, its direct methods, and its main subclasses that are not technical, not abstract
+- A value object and its methods that are "closed under operation", i.e. its methods that only accept as argument and return type the type itself, or primitives.
+
+For a relevant glossary, a lot of details from the code usually have to be hidden:
+
+- Ignore all methods from the super-object: toString(), equals() etc.
+- Ignore all transient fields: they are there just for optimization purposes, they seldom mean anything for the business
+- Ignore all constant fields, except perhaps the *public static final* of the type itself, if they represent important concepts of the business.
+- Marker Interface don't need to list their subclasses, and the same may apply to interfaces with only one method.
+
+The selective filtering depends to a large extent to the style of the code. If constants are *usually* used to hide technical literals then they should probably be mostly hidden, but if they are *usually* used in the public API then they may be of interest for the glossary.
+
+Depending on the style of code, we will adjust the filtering so that it does most of the work by default, even if it goes too far in some cases. To supplement or derogate that default filtering we will use an override mechanism, for example by using annotations.
+
+As a an example the selective filtering may ignore every method by default; we will have to define an annotation to distinguish the methods that should appear in the glossary. However I would never use an annotation named @Glossary, because it would be noise in the context of the code. A class or method is not meant to belong to a glossary or not, it is meant to represent a concept of the domain, or not. But a method can represent a core concept of the domain, and be annotated as such with a @CoreConcept annotation, that can be used to include the method in the glossary.
+
+
+*For more on Curation, please refer to the chapter on Knowledge Curation. For more on the proper usage of annotations to add meaning to the code, please refer to the chapter on Augmented Code.*
+
+## Glossary by Bounded Context
+
+Remember that a Ubiquitous Language can be defined with no ambiguity only within a given Bounded Context (See DDD Strategic Design).
+
+If our source code spans several bounded contexts, then we need to segregate the glossary by Bounded Context. In order to do that, the bounded contexts must be explicitly declared.
+
+Let's use annotations again to declare the bounded contexts, but this time the annotations will be on modules. In Java they will be package annotations, using the pseudo class *package-info.java*.
+
+~~~~~~~~
+package-info.java
+
+// Cats have many fascinating activities, and the way they switch from one to another can be simulated by Markov chains.
+@BoundedContext(name = "Cat Activity")
+package com.acme.lolcat.domain
+~~~~~~~~
+
+This is the first bounded context in our application, and we have another bounded context, again on cats, this time from a different perspective:
+
+~~~~~~~~
+package-info.java
+
+// Cats moods are always a mystery. Yet we can observe cats with a webcam and use image processing to detect moods and classify them into mood families.
+@BoundedContext(name = "Cat Mood")
+package com.acme.catmood.domain
+~~~~~~~~
+
+With several bounded contexts the processing is a bit more complicated, because there will be one glossary for each bounded context. We first need to inventory all the bounded contexts, then assign each element of the code to the corresponding glossary. If the code is well-structured, then the bounded context are clearly defined at the root of modules, so a class obviously belongs to a bounded context if it belongs to the module.
+
+The processing becomes:
+1. Scan all packages detect each context.
+1. Create a glossary for each context.
+1. Scan all classes; for each class find out the context it belongs to. This can simply be done from the qualified class name: 'com.acme.catmood.domain.funny.Laughing' that starts with the module qualified name: 'com.acme.catmood.domain'.
+1. Apply all the selective filtering and curation process described above for building a nice and relevant glossary, for each glossary.
+1. This process can be enhanced to meet your taste. A glossary may be sorted by entry name, or sorted by decreasing importance of concepts.
+
+
+## Case Study
+
+Let's have a close look at a sample project on the domain of music theory and MIDI.
+
+TODO: See Github code at http://github.com/cyriux/xxx
+
+Here is what we see when we open the project in an IDE:
+
+![Tree view of the code base ](images/musictheory_treeview.png)
+
+There are two modules, each of one single package. Each module defines a Bounded Context. Here is the first one, that focuses on Western music theory:
+
+![Declaration of the first bounded context as a package annotation](images/bc1.png)
+
+And here is the second bounded context, that focuses on MIDI:
+
+![Declaration of the second bounded context as a package annotation](images/bc2.png)
+
+Inside the second context, here is an example of a simple value object with its Javadoc comment and its annotation:
+
+![A value object with its  annotation](images/vo.png)
+
+And within the first context, here is an example of an enum, that is a value object as well, with its Javadoc comments, the Javadoc comments on its constants and the annotation:
+
+![An enum with its annotation](images/enum.png)
+
+Note that there are other methods, but they will be ignored for the glossary.
+
+
+### Start with something, adjust manually
+
+Now let's create the living glossary processor. We just create a custom Doclet that creates a text file and prints the glossary title in Markdown:
+
+~~~~~~~~
+public class AnnotationDoclet extends Doclet {
+
+  //...
+
+	// doclet entry point
+	public static boolean start(RootDoc root) {
+		try {
+			writer = new PrintWriter("glossary.txt");
+			writer.println("# " + "Glossary");
+			process(root);
+			writer.close();
+		} catch (FileNotFoundException e) {
+			//...
+		}
+		return true;
+	}
+~~~~~~~~
+
+What's left to implement is the method process(). It enumerates all classes from the doclet root, and for each class checks if it is meaningful for the business:
+
+~~~~~~~~
+	public void process() {
+		final ClassDoc[] classes = root.classes();
+		for (ClassDoc clss : classes) {
+			if (isBusinessMeaningful(clss)) {
+				process(clss);
+			}
+		}
+	}
+~~~~~~~~
+
+How do we check if a class is meaningful for the business? Here we do it only by annotation. We consider that all annotations from org.livingdocumentation.* mark the code as meaningful for the glossary. This is a gross simplification, but here it's enough.
+
+~~~~~~~~
+	protected boolean isBusinessMeaningful(ProgramElementDoc doc) {
+		final AnnotationDesc[] annotations = doc.annotations();
+		for (AnnotationDesc annotation : annotations) {
+			if (isBusinessMeaningful(annotation.annotationType())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	boolean isBusinessMeaningful(final AnnotationTypeDoc annotationType) {
+		return annotationType.qualifiedTypeName().startsWith("org.livingdocumentation.annotation.");
+	}
+~~~~~~~~
+
+If a class is meaningful, then we must print it in the glossary:
+
+~~~~~~~~
+	protected void process(ClassDoc clss) {
+		writer.println("");
+		writer.println("## *" + clss.simpleTypeName() + "*");
+		writer.println(clss.commentText());
+		writer.println("");
+		if (clss.isEnum()) {
+			for (FieldDoc field : clss.enumConstants()) {
+				printEnumConstant(field);
+			}
+			writer.println("");
+			for (MethodDoc method : clss.methods(false)) {
+				printMethod(method);
+			}
+		} else if (clss.isInterface()) {
+			for (ClassDoc subClass : subclasses(clss)) {
+				printSubClass(subClass);
+			}
+		} else {
+			for (FieldDoc field : clss.fields(false)) {
+				printField(field);
+			}
+			for (MethodDoc method : clss.methods(false)) {
+				printMethod(method);
+			}
+		}
+	}
+~~~~~~~~
+
+Alright, this method is too big, but I want to show it all on one page.
+
+The rest follows. Basically it's all about knowing the Doclet metamodel:
+
+~~~~~~~~
+	private void printMethod(MethodDoc m) {
+		if (!m.isPublic() || !hasComment(m)) {
+			return;
+		}
+		final String signature = m.name()  + m.flatSignature() + ": " + m.returnType().simpleTypeName();
+		writer.println("- " + signature + " " + m.commentText());
+	}
+
+	private boolean hasComment(ProgramElementDoc doc) {
+		return doc.commentText().trim().length() > 0;
+	}
+~~~~~~~~
+
+You get the idea. The point is to have something working as soon as possible, to get the feedback on the glossary generator (Doclet) itself, and on the code itself as well. Then it's all about iterating: change the code of the glossary generator to improve the rendering of the glossary and to improve the relevance of its selective filtering; change the actual code of the project so that it is more expressive, add annotations, create new annotations if needed, so that the code itself tells the whole business domain knowledge. This cycle of iterations should not absorb a lot of time, however it never really finishes, it does not have an end state, it's a living process. There is always something to improve, in the glossary generator or in the code of the project.
+
+A living glossary is not a goal in itself. It's above all a process that help the team reflect over its code, to improve its quality along the road.

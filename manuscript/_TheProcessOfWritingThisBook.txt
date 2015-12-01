@@ -1,0 +1,15 @@
+How I wrote the book, and what I learnt in the process
+
+This is my first book, so I learnt a lot during the process. 
+
+- Throw the content ASAP 
+- Organize later, when the content is there and you can see it
+- Annotate the content so that it can be searched, and to identify clusters of related ideas 
+- Manage your motivation: watch the word and page count; meet the audience early
+- Keep the topic in mind all the time, so that serendipity operates; new ideas, examples and related quotes will come to you every day
+- I decided to write a lot of mostly independent small chapters, grouped ini folders. This modularity had helped seeing the outline in the navigation pane of my text editor
+- An automated publishing factory like Leanpub is very useful. Having everything in plain text and plain images is simple. I tried other tools and settled on the simplest chain.
+- Keep a companion *release notes* file, and a companion *courtesy* file with every question and asking permission to other people about their content. I should also keep an *index* file to grow along the road to define the index outline
+- I've been using the built-in iOS Notes application and its Mac OS counterpart. With that combo I've been able to write a lot of early drafts of chapters on my iPhone, before editing them on the laptop later.
+- Use naming conventions or tags to categorize your material for later use. I relied on a naming convention prefix "LD - " to do the curation of all the notes related to the book, excluding the other unrelated notes. I used the same convention in my emails when capturing notes, quotes and useful links anywhere.
+- Because Leanpub expects every image to be in the single images/ folder, whereas Markdowm editors use regular relative links, I stored all images in a local images/ folder within each folder in the manuscript. Then I used a one line command line (update_images.command) to copy them all flat into the one official folder for Leanpub. It's far from perfect, but it works. 

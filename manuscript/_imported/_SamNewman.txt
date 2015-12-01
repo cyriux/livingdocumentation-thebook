@@ -1,0 +1,81 @@
+from Building Microservices, Sam Newman
+
+
+
+## Principles on a poster on the wall
+
+%% to add in evergreen
+
+> The figure shows the interplay of goals, principles, and practices in a very clear format. Over the course of a couple years, the practices on the far right will change fairly regularly, whereas the principles remain fairly static. A diagram such as this can be printed nicely on a single sheet of paper and shared, and each idea is simple enough for the average developer to remember. There is, of course, more detail behind each point here, but being able to articulate this in summary form is very useful.
+
+%% poster of goals, principles and practices (your own set of)
+
+> It makes sense to have documentation supporting some of these items. In the main, though, I like the idea of having example code that you can look at, inspect, and run, which embodies these ideas. Even better, we can create tooling that does the right thing out of the box. We'll discuss that in more depth momentarily.
+
+
+
+> ## Tailored Service Template
+
+%% To add to Declarative Automation
+
+> Wouldn't it be great if you could make it really easy for all developers to follow most of the guidelines you have with very little work? What if ,out of the box, the developers had most of the code in place to implement the core attributes that each service needs?
+
+> Dropwizard and Karyon are two open source, JVM­ based microcontainers. They work in similar ways, pulling together a set of libraries to provide features like health checking,serving HTTP, or exposing metrics. So, out of the box, you have a service complete with an embedded servlet container that can be launched from the command line. This is a great way to get going, but why stop there?
+
+> W h i l e y o u ' r e a t it, w h y n o t t a k e s o m e t h i n g l i k e a Dropwizard or Karyon, and add more features so that itbecomes compliant for your context?
+> For example, you might want to mandate the use of circuit breakers. In that case, you might integrate a circuit breaker library like Hystrix. Or you might have a practice that all your metrics need to be sent to a central ￼Graphite server, so perhaps pull in an open source library like Dropwizard's Metrics and configure itso that, out of the box, response times and error rates are pushed automatically to a known location.
+
+> By tailoringsuchaservicetemplateforyourown setofdevelopment practices, you ensure that teams can get going faster, and also that developershavetogooutoftheirway tomake theirservicesbadly behaved.
+Of course, ifyou embraced multiple disparate technology stacks, you'd needamatchingservicetemplateforeach.Thismaybeawayyousubtly constrain language choices in your teams, though. If the in­house service template supports only Java, then people may be discouraged from picking alternative stacks ifthey have to do lots more work themselves. Netflix, for example, is especially concerned with aspects like fault tolerance, to ensure that the outage of one part of itssystem cannot take everything down. To handle this, a large amount of work has been done to ensure that there are clientlibrariesontheJVM toprovideteamswiththetoolstheyneedto keep their services well behaved. A n y o n e introducing a n e w technology stack w o u l d m e a n having to reproduce all this effort. T h e m a i n concern for Netflix is less about the duplicated effort, and more about the fact that itis so easy to get this wrong. The risk of a service getting newly implemented faulttolerancewrong ishighifitcouldimpactmore ofthesystem.Netflix mitigates this by using sidecar services, which communicate locally with a JVM thatisusingtheappropriatelibraries.
+
+> You dohavetobecarefulthatcreatingtheservicetemplatedoesn'tbecome the job of a central tools or architecture team w h o dictates h o w things should be done, albeit via code. Defining the practices you use should be a collective activity, so ideally your team(s) should take joint responsibility for updating this template (an internal open source approach works well here).
+
+--
+# On colocation to help understand what goes together
+
+> Having the database mapping code colocated inside the code for a given context can help us understand what parts of the database are used by what bits of code. Hibernate, for example, can make this very clear if you are using something like a mapping file per bounded context.
+
+> This doesn't give us the whole story, however. For example, w e m a y be able to tell that the finance code uses the ledger table, and that the catalog code uses the line item table, but it might not be clear that the database enforces a foreign key relationship from the ledger table to the line item table. T o see these database­level constraints, which m a y be a stumbling block,weneedtouseanothertooltovisualizethedata.A great place to start is to use a tool like the freely available SchemaSpy, which can generate graphical representations of the relationships between tables.
+
+
+
+--
+
+> # It's About Conversations
+
+> In agile, stories are often referred to as a placeholder for a conversation. CDC cards are just like that. They  b e c o m e the codification of a set of discussions about what a service API should look like, and when they break, they become a trigger point to have conversations about h o w that API should evolve.
+It is important to understand that CDCs require good communication and trust between the consumer and producing service. If both parties are in the same team (or the same person!), then this shouldn't be hard.
+
+--
+
+> # Documenting Services
+
+> Two different pieces of technology, Swagger and HAL, are both worth looking at.
+
+Swagger lets you describe your API in order to generate a nice web UI acting like an interactive documentation through your web browser. You can not only browse the API, but also execute GET, POST etc. requests directly in a convenient fashion, through simple forms on a web page.
+
+Swagger is quite popular at the time of writing. It relies on sidecar files to describe the service API, but in practice you can ignore that if you use a library to create it for you, for example based on annotations you add to your Java code:
+
+%% TODO add sample code here
+
+And here is an example of the corresponding Swagger interactive documentation
+
+%% TODO insert screenshot here
+
+When the API declaration is done with annotations, Swagger is an internal documentation that lives at the same pace as the source code it describes. It's an internal documentation at compile time, but then the API documentation becomes a separate website, that is a published document indeed.
+
+In contrast, with an approach like HAL and its browser, the documentation is internal at compile time and at runtime. It's a case of Visible Workings, where the documentation is accessible and discoverable by tools at runtime. The HAL browser is just one of the tools which know how to do this discovery.
+
+  HALandtheHALBrowser
+By itself,the Hypertext Application Language (HAL) isa standard that describes standards for hypermedia controls that w e expose. A s w e covered in Chapter 4, hypermedia controls are the means by which w e allow clients to progressively explore our APIs to use our service's capabilities in a less coupled fashion than other integration techniques. If you decide to adopt HAL'shypermediastandard,thennotonlycanyoumakeuseofawide number of client libraries for consuming the API (at the time of writing, the
+￼
+￼HAL wikilisted50supportinglibrariesforanumberofdifferent languages),butyoucanalsomakeuseoftheHAL browser,whichgives youawaytoexploretheAPIviaawebbrowser.
+
+Like Swagger, this UI can be used not only to act as living documentation, but also to execute calls against the service itself. Executing calls isn't quite as slick, though. Whereas with Swagger you can define templates to do thingslikeissueaPOSTrequest,withHALyou'remoreonyourown.The flipside to this is that the inherent power of hypermedia controls lets you much more effectively explore the API exposed by the service, as you can followlinksaroundveryeasily.Itturnsoutthatweb browsersarepretty good at that sort of thing!
+
+Unlike with Swagger, all the information needed to drive this documentation and sandbox is embedded in the hypermedia controls. This isa double­edged sword. Ifyou are already using hypermedia controls, it takeslittleefforttoexposeaHAL browserandhaveclientsexploreyour API.However,ifyouaren'tusinghypermedia,youeithercan'tuseHAL or have to retrofit your A P I to use hypermedia, which is likely to be an exercise that breaks existing consumers.
+ThefactthatHAL alsodescribesahypermediastandardwithsome supporting client libraries is an added bonus, and I suspect is a big reason whyI'veseenmoreuptakeofHALasawayofdocumentingAPIsthan Swagger for those people already using hypermedia controls. If you're usinghypermedia,my recommendationistogowithHAL overSwagger. But if you're using hypermedia and can't justify the switch, I'd definitely suggest giving Swagger a go.
+The Self­Describing System
+DuringtheearlyevolutionofSOA, standardslikeUniversalDescription, Discovery, and Integration (UDDI) emerged to help people make sense of what services were running. These approaches were fairly heavyweight, which led to alternative techniques to try to make sense of our systems.
+￼
+￼Martin Fowler discussed the concept of the humane registry, where a much more lightweight approach is simply to have a place where humans can record information about the services in the organization in something as basic as a wiki.

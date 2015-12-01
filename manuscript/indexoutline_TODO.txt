@@ -1,0 +1,128 @@
+
+# Living Documentation
+
+Reliable
+Accurate
+
+(… All patterns from this book)
+
+
+# Books and Online articles
+
+(… All references)
+
+# Authors
+
+(… All authors)
+
+# Authors patterns
+
+(… All patterns from other books that are mentioned in this book)
+
+
+# Methodologies
+
+## Agile Approaches
+XP
+Scrum
+Waterfall
+
+## Software Craftsmanship Practices
+
+Domain-Driven Design
+TDD
+BDD
+ATDD
+
+Coding Dojo
+Koans
+Codeanalysis
+Whiteboard
+Event Storming
+Model Storming
+
+
+# Development Activity
+
+## Requirement Elicitation
+Acceptance Criteria
+Acceptance Test
+3 amigos
+Specification workshops
+Concrete Examples
+
+## Testing
+
+Unit Test
+Mocking
+Fluent Test
+Test Coverage
+Test Automation
+
+## Coding
+
+Clean Code
+Pair-Programming
+Cross-Programming
+Mob-Programming
+IDE
+Java Programming Language
+C# Programming Language
+Clojure Programming Language
+F# Programming Language
+
+
+## Design
+
+Refactoring
+Design Patterns
+
+## Dependency Management
+
+Maven
+Gradle
+sbt
+…
+
+
+## Infrastructure
+
+Puppet, Chef, Ansible, Salt
+
+## Deployment
+
+Octopus Deploy
+
+## Monitoring
+
+Nagios
+
+
+# Language
+
+Ubiquitous Language
+Visual layout
+
+DSL
+
+# Media
+
+- Information Radiators
+- Electronic propaganda: banners on build walls, wallpaper, idle screens, pair-programming blocker screens
+- Maxims
+- Wifi names and passwords
+- Goodies: T-shirts, mugs
+- Posters
+- Infodecks
+- Drawing
+- Collage of stuff found on the Internet
+- Comics
+- Cheat Sheet
+- Card Decks
+- Visualizations & Animations
+- Company blog
+- Company chat, chatbot
+- knowledge base
+- Congruent Media
+- Gamification
+- Tangible Media

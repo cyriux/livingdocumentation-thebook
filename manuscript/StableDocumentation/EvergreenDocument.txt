@@ -1,0 +1,196 @@
+# Evergreen Document
+
+> An evergreen document is a document written in a way that is relevant to a specific audience over a long period of time. This relevance comes from a universal acceptance or application of document contents. (source: Wikipedia)
+
+An Evergreen Document does not change, and yet it remains useful, relevant and accurate. Obviously not every kind of documents have this privilege.
+
+Evergreen Documents tend to:
+
+- Be rather short, with not much details
+- Focus on high-level knowledge, à la "big picture"
+- Focus on goals and intentions rather than implementation decisions
+- Focus more on the business concepts than on the technical ones
+
+These characteristics are key for the stability of the document.
+
+Note that it's not because the knowledge is stable that it is necessarily useful and worth documenting.
+
+**Traditional means of communication like written documents sent by email are appropriate for knowledge that seldom changes. When this is the case and that the knowledge is useful, don't bother with Living Documentation. Just write the knowledge down in whatever kind of document, like text document, PDF document, content management system, hand-crafted diagram, slides or spreadsheet.**
+
+**You don't have to spend a lot of time on creating Evergreen Documents, but if you do, at least it will benefit the readers for a long time.**
+
+## Design Vs Requirements
+
+> If you can't change a decision, it's a requirement to you. If you can, it's your design."
+>
+> *Alistair Cockburn* https://twitter.com/TotherAlistair/status/606892091432701952
+
+If you can't change a decision, then this decision has already lost one reason to change. Hence high-level requirements may be stable enough for Evergreen Documents to be well-suited.
+
+Of course this is not usually true in the details of the expected behavior. Low-level requirements like business behavior may change frequently, in which case practices like BDD are more appropriate to deal with the changes efficiently, since conversations are efficient for fast-changing knowledge, together with some automation when it fits.
+
+
+## Examples
+
+### Company Vision
+
+The best companies have a vision to change the world. This high-level vision is stable and is part of the company identity. Startups at an early stage tend to pivot regularly (see Lean Startup), but the vision often remains the same.
+
+In large corporations change happens all the time everywhere, however the traditional approach to management is to consider most decisions and knowledge as certain, predictable and stable. Within a department, team or project, everything around can often be considered stable.
+
+
+### Project Vision
+
+A Project Vision, when expressed in a few sentences, like an elevator pitch, a project vision can be quite stable. And if it ever changes, the project will probably be stopped or totally reconsidered.
+
+Why does your project exist? Who's sponsoring it? What are the business drivers? What are the expected benefits, and what are the success criteria?
+
+If you're into #NoEstimates, you'll take extra care to keep the vision high-level enough not to prematurely constraint the execution of the project.
+
+For example, the project vision "Create a library to report sales to the regulator" already presumes the solution. Once stated this way, the team has already lost better opportunities, for example extending 2 existing services so that they together can deliver the report. This example of vision is also more fragile to changes. If a new CTO comes and decides that everything now has to be services, no library allowed, you'll have to update the vision of the project.
+
+A better vision for the project would simply be "Report the sales to the regulator", or even better: "Extend reporting to meet MIFID II regulation". It does not matter whatever you do to achieve the goal, every option remains open. Paraphrasing Woody Zuill, "be prepared for the wonderful".
+
+### Impact Mapping
+
+Impact Mapping (see Gojko Adzic book) is a fantastic tool to organize high-level knowledge about a project or a business initiative. This collaborative technique remains simple and lightweight, visualizes assumptions and targets.
+
+A key point is that it shows options and alternate paths to reach the goal. As such it does not constraint the execution as much as other traditional linear "roadmaps".
+
+An impact map itself is rather stable, however it's recommended to reconsider it at low frequency, typically twice a year. On the other hand, the tracking of the execution of the leaves of the map is much more volatile and is definitely not stable, if you release often.
+
+
+## A lot of knowledge is less stable than it looks.
+
+There's a limit with Evergreen Documents: even if the knowledge itself does not change much, as a document they are also made of a graphical style, with a company logo and company-specific footers. These elements of style change too.
+
+Another limit is that we'd like all documents, including Evergreen Documents, to reside on the same source control as the source code. This encourages lightweight formats of documents, like text and HTML over MS Office documents or other binary proprietary formats. Keeping knowledge in plain text is also the preferred way to go for stable knowledge.
+
+## Case Study: a README file
+
+As an example, let's consider this README file from our fleet management system:
+
+~~~~~~~~
+# Project Phenix
+(Fuel Card Integration)
+
+Project Manager: Andrea Willeave
+
+## Syncs daily
+Transaction data from the pump is automatically sent to Fleetio. No more manual entry of fuel receipts or downloading and importing fuel transactions across systems.
+
+## Fuel Card Transaction Monitoring
+Transaction data from the pump are verified automatically against various rules to detect potential frauds: gas leakage, transactions too far from the vehicle etc.
+
+*The class responsible for that is called FuelCardMonitoring. Anomalies are detected if the vehicle is further than 300m away from the gas station, of if the transaction quantity exceeds the vehicle tank size by more than 5%*
+
+## Odometer readings
+When drivers enter mileage at the pump, Fleetio uses that information to trigger service reminders. This time-saving approach helps you stay on top of maintenance and keeps your vehicles performing their best.
+
+*This module is to be launched in February 2015. Please contact us for more details.*
+
+## Smart fuel management
+...
+~~~~~~~~
+
+There are many issues in this file which will require updating the file regularly:
+
+- The project name "Phenix" will change many times for political or marketing reasons
+- The name of the project manager will also likely change, in average every 2 years
+- The class name will be renamed, split or merged with another at some point if the team is doing refactoring, which we expect to be the case. Each time, this document will need to be updated
+- Close to the class name, there are concrete parameters which will change anytime: "300m" will become "500m", and "5%" can become "3%"
+- The launch date is likely to change as it's already in the past by the way...
+
+How to fix that?
+
+We'll start by changing the title to be a stable name, by reference to the core business of the module. It may not be stable forever either, but at least it is more stable than a name which is driven by internal company politics, from:
+
+~~~~~~~~
+# Project Phenix
+(Fuel Card Integration)
+
+Project Manager: Andrea Willeave
+~~~~~~~~
+
+to this title, along with a short introduction line:
+
+~~~~~~~~
+# Fuel Card Integration
+
+Here are the main features of this module:
+~~~~~~~~
+
+We also got rid of the project manager name in this file. This is not the right place for that piece of information. Instead it could be in a Team section of the wiki, or in the Team section of your project manifest (Maven POM file for example). Note that we could replace the project manager name by a link to the page with this information.
+
+We should also remove the launch date from this file. Instead we could link to the corporate calendar, news portal, dedicated forum or internal social network, or to the Twitter or FaceBook page where the launch will be announced.
+
+The class name has nothing to do here. If we really want to bridge from this file to the code, we may instead link to a search on the source control, something like "link to the classes tagged as @EntryPoint".
+
+Finally, the detailed parameters values are not necessary here. If we really need them, we can either look at the code or configuration, or check the scenarios which describe the expected behavior and which are used by Cucumber or Specflow.
+
+To sum it up:
+
+~~~~~~~~
+leanpub-start-delete
+# Project Phenix
+(Fuel Card Integration)
+leanpub-end-delete
+
+leanpub-start-insert
+# Fuel Card Integration
+
+Here are the main features of this module:
+leanpub-end-insert
+
+leanpub-start-delete
+Project Manager: Andrea Willeave
+leanpub-end-delete
+
+leanpub-start-insert
+Find who's in the team here // link to the wiki
+leanpub-end-insert
+
+## Syncs daily
+Transaction data from the pump is automatically sent to Fleetio. No more manual entry of fuel receipts or downloading and importing fuel transactions across systems.
+
+## Fuel Card Transaction Monitoring
+Transaction data from the pump are verified automatically against various rules to detect potential frauds: gas leakage, transactions too far from the vehicle etc.
+
+leanpub-start-delete
+*The class responsible for that is called FuelCardMonitoring.*
+leanpub-end-delete
+
+leanpub-start-insert
+The corresponding code is on the company Github // link to the source code repository, but not to a concrete class name
+leanpub-end-insert
+
+leanpub-start-delete
+*Anomalies are detected if the vehicle is further than 300m away from the gas station, of if the transaction quantity exceeds the vehicle tank size by more than 5%*
+leanpub-end-delete
+
+leanpub-start-insert
+For more details on the business rules of the fraud detection, please check the business scenerios here // link to the living documentation generated from the Cucumber feature files.
+leanpub-end-insert
+
+## Odometer readings
+When drivers enter mileage at the pump, Fleetio uses that information to trigger service reminders. This time-saving approach helps you stay on top of maintenance and keeps your vehicles performing their best.
+
+leanpub-start-delete
+*This module is to be launched in February 2015. Please contact us for more details.*
+leanpub-end-delete
+
+leanpub-start-insert
+For news and announcements on this product, please check our Facebook page // link to the FB page
+leanpub-end-insert
+
+## Smart fuel management
+...
+~~~~~~~~
+
+## In closing
+
+Even in the most fast-changing projects there is still some room for Evergreen Documents, but not for all knowledge. Paying attention to how volatile pieces of knowledge are is a good strategy to reduce your workload over time, by avoiding having to manually update stuff that changes regularly.
+
+All the examples presented here are not rules, but just examples to illustrate the approach. Feel free to judge how often things really change in your own environment. For example, if there is no politics, it may be that arbitrary project names are most stable than naming after the domain language.
+
+Still, projects which can deliver any change in hours will prefer more dynamic forms of documentation over Evergreen Documents. They will rely more on conversations, working collectively, and living documents instead.

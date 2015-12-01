@@ -1,0 +1,159 @@
+# The problem with traditional documentation
+
+Documentation is such a boring topic. I don't know about you, but in my work experience so far documentation has mostly been a great source of frustration.
+
+When I'm trying to consume documentation, the one I need is always missing. When it's there is often obsolete and misleading, so I can't even trust it.
+
+When I'm trying to create documentation for other people, then it's a boring task and I'd prefer to be coding instead.
+
+T> But it does not have to be this way.
+
+There has been a number of times when I've seen, used, heard about better ways to deal with documentation. I've tried a lot of them. I've collected a number of stories, that you'll find in this book.
+
+There's a better way, if we adopt a new mindset about documentation. With this mindset and the techniques that go with it, we can make, indeed,  documentation as fun as coding.
+
+
+
+## Documentation is not cool
+
+What comes to mind when you hear the word *documentation*?
+
+- It's boring.
+- It's about writing lots of text.
+- It's about trying to use Microsoft Word without losing your sanity with picture placement.
+- As a developer I love dynamic, executable stuff that exhibits motion and behavior. In contrast, documentation is like a dead plant, it's static and dry.
+- It's supposed to be helpful but it's often misleading.
+
+Documentation is a boring chore. I'd prefer be writing code instead of doing documentation!
+
+![Oh no... I'd better be coding!](images/procrastination.png)
+
+There's something wrong with Documentation. It takes a lot of time to write and to maintain, is obsolete quickly, is incomplete at best, and is just not fun. Documentation is a fantastic source of frustration.
+
+So documentation sucks. Big time. And I'm sorry to bring you on this journey on such a crappy topic.
+
+## The flaws of documentation
+
+> "Like cheap wine, paper documentation ages rapidly and leaves you with a bad headache." - @gojkoadzic on Twitter
+
+Traditional documentation suffers from many flaws and several common anti-patterns.
+
+
+An anti-pattern is a common response to a recurring problem that is usually ineffective and risks being highly counterproductive. [From Wikipedia](http://en.wikipedia.org/wiki/Anti-pattern)
+
+Some of the most frequent flaws and anti-patterns of documentation are described below. Do you recognize some of them in your own projects?
+
+### Separate Activities
+
+Even in software development projects which claim to be agile, deciding what to build, doing the coding, testing and preparing documentation are too often **Separate Activities**.
+
+![Separate Activities](images/separate_activities.jpg)
+
+Separate activities induce a lot of waste and lost opportunities. Basically the *same* knowledge is manipulated during each activity, but in different forms and in different artifacts, probably with some amount of duplication. And this "same" knowledge can evolve during the process itself, which may cause inconsistencies.
+
+### Manual Transcription
+
+When comes the time to do documentation, members of the team select some elements of knowledge of what has been done and perform a **Manual Transcription** into a format suitable for the expected audience. Basically, it's about taking the knowledge of what has just been done in the code to write it in another document.
+
+![Manual Translation](images/copist.png)
+
+### Redundant Knowledge
+
+This transcription leads to **Redundant Knowledge**: there is the original source of truth, usually the code, and all the copies that duplicate this knowledge in various forms. Unfortunately, when one artifact changes, for example the code, it is hard to remember to update the other documents. As a result the documentation quickly becomes obsolete, and you end up with an incomplete documentation that you cannot trust. How useful is that documentation?
+
+%% Out-of-sync knowledge: used to be a larvae, but it has become a butterfly by now
+
+### Boring Time Sink
+
+![Documentation is often a time sink](images/timesink.png)
+
+Managers want documentation for the users and to cope with the turnover in the team, so they ask for documentation. However developers hate writing documentation. It is not fun compared to writing code or compared to automating a task. Dead text that get obsolete quickly and that does not execute is not particularly exciting to write for a developer. When developers are working on documentation, they'd prefer to be working on the real working software instead.
+
+However when they want to reuse third-party software, they often wish it had more documentation available.
+
+Technical writers like to do documentation and are paid for that. However they usually need developers to have access to the technical knowledge, and then they're still doing manual transcription of knowledge.
+
+### Brain Dump
+
+![A brain dump is not necessarily useful as documentation](images/brain_dump.png)
+
+Because writing documentation is not fun and is done "because we have to", it is often done arbitrarily, without much thinking. The result is a random **brain dump** of what the writer had in mind at the time of writing. The problem is that there is no reason for this random brain dump to be any helpful for someone.
+
+### Polished Diagrams
+
+This anti-pattern is common with people who like to use CASE tools. These tools are not meant for sketching. Instead they encourage the creation of polished and large diagrams, with various layouts and validation against a modeling referential etc. All this takes a lot of time. Even with all the auto-magical layout features of these tools, it still takes too much time to create even a simple diagram.
+
+### Notation Obsession
+
+It is now increasingly obvious that UML is not really popular, however in the decade since 1999 it was the *Universal* notation for everything software, despite not being suited for all situations. This means that no other notation has been popularized during this time. This also means that many people did use UML to document stuff, even when it was not well-suited for that. When all you know is UML, everything looks like one of its collection of standard diagrams, even when it's not.
+
+### No Notation
+
+In fact, the opposite of notation obsession was rather popular. Even with the dominant UML, many simply ignored it, drawing diagrams with custom notations that nobody understands the same way, or mixing random concerns like build dependencies, data flow and deployment concerns together in a happy mess.
+
+### Information Graveyard
+
+Enterprise knowledge management solutions are the places where knowledge goes to die:
+
+- Enterprise wiki, SharePoint
+- Large office documentation systems
+- Shared folders
+- Ticketing systems and wikis with poor search capabilities
+
+These approaches to documentations too often fail either because it's too hard to find the right information, or because it's too much work to keep the information up-to-date, or both. It's a form of *Write-Only documentation*, or *Write-Once documentation*.
+
+On a recent Twitter exchange with James R. Holmes, Tim Ottinger asked:
+
+> Product category: "Document Graveyard" -- are all document management & wiki & SharePoint & team spaces doomed?
+
+Holmes replied:
+
+> Our standard joke is that "It's on the intranet" leads to the response, "Did you just tell me to go screw myself?"
+
+T> It's not because it's documented that it's useful.
+
+### Misleading Help
+
+![Documentation can be toxic when misleading](images/misleading_label.png)
+
+Whenever documentation is not strictly kept up-to-date, it becomes misleading. It pretends to help, but it is wrong. As a result, it may still be interesting to read it, but there's an additional cognitive load trying to find out what's still right Vs. what's become wrong by now.
+
+
+### There's always something more important right now
+
+Good documentation needs a lot of time to be written and even more so to be maintained. When you are under time pressure, documentation tasks are often skipped or done quickly and badly.
+
+
+## The agile manifesto and documentation
+
+In 2001 the Agile Manifesto was written. It says:
+
+> Seventeen anarchists agree: We are uncovering better ways of developing software by doing it and helping others do it. Through this work we have come to value:
+
+Follows a list of preferences, expressed as "we value the things on the left and on the right, but we value the things on the left more". Here are these 4 preferences:
+
+- Individuals and interactions over processes and tools.
+- Working software over comprehensive documentation.
+- Customer collaboration over contract negotiation.
+- Responding to change over following a plan.
+
+The statement "Working software over comprehensive documentation" is frequently misunderstood. Many people believe that it disregards documentation completely. In fact the Agile Manifesto does not say "don't do documentation". It's only a matter of preference. In the words of the authors of the manifesto: "We embrace documentation, but not to waste reams of paper in never-maintained and rarely-used tomes." [Martin Fowler and Jim Highsmith](http://agilemanifesto.org/history.html)
+
+
+Still, with agile approaches becoming mainstream in larger corporations, the misunderstanding is still there and many people neglect documentation.
+
+However I've noticed recently that the lack of documentation is a big source of frustration for our customers and colleagues,and this frustration is getting bigger. I was also surprised to see some great appetite for the topic of documentation after I first mentioned living documentation at the Oredev conference in Sweden.
+
+## It's time for Documentation 2.0
+
+Traditional documentation is flawed, but now we know better. Since the end of the 90's practices like Clean Code, Test-Driven Development (TDD), Behavior-Driven Development (BDD), Domain-Driven Design (DDD) and Continuous Delivery have become increasingly popular. All these practices have changed the way we think about delivering software.
+
+With TDD the tests are first considered as specifications. With DDD, we identify the code and the modeling of the business domain, breaking with the tradition of models kept separately from the code. One consequence is that we expect from the code to tell the whole story about the domain. BDD borrowed the idea of the business language and made it more literal, with tool support. Finally Continuous Delivery is showing that an idea that looked ridiculous a few years ago (delivering several times a day in a  non-event fashion) is actually possible and even desirable if we decide to follow the recommended practices. <examples>
+
+Another interesting thing happening is the effect of time: old ideas like literate programing or HyperCard did not become mainstream, but just like FP languages they are increasingly influential, and more recent programming languages like F# or Clojure bring some of the old ideas to the foreground.
+
+All that background means that now at last we can expect an approach to documentation that is useful and always up-to-date, at a low cost. And fun to create.
+
+We acknowledge all the problems of the traditional approach to documentation, yet we also acknowledge that there is a need to be fulfilled. This book explores and offers guidances on other approaches to meet the needs in more efficients ways.
+
+But first let's explore what documentation really is.

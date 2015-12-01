@@ -1,0 +1,167 @@
+# The Documentation Checklist
+
+> Every minute crafting documents is a minute lost to other things. Is this adding value? Is this most important?
+> -- @dynamoben on Twitter
+
+
+Imagine your boss, or a customer, asked for "more documentation". From that requirement, there are a number of important questions to be asked to decide how to go further. The goal behind these questions is to make sure you're gonna use your time as efficiently as possible, in the long run.
+
+The ordering of the questions is indicative, usually you will skip or re-arrange the questions at will. This checklist is actually primarily meant to explain the thought process, and once understood you can make the process your own.
+
+## Questioning the need for documentation at all
+
+Documentation is not an end in itself, it's a mean for a purpose that must be identified. We won't be able to make something useful unless we understand the goal. So the first question is:
+
+> Why do we need this documentation?
+
+It no answer comes easily, then we're definitely not ready to start investing extra effort in additional documentation. Let's put the topic on hold until we know better. No wasting time for ill-defined objectives.
+
+Then the next question immediately follows:
+
+> Who's the intended audience?
+
+If the answer is unclear or sounds like "everyone", then we're not ready to start doing anything at this stage. Efficient documentation must target an identified audience. In fact even a documentation about things "that everyone should know" has to target an audience, for example "non technical people with only a superficial knowledge of the business domain".
+
+With that in mind, and still determined to avoid wasting our time, we're ready for **The First Question of Documentation**:
+
+T> ### The First Question of Documentation
+T>
+T> Do we really need this documentation?
+
+Someone may be tempted to create extra documentation on a topic that is only of interest for himself or herself, or only relevant for the time they're working on it. Perhaps it does not make that much sense to even add a paragraph to the wiki.
+
+## Need for documentation because lack of trust
+
+Ii may happen that the answer sounds something like "I need documentation because I'm afraid you don't work as much as I'd like, so I need to see deliverables to make sure you work hard enough".
+
+In that case however the main issue is not a matter of documentation. As @mattwynne @sebrose said at the BDD eXchange conference: "Need for detail might indicate lack of trust". Documentation is just a symptom. The root issue is lack of trust, and this serious enough that you should stop reading this book and try to find ways to improve that. No amount of documentation alone can fix lack of trust in the first place. However, since delivering value often is a good way to build trust, sensible documentation has a side role in a remediation. For example, making the work more visible may help build trust, and is a form of documentation.
+
+
+
+## Just-In-Time Documentation, or Cheap Option on Future Knowledge
+
+If we need documentation, it does not mean that we need it now. That's our next question:
+
+T> ### The Other First Question of Documentation
+T>
+T> Do we really need this documentation **now**?
+
+Creating documentation is a cost, for an uncertain benefit in the future. The benefit is uncertain when we cannot be sure someone will have the need for it in the future.
+
+One thing we've learnt in the past years in software development is that we're notoriously bad at anticipating the future. Usually we can just bet, and our bets are often wrong.
+
+As a consequence, we have a number of strategies available:
+
+- **Just-In-Time**: add documentation only when really needed
+- **Cheap Upfront**: add a little documentation now, at a very low cost
+- **Expensive Upfront**: add documentation now, even if it takes time to create
+
+**Just-In-Time**: Decide that the cost of documenting know is not worth the uncertainty that it'll be useful in the future, and differ the documentation until it becomes really necessary. Typically we'll wait for someone to ask the question to initiate the documentation effort. On a big project with lots of stakeholders we may even decide to wait for the second or third requests before deciding it's worth investing time and effort in creating documentation.
+
+Note that this assumes that we'll still have the knowledge available somewhere in the team when the time has come to share it. It also assumes that the effort of documenting in the future will not be too high compared to what it would be right now.
+
+**Cheap Upfront**: Decide that the cost of documenting right now is so cheap that it's not worth differing it for later, even if it's never actually used. This is especially relevant when the knowledge is fresh in mind and we run the risk that it'll be much harder later to remember all the stakes and important details. And of course it only makes sense if we have cheap ways to document the knowledge, as we'll see later.
+
+**Expensive Upfront**: Decide that it's worth to bet on the future need for this knowledge by creating the documentation right now, even if it's not cheap. There's the risk it can be a waste, but we're happy to take this risk, hopefully for some substantiated reason (guidelines or compliance requirement, high confidence from more than one person that it's necessary etc.).
+
+It's important to keep in mind that any effort around documentation right now also has an impact on the quality of the work, because it put the focus on the how it's done and why and acts like a review. This means that even if it's never used in the future it can be useful at least once, right now, for the sake of thinking clearly about the decisions and their rationale.)
+
+## Questioning the need for traditional documentation
+
+Assuming that there's a genuine need for additional documentation, for an identified purpose and for an identified audience, we're now ready for **The Second Question of Documentation**.
+
+T> ### The Second Question of Documentation
+t>
+T> Could we just share knowledge through conversations or working together?
+
+Documentation should never be the default choice, as it's too wasteful unless absolutely necessary. When we say that we need additional documentation, we mean that there's a need for knowledge transfer from some people to other people. Most of the time, this is best done by simply talking, asking and answering questions instead of written documents.
+
+Working collectively, with frequent conversations, is a particularly effective form of documentation. Pair-programming, Cross-programming, the 3 Amigos, or Mob-programming totally change the game with respect to documentation, as knowledge transfer between people is done continuously and as the same time the knowledge is created or applied on a task.
+
+%% TODO: SEE working collectively here
+
+Conversations and working collectively are the preferred form of documentation, to be preferred as a default choice, but it's not totally enough though.
+
+Sometime there's a genuine need to have formalized knowledge.
+
+T> ### Challenging the need for Formalized Documentation
+t>
+T> Does it have to be persistent? Does it have to be shared to a large audience? Is it critical knowledge?
+
+If the answer is three times no, conversations and working collectively should be enough, no need for more formal documentation.
+
+You realize, of course, that if you ask the question to a manager you're more likely to be answered "yes", just because it's a safer choice. You can't be wrong by doing more, right? It's a bit like the priority on tasks, it's common for many people to put the high priority flag on everything, making it irrelevant. But what seems to be the safe choice carries a higher cost, which can in turn endanger the project. Therefore the safe choice is to really consider this triple question in a balanced way, with not too many "yes" for each "no".
+
+In the case knowledge must be shared to a large audience, there are several options:
+
+- Plenary meeting with the full audience attending
+- Lecture-style Conference talk in front of a large audience
+- Podcast or Video, like a recorder conference talk or a recorded interview
+- Artifacts that are self-documented, that need no additional documentation
+- Written document
+
+In the case knowledge must be kept persistent for the long term, there are several options:
+
+- Podcast or Video, like a recorder conference talk or a recorded interview
+- Artifacts that are self-documented, that need no additional documentation
+- Written document
+
+Finally, knowledge that is critical has a little less options:
+
+- Artifacts that are self-documented, that need no additional documentation
+- Written document
+
+The point is that, even with particularly important knowledge, written documentation does not have to the default choice.
+
+## Minimizing the extra work now
+
+At this point, we assume that we have a legitimate need to keep some knowledge in a formal form. However we've seen before that most knowledge is already there, somewhere, in some form. So the next series of question is the following.
+
+T> ### Knowledge is already there
+T>
+T> Where's the knowledge right now?
+
+
+If knowledge is only in the head of the people, then it needs to be encoded somewhere, as text, code, metadata etc.
+
+If the knowledge is already represented somewhere, the idea is to use it or reuse it as much as possible. We call that knowledge exploitation, along with knowledge augmentation when necessary.
+
+We'll use the knowledge that's in the source code, in the configuration files, in the tests, in the behavior of the application at runtime, and perhaps in memory of the various tools involved.
+
+In this process described in the next chapters, we'll ask the following questions:
+
+> - Is the knowledge exploitable, or obfuscated or unrecoverable?
+> - Is the knowledge too abundant?
+> - Is the knowledge accessible for the intended audience?
+> - Is the knowledge in one single place or fragmented?
+> - What's missing to make it 100% explicit?
+
+When the knowledge is not fully there or too implicit to be used, then the game becomes finding a way to add this knowledge directly into the source of the product. 
+
+## Minimizing the extra work later
+
+It's not enough to create a documentation once, we have to consider how to keep it accurate over time.
+
+The most important remaining question is:
+
+T> ### The Knowledge Stability Question
+T>
+T> How stable is this knowledge?
+
+Stable knowledge is easy, because we can ignore the question of its maintenance. On the other end of the spectrum, living knowledge is challenging. It can change often or at any time, and we don't want to update multiple artifacts and documents each time.
+
+The rate of change is the crucial criterion. Knowledge which is stable over years can be taken care of with any traditional form, like writing text manually, and print it onto paper. Knowledge that is stable over years can even survive some amount of duplication, since the pain of updating every copy will never be experienced.
+
+In contrast, knowledge which changes or may change every hour or more often just cannot afford such forms of documentation. The key concern to keep in mind of the cost of evolution and of maintenance of the documentation. Changing the source code and then having to update other documents manually is not an option.
+
+![The rate of change of the knowledge is the key criterion](images/rate_of_change.png)
+
+In this process described in the next chapters, we'll ask the following questions:
+
+- If it changes, what does change at the same time?
+- If there's a redundant knowledge, how to make the redundant sources in sync?
+
+
+
+
+*This chapter is work in progress, and will be expanded soon.*

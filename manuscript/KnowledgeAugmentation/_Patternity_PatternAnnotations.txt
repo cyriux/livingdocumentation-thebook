@@ -1,0 +1,263 @@
+"patterns-aware tools to automate more of your work"
+
+brief: Patternity is a framework to build tools upon it. Its meta-model is augmented with patterns, enabling tools to work at a higher level, closer to the way you think.
+
+very-short: Patternity is a framework to build tools that are closer to the way you think.
+
+mantra: Closer to the way you think
+
+---
+
+TODO initial hook (something real cool), progressive disclosure (regular cool stuff -demo or picture- mixed in the serious stuff), learning curve (go quickly to the point, then expand each step deeper)
+
+story drama (lessive): problem/solution plot: accident, drama, solution, benefit
+
+---
+
+escaping from low-level thinking, from beginner level to senior level:
+
+    Subconscious and gut feeling ("this solves the problem")
+    Awareness of the forces ("this solution is a good balance between this force and this one")
+    Realization that some situations recur regularly ("this solution I met twice already can be adapted to solve this problem")
+
+Enter the universe of patterns
+
+Electric motor: rather than always referring to "the moving part with copper wiring" we call it a "rotor"
+
+"There are 5 classes, one creates another, and one delegates to another" =>" A is a Builder of the Product Family B, through the Factory C, with the Parser D as the Director"
+
+Rather than talking about a "class that is immutable and have fields-based identity", we call it a "Value Object" (DDD)
+
+wrapper (unclear about the intent)
+
+better: facade, adapter or proxy or decorator (GoF)
+
+Collaborations between elements:
+
+Mediator (GoF): who knows who
+
+(Organization of the project: Domain, modules, and respective roles of each to each other)
+
+The point is:
+
+You may not know the patterns, but you already think in patterns, your own patterns
+
+Programming language-level thinking is like cycling by watching the wheels.
+
+Hence: there is value in declaring what you think
+
+Declarations must deserve to be there: must be stable, and expressive
+
+Hence favor intrinsic, avoid coupling
+Reuse configuration packs by tool and by pattern
+
+Because "common situations" recur regularly, tools can reuse the what to do too
+
+Pre-package the what to do and attach it to each pattern
+
+=> reusable auto-configuration packs (tool, pattern), community-driven
+
+(advanced: But "no model can fit every purpose, because of its implicit context" (Evans))
+How to declare your design intent
+
+intrinsic properties: declare what we think / don't go too far / defer as many decisions as possible later / distillation to the essence / declare the essence not the consequences / the essence is times more stable than the consequences / automate how to derive the consequences from the essence / in the spirit of DDD
+References collected using Mendeley
+
+---
+
+You code at design level, not just code level; why can't your tools help you at design level too? Tools can't help you because they need you to tell what you do. If you make your design explicit, using annotations for examples, then tools can begin to help.
+
+I'm investigating on how to enable tools to work at the design level, not just at the code level. An experimental effort so far, this project is called Patternity because it builds, in fact, on the general concept of patterns, where the word pattern is considered in its widest definition, from idioms to architectural concepts such as layers etc. If it is recurrent and has a name, you can use it as a pattern.
+
+The first step is to ask the developers to declare what they are doing at the design level, by declaring each pattern they use.
+
+Within the context of a native language element (package, type, method, field etc.), the idea is to declare each occurrence of patterns with an annotation that represents the pattern being used. The goal is to make explicit the design « big picture » that you actually have in mind when you build software.
+
+If it was only for humans, simple comment-like text could perhaps be enough, however since the goal is to enable tools to deal with the design information, they must be expressed in a formal way.
+
+Basics
+
+Any design information that can make the code more explicit is worth adding. You do that with simple annotations attached to the language elements, e.g. here on a top-level package, in the corresponding package-info.java file:
+
+@Layer(LayerType.INFRASTRUCTURE)
+package com.example.infrastructure;
+
+By putting the annotation @Layer on the package com.example.infrastructure,   you declare a particular instance of the pattern Layer which context is the package itself.
+Occurrence Identifier
+
+You can declare the unique Id of a pattern instance, as a simple unique String, so that you can reference this pattern instance later.
+
+@Layer(id = "repositories")
+package com.example.domain;
+
+Stereotypes
+
+Stereotypes-like patterns represent intrinsic roles or properties that always belongs to the native element, regardless of any given use-case (hence the world intrinsic):
+
+@Idempotent
+void store(Customer customer);
+
+If applicable or needed, declare attributes of this instance, like textual explanations, labels, flavour etc.
+
+@Sensitive("Risk of Fraud")
+public final class CreditCard {...
+
+Families
+
+Families define logical groupings of elements, as the name suggests. Typical families are Layers, the Model part of an MVC pattern, both levels in a KnowledgeLevel pattern, or even custom queries such as « the subset of every Value Object within a Layer ».
+
+A family can be a package itself, or may group elements by a common interface they all implement, or by a same stereotype or naming convention they all share.
+
+You can also declare the members of a family either one by one, as a list, or via a selection (query) of the member elements. In any case, if you declare a family on an element (package or class), then every member of the family must belong to this element, in order to ensure a strict topological order of declarations. Here is an example of a family on a package, where the members are selected by their annotation:
+
+@Family(id = "repositories",
+   member = @Ref(annotated = com.patternity.ddd.Repository.class))
+package com.example.domain;
+
+Collaborations
+
+Let's call « collaboration » every non trivial pattern that involves several elements, each playing a particular role within the whole arrangement. The MVC, Observer and Actor model patterns are typical examples of such collaboration.
+
+These patterns display several roles, or « participants », which often only make sense within the context of the pattern: these roles are fundamentally intrinsic to the pattern, not to the language elements such as classes and methods.
+
+However there are elements that existence is so linked to the existence of the pattern that their role within the pattern is also their raison d'être, in other words their role is also their intrinsic role.
+
+Where to declare a collaboration pattern
+
+To declare the collaboration pattern instance you place the annotation on an elements that participates actively to the pattern. You can check that by wondering « if I removed the pattern, should I keep this element? » If the answer is no then you can safely declare the pattern on it (the class or method is there only to realize the pattern). Often I would suggest to place the annotation of the element that role is named after the pattern.
+Participants declarations
+
+You declare the roles (participants) using the values of the annotation, for example for a pattern AggregateRoot, you would place the annotation @AggregateRoot on the type that acts as the root of the aggregate, and you would define the other role (aggregated) as a value in this annotation:
+
+@AggregateRoot(aggregated = @Ref(type = Account.class)
+public interface Customer {
+
+For each role you can reference each element one by one, for example:
+
+@Repository(aggregateRoot = @Ref(type = Customer.class)
+public interface CustomerRepository {
+
+You can also reference the id of another occurrence:
+
+@Family(abstractFamily = @Ref(identified = "repositories"))
+package com.example.infrastructure.persistence.mock;
+
+You can also select out of the members (methods and fields of a type, types in a package…):
+
+@AbstractFactory(product = @Ref(identified = "Widgets"),
+    factoryMethod = @Ref(annotated = FactoryMethod.class))
+public interface Factory {
+    @FactoryMethod
+    Button makeButton();
+
+    @FactoryMethod
+    Dialog makeDialog();
+}
+
+Pattern occurrence declaration
+
+Selection criteria
+
+Families can use selection to select some of their member elements, and collaboration use selection to select the participants in each role.
+
+Selection criteria include, within the @Ref annotation value:
+
+    identified (id)
+    annotated(annotation class)
+    type(class)
+    subtypeOf(type)
+    named(name), namedLike(text)
+    restrictedTo(Hint.PUBLIC)
+
+Selection defaults
+
+Depending on each pattern, sensible defaults can help a lot for the declaration. Very often, the default could be enough, and you could define a pattern just by putting its annotation, without any additional parameter.
+
+This is useful to define a default role for the context element (the element the annotation is attached to), and to define a pattern instance id in case none is declared.
+The pattern catalogue
+
+An important idea in Patternity is to reuse the work from others by sharing the definitions of patterns and what can be done with them, such as the corresponding tools configurations).
+
+The annotations for many common patterns are provided, and you can also create your own to complement or override the existing patterns catalogue.
+
+The catalogue already includes patterns from the GoF, DDD, Fowler (Analysis Patterns and PoEAA), some PLoP patterns, and several well-knowns and/or trivial basic patterns and idioms.
+Declaring new patterns
+New pattern, new annotation
+
+To declare a new pattern, you just create a new annotation:
+
+@Documented
+@Inherited
+@Target( { ElementType.METHOD, ElementType.TYPE, ElementType.PACKAGE })
+@Retention(RetentionPolicy.SOURCE)
+@ModuleWide
+public @interface Idempotent {
+}
+
+Using meta-annotations
+
+The usual meta-annotations help declare the target site (@Target and @Inherited).
+
+Patternity also provides additional meta-annotations, for example @ModuleWide, which means that when attached on a module, the annotation is supposed to apply on every member of the module.
+
+For patterns with roles you define the roles using the annotation values. The default value is used when the role is not explicitly set when using the annotation.
+
+@Documented
+@Inherited
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface AbstractFactory {
+    /**
+     * The product or group of products being created
+     */
+    Ref product();
+
+    /**
+     * The method(s) that take care of the product creation
+     */
+    @Constraint({ Ref.Hint.METHOD, Ref.Hint.DIRECT_MEMBERS })
+    Ref factoryMethod() default @Ref(annotated = FactoryMethod.class);
+
+    /**
+     * The default role of the element this annotation is attached to
+     */
+    String role() default "AbstractFactory";
+}
+
+The special annotation @Ref is handy to leave several options to reference the actual participant when declaring the pattern. The additional meta-annotation @Constraint() allows the creator of a new pattern annotation to enforce a constraint value for each particular role, which will apply on top of the actual value.
+Implementation
+
+The core of Patternity builds on top of some existing meta-model, either on the source code (qDox), or on the classes (Reflection), or at runtime (java.lang.reflect). It scans for annotations and builds an augmented meta-model that includes the patterns occurrences.
+
+Whenever an annotation is met, it is added to the element in the meta-model. Then after the element is built, every member role that uses a selection is evaluated. Then in a second pass, every selection for the other roles (external references) is evaluated.
+
+Annotation expansion: default value for an annotation value is taken care of by the JDK automatically; @Constraint() must be merged with the actual value; @ModuleWide must be expanded to each applicable element of the module. Also any reference to a pattern instance is actually expanded into the instance members (case of stereotype and family) or declaring member (for collaborations).
+
+The result of this building is a kind of search engine you can query for patterns instances.
+Empower your tools
+
+Checking dependencies by using the patterns and stereotypes information:
+
+if (type.isInvolvedIn(VALUE_OBJECT)) {
+    if (dep.isInvolvedIn(ENTITY) || dep.isInvolvedIn(SERVICE) || dep.isInvolvedIn(REPOSITORY)) {
+
+Dependency Injection binding between families, by using additional or implied semantics such as « Interface-Implementation » between each two families.
+
+Design documentation, thanks to additional predefined design information (object templates) :
+
+definitions.put(AR, new Relationships().add(CONTEXT, new Role("component"), DELEGATION));
+
+definitions.put(COMPOSITE, new Relationships().add(CONTEXT, new Role("component"), DELEGATION)
+    .add(new Role("component"), CONTEXT, INHERITANCE).add(new Role("component"), new Role("leaf"), INHERITANCE));
+
+This can be defined in code, in XML or in extensions to patterns defined again using annotations in dummy classes:
+
+Relationships{
+  @Relationships(@Relation(fromRole = "AggregateRoot", toRole = "Aggregated", kind = DELEGATION))
+  Class agRoot = AggregateRoot.class;
+
+  @Relationships({@Relation(fromRole = "Composite", toRole = "Component", kind = DELEGATION),
+    @Relation(fromRole = "Component", toRole = "Composite", kind = INHERITANCE),
+    @Relation(fromRole = "Component", toRole = "Leaf", kind = INHERITANCE)})
+  Class composite = Composite.class;
+}

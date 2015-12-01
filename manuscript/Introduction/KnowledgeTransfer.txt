@@ -1,0 +1,41 @@
+# Documentation is about transferring knowledge
+
+The word "documentation" often brings a lot of connotations to mind: written documents, MS Word or Powerpoint documents, documents based on company templates, printed documents, big heavy and boring text on a website or on a wiki, etc. However all these connotations anchor us to practices of the past, and they exclude a lot of newer and more efficient practices.
+
+For the purpose of this book, we'll adopt a much broader definition of documentation:
+
+> Documentation is about transferring valuable knowledge. Transferring valuable knowledge to other people now. Transferring valuable knowledge to people in the future.
+
+There's a logistic aspect to it. It's about transferring knowledge in space between people, and to transfer it over time, which we call persistence or storage. Overall, our definition of documentation looks like shipment and warehousing of goods, where the goods are knowledge.
+
+Transferring knowledge between people is actually transferring knowledge between one brain to other brains.
+
+From one brain to other brains, it's a matter of **transmission**, or diffusion, for example to reach a larger audience.
+
+From brains now to brains later, it's about persisting the knowledge and it's a matter of **memory**.
+
+From the brain of a technical person to the brains of non technical people, it's a matter of **making the knowledge accessible**. Another case of making knowledge accessible is to make it efficiently **searchable**.
+
+And there are other situations like putting knowledge into a specific format of document for **compliance** reasons, because you just have to.
+
+![Documentation is about transferring and storing knowledge](images/DocumentationDefinition.jpg)
+
+
+## Choosing the right media
+
+Under the definition of documentation as a transfer of valuable knowledge, documentation can take many forms: written documents, face-to-face conversations, code, activity on social tools, or nothing at all when it's not necessary.
+
+With this definition of documentation we can express some important principles.
+
+- Knowledge that is of interest for a **long period of time** deserves to be documented
+- Knowledge that is of interest to a **large number of people** deserves to be documented
+- Knowledge that is **valuable** or **critical** may also need to be documented
+
+And on the other hand, you probably don't need to care about documentation of knowledge that isn't in any of these cases. Spending time or effort on it would be just waste.
+
+The *value* of the considered knowledge matters. There's no need to make the effort to transfer knowledge that's not valuable enough for enough people over a long-enough period of time. If a piece of knowledge is already well-known or is only useful for one person, or if it's only of interest till the end of the day, then there's probably no need to transfer or store it.
+
+
+> Default is Don't
+>
+> There is no point in doing any specific effort documenting knowledge unless there's a compelling reason to do it, otherwise it's waste. Don't feel bad about it.

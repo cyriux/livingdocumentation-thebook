@@ -1,0 +1,68 @@
+# Composed Method (Kent Beck)
+
+Clear code does not happen by chance, you have to make it emerge through continuous refactoring, using all your design skills. For example it could be a good idea to follow the 4 Rules of Simple Design expressed by Kent Beck.
+
+http://martinfowler.com/bliki/BeckDesignRules.html
+https://leanpub.com/4rulesofsimpledesign
+
+Among all the design skills, the Composed Method pattern is particularly relevant for documentation purposes.
+
+> What's this block of code doing?
+>
+> - It's squishing the fibbly-bar.
+> - So should we extract it into a squishFibblyBar function?
+>
+> […] clear code, like clear writing, is hard to do. Often you can only tell how to make it clear when someone else looks at it, or you come back to it at a later date.
+>
+> Ward Cunningham explained it like this. Whenever you have to figure out what code is doing, you are building some understanding in your head. Once you've built it, you should move that understanding into the code so nobody has to build it from scratch in their head again."
+>
+> Martin Fowler  http://martinfowler.com/articles/workflowsOfRefactoring/#comprehension
+
+Composed Method is an essential technique to write clear code. It's about dividing the code into a number of small methods that each perform one task. Because each method is named, method names are the primary documentation.
+
+A common refactoring is to replace a block of code that requires a comment into a composed method named after the comment.
+
+Consider the following example:
+
+~~~~~~~~
+public Position equivalentPosition(Trade... trades) {
+	// if trades list has no trade
+	if (trades.length == 0) {
+		// return position of quantity zero
+		return new Position(0);
+	}
+	// return quantity of first trade
+	return new Position(trades[0].getQuantity());
+}
+~~~~~~~~
+
+Here the comments suggest that we can do better, like simplifying the code, or extracting methods into composed methods. We'll extract little cohesive blocks of code into their own composed method, like shown below.
+
+~~~~~~~~
+public Position equivalentPosition(Trade... trades) {
+	if (hasNo(trades)) {
+		return positionZero();
+	}
+	return new Position(quantityOfFirst(trades));
+}
+
+//----
+
+private boolean hasNo(Trade[] trades) {
+	return trades.length == 0;
+}
+
+private Position positionZero() {
+	return new Position(0);
+}
+
+private static double quantityOfFirst(Trade[] trades) {
+	return trades[0].getQuantity();
+}
+~~~~~~~~
+
+Notice that the first method now describes the overall processing, whereas the other 3 methods underneath describe low-level parts of the code. This is another way to make the code clear by organizing the methods into different levels of abstraction.
+
+Here the first method is one level of abstraction above the 3 other methods. Usually we can just read the code in the higher level of abstraction to understand what it does without having to deal with all the code in the lower-levels of abstraction. This makes it more efficient to read and navigate unknown code.
+
+By the way, the code above also illustrates how the layout of text is meaningful: we can graphically see the two levels of abstraction one on top of the other, just through the ordering of the methods.

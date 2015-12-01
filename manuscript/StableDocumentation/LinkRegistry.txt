@@ -1,0 +1,36 @@
+# Knowledge Network
+
+Information is more valuable when it is connected. Relationships convey additional information, and also bring structure.
+
+On a particular topic, or on a project, all information is related to another in some way. On the internet, links between resources adds a lot of value: who's the author? Where to find more? What does this definition mean? Who's quoted here? In a book or paper, the bibliography tells you the context. Was the author aware of this publication? If it's cited in the bibliography then you can guess it was the case.
+
+That's the same with your documentation.
+
+**Therefore: Link knowledge to other related knowledge. Qualify the relationship. Define a clear resource identification scheme. It can be URL, or a citation scheme. Use a link shortener and maintain it to avoid broken links.**
+
+It's important to qualify the link with some meta-data: source, reference on the topic, review, criticism, author, is part of, implements, is composed of, etc.
+
+A> Beware the direction of the links.
+Just like in design, links should go from the less stable to the more stable.
+
+
+## Linkable Knowledge
+
+A great way to link to some piece of knowledge is to make it accessible through an URL.
+
+Expose them as a web resource accessible through a link. Whenever necessary, refer to them through a link. Use a link registry to ensure the permanence of the links.
+
+Many tools expose their knowledge through links: issue trackers, static analysis tools, planning tools, blogging platforms, social code repositories like Github.
+If you want to link to a particular version of something, use permalinks (portmanteau of permanent link). If on the other hand you prefer to link to the most recent version of something, link to the front page, or index, or folder, that will usually show the latest version first.
+
+
+## Link Registry
+
+All links need maintenance, because the web is a living thing, and so does your company internal web. When a link is broken, the last thing your want is to go through every document with the broken link to replace it with another one.
+
+
+Don't directly include direct links in multiple places in your artifacts. Instead use a link registry under that control. This link registry gives you intermediate URL's as alias on the actual links. When a link is broken you just need to update the link registry in one single place to redirect to another link.
+
+An internal URL shortener works perfectly as a link registry. Some of these shortener allow to choose your own pretty short link; not only the links become more manageable, they also get shorter and prettier.
+
+I've seen companies install their own on-premise link registry. This is necessary for companies that care a lot of confidentiality of all their knowledge. You can find many URL shorteners that you can install on-premise, some open-source and some with commercial licences.

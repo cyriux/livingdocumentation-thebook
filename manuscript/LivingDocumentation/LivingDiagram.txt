@@ -1,0 +1,148 @@
+# Living Diagram
+
+*A diagram that you can generate again on any change so that it's always up-to-date.*
+
+> Automation should make it easier to change code safely, not harder. If it's getting harder, delete some. And never automate stuff in flux. -- Liz Kheogh on Twitter
+
+
+Some problems are difficult to explain with words, but are much easier to explain with a picture. This is why we frequently use diagrams in software development for static structures, sequences of actions and hierarchies of elements.
+
+Most of the time we only need diagrams for the time of a conversation. Quick sketches on the napkin are perfect for that purpose. Once the idea has been explained or the decision taken you don't need the diagram any more.
+
+But there are diagrams you'd like to keep, because they explain important parts of the design that everybody should know. Most teams create diagrams and keep them as separate documents: slides, Visio or CASE tools documents.
+
+The problem, of course, is that the diagram will become outdated. The code of the system changes, and nobody has the time or remembers to update the diagram. As a consequence it's very common to have diagrams that are a bit wrong. People get used to that and don't trust diagrams too much. They become increasingly useless until someone has the courage to delete them. From this point it will require a lot of skills to look at the system as it is and try to recognize how it was designed and why. It becomes a matter of reverse-engineering.
+
+This is all frustrating, but the worst part is that important knowledge is lost in the process, knowledge that was there at the beginning.
+
+**Therefore: Whenever a diagram will be useful for the long term, for example it has already been used several times, setup a mechanism to automatically generate the diagram from the source code without any manual effort. Have your Continuous Integration trigger it on each build, or on a special build that is ran on-demand at the click of a button. Don't re-create or update the diagram manually each time.**
+
+## Editorial Perspective
+
+When we create and maintain diagrams manually, and given the time it takes, it's tempting to put as much as possible onto the same diagram to save effort, even if this is detrimental to its users. However once the diagrams are generated, there is no reason any more to make your diagrams more complicated. Creating another diagram is not so much effort.
+
+The Editorial Perspective is based on the intent of the considered document. Of course this assumes that each document has a clearly identified purpose, for an identified audience, which should be the case.
+
+Diagram real estate is in limited supply, and so is the time and cognitive resources of its audience.
+
+A document whose purpose is to clarify the external actors of the system for a non-technical audience should hide everything except the system as a black box and each actor with its non-technical name and the business relationship with the system. It should not show anything about JBoss, http or Json. It should not show components or service name. The Editorial Perspective is what makes a document relevant or not. A document that tries to show different things at the same time requires more work from its audience and does not convey a clear message.
+
+![1 diagram, 1 story](images/living-diagram-1-story.png)
+
+**Therefore: Remember each diagram should have one and only one purpose. Resist the temptation to add extra information to an existing diagram. Instead, create another diagram that focus on the extra information while removing other information that is less valuable for this new different purpose. Filter superfluous information aggressively; only the essential elements deserve to make it onto the diagram.**
+
+> 1 Diagram, 1 Purpose
+
+A related anti-pattern is showing what's convenient rather than showing what's relevant to an identified purpose.
+
+Remember the reverse-engineering / round-trip tools of the end of the 90's? It was magic at the beginning, until you end up with diagrams like this (or worse):
+
+![How useful is that diagram?](images/useless-uml-diagram.png)
+
+Too much information is like no information at all, it's equally useless. It takes a lot of serious filtering for your diagrams to be useful! But if you clearly know the point of the diagram, you're already half-way.
+
+A challenge for living diagrams is the filtering and extraction of only the relevant data out of the mass of available data. On any real-world codebase, a living diagram without file rerun is close to useless, it's just a mess of boxes and wires that don't help understand.
+
+Useful diagrams tell one thing. They have a clear focus. Dependencies. Hierarchy. Workflow. A particular decomposition of modules. A particular collaboration between classes, as in a design pattern. You name it, but you only chose one. After all, since they're generated, it's easy to create one diagram for each aspect to explain, no need to try to mix them. Deciding the focus of the desired diagram is the most important decision, it's an editorial decision.
+
+Once the focus is chosen, the filtering step will only select the elements that really contribute to the focus, and ignore the rest. Ideally there should be maximum 7-9 elements at this stage. Then for each element the extraction step will extract only the minimal subset of data that are really relevant for the focus. Resist the temptation to show everything. If you've ever tried UML tools with magic round-trip mechanisms, you've probably seen what a death by over-complex diagrams means when you let the reverse-engineer your codebase.
+
+## Living Diagram to keep you honest
+
+It's important to keep the code for the living diagram itself into source control in order to run it again and again, so that when the code changes it's easy to generate the updated diagram. Going further this generator can become a plugin in the build tool to generate the latest version of the diagrams during each build.
+
+When a living diagram is part of the build, it becomes another way to look at the current state of the code. You may have a look at it during code review, or during design meetings, or just randomly to see if everything is like expected. The biggest benefit from this kind of diagrams is that they show the code as it is, so that you can be surprised. They keep you honest about the quality of the design. As discussed with Rinat Abdullin on Twitter, if you have to code a new module on your own, using an auto-generated diagram can be your first development feedback. And if you work with colleagues, another benefit of having a living diagram of the system is that "it makes development more tangible. You can point to things in discussions."
+
+## The quest for the perfect diagram
+
+From the traditional, manually-crafted diagram to the perfect Living Diagram, there is a scale of flavors, each with a different level of automatic adaptation to change, and and a different level of effort. The lower in the scale, the less effort to produce one diagram, but the more effort it will require to update the diagram in reaction to changes.
+
+- **Napkin Sketch**: Throw-away, using pen and paper
+- **Proprietary Diagram**: Look nice, but take a lot of time to create and maintain
+- **Plain Text Diagrams**: Plain text is easier to maintain, source control and diff-friendly, but you still have to maintain it
+- **Code-Driven Diagram**: You may author your diagram using code as an alternative to plain text. It could even be refactoring-proof when a class is renamed (the diagram is renamed too) or removed (the compiler tells you there is something wrong)
+- **Living Diagram**: The diagram is totally created out of the code base itself.
+
+We'll now go through each flavor of diagram for more details.
+
+Napkin Sketch: perfect for the instant, but disposable. No need for anything beyond a pen and a random piece of paper: the back of a letter, the napkin, whatever.
+
+Proprietary Diagram: not the preferred option unless you want to do the layout manually, if you need more complete UML support, if you really want all the extra features the tools offer, or if you have to use them by law. Time consuming,  only editable by people with the tool installed, hard to diff, large files, takes time to adjust the layout and every graphical possibility.
+
+Plain Text Diagrams: malleable, easy to change, easy to diff. Some IDE can propagate refactorings like renaming to class names in text, which may help reduce maintenance, but it can constraint the text too.
+
+ASCII diagrams are a kind of plain text diagrams.
+
+Code-Driven Diagram: more refactoring-proof, they are programmatic diagrams, with dedicated code and/or application code, eg driven by a DSL that includes references to code.
+
+If you need a diagram only once and then you can throw it away immediately after use, choose the Napkin Sketch. On the other hand, if the knowledge is important enough to over a period of time, choose another flavor of diagram in the spectrum. Chose one you feel comfortable with. For simple diagrams which won't change much except for a few additions, deletions and renaming refactorings, I would recommend Plain Text Diagram or Code-Driven Diagrams.
+
+If you need a beautiful diagram to convince or sell, then a generated diagram is probably not a good fit. Generated diagrams seldom look particularly attractive. As soon as the diagram becomes a stake in itself, it becomes worth doing it well, using the right tools to make it shiny. You may try commercial Proprietary CASE tools, but you will probably resort to graphical design tools, or even call a graphic designer to do the job.
+
+## Rendering
+
+I won't detail every possible way to create a diagram using a programming language, and it could be the topic for many other books, for various technologies and each context.
+
+Remember a diagram should tell a story. One story. It should hide everything that does not matter for the story. As a result, most of the work for a living diagram is in ignoring everything that is not central to the story. The story must be the sole focus of the diagram.
+
+The generation of a living diagram depends on what kind of diagram you need to create, but it typically involves 4 steps:
+
+1. Scan the source code
+1. Filter the relevant parts out of the huge number of elements
+1. Extract the relevant information from each part, including the few meaningful relationships if relevant for the focus of the diagram
+1. Render the information using a layout that matches the focus of the diagram
+
+Let's take a simple example. We have a code base with many classes, some of which related to the concept of Order. We'd like to see a diagram that focuses only on the Order-related classes, and how they depend to each other.
+
+Our code base looks like this:
+
+~~~~~~~~
+...
+Order
+OrderPredicates
+...
+SimpleOrder
+CompositeOrder
+OrderFactory
+Orders
+OrderId
+PlaceOrder
+CancelOrder
+... // many other classes
+~~~~~~~~
+
+First we need a way to **scan** the code. We can use reflection or dynamically loading code for that. Starting from a package we can then enumerate all its elements.
+
+There are many classes in the domain model of this application so we need a way to **filter** the elements we're interested in. Here we're interested in every class or interface related to the concept of Order. For the sake of simplicity we'll do the filtering on all elements that contain "Order" in their name.
+
+Now we need to decide the focus of the diagram. In our case we'd like to show dependencies between the classes, perhaps to highlight those that may be undesired. This means that we during the scan of all the classes and interfaces we will **extract** only their name and the aggregated dependencies between them. For example we'll collect all fields types, enum constant, methods parameters types and return types, and super types that constitute the dependencies of a class.
+
+T> We typically do that using a simple parser for the Java language, and with a visitor that walks through all declarations: imports, superclass, implemented interfaces, fields, methods, method parameters, method return, and exceptions, collecting all dependencies found into one Set. We may decide to ignore some of them based on our Editorial Perspective.
+
+The last step is to **render** the diagram itself, using a specialized library. If we chose Graphviz, then it's about converting our model of classes with dependencies into the Graphviz text language. Once it's done we run the tool and we got the diagram.
+
+T> In the current example, for each class with a name containing "Order", we would have its name and its list of dependencies. It is already a graph, that we can map to any graph rendering library like Graphviz.
+
+Since we want to tell a story, here we can use the links as sentences:
+
+> <actor A> "does something to" <Actor B>
+
+To do that we would have to keep some text to qualify the relationship between a class and each of its dependencies. "SimpleOrder is an implementation of Order", "CompositeOrder groups together a number of Orders" etc.
+
+There are many tools available for rendering, but not so many are able to do a smart layout of an arbitrary graph. Graphviz is probably the best, but it's a native tool. Fortunately it now also exist as a Javascript library, easy to include into a web page to render your diagram in your browser.
+
+Here are some tools or technology that can help render a living diagram: Pandoc, pandoc, js, neo4j, dataviz and many other not well-known tools on Github or even on Sourceforge. Creating a Plain Svg file is sometime an option, it's not that hard, but you have to do the layout yourself. It may a good approach if you can use it as a template too, like you would do dynamic html pages with a template.
+
+Diagrams types by layout complexity
+
+- Tables: perhaps not really a diagram, but there is a strict layout anyway
+- Pins on a fixed background: like the markers on Google Map, so all it takes is a way to map a (x, y) location for each element to pin on the background
+- Diagram Template: Use a template (svg, dot) that is evaluated with the actual content extract from the source code
+- Simple One-Dimension Flow (left-to-right, top-down), these are simple layouts you could even program yourself
+  - pipeline, sequence diagram, in-out ecosystem black box
+- Tree structure (left-to-right, top-down, radial). A tree structure is more complicated but it is still doable by yourself if you really want to.
+  - inheritance tree, layers
+- Containment (auto layout using the cluster feature of Graphviz)
+- Rich Layout (vertical + horizontal layout + containment)
+
+Of course if you want to be more creative you could also try to turn your diagram into a piece of art, doing a Photo collage, or even turn it into something animated or interactive.

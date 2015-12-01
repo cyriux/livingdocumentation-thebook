@@ -1,0 +1,15 @@
+# Event Storming Wall
+
+**
+
+## Event Storming as an on-boarding process
+
+Alberto says that some teams find it valuable to run a new Event Storming session whenever a new member joins the team, as an fast on-boarding mechanism.
+
+I can testify it works very well for that. As a consultant spending just a few days always in new teams with new domains, I need to learn as much as possible of the new domain in a short period of time. Recently I've used short Event Storming sessions for that, even if the team had dome it several times before. It is really impressive how much you can learn in just 2 hours with this kind of workshop.
+
+It happened recently that a business domain expert in the Event Storming told us he had already created well-crafted diagrams on the domain. Once we were mostly done with posting the events on the wall and organizing them, he drew the diagram on the whiteboard.
+
+What was interesting is that his diagram was in many ways more complete than our wall of events. Still, the interactive workshop form meant that we were all much more engaged with our wall of stickers than is typically the case when just looking at a static diagram. The session became a game of comparing the diagram and the events wall to better understand both, and a lot of new insights appeared in this process!
+
+%% TODO Matthias Verraes

@@ -1,0 +1,13 @@
+# It's all about knowledge
+
+It'a all about knowledge. Software development is all about knowledge, and decision-making based on it, which in turn becomes additional knowledge. The given problem, the decision that was made, the reason why it was made that way, and the facts that led to this decision, and the considered alternative are all knowledge.
+
+You may not think about it that way, but each instruction typed in a programming language is a decision. There are big and small decisions, but it's just decisions taken. In software development, there is no expensive construction phase following a design phase: the construction is so cheap (running the compiler) that there's only an expensive, sometime everlasting, design phase.
+
+This design activity can last for a long time. It can last long enough to forget about previous decisions made, and their context. It can last long enough for people to leave, with their knowledge, and for new people to join, with missing knowledge. Knowledge is central to a design activity like software development.
+
+This design activity is also most of the time, and for many good reasons, a teamwork, with more than one person involved. Working together means taking decisions together or taking decisions based on someone else's knowledge.
+
+Something unique with software development is that the design involves not only people but also machines. Computers are part of the picture, and many of the decisions taken are simply told to the computer to execute. It's usually done through documents that are called "source code". Using a formal language like a programming language, we pass knowledge and decisions to the computer in a form it can understand.
+
+Having the computer understand the source code is not the hard part though. Even unexperienced developers usually manage to succeed at that. The hardest part is for other people to understand too, in order to do a better and faster work.

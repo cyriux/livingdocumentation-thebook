@@ -1,0 +1,39 @@
+# Inspiring Exemplars
+
+*The best documentation on how to write code is often just the code which is already there*
+
+When I'm coaching teams on TDD, I pair-program randomly with developers on code-bases I have never seen before. What surprises me is that the developers pairing with me also behave as if they had never seen the code base before: for a new task, they go looking for an example of something similar already there, and then they copy-paste it into a new case. The default heuristics I've seen was "I'll find a service written by Fred", where Fred is the Team Lead who is well respected by the rest of the team. The problem is when Fred is not so good in every aspect of his code, as the flaws in his code are replicated across the whole code base.
+
+As a consequence, a good way to improve the code quality is just to improve the examples of code that people imitate. We need exemplary code, serving as a desirable model to imitate, or at least to inspire the influenceable developers
+
+Sam Newman writes about that in his book on building services:
+
+> If you have a set of standards or best practices you would like to encourage, then having exemplars that you can point people to is useful. The idea is that people can't go far wrong just by imitating some of the better parts of your system.
+
+You can point your colleagues to the exemplars during conversations, for example during pair-programming or mob-programming: "Let's look at the class ShoppingCartResource, it's the most well-designed and it's exactly in the style of code we favor as a team".
+
+Conversations are perfect for that, but some additional documentation can have benefits too, when you are not present to point people to the exemplars, or when people are working on their own.
+
+Therefore: *Highlight directly in the actual production code the places which are particularly good exemplars of a style or of a best practice you would like to encourage. Point your colleagues to these exemplars, and advertise how to find them on their own. Take care of the exemplars so that they remain exemplary, for everyone to imitate in a way that will improve the overall codebase.*
+
+Annotations are of course a perfect fit for that: you can create a custom `@Exemplar` annotation to put on the few classes or methods which are the most exemplary. Of course exemplars are only useful if there is only a handful of them.
+
+As usual, decisions on what code is exemplary or not are best taken collectively by the team. Make it a team exercise to find a consensus on the few exemplars to highlight with a special annotation.
+
+Exemplars should be actual code used in production, not tutorial code, as Sam Newman says in his book on Building Microservices: "Ideally, these should be real ­world services you have that get things right, rather than isolated services that are just implemented to be perfect examples. By ensuring your exemplars are actually being used, you ensure that all the principles you have actually make sense."
+
+In practice, an exemplar is hardly perfect in all aspects, it can be a very good example of design, but the code style may be a bit weak. Or other way round. My preferred solution would be to fix the weak aspect first. However if it's not possible or desirable, at least clarify why the exemplar is good, and what aspect of it should not be considered exemplary. Here are a few examples of exemplars:
+
+- `@Exemplar("A very good example of a REST resource with content negotiation and the use of URI-templates")` (on a class)
+- `@Exemplar("The best example of integrating Angular and Web Components")` (on a js file)
+- `@Exemplar("A nicely designed example of CQRS")` (on a package or a key class of this part of design)
+- `@Exemplar(pros = "Excellent naming of the code", cons = "too much mutable state, we recommend immutable state")` (on a particular class)
+
+
+Basically, marking the exemplars directly in the code enables asking your IDE "what code is a good example of writing a REST resource?". In an *Integrated Documentation* fashion, finding exemplars is only a matter of searching for all references of the `@Exemplar` annotation in your IDE. You can just scroll the short list of results to decide which code will be your inspiration for your task.
+
+Of course there are caveats in the approach suggested before :
+
+- **Software development is not supposed to be so much copy-pasting** as thinking and solving problems. Highlight exemplars is not a free license to copy-paste code.
+- **Copy-pasting requires refactoring**. As similar code accumulates, it must be refactored.
+- **Marking the exemplars in the code is not meant to prevent asking colleagues** for exemplary code. Asking questions is good as it leads to conversations, and conversations are key for improving the code and the skills. Don't reply "RTFM" (Read The F**ing Manual) when asked for exemplars. Instead, why not go through the suggested exemplars in the IDE together, reviewing which one would be best for the task? Always take conversations as opportunities to improve something mutually.

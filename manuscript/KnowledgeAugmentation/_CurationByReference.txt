@@ -1,0 +1,62 @@
+
+
+---
+
+For what documentation?
+For everything that has to be a document:
+Specifications
+Tests reports
+Getting started guide & all kinds of Tutorials, including dedicated how-to  guides for particular tasks and for particular audiences
+User manual, including reference sections
+Developer manual, including the guidelines
+Glossary
+Design and architecture documents, including diagrams
+Recommended reading list
+Documentation on strategies, eg Testing Strategy or Legacy Remediation Strategy
+Inventory of infrastructure
+Change log and release notes
+Any kind of boring document required by some external authority...
+
+----
+
+You can review the code and copy snippets into a separate document, but you'll have to redo that every time the code changes.
+
+Therefore:
+Use Augmented Code or Convention over Configuration to add intrinsic categorization information to the source code artifacts. Then use that information to select content that matter for a given purpose.
+
+Need pretty solid examples... @DeveloperGuide("hello-world")
+@DeveloperGuide("extension-plugin-class")
+@DeveloperGuide("extension-plugin-manifest")
+@UserGuide("error-codes")
+
+Augmented Code enables to use the same snippet of code for multiple purposes. This makes it possible to cherry-pick content out of already existing code or tests.
+
+See: Glossary from Code, Augmented Code, Intrinsic Property, Curated Datasets
+--
+
+## Scenario Digest (Curation by Reference, Scenario Curation, Curated Content, Literate-ish Programming)
+
+Curated or Generated Datasets can be named and can belong to the Ubiquitous Language.
+--
+
+like art collage or like creating a hip-hip beat from sounds sampled from various old records put together to tell a new story.
+
+Why?
+
+
+
+The complexity of curation is in the details, in particular the filtering of the raw content. If you refer to source code, do you want line numbers? Import statements? File name? With or without the path? If you refer to a method, do you want to quote the method body only or the whole method declaration with the signature? With or without the comments? Dexy has gone quite far in this area.
+
+
+----
+%% This is a complete duplication of a Living Document
+
+1. **Propose** an overall meaningful structure, an editorial perspective, which will tell one story by glueing together all the selected pieces into a coherent whole
+1. **Select** the relevant pieces of knowledge out of a large number of elements
+1. **Augment** what is already available with any important missing piece of knowledge
+1. **Publish** the whole thing in a form which fits best the message, abstracting away all irrelevant details with respect to the message
+
+
+Finally, all the selected knowledge has to be formatted and rendered into the desired form. This step is again about filtering information, this time the filtering is not on the elements being selected or not, but on the content of each element.
+
+The publishing step uses tools to create a document or any media targeted to the predefined audience. The publishing does not have to be a paper document or a static website, it can be interactive with search and navigation capabilities so that each person from the audience can have a tailored experience which we hope will be more effective than a one-size-fits-all approach.

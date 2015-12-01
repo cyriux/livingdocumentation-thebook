@@ -1,0 +1,71 @@
+# Selling Living Documentation to management
+
+A common question about a new approach is "how do I convince my management to try it?". There are different answers depending on your context.
+
+The first, and my preferred, answer is that it is up to the team to select the way to meet the expectations of other stakeholders. It is everyone's business to require that knowledge is shared, however does the team really need approval to decide how to perform its work efficiently? Keep in mind that everyone in the team, developers, testers, business analysts are also stakeholders of the project. To better deliver to other stakeholders they have to take care of themselves first. They also need enough autonomy to try practices, and as Woody Zuill says "to amplify what works" and to stop what does not.
+
+If your company and managers are proud to be "really agile" and to "empower their teams", then they should trust the team, and you should not need any formal approval to try Living Documentation or any of the related recommended practices, even the most radical ones like pair-programming or mob-programming. Of course this autonomy comes with the full responsibility for the actual results.
+
+That said, it may be the case that putting in place a living glossary or a living diagram for the first time requires from half a day to two days of work. This may be toe long to do the effort without having it in a formal backlog, in which case you need to convince someone.
+
+If there is a documentation budget or documentation tasks planned already, you may also want to reuse that time to invest on living documentation instead. This again may again require an approval.
+
+## Start with an actual problem
+
+As usual when introducing new approaches, don't preach. Instead, show the benefits, and the best way to do that is on a real problem, when it is time to tackle it.
+
+Make sure to have everyone acknowledge that there is a problem first. Then propose a solution, inspired from this book. You don't have to use the term "Living Documentation", you can just mention that this approach has already been done in other companies, in large-ish rigid corporations, and in small early startups too, which is true just with my own past experience.
+
+You may also start with something small, done on your own time, that you can show to the managers you want to convince. It may be a report, or a diagram, or a mix of a documentation plus some indicators managers are particularly interested in. Emphasize how you can save time and improve the satisfaction thanks to the approach.
+
+Once it is done, the benefits should be enough to convince of keeping the approach. And if the benefits are not there, please tell me so that I can improve the book. Still, even in the worst case you will learn something valuable in the process, and you will probably have one example of a traditional documentation that was just a bit more expensive than usual.
+
+## A Living Documentation initiative
+
+If there is a lot of pressing documentation issues, you may want to go with a bigger ambition on the topic. This book is also made for that purpose of pushing the idea forward and make it a standard package that can be a reference. Show the book to the people you want to convince. Show the video of talks on the same topic, I've done some already that were well-received judging by the feedbacks in the venues and on Twitter.
+
+Showing the benefits on a first "pilot" case within the company remains the best option to start with. Nobody will pay much attention at first, but with early successes more people will try to replicate or to even formalize the initiative for the benefit of their career.
+
+As soon as we're talking about an identified initiative, we have to convince upper management that it is worth investing time in the teams, and perhaps some additional coaching and consulting if needed. One way to sell Living Documentation is to consider that it is a prerequisite to achieve sustainable **Continuous Delivery**, a bit like testing is a pre-requisite too.
+
+**Going fast is not possible unless the quality is under control at all time, thus we need a testing strategy with automated testing to the max.**
+
+**Similarly, going fast in the long term is not possible unless the quality of the design and of the understanding of the business domain is under control at all time, thus we need a living documentation strategy.**
+
+Many of the key reasons to adopt a Living Documentation approach are already in front of your eyes, and show in your weekly time-tracking and in the current state of your knowledge management.
+
+Overall, my feeling so far is that documentation is a concern close to managers' heart. The matter of skills and knowledge transmission between the team members is already a common source of anxiety for the management; it represents a cost in time but more importantly in defects and mistakes:
+
+- Skills matrix creation and updates.
+- Turnover rate
+- Time spent on-boarding newcomers
+- Anxiety related to the Truck Factor, the risk of losing key knowledge is the team is hit by a truck when going back from lunch
+- Ratio of defects and incidents caused by "I didn't know that".
+
+Lack of documentation is a hidden cost, just like the lack of test in a project. Every change needs a complete investigation and an assessment, sometime even a pre-study. The hidden knowledge has to be mined each time. Alternatively, the changes are made in a way that is fast now but that makes the application increasingly bloated, making the matter worse over time. This may show like the following:
+
+- Time to deliver a change
+- Negative trends of any code quality metrics, perhaps the most telling being the mere size of the code base. If it grows regularly, it is probably a sign that the design is too weak. There is not enough refactoring to start with, and the each change is basically an addition.
+
+And there are also the arguments on the documentation, or lack of thereof, in itself:
+
+- Unmet, or not updated frequently enough, compliance requirements with respect to documentation
+- Time spent on writing documentation, or on updating the existing documentation
+- Time lost searching the right documentation
+- Time lost reading documentation that is incorrect
+
+You may want to perform a review of the actual quality of the existing documents that pretend to be the documentation, with a focus on various indicators:
+
+- Number of different places where documentation can be found (including the source code, the wiki, each shared drive, team members machines etc.)
+- Time of last update
+- Proportion of authors of the last updates who left the team
+- Proportion of rationale (explaining WHY not just WHAT) in the documentation
+- Proportion of pages or paragraphs or diagram that can still be trusted
+- Proportion of knowledge redundant between the source and another kind of documentation
+- Short survey like "Do you know where I can find knowledge on that?" on a random set of concerns
+
+And of course you can come up with many other ideas to help realize the actual state of everything documentation. If everything is fine and under control, then the only thing that Living Documentation may improve is the long term cost, thanks to team members working more together, automation and reduction of various waste.
+
+Otherwise, Living Documentation can make documentation feasible again, at a reasonable cost and with an identified value added.
+
+On the value side, it is worth putting the emphasis on the biggest benefits which are not just the sharing of knowledge, but especially the side benefits in improving the software in the process, as described in "Beyond Documentation" part of the book.

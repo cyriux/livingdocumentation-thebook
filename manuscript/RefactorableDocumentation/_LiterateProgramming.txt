@@ -1,0 +1,23 @@
+## Literate programming
+
+F#, Clojure, Python
+Standard F# file, with embedded Markdown narrative special comments in linear reading order. The comments may decide to skip a section of code, and may decide to include code from another place on request. This way you control when you introduce a piece of code in your narrative. The default ordering is just the linear ordering of dependencies in F#, enforced by this language.
+
+For example you can create a "Getting Started" page, with narrative text and code snippets, both collocated within the same standard F# file.
+
+In the generated report, the code has tooltips, when you hover over it you can see the type information. And when you click on code identifiers, they become links towards the source code on a repository like GitHub.
+
+[Marginalia](https://github.com/gdeer81/marginalia)
+
+Groovy Spock test framework extracts the expression from the code in its failing tests reports
+
+
+Dexy: like make but for documents
+- Place prose in the code
+- Place code in the prose
+- Code is code, prose is prose, with tools to mix them together, plus data!
+
+Code, prose and data cost money. On the other hand, analysis, documentation and reporting have value
+
+
+literate programming is not a way to do documentation but a way to write programs

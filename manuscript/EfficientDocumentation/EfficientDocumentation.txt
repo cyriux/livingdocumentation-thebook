@@ -1,0 +1,59 @@
+# Efficient Documentation
+
+> The most common myth of communication is that it happened
+> -- @ixhd from Twitter
+
+There are many little techniques to communicate more efficiently. The overal goal is to get the message through with less words, faster, more accurately, without wasting people's time.
+
+This is about all communication, not just documentation. It's as useful to describe requirements or in training on anything.
+
+## Focus on Differences
+When describing a specific thing, e.g. a dog, focus on its differences versus the generic thing, e.g. a mammal. The generic thing must be well-known, or well-described preliminary. This enables to describe a rich thing with just a few points, one for each significant difference.
+
+### How is Your lemon?
+
+During his training on BDD, Joe Rainsberger sometimes tells a great story about lemons. I don't remember the exact story but I do remember the key insight, so here's my own totally distorted account of the story:
+
+> The trainer asked everyone to describe how a lemon's like. The group described the typical lemon-shape, yellow color, acid taste and grained texture of a lemon. The trainer then gave them a real lemon, one for each attendee, and asked them to study carefully their lemon for a few minutes.
+
+> As an attendee, he analyzed his own lemon. One end of the lemon was bent in a weird way. There was a variation of color somewhere in the middle. The lemon was kind of small compared to the average lemon.
+
+> He then asked everyone put their lemon back together into the basket, and then asked them to recognize it among all lemons. This was surprisingly easy! Each attendee realized they got to learn their own lemon very intimately. "It's my lemon!", they all said! They even had felt a bit of attachment to their lemon.
+
+By looking carefully at a specific lemon *in contrast to the generic concept* of a lemon that everybody knows, you can describe it very effectively. It's at the same time precise with lots of details, and efficient because you don't have to describe the generic thing.
+
+I've seen colleagues use that technique to describe concepts from the business domain. For example, during a presentation to new joiners on financial asset classes, the trainer was only mentioning the 5-7 bullet points that were distinctive to a particular asset class like commodities, in contrast to a generic well-known asset class like equities.
+
+> In the Power market (electricity), a specificity is that the prices are very seasonal during the day and during the year, in contrast to company stocks. In the Oil market, geography matters, you don't ship oil anywhere.
+
+## Only tell what's unknown
+
+There is no point explaining something to people who already know it. The key is to identify what your audience knows. During conversations it is possible to assert what's the people you're talking to know or don't know, from their questions, body language, and by asking them directly. In written form this is more difficult, but not impossible. There are several ways to do that.
+
+### Segment by known audience
+
+For each audience, get feedback from the most frequently asked questions and by talking to the support team to know better what's well-known and what needs to be explained more. Then focus on what's unknown for each audience.
+
+### Flexible content
+
+Organize the written content so that it can be skimmed, skipped, and read partially. Clearly mark optional sections. Make the titles informative enough so that readers can decide if this is what they are after.
+
+For example, Martin Fowler suggests writing [Duplex Books](http://www.martinfowler.com/bliki/DuplexBook.html). The idea is to split the content into two big parts: the first part is a narrative designed to be read "cover to cover", while the second part is a reference material, not meant to be read cover to cover. You read the first part to get an overall understanding of the topic, and you keep the rest for when you actually get to need it.
+
+### Low-Fidelity Content
+
+Too often a diagram that was meant to brainstorm, explore, propose ideas is misunderstood as a piece of specification. This results in premature feedback on details like "I'd prefer another color", even though the whole thing will change a lot in the next hours or days. This situation is especially true for everything done on a computer, since it is quick and easy to create nice-looking documents, pictures and diagrams using the proper piece of software.
+
+**Therefore: When the knowledge is still being shaped, make it clear in the documents thanks to low-fidelity content like wireframe and sketchy rendering.**
+
+### Visual Facilitation
+
+"I'm talking about *that*" when finger pointing a box on a digram on the whiteboard or on a screen is much more concise and precise than "I'm talking about this thing that takes care of filtering the duplicate entries upstream of the realtime secondary calculation engine". As Rinat Abdulin said on Twitter on a conversation we had about living diagrams, "Stuff 'you can point to' during discussions helps communicate faster and with better accuracy. Having conversations supported by visual media is a powerful technique.
+
+During meetings or an open-space session, the visual notes on the flip-chart not just report on what has been said, they also *influence* the further discussions just by being in front of everyone's eyes.
+
+This influence is even stronger if the scribe having the marker on the whiteboard is skilled in visual facilitation. He or she rearranges the way the information is organized, sorting concepts, using a meaningful layout, noting links, side-remarks and drawing little decorations about the connotations involved in the discussions.
+
+**Therefore: Don't discount the importance of visual supports during discussions. Invest in some visual facilitation skills, and learn to exploit how this can help shape the dynamics of the work.**
+
+Visual notes are redundant with what was said and therefore help if you did not catch a word or an idea immediately. They help as a way to catch up after a quick day dreaming, for everyone to remain involved in the session. When done well, visual facilitation is also an opportunity to make people smile thanks to some  visual humor.

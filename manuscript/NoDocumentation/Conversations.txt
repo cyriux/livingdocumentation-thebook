@@ -1,0 +1,102 @@
+# Conversations Over Formal Documentation
+
+> Having conversations, Is more important then documenting conversations, Is more important then automating conversations
+> -- Liz Kheogh
+
+
+Written documentation is often the default choice when it comes about documentation, to the point that the word "Documentation" has become a close synonymous to "written document".
+
+However it's unlucky. When we need documentation, we mean that there's a need for knowledge transfer from some people to other people. The bad news is that not all media are equal when it comes to their efficiency of transferring knowledge.
+
+Alistair Cockburn analyzed three dozen projects, over the course of two decades. He [reported](http://alistair.cockburn.us/ASD+book+extract%3A+%22Communicating,+cooperating+teams%22) on his findings in books and articles, with a famous diagram illustrating the effectiveness of different modes of communication.
+
+![](images/diagram_communication_modes_alistair_cockburn.png)
+
+This diagram recaps his observation that people working and talking together at the whiteboard is the most effective mode of communication, whereas paper is the least effective.
+
+Most of the time, effective sharing of knowledge is best done by simply talking, asking and answering questions instead of written documents.
+
+**Therefore: Favor conversations between everybody involved over written documents. Conversations are interactive, fast, convey feelings and have a high bandwidth as opposed to all written artifacts.**
+
+> A phone call can save twenty emails. A face to face chat can save twenty phone calls
+> -- @geoffcwatts on Twitter
+
+Conversations are:
+
+- **High-Bandwidth**: conversations offer a high bandwidth compared to writing plus reading, as more knowledge can be efficiently communicated over a given period of time
+- **Interactive**:  both sides of the conversation have the opportunity to ask for clarification and orient the topic on what's most useful for them, whenever they want to
+- **Just In Time**: both sides of the conversation only talk about what's of interest for them
+
+These key properties of conversations make them the most effective form of communication for sharing knowledge.
+
+In contrast, written documentation is not just wasteful because it takes time to write, but also because it takes time to locate where the relevant parts are, and then it's unlikely the content will fit the expectations. Even worse, it's likely that the content will be misunderstood.
+
+
+## Wiio's laws
+
+Wiio's laws are humoristically formulated serious observations about how human communication usually fails except by accident, by Professor Osmo Antero Wiio.
+
+>  Communication usually fails, except by accident.
+>
+>  If communication can fail, it will.
+>
+> - If communication cannot fail, it still most usually fails.
+>
+> - If communication seems to succeed in the intended way, there's a misunderstanding.
+>
+> - If you are content with your message, communication certainly fails.
+>
+> - If a message can be interpreted in several ways, it will be interpreted in a manner that maximizes the damage.
+>
+> From [Wikipedia](https://en.wikipedia.org/wiki/Wiio%27s_laws)
+
+Human communication works best through interactive dialogues, with the opportunity for the receiver of information to react, disagree, rephrase or ask for more explanation. This feedback mechanism is essential to fix the curse of one-way human communication highlighted by Professor Wiio.
+
+Alistair Cockburn has similar findings:
+
+> To make communications as effective as possible, it is essential to improve the likelihood that the receiver can jump the communication gaps that are always present. The sender needs to touch into the highest level of shared experience with the receiver. The two people should provide constant feedback to each other in this process so that they can detect the extent to which they miss their intention.
+
+
+Written documents don't have this opportunity for interaction. Whenever a written document "such as a book or a Web page or a newspaper article, miraculously works, it's because the author participated in dialogues elsewhere." [Korpela](http://www.cs.tut.fi/~jkorpela/wiio.html).
+
+It takes more work than just typing text for a written document to be useful.
+
+A face-to-face, interactive and spontaneous form of documentation is the best way to improve on the fate of miscommunication highlighted by Professor Wiio. If all your stakeholders are happy with talking with the team for all questions and feedback, then change nothing. You don't need written documentation.
+
+
+## Obstacles to conversations
+
+There would be no need for this pattern if people were having conversations so easily in the workplace. Unfortunately this is not the case often enough.
+
+
+Years of working together by handing documents over the wall have trained many people at not having conversations, except in meetings where conversations become an art of negotiation. Corporate environments with politics and information retention have also trained colleagues at not sharing too much knowledge too early in order to remain in the game and to keep power, including blocking power.
+
+People from different teams, departments, or assigned on different projects, in different locations, tend to have much less conversations than close neighbors in the same team and project. They tend to use colder (not interactive) and less effective modes of communication like email or phone calls instead of face-to-face communication. It's important to note that hierarchical distance -- not having the same management, is at least as great an impediment to having conversations than geographic distance.
+
+Separation of people by functions in separate teams, like the Dev, QA and BA teams, is also a great way to make conversations less likely.
+
+Old clichés also reduce the likelihood that people even imagine meeting and talking together:
+
+> "I'm a tester, I must wait for the development to be finished to start testing"
+>
+> "I'm a BA, so I must solve the problem by myself before handing it to the developers to implement"
+>
+> "I'm a developer, my job is to execute what's been specified beforehand, and my job is not to test it once it's done."
+
+I've heard that some Business Analysts have a hard time imagining not producing documents of a large enough size, for fear that their work is not visible otherwise. Simply talking to help the project may not be enough to justify their role. Here we see how perverse this system has become, producing waste (large early documents) not for their value per se but to make the work visible to managers. Fear of losing your job or individual incentives feed this kind of counter-productive behaviors.
+
+
+> Defect tracking systems certainly don't promote communication between programmers and testers. They can make it easy to avoid talking directly to each other.
+> -- Agile Testing, Lisa Crispin and Janet Gregory
+
+To improve on that, make sure that everybody knows that the only goal is to deliver value. Make the work environment safe for everyone. Even with much less documents, there's still a role for traditional BA and QA team members, it's just transforming into a continuous contribution to a collective adventure that we call a project or a product.
+
+Make sure it's perfectly ok to just have conversations often, and spend less time writing stuff. Promote collective working over separate job posts. Have everyone, even from different teams, sit close to each other most of the time, around the same table if possible, so that spontaneous communication happens without obstacle.
+
+## Knowledge Transfer sessions
+
+Some teams plan *KT* (Knowledge Transfer sessions), often in addition to brief documents, to make sure the knowledge is actually shared and well understood. According to the Wiio's laws, that is a great idea! A typical example of KT is to exchange the knowledge on the deployment before a release, when the Ops are in another silo of the organization. One way to share knowledge in this case is to perform a dry run of the deployment, based on the deployment document and all the automated deployment manifests. This way, any issue, question or mistake can be spotted quickly during the session, and all this during regular working hours.
+
+Of course an alternative is to directly work collectively between the developers and the Ops people to prepare, configure and document all the deployment process. KT can be a step in this direction for traditional companies, just like code reviews are a step towards pair-programming.
+
+*This is a draft chapter, to be refined and expanded.*

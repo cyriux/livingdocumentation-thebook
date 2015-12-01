@@ -1,0 +1,11 @@
+# Preface
+
+I never planed to write a book on living documentation. I didn't even have in mind that there was a topic under this name that was worth a book.
+
+Long ago I had a grandiose dream of creating tools that could understand the design decisions we make when coding. I spent a lot of free time over several years trying to come up with a framework for that, only to find out it's very hard to make such a framework suitable for everyone. However I tried the ideas on every occasion, whenever it was helpful in the projects I was working in.
+
+In 2013 I was speaking at Oredev on Refactoring Specifications. At the end of the talk I mentioned some of the ideas I'd been trying over time, and I had been surprised at the enthusiastic feedback I had around the living documentation ideas. This is when I recognized there was a need for better ways to do documentation. I've done this talk again since then and again the feedback was about the documentation thing and how to improve it, how to make it realtime, automated and without manual effort.
+
+By the way, the word Living Documentation was introduced on the book SbE by Gojko Adzic, as one of the many benefits of SbE. This is a good name for the idea. Since then I've seen spontaneous tweets talking about Living Diagrams for example.
+
+There was a topic, and I had many ideas to share about it. I wrote down a list of all these things I had tried, plus other stuff I had learnt around the topic. More ideas came from other people, people I know and people I only know from Twitter. As all that was growing I decided to make it into a book. Instead of offering a framework ready for use, I believe a book will be more useful to help you create quick and custom solutions to make your own Living Documentation.

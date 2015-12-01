@@ -1,0 +1,24 @@
+## System Metaphor (XP)
+Assembly line; shop to storehouse
+
+## Emotional Impact
+Make it dramatic! The detergent ads model
+
+## Storytelling
+
+## Stakeholders Profiles (aka Personas)
+Stakeholders are important and should be well-understood. Write a few sentences to describe what's their job and what matters most for them. Ideally a few concrete stories of how it's like to be a CFO or a risk officer for a day, help a lot.
+
+## Live my life / On-site visit or Virtual Tour
+For a day, in real life or through a virtual tour
+
+## Landscape Mapping
+it's hard to talk and decide on a war strategy without at least some maps of the landscape, with named regions. On a software project a map of the business landscape is a great help too so that even people who's never been there can participate. Such a map is a form if Ubiquitous Language, organized visually.
+
+## Meaningful Layout
+when drawing diagrams use layout to express meaning: symmetries, vertical vs horizontal axis, proximity, boundaries and containment...
+
+
+
+## Information Retention (anti-pattern)
+When someone has reasons not to share knowledge.

@@ -1,0 +1,187 @@
+# Living Documentation and Domain-Driven Design
+
+
+# No Doc / Conversations first
+- Modeling Out Loud
+-  Hands-on Modelers
+
+
+# Stable Doc
+- Modeling Paradigms --explicit-> Declare your influence / style
+- Read the Book  --explicit->         Acknowledge Bibliography
+- Draw on Established Formalisms, When You Can  -suggests->   Ready-Made Knowledge (Maths)
+- Applying Analysis Patterns     - examples of ->    Ready-Made Knowledge
+
+- Domain Vision Statement      -a perfect example of->  Stable, Evergreen Document, Personas
+- Responsibility Layers                      -a great example of->                 Stable World Map
+- System Metaphor (among other things) -a great example of->                Unorthodox media
+
+
+
+# Single Sourcing = Code as documentation
+- Explanatory Models - can be done with-> Small Scale System
+- Model-Driven Design                                                                  - help-> Code as Documentation
+- Part II. The Building Blocks of a Model-Driven Design - help-> Code as Documentation
+- Making Implicit Concepts Explicit            - help-> Code as Documentation
+- Intention-Revealing Interfaces                               - help-> Code as Documentation
+- Declarative Design & Domain-Specific Languages - can be done with-> Fluent Style, Closure Of Operations   -> Monoids
+
+# Curation -> Code and Scenario Digests
+- Core Domain  -can be done with-> curation by annotation
+- Highlighted Core / The Flagged Core     -can be done with->  curation by annotation
+- Segregated Core / Abstract Core -can be done with-> curation by annotation
+
+
+
+# Propagation = Augmentation
+- Part II. The Building Blocks of a Model-Driven Design - record the decision-> annotation
+- Layered Architecture  - record the decision-> annotation Hexagonal Architecture annotations
+- Custom Stereotypes - record the decision-> annotation
+- Modules - record the decision-> annotation modules annotations
+- Side-Effect-Free Functions - record the decision-> annotation
+- Continuous Integration + Declarative Design & Domain-Specific Languages -  suggests-> Declarative automation
+
+# Living Documents -  made visible-with ->
+- One Team, One Language, UBIQUITOUS LANGUAGE -  made visible-with -> Living Glossary
+- Isolated Domain Model - made visible-with-> Hexagonal Architecture Living Diagram
+- Bounded Contexts  -> Bounded Contexts Integration
+- Context Map  + Relationships Between Bounded Contexts -> Living Context Map?
+- Relationships with the External Systems -> Context Diagram
+- Knowledge Level           -> An example of a Living Diagram
+
+
+# Reconciliation
+- BDD
+- Supple Design / Assertions     -can be done -> Property-Based Testing
+- Distillation Document with links and broken links checker (Chrome extension)
+
+
+# Beyond Doc
+- Hands-On Modelers -> Listen to the doc with instant feedback
+- UL diagnosis -> Wordcloud, Living Glossary
+- Recognizing Splinters Within a Bounded Context -> code visualization?
+
+
+
+# Introducing LD / migration
+- Accepting That Which We Cannot Change: Delineating the External Systems -> legacy patterns
+- Phasing Out a Legacy System
+- Choosing Refactoring Targets -> map the road by code augmentation
+
+
+
+---
+
+## DDD Content - Mapping 1/2
+
+Part I. Putting the Domain Model to Work
+1.       Crunching Knowledge -> Domain Immersion, Obsession Wall
+Knowledge Crunching     -> domain immersion, BDD
+Continuous Learning     -> embedded learning
+Knowledge-Rich Design   -> scenarios, annotations
+Deep Models             -> principles (Chinese walls, what's best for the customer, gender-agnostic salaries)
+
+2.       Communication and the Use of Language
+UBIQUITOUS LANGUAGE -> Living Glossary
+Modeling Out Loud -> BDD
+
+Documents and Diagrams
+      Written Design Documents
+      Executable Bedrock
+Explanatory Models            -> expressive, small scale, congruent design
+
+3.       Binding Model and Implementation
+Model-Driven Design
+Hands-On Modelers --> model in code, embrace change
+
+Part II. The Building Blocks of a Model-Driven Design
+4.       Isolating the Domain
+Layered Architecture              -> Hexagonal Architecture Living Diagram
+       Relating the Layers
+The Domain Layer Is Where the Model Lives
+
+5.       A Model Expressed in Software -> Augmented Code, Custom Stereotypes
+Services
+       Services and the Isolated Domain Layer -> services annotations?
+       Agile Modules  -> Modules annotations, Module Living Diagram?
+
+Modeling Paradigms
+       Sticking with Model-Driven Design When Mixing Paradigms -> Declare your style
+
+6.       The Life Cycle of a Domain Object -> Domain Object Eco-system (tribe)?
+Aggregates    -> @AggregateRoot
+Repositories -> Hexagonal Architecture Living Diagram (with details)
+
+Part III. Refactoring Toward Deeper Insight
+       Listen to Language
+       Scrutinize Awkwardness
+       Contemplate Contradictions
+       Read the Book             -> Acknowledge Bibliography
+       Try, Try Again           -> Change-Friendly Documentation / Refactorable
+How to Model Less Obvious Kinds of Concepts
+       Explicit Constraints       -> @Constraint
+       Processes As Domain Objects -> Workflow, State Machine
+
+
+10.       Supple Design
+Intention-Revealing Interfaces -> clean code, naming
+Side-Effect-Free Functions    -> @sideeffectfree
+Assertions           -> Property-Based Testing
+Conceptual Contours
+Standalone Classes
+Closure Of Operations   -> Monoids
+A Declarative Style of Design      -> Fluent Style
+Draw on Established Formalisms, When You Can    -> Ready-Made Knowledge (Maths)
+
+11.       Applying Analysis Pattern -> Ready-Made Knowledge
+12.       Relating Design Patterns to the Model
+Strategy (aka Policy)
+Composite
+Prior Art
+
+Part IV. Strategic Design
+14.       Maintaining Model Integrity
+
+Bounded Context                   -> Bounded Contexts Integration
+Continuous Integration            -> declarative automation
+Context Map                       -> Living Context Map?
+       Testing at the Context Boundaries
+       Organizing and Documenting Context Map
+
+Relationships Between Bounded Contexts  -> declare by annotations
+
+SHARED KERNEL
+Customer/Supplier
+Development Teams
+Conformist
+Anticorruption Layer
+Separate Ways
+Open Host Service
+Published Language      -> API documentation
+
+Choosing Your Model Context Strategy
+       Accepting That Which We Cannot Change: Delineating the External Systems
+       Relationships with the External Systems     -> Context / system Diagram
+       Phasing Out a Legacy System                -> Legacy
+
+15.       Distillation
+Core Domain                     -> Business Domains Diagram
+       Choosing the Core
+Generic Subdomains                -> Declare that
+       Generic Doesnt Mean Reusable
+Domain Vision Statement               -> Stable, Evergreen Document, Personas
+
+Highlighted Core / The Flagged Core                 -> Core Concept
+       The Distillation Document As Process Tool     -> TODO?
+Cohesive Mechanisms
+Abstract Core
+
+Choosing Refactoring Targets     -> marking the road towards refactoring targets
+
+16.       Large-Scale Structure
+System Metaphor                     -> How to make it concrete?
+Responsibility Layers               -> World Map?
+Knowledge Level                     -> Focused Living Diagram
+
+17.       Bringing the Strategy Together
+Combining Large-Scale Structures and Bounded Contexts -> TODO

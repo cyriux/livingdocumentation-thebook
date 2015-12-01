@@ -1,0 +1,175 @@
+# Guided Tour & Sightseeing Map
+
+
+*It is better to have a guide to quickly discover the best of a new place*
+
+(aka Code Digest, Code Curation)
+
+In a city you have never been before, you can explore randomly, hoping to bump on something interesting. This is something I love to do for an after-noon within a longer stay, to have a feel of the place. However if I have only one day and I want to quickly enjoy the best of the city, I buy a guided tour with a theme. For example I have excellent souvenirs of a guided tour of the old sky-scrappers in Chicago, where the guide knew how to have us go inside the historical lobbies to enjoy the low light that was typical of early light bulbs. One year later I enjoyed the architecture boat tour of Chicago, from the river, which is another way to really grasp the city. In Berlin, we booked a tour dedicated to Berlin's street art which was eye opening. Nothing fancy, but the same street art you see everyday without noticing much takes another dimension when put in a context and with just one extra hint from the guide.
+
+But guided tours start at a fixed hours on a few days a week only, take two hours, and are expensive. If you happen to pass in a city on the wrong day, you are out of luck. But you can still get a tourist map, or printed guided tours. And of course, there is also an app for that! On your favorite app store, there are plenty of tourist guides, with guided tours and sightseeing maps, classified by themes like Attractions, Eat, Drink, Dance, Concerts etc. In Chicago, the Society of Architecture offers free architecture tours on leaflets too. And the internet is full of resources to help plan a visit:
+
+- *Top 20 list of the must-see highlights*
+- *Itineraries to help you plan your visit*
+- *101 things to do in London: unusual and quirky experiences*, with an example:
+- *Stop for coffee in a public loo*: "Don't worry, these beautifully converted old Victorian toilets were given a good scrub down before the plates of cakes were laid out. Opened in 2013, Attendant has a small bank of tables where the porcelain urinals once provided relief to gents about town." [Timeout London](http://www.timeout.com/london/things-to-do/101-things-to-do-in-london-unusual-and-unique)
+
+The same goes with a code base you are not familiar with. The best way to discover it is with a human, in other words a colleague. But if for some reasons you need to provide a standalone alternative, you can take inspiration from the tourism industry and provide itineraries of guided tours and sightseeing maps. Actually this metaphor comes from Simon Brown, who writes the blog "Coding the Architecture", and the book "Architecture for Software Developers".
+
+One important thing to realize is that all the tourism guidance in a city is highly curated: only a very small subset of all the possible content of the city is presented, for various reasons ranging from historical importance of a landmark to more lucrative reasons.
+
+But one important difference between a code base and a city is that a code base changes more frequently than most cities. As a result, the guidance must be done in a way that reduces the work to keep it up-to-date, for example using automation.
+
+**Therefore: Provide curated guides of the code base, each with a big theme. Augment the code to be visited with extra metadata about the guided tour, and setup an automated mechanism to publish an updated guide frequently from these metadata.**
+
+If the code base does not change much, a guided tour or a sightseeing map can be as simple as a bookmark with a list of the selected places of interest, and for each of them a short description and a link to its location in the code. If the code is on a platform like Github, it is easy to link to any line of code directly. This bookmark can be done in HTML, markdown, JSON, a dedicated bookmark format or any other form you like.
+
+If the code base changes frequently or may change frequently, a manually done bookmark will require too much work updating the bookmarks all the time, so you can do dynamic curation instead: place tags on the selected locations in the code, with the metadata necessary to reconstruct the guided tour by scanning the code base.
+
+## An Integrated Guided Tour
+
+The idea is to enrich the code base with extra hints for the guided tour, as in Augmented Code, for example using or perhaps re-using, annotations:
+
+~~~~~~~~
+@PointOfInterest("Key calculation")
+private double pricing(ExoticDerivative ...){
+  ...
+~~~~~~~~
+
+or
+
+~~~~~~~~
+@SightSeeingSite("This is our secret sauce")
+public SupplyChainAllocation optimize(Inventory ...){
+  ...
+~~~~~~~~
+
+The wording is up to you: "point of interest", "attraction", "landmark", "sightseeing site", "itinerary" or "guided tour"... You can use one generic annotation with a generic name like "PointOfInterest", and add a parameter "Key calculation" to precise what it is about.
+
+Alternatively you can decide to create one annotation for each kind of point of interest:
+
+~~~~~~~~
+@KeyCalculation()
+private double pricing(ExoticDerivative ...){
+  ...
+~~~~~~~~
+
+
+In the example below, the idea was to take a newcomer by the hand along the complete chain of processing of an incoming transaction, from the event listener on a message queue down to storing the out-coming report to the database. Note that even though strictly separates the domain logic and the infrastructure logic, this guided tour spans both business logic elements with elements of the underlying infrastructure, in order to give a complete picture of a complete execution path.
+
+This guided tour currently has 6 steps. Each of these steps is anchored on a code element that can be a class, a method, a field or a package.
+
+Here we use a custom annotation *@GuidedTour* with some parameters:
+
+- The name of the guided tour: this is optional if there is only one tour, or if you prefer one annotation by guided tour, like @QuickDevTour
+- A description of the step *in the context of this tour*. This is in contrast to the Javadoc comment on the element which describes the element out of any context.
+- A rank, with a number or anything comparable, in order to order the steps when presenting them to the visitor.
+
+For example, the guided tour starts here:
+
+~~~~~~~~
+/**
+ * Listens to incoming fuel card transactions from the external system of the Fuel Card Provider
+ */
+@GuidedTour(name = "Quick Developer Tour", description = "The MQ listener which triggers a full chain of processing", rank = 1)
+public class FuelCardTxListener {
+~~~~~~~~
+
+It then goes through other steps, until the last one:
+
+~~~~~~~~
+@GuidedTour(name = "Quick Developer Tour", description = "The DAO to store the resulting fuel card reports after processing", rank = 7)
+public class ReportDAO {
+
+  public void save(FuelCardTransactionReport report){
+  ...
+~~~~~~~~
+
+Note that the numbering is not consecutive, it goes from 1 to 7 but there are only 6 steps. In the good old *BASIC* line numbering style we would number 10, 20, 30 etc. to make it easier to add another step in between when we want to.
+
+In the case of simple selection of points of interest only for an audience of developers, we could stop there and rely on the IDE to present the tour as a whole, by doing a search on our custom annotation:
+
+~~~~~~~~
+Search results for 'flottio.annotations.GuidedTour' 6 References in project:
+
+flottio.fuelcardmonitoring.domain - (src/main/java/l...)
+- FuelCardMonitoring
+ - monitor(FuelCardTransaction, Vehicle)
+- FuelCardTransaction
+- FuelCardTransactionReport
+
+flottio.fuelcardmonitoring.infra - (src/main/java/l...)
+- FuelCardTxListener
+- ReportDAO
+~~~~~~~~
+
+The recap is all there, but it is not pretty, and there is no ordering. This could be enough for a small list of the main landmarks that you can explore in any order as you wish, so do not discount the value of the integrated approach, as it is much simpler and may be more convenient than more sophisticated mechanisms.
+
+But in our case here this is not enough for a guided tour that is meant to be visited in order from start to finish.
+
+So the next step is to create a living document out of it, a living guided tour.
+
+## Living Guided Tour
+
+Going further, we create a little mechanism to scan the code base to extract the information about each step of the guided tour, which then produces a synthetic report of the guided tour in the form of a ready to follow itinerary.
+
+> ## 1. FuelCardTxListener
+>
+> *The MQ listener which triggers a full chain of processing*
+>
+> > Listens to incoming fuel card transactions from the external system of the Fuel Card Provider
+>
+> ## 2. FuelCardTransaction
+>
+> *The incoming fuel card transaction*
+>
+> > A transaction between a card and a merchant as reported by the fuel card provider
+>
+> ## 3. FuelCardMonitoring
+>
+> *The service which takes care of all the fuel card monitoring*
+>
+> > Monitoring of fuel card use to help improve fuel efficiency and detect fuel leakages and potential driver misbehaviors.
+>
+> ## 4. monitor(transaction, vehicle)
+>
+> *The method which does all the potential fraud detection for an incoming fuel card transaction*
+>
+>
+> ~~~~~~~~
+> public FuelCardTransactionReport monitor(FuelCardTransaction transaction, Vehicle vehicle) {
+>   List<String> issues = new ArrayList<String>();
+>
+>   verifyFuelQuantity(transaction, vehicle, issues);
+>   verifyVehicleLocation(transaction, vehicle, issues);
+>
+>   MonitoringStatus status = issues.isEmpty() ? VERIFIED : ANOMALY;
+>   return new FuelCardTransactionReport(transaction, status, issues);
+> }
+> ~~~~~~~~
+>
+> ## 5. FuelCardTransactionReport
+>
+> *The report for an incoming fuel card transaction*
+>
+> > The fuel card monitoring report for one transaction, with a status and any potential issue found.
+>
+> ## 6. ReportDAO
+>
+> *The DAO to store the resulting fuel card reports after processing*
+
+Note that in this guided tour, each title is actually a link to the corresponding line of code on Github. When the point of interest is a method, we have decided to include its block of code verbatim into the guided tour document, for convenience. In a similar fashion, when the point of interest is a class we could include an outline of the non-static fields and the public methods if we find it convenient and relevant to the focus of the guided tour.
+
+This living guided tour document is generated in markdown, for convenience. Then 'Maven site' (or sbt or whatever other similar too) can do the rendering to a web page or any other format. An alternative that we have done here, is to use a Js library to render the markdown in the browser, which requires no additional toolchain.
+
+## The implementation
+
+We use a Doclet-like library called QDox to do the grunt work here. It scans every Java file in *src/main/java*, and from that we can do the filtering by annotation. When a Java element (class, method, package...) has our custom *GuidedTour* annotation, it is included in the guided tour. We extract the parameters of the annotation, extract the name, Javadoc comment, line of code, and other information like the code itself when necessary. We turn all that into fragments of markdown for each step, stored in a map sorted by the step rank criteria. This way when the scan is done, we can render the whole document by concatenating each fragment in the rand ordering.
+
+That said, the devil is in the details, and this kind of code can quickly grow hairy depending on how demanding you are with respect to the end result. Scanning code and traversing the Java metamodel is not always nice, to give an ideas, sometime you end up doing a Visitor pattern... I expect that more mainstream adoption of these practices will lead to new small libraries which will take care of most of the grunt work for common use-cases, exactly like for Living Diagrams and Living Glossaries.
+
+## Related
+
+This approach is totally reminiscent of Literate Programming, but in reverse. Instead of having *Prose with Code*, we have *Code with Prose*. For a sightseeing map you only have to select the points of interest, and perhaps group them by big themes. For a guided tour, you need to devise a linear ordering of the code elements, just like in Literate Programming where you tell a linear story which progresses through code to end up with a document explaining the reasoning and the corresponding software at the same time.
+
+Of course this is not just a documentation concern, but also a way to encourage continuous reflection on your own work as you do it. In this perspective, it would be a good idea to document a guided tour as soon as you are building the  very initial walking skeleton of the application. This way, you will benefit from thoughtful effect of doing the documentation at the same time of doing the work. See also SMALL-SCALE MODEL for similar ideas. 

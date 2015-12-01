@@ -1,0 +1,5 @@
+# Case Study: Designing a system of annotations
+
+## A matter of coverage
+
+Scope (see commit comments, business rules @wip, @Billing, @policy)

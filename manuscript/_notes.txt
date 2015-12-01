@@ -1,0 +1,404 @@
+**Patterns**
+
+// abstract core techniques
+## Single Source of Truth + Accessible Published Snapshot
+## Reconciliation Mechanism
+## Curated Content (Literate-ish Programming)
+## Consolidated Knowledge
+## Module-Wide Knowledge
+
+
+// insights
+## Hygienic Transparency
+## Listen to your documentation!
+
+
+// principles for stable
+## Evergreen Document
+## Perennial Naming
+## Links Registry / Stable Knowledge Anchors
+
+
+
+// code
+## Clean Code (Code as documentation)
+## Types-Driven Documentation
+
+// non code
+## Source Control is the Reference / ## Collaborative Artifacts as Code
+## Plain Text Knowledge
+
+// living doc
+## Editorial Perspective
+## Presentation Rules
+# BDD.txt
+# Living Glossary
+# Living Diagram
+# Visible Workings (Instrospectable Workings, Visible Calculation, Traceable Value, Log, Visual Tests)
+# Humane Registry (Fowler)
+
+// supporting
+# Augmented Code
+# Documentation by Annotations
+# Scenario Curation
+
+
+//
+# Tools Manifests (maven etc.)
+# Commit Messages
+# Tools History (chat, jira, email...)
+
+
+
+// no doc #NoDocumentation
+## Collective-programming (pair, mob, CoP)
+## On-Demand Documentation
+## NoDocumentation / The Documentation Guidance Cube
+## Declarative Automation
+## Enforced Architecture
+## Scaffolding
+
+// Minimal Doc - lazy & efficient
+## Conversations over Formal Documents
+## Ideas Sedimentation
+## Keep it minimum
+
+// Efficient Doc
+## Rationale First
+## Deliberate Design
+
+
+//
+## Writing On-Behalf of the team?
+
+
+// Efficient Communication techniques
+## Live my life / On-site visit or Virtual Tour
+## Storytelling
+
+## System Metaphor (XP)
+## Pre-Computer metaphor
+## Information Retention (anti-pattern)
+## Maxims (Ducasse)
+## Domestic SEO
+## Navigable Network (puzzle picture...)
+## Focus on difference or Unknown
+## Know your Audience
+## Task-Oriented
+
+
+
+## Canned Knowledge + Conformist
+## Write your own patterns
+
+
+## Traceable Goals
+## Stakeholders Profiles (aka Personas)
+
+
+# Documentation Migration
+## Documentation Mining
+
+
+## Small-Scale System
+
+## Literate programming
+
+
+# Media
+## Company Blog
+## Wiki
+## Company Chat
+## In-House Pinterest
+
+# Hint at what you know
+## Project Bibliography
+## Declare your Style
+
+## Embedded learning
+
+# Visualization
+## Landscape Mapping
+## Meaningful Layout
+
+
+**Major Examples**
+
+
+**Themes**
+
+Problem statement
+
+# Vision, Goals, Impact Mapping
+## Business Map
+
+
+Solution
+
+## Protocols of Interactions
+## Dependencies
+
+**Legacy**
+
+## Superimposed Structure
+## Highlighted Structure
+## External Annotations
+
+## Bubble Context (Evans)
+## Biodegradable Transformation
+
+————
+
+# A Conscious, Deliberate Process
+
+@JeffreyGoodReq: "The limits of my language are the limits of my world" @pragdave is quoting Wittgenstein to #thoughtworks
+
+@tpope: @trptcolin just a corollary of "you don't really understand something until you can explain it to someone else."
+
+## Deliberate Design (Tell Why / Motivated Design)
+Know what you code, code what you know (pattern, intent...). The opposite of Design by Coincidence. Explain reason for choices and alternatives not selected.
+
+
+
+> Picture: manuscript of a novel changing day after day from "Jack was a beautiful dog" to "Lassie was..." to "elegant" to "Collie" etc, with various people of a team of scenarists doing the changes
+
+## Keep it minimum
+
+@smalltalk80: The value of documentation decreases exponentially with size.
+
+@sgranese: We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. #agilemanifesto
+
+### Focus on difference == Singularity
+The less need the better, except for truly differentiating domain stuff, when there's a good reason to be unique and original.
+
+
+## Human-Interpreted Code (replace debrief)
+
+## Make Documentation Redundant / Documentation that helps improve entropy by Kent Beck
+
+https://www.facebook.com/notes/kent-beck/entropy-as-understood-by-a-programmer-part-1-program-structure/695263730506494
+
+entropy is "the information required to describe a system".
+
+"Code written every which way requires detailed study of every line to understand what's going on. Code written according to a consistent and shared pattern language can be described more concisely. "Inline editing is implemented as a State of the Controller"--if you know the vocabulary, you know what you'll find when you look at the code."
+
+Fred George on the high freq loop on Kafka and it's rivers etc -> can describe the whole architecture in less than one hour: GOOD!
+
+Want better documentation? Simplify and structure your design to make it possible!
+
+### Extensive methods
+ - Reference to Tom Gilb authoritative glossary of software words
+
+
+
+## Objective (Neutral) Criticism / (Opposable View)
+Derive alternate view in order to help spot missed issues: unexpected dependencies and coupling, unexpected metrics results, unexpected quantity of key concepts... that suggest flaws.
+
+Make it visible, make it feedback-prone. Improve stuff by making it more visible: make quality visible, make design visible, make specs tree and goals visible, make dependencies visible, some metrics, build walls...
+
+
+
+## Traceable Goals / Traceability to Goals
+
+A tree of goals, stakeholders, intentions and decisions
+
+Purposeless software is money and time wasted.
+
+It all boils down to the questions: Why this thing? For who? For what goal?
+
+But at some point it is no longer tangible and becomes just wishful text:
+Why this thing? (executable) because this test (executable)
+Why this test? Because this narrative
+Why? Because this capability
+Why? For who? Because this impact map (not executable)
+
+Why this network router? Because this web server
+Why? Because this code
+Why this code? Because this business process
+
+Tests don't tell why, but they hint at what's expected.
+
+
+@RichRogersHDS: "Keep your requirements at a very high & general level until just before use." - @WoodyZuill - http://t.co/09UHtxFp9t
+
+Meta decisions matters a lot. Tradeoffs have to be made at meta level already, and they influence every decisions
+
+Story mapping
+Impact mapping
+EVO
+
+Most mind mapping applications (including MindNode, Mindjet MindManager, Curio, and MindMeister) accept indented text as an "import” option.
+
+Reduce processing cost of song royalties
+  IT dept
+    100x volumes
+    Cheaper processing
+  Sales tracking
+    Hourly stats feeds
+  Billing
+    Online real-time reporting
+
+Quantities goals in impact map - often not automated
+
+Impacts maps
+
+- May refer to EVO definitions for more precise reference
+Scales
+Meter
+
+Tips:
+Annotate key scenarios for intuitiveness, speed, usefulness... measurements, diagram generation, user manual or troubleshooting. Most typical cases, the "nominal" cases, can also be annotated as such so that they are highlighted in the generated specification report.
+
+Properties over examples, but still with concrete examples! Associative, idempotent etc
+
+Monitoring over Documentation
+Visible workings
+Analytics
+Self-Diagnosis
+
+Document every combination mechanically
+
+Carefully curated data sets as documentation of realistic situations: highly volatile markets, crash, quiet period, opening rush...
+
+Idem with persona and specific profiles
+
+At runtime, add a feature to extract reports (csv) of curated fresh data sets to import into more up to date additional realistic tests
+
+--
+Compliance to external formal framework
+
+Eg agile inside within a CMMI company,
+
+Predefine once the mapping between each activity and artifact.
+
+Then it becomes possible to generate translated documents in the target framework without additional manual work.
+
+--
+"Keep your requirements at a very high & general level until just before use." - @WoodyZuill - http://t.co/09UHtxFp9t
+
+--
+Feedback is something you seek to improve your own performance. Levers are used to influence others. The difference is in how you use the measure more than the measure itself.
+http://www.rallydev.com/community/agile/seven-deadly-sins-agile-measurement-introduction-and-sin-1
+
+If you focus on one aspect of performance (say productivity), other aspects will go down (quality, customer satisfaction, etc.).
+
+
+
+————
+
+@lunivore: Automation should make it easier to change code safely, not harder. If it's getting harder, delete some. And never automate stuff in flux.
+
+
+## The Documentation Guidance Cube
+Applicability by type of documentation activity: important + (4D) long term/that everyone should know decisions etc. 3D cube x: audience width, y: long term relevance, z: criticality; conversations, document
+
+One artifact, multiple purposes: over time, and for several audiences. The bigger the audience and the longer the lifecycle, the more useful the artifact is.
+
+
+## Authoritative Artifacts
+You want to be lazy, so you want Collocated Changes so that each change can be done all in one place. Among all possible artifacts you favor the most useful, the ones that are actually used by the software: Executable Artifacts over Dead Artifacts.
+
+You also want Intention-Revealing Artifacts that tell why decisions were taken this way. When an artifact is missing knowledge, you add this explicit knowledge directly into the code of the artifact, that becomes Augmented Code.
+
+> Picture: intent-revealing: large billboard for toothbrush screaming "gimme your money"
+
+All this leads to Authoritative Artifacts that are the single points of trust for multiple purposes. Ideally these artifacts are also Total Artifacts in that they tell all about one thing, from its rationale to the code implementing it.
+
+
+## Augmented Code
+Sometime code has to be augmented with custom annotations or other mechanisms in order to tell the full story heand to unleash all the expected benefits. For example you need to add specific tags into your Java code in order to really benefit from the generated Javadoc documentation.
+
+Most code is written to be executed. In programming languages like Java or C#, classes and methods implement the desired behavior. However there is more to the story than just classes and methods: the way they collaborate with with each other is essential. As they say in GOOS, the space between the things is the design. And design is there for a purpose.
+
+The problem is that code is not enough to explain the design and its purpose. So what can we do?
+
+One way is to add comments in the code or on the classes and methods.  Another way is to write additional documents. We've already discussed the problem with the later approach: it quickly gets outdated, or takes a lot of effort to keep up-to-date. Plain comments in the code suffer less from this problem because they are closer to the code, but they can still get out of sync quickly. Another problem with both approaches is that it takes time to write correctly, and it takes even more effort and care in order to be understood. Any writing is prone to misunderstanding.
+
+Another problem of both comments and documents is that they are only meant for humans, tools cannot exploit them. Can we do better?
+
+
+
+
+## High-Yield Activity (Simultaneous Benefits, many birds with one stone)
+Invest more effort and care in crafting one single artifact, and use this one artifact to derive multiple benefits. For example in BDD the same activity of defining concrete scenarios everybody agrees upon results in feature files. Each feature file is then used at the same time as a specifications, acceptance criteria, non-regression tests and documentation.
+
+Invest more effort and care into few activities that yield a lot of return. When having to do a lot of activities fast, try to identify one you could do better and have the other derived automatically.
+
+Invest more manual effort once, for many automated rewards all the time
+
+More human work, to unleash much more automated goodness and much less boring manual work.
+
+TDD: invest into many small, focused tests before writing the code. Get non-regression, ability to refactor freely, the ability to discover what to do progressively, and save time by not doing more than absolutely required.
+
+BDD: invest into high-quality scenarios, in business language, using a structured template. Get specifications, acceptance tests, living documentation and non-regression tests forever for free.
+(Indeed a form of Specifications as code)
+
+Infrastructure as Code: invest into fully automated infrastructure code, readable, with tests, in source control and environment-agnostic. Get fast, testable, automated deployment together with the corresponding documentation.
+
+
+## Stable Classification
+Classify information by stable criteria: intrinsic, business
+
+## Business Domain First
+Favor Business Domain criteria because they are much more stable than technical, marketing or org charts criteria
+
+## Self-Descriptive / Self-Documented Artifacts(Intrinsic) Properties
+Because they are stable over time - For a given unit, store all the information about the how, what, for who and why in the same place, no need no look anywhere else.
+
+### Indirect Mapping (by Query / Attribute)
+Don't directly couple unrelated stuff. Qualify each element with its intrinsic discriminating properties. Then do the mapping between these properties.
+
+## Domestic SEO
+Search-ability of your documentation is essential for it to be useful. Favor discriminating words, keep the ease of indexing in mind when crafting your Ubiquitous Language, writing headers and naming projects. This way you can find out what component may be already doing what you're looking for, even in a huge I.S.
+
+Being able to work out the right name for a problem will help you greatly in your search. This is the one advantage of a grounding in computer science — rich technical jargon to find existing work easily. This is opposed to the "which pokemon would I name this library after” school of thought.
+
+from http://programmingisterrible.com/post/83814757877/how-i-design-software
+
+## Documentation Dependencies
+Documentation is subject to the same coupling issues than code: the specific should know about the general, not the other way round.
+
+
+
+## Documentation Mining
+Mining existing written documents: emails, slides, reports, meeting minutes, forum posts... To try to find why it was decided like that.
+
+The description of something is directly linked to all the occurrences it is used (see semantics), e.g. references searches, calls and types hierarchies
+
+
+## Literate programming
+
+(e.g. in F#, Clojure, Python)
+Standard F# file, with embedded Markdown narrative special comments in linear reading order. The comments may decide to skip a section of code, and may decide to include code from another place on request. This way you control when you introduce a piece of code in your narrative. The default ordering is just the linear ordering of dependencies in F#, enforced by this language.
+
+For example you can create a "Getting Started" page, with narrative text and code snippets, both collocated within the same standard F# file.
+
+In the generated report, the code has tooltips, when you hover over it you can see the type information. And when you click on code identifiers, they become links towards the source code on a repository like GitHub.
+
+## Debrief
+Pitfalls of documentation automation
+- procrastinating doing funny stuff like building complex automation
+- making all-purpose documentation frameworks
+- generating a lot of useless documentation because it's easy
+
+
+————
+
+Patterns as canned documentation
+Authoritative
+Versioned
+--
+Reference to Tom Gilb authoritative glossary of software words
+--
+
+--box--- define patterns/idioms/styles, values/ principles/practices, school of thoughts
+
+Rant: agile empiricists vs academic premature engineering
+---/box---
+
+--
+LD - Entropy by Kent Beck
+
+https://www.facebook.com/notes/kent-beck/entropy-as-understood-by-a-programmer-part-1-program-structure/695263730506494
+
+entropy is "the information required to describe a system".

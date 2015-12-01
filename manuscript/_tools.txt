@@ -1,0 +1,26 @@
+# Tools for Living Documentation
+
+At the time of writing, here are some of the available tools of particular interest for living documentation.
+
+- Your programming language (s) and its extension capabilities
+-
+
+- Cucumber, SpecFlow, DaSpec
+- Markdown
+- Graphviz
+- Wordcloud
+
+- Maven site
+- Maven Tree
+- all CD tools
+
+- DocBook?
+- AsciiDoc
+- PlantUML
+- Ditaa
+
+- Dexy
+
+- custom parser
+
+Tools like the Javadoc standard Doclet, or alternative tools like QDox or even [Google Guava] ClassPath(http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/reflect/ClassPath.html)

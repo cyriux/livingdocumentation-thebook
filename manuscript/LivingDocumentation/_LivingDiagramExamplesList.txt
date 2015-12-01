@@ -1,0 +1,15 @@
+
+## Living Diagram examples
+
+- Sub-types of a type: FixedIncome <- Bond, Swap, Future, FRA // built-I'm most IDE on-demand
+- Message / debugging object graph (quasi actual example)
+- circle of a cyclic group Rock > Scissor > Paper > Rock
+- Tree of hierarchical config file entries (log.properties) // not sure it's very useful
+- runtime test results chart // payments over time
+- physical view from code written for that purpose // see blog using neo4j to graph
+(- pattern with its collaborators)
+- core domain / abstract core
+- hexagonal architecture
+- tribe around a concept // close to aggregate
+- context mapping // from annotations? Misses the point of a diagnostic tool
+(the sound of Fizzbuzz)

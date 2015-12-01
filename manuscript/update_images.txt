@@ -1,0 +1,1 @@
+cp */images/* images

@@ -1,0 +1,100 @@
+# Documentation Reboot
+
+This book as a whole could actually be named *Documentation 2.0*, *Living Documentation*, *Continuous Documentation* or *No Documentation*. The key driver is to reconsider the way we do documentation from scratch, starting from the bare purpose. From there the universe of applicable solutions is near infinite. This book describes examples in various categories of approaches, and I expect the readers to go far beyond. Let's go through these categories now.
+
+## Approaches to better documentation
+
+There are many ways to consider the topic of documentation in its wide definition. These approaches cover a full spectrum that can be seen as an clockwise cycle that follows a progression on several aspects.
+
+This cycle goes crescendo in intensity, from *avoiding documentation* to *documentation to the max*, and beyond, where we question the need for documentation again and loop the cycle to less documentation again. We could say it also goes from rather lightweight approaches to more heavyweight ones.
+
+This cycle also goes crescendo with respect to the rate of change (volatility) of the knowledge, from stable knowledge to knowledge that changes all the time, continuously.
+
+At 1 o'clock on this cycle we start with *No Documentation*, that also includes *Less Documentation*. This is about how to avoid or replace documentation with something more appropriate or with more benefits.
+
+Then we move to *Stable Documentation*, for the lucky cases where it's possible to have stable knowledge that needs no maintenance.
+
+Then there is the area of knowledge that changes often, but with the ability to have the documented knowledge follow the changes as they happen: *Refactor-Proof Knowledge*.
+
+Further on the cycle we find *Living Documentation*, for more heavyweight documentation that evolves in real-time with the changes in the software.
+
+Finally we reach the *Beyond Documentation* area, the opportunity to question everything and recognize that the topic of documentation can have benefits well beyond just transferring and storing knowledge. This is where we reach enlightenment and reconsider every other approach and technique in a more critical way.
+
+![The cycle of Living Documentation](images/living_documentation_map.jpg)
+
+
+## No Documentation
+The best documentation is often no documentation, because the knowledge is not worth any particular effort beyond doing the work. Collaboration with conversation or collective work are key here. Sometimes we can do even better and improve the underlying situation rather than workaround with documentation. Example include automation or fixing the root issues.
+
+
+## Stable Documentation
+Not all knowledge changes all the time. When it's stable enough documentation becomes much simpler, and much more useful at the same time. Sometime it just takes one step forward to go from a changing piece of knowledge to a more stable one, an opportunity we want to exploit.
+
+## Integrated Documentation
+Code, tests, plain text, and a mix of all that have particular opportunities to evolve continuously in sync thanks to the refactoring abilities of the modern IDE and tools. This makes it possible to have accurate documentation for little to no cost.
+
+## Automated Documentation
+This is the most geek area, with its specific tooling to produce documentation automatically in a living fashion, following the changes in the software construction.
+
+## Runtime Documentation
+A particular flavor of Living Documentation involves every approach that operates at runtime, when the software is running. This is in contrast with other approaches that work at build time.
+
+## Beyond Documentation
+Beyond the approaches on how to do better documentation, there's the even more important topic of "why and what for we do documentation". This is more meta, but this is where the biggest benefits are hidden. However, much like the *agile values* this is more abstract and this is better appreciated by people with some past experience.
+
+These categories structure the main chapters of this book, in the reverse order. This reverse ordering follows a progression from more technical and rather 'easy to grasp', to more abstract and people-oriented considerations. However this also means the chapters go from the less important to the more important.
+
+Across these categories of approaches, there are some core principles (or values, the jury is still out on this) that frame a guidance on how to do documentation efficiently.
+
+
+# Core Principles of Living Documentation
+
+A Living Documentation is a set of principles and techniques for high-quality documentation at a low cost. It revolves around 4 principles that we'll keep in mind at all times:
+
+- **Reliable** by making sure all documentation is accurate and in sync with the software being delivered, at any point in time.
+- **Low-Effort** by minimizing the amount of work to be done on documentation even in case of changes, deletions or additions. It only requires a minimal additional effort, and only once.
+- **Collaborative**: it promotes conversations and knowledge sharing between everyone involved.
+- **Insightful**: By drawing attention to each aspect of the work, it offers opportunities for feedback and encourages deeper thinking. It helps reflect over the on-going work and guides towards better decisions
+
+
+A Living Documentation also brings the fun back for developers and other team members. They can focus on doing a better job, and at the same time they get the Living Documentation out of this work.
+
+![Principles of a living documentation](images/4_principles.jpg)
+
+The term "Living Documentation" first became popular in the book "Specifications by Examples" by Gojko Adzic. In this particular context it described a key benefit of teams doing BDD, where their scenarios created for specifications and testing were also very useful as a documentation of the business behaviors. Thanks to the test automation, this documentation is always up-to-date, as long as the tests are all passing.
+
+It is possible to get the same benefits of a Living Documentation for all aspects of a software development project: business behaviors of course, but also business domains, project vision and business drivers, design and architecture, legacy strategies, coding guidelines, deployment and infrastructure.
+
+
+## Reliable
+
+To be useful a documentation has to be trustful, in other words it has to be 100% reliable. Since humans are never that reliable we need discipline and tooling to help.
+
+There are basically two ways to achieve reliable documentation:
+
+- single source of truth: each element of knowledge is declared in exactly one single place (code, tests, runtime...). If we need it somewhere else, then we will link to it instead of making a copy. For example store the discount rate of 5% in a resource file and refer to it from the code and for documentation purposes. Don't copy the value 5% anywhere else.
+- reconciliation mechanism: we accept that some elements of knowledge are declared in two different places. We acknowledge the risk that they are not consistent with each other (tests, validations). In BDD, the code and the scenarios both describe the behavior, so they are redundant. Thanks to  a framework like Cucumber or Specflow, the scenarios become tests that act as a reconciliation mechanism: if  a part of the code or a part of the scenario changes independently, the test fails so we know we have reconcile the code and he scenarios.
+
+## Low-Effort
+
+- Simplicity: nothing to declare, it's just obvious.
+- Standard over Custom solutions: standards are supposed to be known, and if that's not the case it is enough to just refer to the standard as an external reference like Wikipedia
+- Perennial knowledge: there is always stuff that does not change or that changes very infrequently. As such it does not cost much to maintain.
+- Refactoring-proof knowledge: stuff that don't require human effort when there is a change. This can be because of refactoring tools that automatically propagate linked changes, or because knowledge intrinsic to something is collocated with the thing itself, then changing and moving with it.
+
+
+## Collaborative
+
+- Conversations over Documentation: nothing beats interactive, face-to/face conversations to exchange knowledge efficiently. Don't feel bad about not keeping a record of every discussion.
+- Knowledge Decantation: even though we usually favor conversations, knowledge that is useful over a long period of time, for many people and that is important enough is worth some little effort to declare it somewhere persistent
+- Accessible Knowledge: in a living documentation approach, knowledge is often declared within technical artifacts in a source control system. This makes it difficult for non-technical people to access it. Therefore, provide tools to make this knowledge accessible to all audiences without any manual effort.
+- Collective Ownership: it's not because all the knowledge is in the source control system that developers own it. The developers don't own the documentation, they just own the technical responsibility to deal with it.
+
+## Insightful
+
+- Deliberate design: If you don't know clearly what you're doing, it shows immediately when you're about to do living documentation. This kind of pressure encourages to clarify your decisions so that what you do becomes easy to explain.
+- Embedded Learning: You want to write code that is so good that newcomers can learn the business domain by reading it and by running its tests.
+- Emotional Feedback: A Living Documentation often leads to some surprise: "I did not expect the implementation to be that messy", "I thought I was shaved correctly but the mirror tells otherwise."
+
+
+In the following chapters we'll describe a set of principles and patterns to implement a successful Living Documentation.

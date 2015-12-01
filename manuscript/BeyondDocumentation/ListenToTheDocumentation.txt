@@ -1,0 +1,107 @@
+# Listen To The Documentation
+
+So you've discovered Living Documentation and you want to try it. You try to create a living diagram but you find it hard to generate out of the current source code?
+
+This is a signal.
+
+You try do generate a living glossary but you find it hard, almost impossible to achieve?
+
+This is a signal, again.
+
+Nat Pryce and Steve Freeman say about tests: "if you find it hard to write the tests, it's a signal that your design has issues". Similarly if you find it hard to generate living documents out of your code, then it's a signal that your code has design issues.
+
+![Listen to your documentation!](images/listen_to_doc.png)
+
+## What happened to the Language of the Domain?
+
+If you're into DDD and you find it hard to generate a living glossary of the business domain language, then it's probably because this language is not expressed clearly enough in the code. For example, the language is perhaps:
+
+- **translated** into other words, like technical words, synonyms, or worst, legacy database names
+- **mixed with technical** concerns in a way that is impossible to recover, like business logic mixed with data persistence logic or presentation concerns,
+- **completely lost**, with code doing business stuff without any reference to the corresponding business language.
+
+Whatever the answer, the signal that the living documentation is hard to is highlighting that you're probably doing DDD, and domain modeling in general, wrong. The design should be aligned as much as possible with the business domain and its language, literally word by word.
+
+So instead of trying to make a complicated tool to generate a living glossary, take this as an opportunity to re-design the code so that it better expresses the domain language. Of course, it's up to you to decide whether it's reasonable to do so, and when and how to do so. And in this case, you don't even have to invite a consultant on DDD to find out by yourself that you need to improve your practice of DDD!
+
+## Programming by coincidence Design
+
+In order to generate a design diagram, first you have to know what particular design decision you expect the diagram to explain. But can you tell what your design is like? The most common difficulty when trying to generate living diagram is simply that you often don't know clearly enough what your design is like, and why it's that way.
+
+> "We don't know what we're doing, and we don't know what we've done”
+>
+> *Fred Brookes*
+
+This suggests that you may be [programming by coincidence](Pragmatic Programmers). You know how to make it work but you don't really know why, and you haven't really considered alternatives. This design is a bit arbitrary, not deliberate.
+
+> If there is no choice to be made, you're not doing design.
+> -- Carlo Pescio in [Design, Structure, and Decisions](http://www.carlopescio.com/2010/11/design-structure-and-decisions.html)
+
+A> I love the essays of this guy. In fact I don't like the writing style much, but I like the way he writes about his mind musing on hard and deep matters of software development. Some crazy ideas, some stretched metaphors, but a lot of insights to spark my imagination, envisioning future breakthroughs in our field.
+
+
+Building software is about continuous decision-making. Big decisions usually get a lot of attention, with dedicated meetings and several written documents, while other "less important" decisions are somewhat neglected. The problem is that many of these decisions end up being arbitrary rather than well-thought about, and their accumulated effect (perhaps even a compounding effect) is what will make the source code hostile to work with.
+
+Why does this function return null instead of an empty list? Why are they not even consistent? Why are most of the DAO, but not all, in this package? Such neglected decisions sometime get close to better solutions but miss them, for lack of properly thinking about the matter. Why do you have the same method signature in 5 different classes, but without a common interface to unify them? All these examples represent lost opportunities for a better design.
+
+
+We want to encourage deliberate thinking. Documenting decisions as they are taken is one way to encourage a deeper thinking because trying to explain a decision often reveals its weaknesses.
+
+T> *If you can't explain it simply, you don't understand it well enough.*
+
+
+## Deliberate Decisions
+
+It is very hard to document random decisions. It is like attempting to describe noise: there is at the same time too many low-levels details, and almost nothing to tell at a higher-level. In contrast, when the decisions are deliberate, they are clear and conscious, so documentation is basically about putting that into words.
+
+If the decision is standard enough, it's READY-MADE KNOWLEDGE which has been already discussed in a book under a standard name, for example as a pattern. Documenting in this case is only a mark in the code that refers to the standard name, along with some brief reasons, motivation, context and main forces that led to the decision.
+
+T> *If a decision is deliberate, it's already half-documented.*
+
+Being deliberate in the way we do our work is a big recurring theme in Agile circles. In Software Craftsmanship we encourage Deliberate Practice to improve our craft. We dedicate time to practice katas and coding dojos to achieve that goal of getting better at our craft. In the BDD community, Dan North explains that projects should be seen as learning initiatives, a mindset he calls Deliberate Discovery. Together with Chris Matts they claim we should do whatever it takes to learn as quickly as possible as early as possible. Both cases illustrate how being deliberate is about doing extra effort to do a better work  in one aspect, in a conscious way.
+
+Deliberate Design is about thinking clearly about each design decision. What is the goal? What are the options? What do we know for sure, and what do we suspect? What does the literature say on this kind of situation?
+
+There is more than that, as the better the design, the less there is to document. Better design is simpler, and "simpler" actually means fewer but more powerful decisions that solve more of the problem:
+
+- **Symmetries**: the same code or interface takes care of all other symmetric cases
+- **Higher-level concepts**: the same code deals with all special cases at once
+- **Consistency**: some decision is repeated everywhere without exception
+- **Replaceability and encapsulation**: local decisions within a boundary do not matter, as they can be re-considered or redone later even if their knowledge was lost
+
+As such the mere quantity of specific knowledge to document a piece of software is an indicator of the maturity of the design. Software that can be described in 10 sentences has a better design that one that needs 100 sentences to be described.
+
+A> ## Engineering is a deliberate practice
+A>
+A> In French engineering schools and other "Grandes Ecoles", from mechanical engineering to electronic engineering or even industrial design, it's primarily important for students to demonstrate that all decisions they made are substantiated. Arbitrary decisions are just not acceptable.
+A>
+A>During the final exams the most important aspects of the evaluation are about framing the work precisely, and then at each steps of designing the solution each decision has to be justified against enough alternatives and chosen according to explicit criteria: budget, weight, feasibility or any other constraint.
+A>
+A> In software development we seldom are that deliberate in every detail, still we should keep in mind to be as deliberate as possible. It does not matter that every decision is recorded in writing, but making more conscious decisions will often improve the decisions.
+
+If you know what you're doing, how it's called in the literature and why you've made this decision, all it takes for a complete documentation is to add that information in the code in one line: a link to the literature, and some text to explain the rationale. Once you've got the thinking right, the writing takes care of itself.
+
+You have to realize, of course, that thinking takes time. It looks slow and may be confused with slack hence in many companies people don't have much opportunities to think: "we don't have time for that!". However alternatives to thinking only give the illusion of speed, at the expense of accuracy. As Wyatt Earp says: "Fast is fine, but accuracy is everything." Accuracy comes from rigorous thinking. Thinking with more than one brain, as in pair programming or mob programming, also improves accuracy and helps make your design more deliberate. With more brains, it's more likely that someone knows the standard solutions from the literature for any situation.
+
+Documentation also helps in that aspect. You know the saying: "you don't really understand something until you can explain it to someone else." Having to clarify your thoughts for documentation purposes is virtuous because, well, you have to clarify your thoughts. Having to justify decisions in a persistent form is another incentive to think with more rigor.
+
+
+T> Deliberate Design works particularly well when doing TDD. TDD is a very deliberate practice with rules. Starting with naive code that just works, the design emerges from successive refactorings, but it's the developers who are driving the refactorings, and they have to think before applying each refactoring. "Do we really need to make that more complex?" "Is it worth adding an interface now?" "Shall we introduce a pattern to replace these two IF statements?". It's all about tradeoffs, which requires clear thinking.
+
+
+
+Living Documentation is a pretext to encourage attention to virtuous practices, and in particular design. Living Documentation makes bad design visible to anyone. It's also rewarding when you improve the design and your design documentation comes almost for free as a result.
+
+T> ## A Confession from the author
+T>
+T> Deliberate Design is my secret goal for writing this book! People don't pay enough attention to design, and I strongly regret that. Living Documentation is a Trojan Horse, or a gateway drug to get more people addicted to better design.
+
+## Documentation is a form of code review
+
+Documentation makes the product and the development process more transparent. As such, they are also useful feedback tools, to adjust and correct over the complete life cycle of the application. Decisions with no rationale have nowhere to hide. With living diagrams and the other ideas of living documentation, the neglected design areas become visible to everyone, making it harder to ignore them. This puts a positive pressure to put more care on every aspect of code quality.
+
+Living documentation generated from the actual source code, especially diagrams, also work great as debug tools to detect mistakes like unexpected cycles in the dependencies or an excessive coupling with too many arrows on the diagram. You were expecting some design structure, but when trying to render it as a diagram you have to admit the code does not exhibit much structure after all. You were expecting the code to tell the business domain, but when trying to make it into a glossary it appears that the business is mangled in the middle of the processing and there is no easy way to get it out.
+
+It becomes interesting to compare the top-down documentation you may have done before building the code with the actual bottom-up documentation generated from the sources, to spot inconsistencies, or even better, to realize once again how it is hard to speculate about how the code will be before it is actually developed.
+
+Indeed, even before doing living diagrams, just trying to document by hand on paper already reveals design issues. Maxime Saglan, a Lead Developer from one of our customers, reacted when reading an early version of this book: "That's totally what happened when I started to have the team do sketching workshops around Simon Brown's C4 model, on the legacy system."
