@@ -1,6 +1,5 @@
 # Documenting Legacy Applications
 
-
 > The universe is made of information, but it doesn't have meaning - meaning is our creation. Searches for meaning are searches in a mirror. - @KevlinHenney
 
 ## Documentation Bankruptcy
