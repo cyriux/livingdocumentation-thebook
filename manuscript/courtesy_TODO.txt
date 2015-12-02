@@ -3,6 +3,8 @@ Cucumber, Specflow logos
 Pickles screenshot
 ask Alistair for hexagonal diagram, modes of communication diagram
 
+https://github.com/gojko/bugmagnet/blob/master/screenshots/header-menu.png
+
 excessive uml diagram
 meme generator Living Doc
 

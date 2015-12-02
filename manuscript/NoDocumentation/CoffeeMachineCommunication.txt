@@ -16,6 +16,10 @@ For all this to work there must be no hierarchy pressure around the coffee machi
 
 Google and other web startups propose fantastic facilities to encourage people to meet and talk.
 
+A> Just ask Jeff Dean, the famed Googler who often is referred to as the Chuck Norris of the Internet. As the 20th Googler, Dean has a laundry list of impressive achievements, including spearheading the design and implementation of the advertising serving system. Dean pushed limits by achieving great heights in the unfamiliar domain of deep learning, but he couldn’t have done it without proactively getting a collective total of 20,000 cappuccinos with his colleagues.
+A>
+A> "I didn't know much about neural networks, but I did know a lot about distributed systems, and I just went up to people in the kitchen or wherever and talked to them," Dean told Slate. "You find you can learn really quickly and solve a lot of big problems just by talking to other experts and working together." [source](http://techcrunch.com/2015/09/11/legendary-productivity-and-the-fear-of-modern-programming/)
+
 La Gaité Lyrique, a place for cultures in the digital age in Paris, has offices and meeting rooms, however the staff often prefers to host meetings in the foyers that are open to the public. They even serve beer there, but I haven't seen people from the staff drink beer during the day.
 
 

@@ -23,6 +23,20 @@ Expose them as a web resource accessible through a link. Whenever necessary, ref
 Many tools expose their knowledge through links: issue trackers, static analysis tools, planning tools, blogging platforms, social code repositories like Github.
 If you want to link to a particular version of something, use permalinks (portmanteau of permanent link). If on the other hand you prefer to link to the most recent version of something, link to the front page, or index, or folder, that will usually show the latest version first.
 
+## Volatile To Stable
+
+*When you refer something, make sure the direction of the reference is from the more volatile to to the more stable elements.*
+
+It's way more convenient to couple the volatile to the stable than the over way round. A reference to something stable is not that expensive as there won't be many impacts from the dependency as it does not change often. On the other way round, a reference to a volatile dependency means you'll have to make changes all the time, whenever the dependency changes. This sentence can be read in terms of code, and in terms of documentation just as well.
+
+For an example in code, most programming language propose to couple the implementation to the contract or interface they implement, and not the other way round.
+
+This illustrates the advice *Couple the Specific to the Generic, and the concrete to the more abstract, not the other way round*. This is implied by the fact that generic stuff is usually more stable than more specific stuff. Being common for many cases and shared across many people, it should be more stable, unless you are in pure hell.
+
+In the universe of representing knowledge that we call documentation, prefer references the following ways, not the other way round:
+
+- From the artifacts (code, tests, configuration, resources) to the project goals, constraints and requirements
+- From the goals to the project vision
 
 ## Link Registry
 

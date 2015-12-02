@@ -56,12 +56,17 @@ Alistair Cockburn has similar findings:
 
 > To make communications as effective as possible, it is essential to improve the likelihood that the receiver can jump the communication gaps that are always present. The sender needs to touch into the highest level of shared experience with the receiver. The two people should provide constant feedback to each other in this process so that they can detect the extent to which they miss their intention.
 
-
-Written documents don't have this opportunity for interaction. Whenever a written document "such as a book or a Web page or a newspaper article, miraculously works, it's because the author participated in dialogues elsewhere." [Korpela](http://www.cs.tut.fi/~jkorpela/wiio.html).
-
-It takes more work than just typing text for a written document to be useful.
-
 A face-to-face, interactive and spontaneous form of documentation is the best way to improve on the fate of miscommunication highlighted by Professor Wiio. If all your stakeholders are happy with talking with the team for all questions and feedback, then change nothing. You don't need written documentation.
+
+## The Rule of Three Interpretations
+
+Jerry Weinberg writes in his book "Quality Software Management Vol 2 (Chapter 6)":
+
+> Whenever I'm aware that I'm making an interpretation, I have another choice: I can allow myself to know that more than one interpretation is possible. A good check on premature interpretation is the **Rule of Three Interpretations**:
+>
+>  If I can't think of at least three different interpretations of what I received, I haven't thought enough about what it might mean.
+>
+> This rule slows down the Interpretation step and gives me, the receiver, a chance to engage my brain before using my mouth. Even after I have thought of three possible interpretations, however, I should always be aware of one more possibility: that my list still may not include your intending meaning.
 
 
 ## Obstacles to conversations
@@ -74,6 +79,16 @@ Years of working together by handing documents over the wall have trained many p
 People from different teams, departments, or assigned on different projects, in different locations, tend to have much less conversations than close neighbors in the same team and project. They tend to use colder (not interactive) and less effective modes of communication like email or phone calls instead of face-to-face communication. It's important to note that hierarchical distance -- not having the same management, is at least as great an impediment to having conversations than geographic distance.
 
 Separation of people by functions in separate teams, like the Dev, QA and BA teams, is also a great way to make conversations less likely.
+
+The idea of ownership of activities is another conversation-killer:
+
+> - Product "Manager"
+> - Product "Owner"
+> - Scrum "Master"
+>
+> I have no idea why people aren't collaborating!
+>
+> -- Melissa Perri (@lissijean) on Twitter
 
 Old clichés also reduce the likelihood that people even imagine meeting and talking together:
 
@@ -99,4 +114,28 @@ Some teams plan *KT* (Knowledge Transfer sessions), often in addition to brief d
 
 Of course an alternative is to directly work collectively between the developers and the Ops people to prepare, configure and document all the deployment process. KT can be a step in this direction for traditional companies, just like code reviews are a step towards pair-programming.
 
-*This is a draft chapter, to be refined and expanded.*
+## Interactive Documentation
+
+Written documents don't have the opportunity for interaction. As [Korpela](http://www.cs.tut.fi/~jkorpela/wiio.html) comments on the Wiio's laws, whenever a written document "such as a book or a Web page or a newspaper article, miraculously works, it's because the author participated in dialogues elsewhere.".
+
+It takes more work than just typing text for a written document to be useful. Georges Dinwiddie [advises in his blog](http://blog.gdinwiddie.com/2010/08/06/the-use-of-documentation/) to "Document questions the reader may have" and to "Get it reviewed by multiple people". As such, the written documentation is like a record of an interactive conversation that worked, which makes it more likely to work again.
+
+But we can also push the limits of written words on paper thanks to the available technologies all around us. We can create documentation that is interactive to some extent.
+
+As an example, Gojko Adzic turned a checklist of test heuristics into an additional menu in the browser, as a small assistant called [BugMagnet](https://github.com/gojko/bugmagnet):
+
+![BugMagnet](images/header-menu.png)
+
+Clicking on the item "Names / NULL" in the menu directly fills the edit field in the browser with the string "NULL". This could have remained a plain checklist to input yourself manually into the forms, but Gojko made the extra step to make it a little more interactive. Note the suggestive effect of navigating the menu, it calls for being used, at least more than a printed checklist.
+
+Therefore: **Whenever possible prefer documentation that is interactive over static written words. Use hypermedia to the content navigable through links. Turn the documentation into tools like checkers, tasks assistants or search engines.**
+
+
+You already know several examples of interactive documentation, it is around us already:
+- Hypermedia documentation with navigable links, as generated by Javadoc and equivalent systems in other languages
+- Tools like Pickles which turn the Cucumber or Specflow reports into an interactive website, or Fitnesse which had always been interactive from the start.
+- Tools like Swagger which document your web API into an interactive website, with built-in capability to directly send the requests and to show the responses
+- Your IDE which offers a lot of documentation features with a keystroke or a mouse click: Call Stack, Search for type or reference, Type Hierarchy, Find occurrences, Find in the programming language Abstract Syntax Tree...
+
+
+As described in Declarative Automation, promoting documentation into an automated form that is also readable allows for interactive discovery: you can execute and tinker the automation code (scripts and tests) to understand the topic more more in depth as you change it and see the effects.
