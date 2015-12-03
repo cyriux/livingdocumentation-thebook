@@ -67,7 +67,7 @@ Goals are also long-term, must be known by most people, and are critical because
 
 This does not mean that it's easy to make a good documentation of the goals. It's still all too easy to waste a lot of time into a document that will not be read because it's too long or too boring.
 
-W> Remember there is a danger in deciding goals early, which is the risk to over-constrain the project too early, at a time we know very little about it. This may impede the project execution badly.
+W> Remember there is a danger in deciding goals prematurely, which is the risk to over-constrain the project too early, at a time we know very little about it. This may impede the project execution badly.
 W>
 W> This is why Woody Zuill advices [on his blog](http://zuill.us/WoodyZuill/2011/09/30/requirements-hunting-and-gathering/) to "Keep your requirements at a very high & general level until just before use", as if they were perishable goods. We do not want to reject opportunities early because of premature sub-goals.
 
