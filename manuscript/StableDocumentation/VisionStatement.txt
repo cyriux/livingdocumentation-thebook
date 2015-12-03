@@ -38,7 +38,7 @@ In the words of Eric Evans:
 
 Most technical aspects and infrastructure or UI details are not part of the domain vision statement.
 
-Here is an example of fuel card monitoring for the fleet management:
+Here is an example of Domain Vision Statement for fuel card monitoring in the fleet management business:
 
 
 > Fuel Card Monitoring of every incoming fuel card transaction helps detect potential abnormal behavior by drivers.
@@ -46,7 +46,10 @@ Here is an example of fuel card monitoring for the fleet management:
 > By looking for abuse patterns and by cross-checking facts from various sources, it reports anomalies that are therefore investigated by the fleet management team.
 >
 > For example, a client using Fuel Card Monitoring with the GPS fleet-tracking features is able to bust an employee for padding hours, falsifying timesheets, and stealing fuel, or buying non-fuel goods with the fuel card.
+>
+> Each fuel card transaction is verified against vehicle characteristics and its location history, taking into account which driver was assigned to the vehicle at the time and the address of the merchant of the transaction. Fuel Economy can also be calculated, in order to detect engines in need of a repair.
 
+A domain vision statement is useful as a summary of the main concepts of the domain and how they are related in order to deliver value to the users. It can be seen as a proxy for the actual software that is not yet built.
 
 ## Goals
 
