@@ -1,0 +1,20 @@
+# Transparent Configuration
+
+## Spreadsheet-Driven
+
+Excel as a golden source
+
+Import the data from the Excel spreadsheet (or API import from Google Doc) and keep a copy of the spreadsheet too as a blob; its comments, headers and overall layout are (or should be) meaningful.
+
+In a previous project we started with nothing in database and all the configuration directly in Excel spreadsheets stored as resources. Even if the business people could modify them, they had to ask developers to commit them. These spreadsheets were considered part of the source code and put in version control along with the code.
+
+On startup (or on-demand through an admin button), all the spreadsheets were loaded into memory for every session to use.
+
+When someone wanted to know about the specification, developers just had to hand the set of spreadsheets, as a zip archive or as a link to the source control. The spreadsheet used colors, comments and formatting to help explain what was going on. 
+
+Masks at Sungard as .xls edited by product managers with colors, remarks etc.
+
+Todo interview Nicolas Romaneti executable specs google doc spreadsheet as documentation / specs
+
+Project Gageot, De Morlhon, Romanneti et Ramiere with all business rules in Google Doc
+--

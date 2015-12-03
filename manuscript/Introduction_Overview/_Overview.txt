@@ -197,19 +197,3 @@ For documentation, the history of tools can be a gold mine
 
 - storify for email?
 --
-New chapters? New examples?
-
-Living Context mapping diagram
-
-Eco-system diagram
-C4 diagrams
-
-Transparent Architecture -> decentralize architecture and decision making
-Metaphors & architectural patterns: pipeline, blackboard...
-Word Cloud: code, scenarios; clustering?
-
-Guidebook: a mix of evergreen and living documents covering the big picture: persona, vision, stakes (text or slides), Quality Attributes (code as a DSL), brief glossary, a few key scenarios, external actors in a context diagram, principles (annotations with rationale), technologies & dependencies (comments in Pom manifest)
-
-Dependencies & their rationale: document your manifest (Maven Pom...) add specific comments to be extracted by a XML parser -> produce markdown pages for the dev guidebook or the standard mvn site. (What it is; why here)
-
-Factual Argument: Living Documentation to convince

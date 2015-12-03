@@ -96,6 +96,10 @@ T> ## A Confession from the author
 T>
 T> Deliberate Design is my secret goal for writing this book! People don't pay enough attention to design, and I strongly regret that. Living Documentation is a Trojan Horse, or a gateway drug to get more people addicted to better design.
 
+## Deliberate decision does not mean upfront decision
+
+We want emerging design, where the  natural decision emerges by listening to the working code and its flaws. For example, noticing duplication triggers a refactoring to something better. It is at this point that we have to make a conscious, deliberate decision: what is the "better" we want to refactor to? Deliberate means that we understand the troubles, we can imagine the benefits we are looking for, and we have found more than one way to improve. Making a decision means that we will chose one way out of all the possible others. This will be our deliberate decision.
+
 ## Documentation is a form of code review
 
 Documentation makes the product and the development process more transparent. As such, they are also useful feedback tools, to adjust and correct over the complete life cycle of the application. Decisions with no rationale have nowhere to hide. With living diagrams and the other ideas of living documentation, the neglected design areas become visible to everyone, making it harder to ignore them. This puts a positive pressure to put more care on every aspect of code quality.

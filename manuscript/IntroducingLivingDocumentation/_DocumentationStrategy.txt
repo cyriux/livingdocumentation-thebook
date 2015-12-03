@@ -2,7 +2,16 @@
 
 %% Relax! Not too serious. Demand-Driven. Short with something. See and show the benefits. To the point. Just a checklist to make sure no topic is forgotten.
 
-Astonishment report from all newcomers
+Factual Argument: Living Documentation to convince
+
+"We do it already"
+
+Yes, you certainly do the practices in this book to some extent, but is that really a living documentation approach? The keyword is *deliberate*. It's up to your team to decide where to put the cursor and what's your documentation strategy. Such a strategy has to be deliberate. It must fit your particular context and be acceptable by everyone involved.
+
+A documentation strategy will mix practices you already do, push some of them further, and introduce new practices that sound promising.
+
+A documentation strategy does not have to be right at the first try. It should evolve
+
 
 # Documentation Landscape (Andrea Ruping)
 
@@ -16,6 +25,7 @@ Intention Revealing
 
 > If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better
 > Mark Seeman (@ploeh) on Twitter
+
 
 
 - Goals? why?
