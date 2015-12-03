@@ -96,18 +96,20 @@ Impact Mapping suggests classifying the goals by main stakeholders: IT departmen
 
 There are other similar techniques like the EVO method [Gilb](http://gilb.com) to explore requirements in various ways.
 
-With Impact Mapping or not, a tree of goals can be done with sticker notes on a wall. If you want to keep a clean representation for later you can use any mind-mapping applications like Mindmup, MindNode, Mindjet MindManager, Curio, or MindMeister. These applications can read and write mind maps in various forms, including *indented text*, at least as an "import” option. As a fan of plain text artifacts, I like indented text best!
+With or without Impact Mapping, a tree of goals is ideally created with sticker notes on a wall. If you want to keep a clean representation for later you can then use any mind-mapping applications like Mindmup, MindNode, Mindjet MindManager, Curio, or MindMeister to record and show a cleaner layout of the map.
+
+These applications can read and write mind maps in various forms, including *indented text*, at least as an "import” option. As a fan of plain text artifacts, I like indented text best!
 
 
 ## Traceability to the goals
 
 How do we know that goals have be reached? Conversely, how do we know why a given module of code has been built in the first place?
 
-There are goals which requested new business behaviors. In this case, acceptance tests provide the link between the code implementing the behavior and the goal. Whatever the way the goals are described, the tests could have an explicit reference to the goal name or identifier. Acceptance tests usually describe functional behavior, but they can just as well describe other quality attributes like response times, compatibility with a given piece of software or hardware, or even fault-tolerance requirements.
+Most goals were about new business behaviors. In this case, acceptance tests provide the link between the code implementing the behavior and the corresponding goal. Whatever If the goals are described somewhere, the tests can have an explicit reference to the goal name or identifier, making the link explicit. Acceptance tests usually describe functional behavior, but they can just as well describe other quality attributes like response times, compatibility with a given piece of software or hardware, or even fault-tolerance requirements.
 
-Some goals have related performance targets that cannot be measured at compile time. In this case the performance targets can become thresholds into your monitoring tools, and they could have clear labels that link to the goals documented elsewhere.
+Some goals have related performance targets that cannot be measured at compile time. In this case the associated performance targets can become thresholds into your monitoring tools, and they could have clear labels that link to the goals documented elsewhere too. After all, monitoring is just continuous testing.
 
-Sometimes the goals are described in fuzzy terms like "rush hours" or "DoS Attack". As such they are not quantifiable and therefore not testable or monitorable. However carefully curated data sets can help describe more precisely the phrasing of the expected performances. For example a recorded file of market data activity during a highly volatile market episode can accurately describe what is meant by "highly-volatile markets", or a situation of "market crash", "quiet period" or "opening rush". These files can also be used as a basis for acceptance testing.
+Sometimes the performance targets of the goals are described using *fuzzy terms* like "rush hours" or "nominal load". As such they are not quantifiable and therefore not testable or monitorable. However *carefully curated data sets that are also carefully named* can help describe more precisely the phrasing of the expected performances. For example a recorded file of market data activity during a highly volatile market episode can accurately describe what is meant by "highly-volatile markets", a situation of "market crash", "quiet period" or "opening rush". These files can also be used as a basis for acceptance testing.
 
 
 ## Stable Knowledge can also be code
