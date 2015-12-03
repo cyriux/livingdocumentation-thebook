@@ -1,4 +1,4 @@
-## Don't Mix Strategy Documentation with the documentation of its implementation
+# Don't Mix Strategy Documentation with the documentation of its implementation
 
 *Strategy and its implementation don't evolve at the same pace*
 
