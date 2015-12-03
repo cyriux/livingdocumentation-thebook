@@ -1,0 +1,27 @@
+# Literate programming
+
+It is hard not to mention Literate Programming in a book on Living Documentation. Literate programming is an approach to programming introduced by Donald Knuth. Wikipedia defines this approach as follows:
+
+> A literate program is an explanation of the program logic in a natural language, such as English, interspersed with snippets of macros and traditional source code.
+
+A specific tool processes the program and produces both a document for humans, and compilable source code that becomes the executable program.
+
+This is from 1984, and although it never really became widely popular, it had a profound and widespread influence in the industry, even if the idea had been often distorted.
+
+Literate Programming introduced several important ideas:
+
+- **Documentation interleaved with the code**, in the same artifacts, with code inserted within the prose of the documentation. This should not be confused with documentation generation, where the documentation is extracted from comments inserted into the source code.
+- **Documentation following the flow of thoughts of the programmer**, as opposed to being constrained by the compiler-imposed order. A good documentation should follow the order of the human logic.
+- A programming paradigm to **encourage programmers to think deliberately** at each decision they are making. Literate programming goes well beyond documentation: it is meant to be a tool to force programmers to think deliberately, as they have to explicitly state their thoughts behind the program.
+
+Literate Programming is well alive today, with tools available for all good programming languages like Haskell, Clojure and F#. The focus now is on writing prose in Markdown, with snippets of programming language inserted. In Clojure you would use [Marginalia](https://github.com/gdeer81/marginalia), in CoffeeScript you would use [Docco](http://jashkenas.github.io/docco/), while in F# you would use [Tomas Petricek's FSharp.Formatting](https://github.com/tpetricek/FSharp.Formatting).
+
+
+## Other similar approaches
+
+Traditionally, documentation of a software program involves a mix of code and prose, which can be combined in several ways:
+
+- **Code in prose**: the original Literate Programming as proposed by Donald Knuth. The primary document is prose following the human logic of the programmer. The author-programmer has full controls of the narration.
+- **Prose in code** this is the documentation generation approach offered by most programming languages, like Javadoc and its equivalents.
+- **Separate code and prose, merged into one document by a tool**. Tools then perform the merge in order to publish a document, e.g. a tutorial.
+- **Code and prose as the same thing**. In this approach, the programming language is so clear it can be read as prose itself. Unfortunately this Holy Grail is never reached, but some programming languages get closer than others. I've seen some F# by Scott Waschlin which can be impressively close to this ideal.

@@ -53,6 +53,7 @@ KnowledgeAugmentation/AreaWideKnowledge.txt
 KnowledgeAugmentation/IntrinsicKnowledgeAugmentation.txt
 KnowledgeAugmentation/InspiringExamplars.txt
 KnowledgeAugmentation/CustomAnnotations.txt
+KnowledgeAugmentation/LiterateProgramming.txt
 
 KnowledgeAugmentation/RecordTheRationale.txt
 KnowledgeAugmentation/CommitMessages.txt

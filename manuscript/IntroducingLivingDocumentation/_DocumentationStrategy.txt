@@ -1,6 +1,6 @@
 # Defining a Documentation Strategy
 
-%% Relax! Not too serious. Demand-Driven. Short. To the point. Just a checklist to make sure no topic is forgotten.
+%% Relax! Not too serious. Demand-Driven. Short with something. See and show the benefits. To the point. Just a checklist to make sure no topic is forgotten.
 
 Astonishment report from all newcomers
 
@@ -15,7 +15,7 @@ Intention Revealing
 
 
 > If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better
-> @ploeh on Twitter
+> Mark Seeman (@ploeh) on Twitter
 
 
 - Goals? why?
