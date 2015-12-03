@@ -95,6 +95,8 @@ RefactorableDocumentation/RefactoringGuidedByComments.txt
 
 StableDocumentation/Section------StableDocumentation.txt
 StableDocumentation/EvergreenDocument.txt
+StableDocumentation/StrategyImplementationSeparation.txt
+StableDocumentation/VisionStatement.txt
 StableDocumentation/PerennialNaming.txt
 StableDocumentation/LinkRegistry.txt
 StableDocumentation/AcknowledgedInfluences.txt

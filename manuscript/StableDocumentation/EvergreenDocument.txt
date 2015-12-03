@@ -32,14 +32,11 @@ Of course this is not usually true in the details of the expected behavior. Low-
 
 ## Examples
 
-### Company Vision
+### Company or Project Vision
 
 The best companies have a vision to change the world. This high-level vision is stable and is part of the company identity. Startups at an early stage tend to pivot regularly (see Lean Startup), but the vision often remains the same.
 
 In large corporations change happens all the time everywhere, however the traditional approach to management is to consider most decisions and knowledge as certain, predictable and stable. Within a department, team or project, everything around can often be considered stable.
-
-
-### Project Vision
 
 A Project Vision, when expressed in a few sentences, like an elevator pitch, a project vision can be quite stable. And if it ever changes, the project will probably be stopped or totally reconsidered.
 
@@ -50,14 +47,6 @@ If you're into #NoEstimates, you'll take extra care to keep the vision high-leve
 For example, the project vision "Create a library to report sales to the regulator" already presumes the solution. Once stated this way, the team has already lost better opportunities, for example extending 2 existing services so that they together can deliver the report. This example of vision is also more fragile to changes. If a new CTO comes and decides that everything now has to be services, no library allowed, you'll have to update the vision of the project.
 
 A better vision for the project would simply be "Report the sales to the regulator", or even better: "Extend reporting to meet MIFID II regulation". It does not matter whatever you do to achieve the goal, every option remains open. Paraphrasing Woody Zuill, "be prepared for the wonderful".
-
-### Impact Mapping
-
-Impact Mapping (see Gojko Adzic book) is a fantastic tool to organize high-level knowledge about a project or a business initiative. This collaborative technique remains simple and lightweight, visualizes assumptions and targets.
-
-A key point is that it shows options and alternate paths to reach the goal. As such it does not constraint the execution as much as other traditional linear "roadmaps".
-
-An impact map itself is rather stable, however it's recommended to reconsider it at low frequency, typically twice a year. On the other hand, the tracking of the execution of the leaves of the map is much more volatile and is definitely not stable, if you release often.
 
 
 ## A lot of knowledge is less stable than it looks.

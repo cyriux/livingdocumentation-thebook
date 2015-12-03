@@ -1,0 +1,27 @@
+## Don't Mix Strategy Documentation with the documentation of its implementation
+
+*Strategy and its implementation don't evolve at the same pace*
+
+In the page 80 of their book "Agile Testing: A Practical Guide for Testers and Agile Teams Book", Lisa Crispin and Janet Gregory recommend not to mix the documentation of a strategy with the documentation of its implementation, taking the example of the test strategy:
+
+> If your organization wants documentation about your overall test approach to projects, consider taking this information and putting it in a static document that doesn't change much over time. There is a lot of information that is not project specific and can be extracted into a Test Strategy or Test Approach document.
+>
+> This document can then be used as a reference and needs to be updated only if processes change. A test strategy document can be used to give new employees a high-level understanding of how your test processes work.
+>
+> I have had success with this approach at several organizations. Processes that were common to all projects were captured into one document. Using this format answered most compliance requirements. Some of the topics that were covered were:
+>
+> - Testing Practices
+> - Story Testing
+> - Solution Verification Testing
+> - User Acceptance Testing
+> - Exploratory Testing
+> - Load and Performance Testing
+> - Test Automation
+> - Test Results
+> - Defect Tracking Process
+> - Test Tools
+> - Test Environments
+
+Therefore: **Don't mix documentation of a strategy and documentation of its implementation. Make the strategy documentation a pure Evergreen Document. Use another Living Documentation approach for the implementation, considering the implementation will change more frequently.**
+
+The strategy should be documented as an Evergreen Document, stable and even shared between multiple projects. Omit every detail that could change or that would be project-specific from the strategy document. All theses details that change more frequently and that differ from project to project must be kept separately, probably using the techniques proposed in this book which are more suited for knowledge that changes often: declarative automation, BDD etc.

@@ -43,7 +43,9 @@ In the universe of representing knowledge that we call documentation, prefer ref
 All links need maintenance, because the web is a living thing, and so does your company internal web. When a link is broken, the last thing your want is to go through every document with the broken link to replace it with another one.
 
 
-Don't directly include direct links in multiple places in your artifacts. Instead use a link registry under that control. This link registry gives you intermediate URL's as alias on the actual links. When a link is broken you just need to update the link registry in one single place to redirect to another link.
+Therefore: **Don't directly include direct links in multiple places in your artifacts. Instead use a link registry under that control.**
+
+This link registry gives you intermediate URL's as alias on the actual links. When a link is broken you just need to update the link registry in one single place to redirect to another link.
 
 An internal URL shortener works perfectly as a link registry. Some of these shortener allow to choose your own pretty short link; not only the links become more manageable, they also get shorter and prettier.
 
