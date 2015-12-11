@@ -1,0 +1,61 @@
+CQRS examples of design / architecture diagram
+
+## Layered app in .Net
+
+A typical architecture for .Net applications is the [Layered Application](https://msdn.microsoft.com/en-us/library/ee658109.aspx#Step4)
+
+The key to Layered Application is dependency management. Components in one layer can interact only with peers in the same level or components from lower levels, as in [Frank Buschmann](Pattern-Oriented Software Architecture, Patterns for Concurrent and Networked Objects, Volume 2). This helps bring some structure and reduce the dependencies between components on different levels. Layering can be strict: dependencies only allowed to the layer directly below) or relaxed: dependencies allowed to any layer below.
+
+Depending on the age of your application, you would have gone for a 3 layers architecture: presentation, business and data, or you would go for a 4 layers architecture today: presentation, services, business, data. Note that the layers can be collapsed in case one is almost empty.
+
+The presentation layer contains everything UI for smart client interaction or browser-based interaction. The business layer is all about functionalities, workflow, calculations and representing the business domain. The data layer provides access to external systems such as databases, mainframes or external web-services.
+
+By convention in .Net, the layered are represented by sub-projects and namespaces.
+
+
+## Simon Brown's C4 Diagrams
+
+Many authors have proposed formalisms to describe software architecture since a long time. A number of standards is available, like IEEE 1471 "Recommended Practice for Architecture Description of Software-Intensive Systems", ISO/IEC/IEEE 42010 "Systems and software engineering — Architecture description", while the Philippe Kruchten's "4+1 model" has gained recognition in the enterprise world. However all these approaches are not precisely *ligthtweigh* and require some learning curve to be understood. The provide a set of "views" to describe different aspects of the software system, with a logical view, a physical view etc. Overall, these approaches are not particularly popular among developers.
+
+Simon Brown acknowledged this need and consequently proposed the [C4 Model](http://www.codingthearchitecture.com/2014/08/24/c4_model_poster.html), a lightweight approach to architecture diagrams which is becoming increasingly popular among developers. This approach draws in particular from the work of Eoin Woods and Nick Rozanski in their book [Software Systems Architecture](http://www.viewpoints-and-perspectives.info), and suggests 4 simple types of diagrams to describe a software architecture:
+
+- **System Context Diagram**: A starting point for diagramming and documenting a software system, allowing you to step back and look at the big picture
+- **Container Diagram**: To illustrate the high-level technology choices, showing web application, desktop application, mobile app, database, file system
+- **Components Diagram**: A way to zoom into a container, by decomposing in a way that makes sense to you: services, subsystems, layers, workflows etc.
+- **Classes Diagrams**: (Optional) To illustrate any specific implementation detail with one or more UML class diagram(s).
+
+Creating a **System Context Diagram**:
+
+> Draw a simple block diagram showing your system as a box in the centre, surrounded by its users and the other systems that it interfaces with all around. Details don't matter, as this is your "zoomed out view" showing a big picture of the system landscape. The focus should be on people (actors, roles, personas, etc) and software systems rather than technologies, protocols and other low-level details. It's the sort of diagram that you could show to non-technical people.
+
+Creating a **Container Diagram**: Draw a simple block diagram showing your system as a huge box filling most of the page, surrounded by brief references to the users and the other systems that it interfaces with all around. Then expand the block diagram inside the system box. Show the containers "Anything that can host code or data" as boxes, and mention which technology they are made of: "relational database, file system, NoSQL datastore, web application". Show the links between them and to or from the outside, including the technology used for the link: "HTTP, SQL/JDBC port 3030"
+
+Creating a **Component Diagram**: For a given container, describe how it can be decomposed into smaller concepts like services, subsystems, layers, workflows etc. As Simon says: "How you do it is up to you", as long as it helps understand their responsibilities and help protect the design as it was meant to be.
+
+## C4 Living Diagrams? For DDD applications?
+
+[Nick Tune Blog](http://blog.ntcoding.com/2015/08/domain-driven-architecture-diagrams.html)
+
+
+--
+
+Transparent Architecture -> decentralize architecture and decision making
+Metaphors & architectural patterns: pipeline, blackboard...
+Word Cloud: code, scenarios; clustering?
+
+Application B owns the concept X, and is the authoritative source for it. Other UI may call it to write X. Other systems can subscribe to changes of X, through a feed of events.
+
+ES example of BDD documentation: Documenting behavior with Domain Events: given events, when command, then events
+
+--
+Documentation Strategy (Landscape) Arc42, C4
+--
+
+Living Context Map Diagram (TODO CODE?)
+
+Documenting a Knowledge Level
+
+Documenting SLA: enunciation, and tests
+
+Creating your own annotations: Conventions, Policy, BusinessRule, Key, Monoid (bonus)
+Create your own ready-made knowledge (a good way to challenge if it’s really new)

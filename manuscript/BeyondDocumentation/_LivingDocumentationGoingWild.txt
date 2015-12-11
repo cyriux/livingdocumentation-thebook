@@ -1,0 +1,25 @@
+# Living Documentation Going Wild
+
+Living documentation is not a free license to do the following:
+
+- MDA and everything code generation: Code is not a dirty detail to replace or generate, it is the reference and the preferred media. Extend your language, or chose a better programming language, instead of generating code from diagrams
+
+
+- Documenting everything, even automatically: The ideal case is when the code is so self-descriptive it needs nothing else
+
+- Using UML: Some basic UML is fine, but it is not an end in itself. Chose the simplest notation that the intended audience will really understand with as few explanation as possible. Don't obsess on generic notations, problem-specific or domain-specific notations are often more expressive.
+
+- Applying complicated design patterns everywhere: Simplicity first
+
+- Spending hours on each design decision
+
+We still abide to the following:
+
+
+- Decisions should be involve some thinking, ideally collectively, in a just-enough, just in time fashion.
+
+
+No Big Upfront Design
+No Speculative Design (YAGNI)
+No Analysis paralysis
+No Solo Masterpiece
