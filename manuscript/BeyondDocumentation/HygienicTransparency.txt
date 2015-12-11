@@ -35,8 +35,76 @@ Word Clouds are very simple diagrams that only show words with more frequent wor
 
 What does this word cloud really tell you about your code? If technical words dominate, then it's factual that the code does not really talk about the business domain.
 
-Another similar low-tech idea to visualize the design of the code out of the source code is the "signature survey" proposed by Ward Cunningham (http://c2.com/doc/SignatureSurvey/). It's probably possible to imagine similarly low-tech yet useful plain text visualization approaches. Let me know if you have any idea.
+![With this word cloud, either your business domain is on string manipulation, or it it not visible in the sourc code](images/wordcloud_bad.png)
+
+![In this word cloud, we clearly see the language of Fuel Cards and fleet management (Flottio is the package name, it could be filtered too)](images/wordcloud_good.png)
+
+Creating a word cloud out of the source code is not hard as you don't even have to parse the source code, you can simply consider it as plain text and filter the programming language keywords and punctuation. Something like:
+
+~~~~~~~~
+// From the root folder of the source code, walk recursively through all *.java files (respectively *.cs files in C#)
+
+// For each file read as a string, split by the language separators (you may consider to split by CamelCase too):
+
+SEPARATORS = ";:.,?!<><=+-^&|*/\"\t\r\n {}[]()"
+
+// Ignore numbers and tokens starting with '@', or that are keywords and stopwords for the programming language:
+
+KEYWORDS = { "abstract", "continue", "for", "new", "switch", "assert", "default", "if", "package", "synchronized", "boolean", "do", "goto", "private", "this", "break", "double", "implements", "protected", "throw", "byte", "else", "import", "public", "throws", "case", "enum", "instanceof", "return", "transient", "catch", "extends", "int", "", "short", "try", "char", "final", "interface", "static", "void", "class", "finally", "long", "strictfp", "volatile", "const", "float", "native", "super", "while" }
+
+STOPWORDS = { "the", "it","is", "to", "with", "what's", "by", "or", "and", "both", "be", "of", "in", "obj", "string", "hashcode", "equals", "other", "tostring", "false", "true", "object", "annotations" }
+~~~~~~~~
+
+At this point you could just print every token that was not filtered, and copy-paste the console into an online Word Cloud generator like Wordle.com.
+
+You may as well count the occurrences yourself, using a bag (e.g. a Multiset from Guava):
+
+~~~~~~~~
+bag.add(token)
+~~~~~~~~
+
+And you could render the word cloud within an html page with the *d3.layout.cloud.js* library, by dumping the word data into the page.
+
+Another similar low-tech idea to visualize the design of the code out of the source code is the ["signature survey"](http://c2.com/doc/SignatureSurvey/) proposed by Ward Cunningham. The idea is to filter out everything but the language punctuation (coma, quote and brackets), as pure string manipulation on the source code files.
+
+For example, contrast this signature survey, with 3 big classes:
+
+~~~~~~~~
+BillMain.java	;;;;;;;;;;;;;{;;{"";;"";;{"";"";}{;;{;;}};;;;{{;;;{;;}{;;};;;}}{;}"";}{;}{;;"";"";;;"";"";;;"";"";";;";;;"";"";;;"";"";;;};;{;{""{;}""{;}""{;}""{;}""{;;;;;;}""{;}""{;}""{;};""{;;;;;}""{;;;;;}};}{;;;;;""{"";"";;}""{"";"";;""{;}}""{"";"";;""{;}};{;}""{;}{;};;;;;}{;;;;;;}{;;;;;;}{;""{;{;}{;};;}{;{;}{;};;};}{{"";}{"""";}{"";};;{;}{"";};}{{;};";";;;{""{{"";};}}{{;;;}}{;};}{;{;}";";;;{""{{"";};}}{;;{""{{"";}""{;}{;}}}};{;;;}{"";;;;;;;;}}{;{;}{;};}{;""{;}{;};}{;{{"";};}{{"";};};}{;;;;;;;;;{{"";};;}{{"";};;;};}{;;;;;;;;;{;;;{"";}{{"";};}{{"";};;};};}{;;""{;}{;};}{;;{""{"";}{"";};}{;}{{{;}{;}}};}}
+CallsImporter.java	;;;;;;;{;;{{"";};{;;"";;;{;}{;;{;};};{;"";{;;};;{;;{;};}{;}{;};}}{;}{{{;}{;}}}}{""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;}""{;};}}
+UserContract.java	;;{;;;;;{;}{;}{;}{;}{;}{;}{;}{;}{;}{;}}
+~~~~~~~~
+
+with this one, doing the exact same thing, but with more smaller classes:
+
+~~~~~~~~
+AllContracts.java	;;;;;{;{;}{{;}}{"""";}}
+BillingService.java	;;;;;;;{;{"";}{;;;;;}{"";;}{;;"";}{;}{;}{"";;;;;}{"";;}{;;{{;;}};}{;}}
+BillPlusMain.java	;;;;;;{{;"";"";"";"";"";"";}}
+Config.java	;;;;;;;{;{;{"";;}{;}{{{;}{;}}}}{;}{;;}{"";}{"";}{"";}{"";}{"";;}{;";";{;};}}
+Contract.java	;;;;{;;;;{;;;;}{;}{;}{;}{;}{;}{"""""""""";}}
+ContractCode.java	;{"""""""""""""""""""""""";;{;}{;}}
+ImportUserConsumption.java	;;;;;{;;{;;}{{;}{;}}{;{;;}}{;"";;;;{;};}{{;}{;}}{"";;;{;{;}};}}
+OptionCode.java	;{"""""""";;{;}{;}}
+Payment.java	;;;{;;;{;;;{"";}}{;}{;}{;}{{;}"";}{;}{;;;;;}{;}{"""""";}}
+PaymentScheduling.java	;;;;{{{;;;}}{{;;;}}{{;;;}};{;;;;}{;;{;};;}{;;;;;;;;}{;}}
+PaymentSequence.java	;;;;;;{;;{;}{;;}{;}{;}{;;;}{"";}}
+UserConsumption.java	;{;;{;;}{;}{;}}
+UserConsumptionTracking.java	;{{;}{;}}
+~~~~~~~~
+
+Which one do you prefer to work on?
+
+It's probably possible to imagine similarly low-tech yet useful plain text visualization approaches. Let me know if you have any idea.
 
 ## A Positive Pressure to clean the inside.
 
-%% TODO
+One huge issues in our field of software development is that internal quality is not visible at all for the people who manage budgets and made the biggest decisions, like saying yes or no to developers, contracting to another company or offshoring. This does not help make good informed decisions. Instead it promotes decisions from people who are more convincing and seductive in their arguments.
+
+Developers can become more convincing too when they can show the internal quality of the code in a way non-technical people can apprehend emotionally. A word cloud, or a dependency diagram that is a total mess, is easy to interpret even by non-developers. Once they understand by themselves the problem shown visually, it becomes easier to talk about remediation.
+
+Developers opinions are often suspect to managers. In contrast, they appreciate the output of tools, because tools are neutral and objective, or at least they believe that. Tools are definitely not objective, but they do present actual facts, even if the presentation always carry an editorial bias.
+
+As such, the ideas behind living documentation are not just to document for the team, they are also part of the toolbox to convince. Once everybody sees the disturbing reality, the mess, the cyclic dependencies, the unbearable coupling, the obscurity of the code, it becomes harder to tolerate that much longer.
+
+Living documentation suggests to make the internal problems of the code visible to everyone, as a positive pressure to encourage cleaning the internal quality.
