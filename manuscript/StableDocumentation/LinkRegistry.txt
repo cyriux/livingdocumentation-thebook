@@ -6,7 +6,7 @@ On a particular topic, or on a project, all information is related to another in
 
 That's the same with your documentation.
 
-**Therefore: Link knowledge to other related knowledge. Qualify the relationship. Define a clear resource identification scheme. It can be URL, or a citation scheme. Use a link shortener and maintain it to avoid broken links.**
+**Therefore: Link knowledge to other related knowledge. Qualify the relationship. Define a clear resource identification scheme. It can be URL, or a citation scheme. Decide on a mechanism to avoid broken links.**
 
 It's important to qualify the link with some meta-data: source, reference on the topic, review, criticism, author, is part of, implements, is composed of, etc.
 
@@ -49,4 +49,62 @@ This link registry gives you intermediate URL's as alias on the actual links. Wh
 
 An internal URL shortener works perfectly as a link registry. Some of these shortener allow to choose your own pretty short link; not only the links become more manageable, they also get shorter and prettier.
 
-I've seen companies install their own on-premise link registry. This is necessary for companies that care a lot of confidentiality of all their knowledge. You can find many URL shorteners that you can install on-premise, some open-source and some with commercial licences.
+I've seen companies install their own on-premise link registry. This is necessary for companies that care a lot of confidentiality of all their knowledge. You can find many URL shorteners that you can install on-premise, some open-source and some with commercial licenses.
+
+## Bookmarked Search
+
+Another way to link in a way that is more robust to change is to link to a bookmarked search instead of linking to a direct resource.
+
+Imagine you want to link to the class 'ScenarioOutline' in a repository. You could link through a direct link, for example in Github you would use a link like this:
+
+~~~~~~~~
+https://github.com/Arnauld/tzatziki/blob/4d99eeb094bc1d0900d763010b0fea495a5788dd/tzatziki-core/src/main/java/tzatziki/analysis/step/ScenarioOutline.java
+~~~~~~~~
+
+The problem is that this class can move into another package, or its package can be renamed. The class itself could be renamed too, even though it is not so likely, as this concept has been known like this for a long time now. But any of these changes would turn the link into a broken link. That's bad.
+
+We can make the link more robust but using a bookmarked search instead of the direct link. For example we would search for a Java class in this particular repository, with 'ScenarioOutline' in its name.
+
+Using the [Github advanced search](https://help.github.com/articles/searching-code/), you would create the following search:
+
+~~~~~~~~
+ScenarioOutline // search for this term
+in:path // search term must appear in the path name
+extension:Java // the file extension must be Java
+repo:Arnauld/tzatziki // only search in this one repo
+~~~~~~~~
+
+The result page of this search will show more than one result, but the one we're looking for is easy to grab in the list (here it is the second result in the list):
+
+~~~~~~~~
+.../analysis/exec/model/ScenarioOutlineExec.java
+.../analysis/step/ScenarioOutline.java
+.../pdf/emitter/ScenarioOutlineEmitter.java
+.../analysis/exec/gson/ScenarioOutlineExecSerializer.java
+.../pdf/model/ScenarioOutlineWithResolved.java
+~~~~~~~~
+
+Bookmarked advanced search is not just useful for more robust links. It is an important tool for living documentation in general. It offers the power of an IDE for everyone with a browser. By creating curated bookmarked searches, you create guided tours for navigating code and for quickly discovering everything related to a concept, like shown here around the concept of *ScenarioOutline*.
+
+## Contract Test as a Reconciliation Mechanism
+
+If you have a link to a direct resource then you need a way to detect when the link is broken.
+
+You can use a [Broken Link Checker](https://www.google.fr/search?q=broken+link+checker) on your overall documentation for that.
+
+You may also use low-tech Contract Tests that will fail when there is a change breaking the link. This way you know when you have to fix the link or the code so that they get back in sync. This is another example of a reconciliation mechanism.
+
+You create a unit test to compare the code, which could change at any time, against hardcoded laterals which represent the external contract, like the link. When the test fails, you know you have to update the doc, or revert the change in some rarer cases.
+
+For example if the qualified class name is used directly in a link, then the contract test would look like this:
+
+~~~~~~~~
+@Test
+public void checkLinks() {
+  assertEquals(
+      "flottio.fuelcardmonitoring.domain.FuelCardMonitoring",
+      FuelCardMonitoring.class.getName());
+}
+~~~~~~~~
+
+Whenever we refactor, the check against the hardcoded literal would fail to signal we need to make a fix. 
