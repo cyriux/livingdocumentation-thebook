@@ -78,9 +78,9 @@ Eat only 12 of the 15 cookies requested
 
 ## How does it work?
 
-This little framework is just a builder using [Method Chaining](https://en.wikipedia.org/wiki/Method_chaining) between its 3 methods Given(Event...), When(Command) and Then(Event...). Each method just stores the events and command passed as parameters. Calling the Then() method at the end runs the full test and prints its text scenario by calling the toString() method of each  event and command, prefixed by the keyword 'Given, When or Then'.
+This little framework is just a builder producing test cases using [Method Chaining](https://en.wikipedia.org/wiki/Method_chaining) between its 3 methods Given(Event...), When(Command) and Then(Event...). Each method just stores the events and command passed as parameters. Calling the Then() method at the end runs the full test and prints its text scenario by calling the toString() method of each  event and command, prefixed by the keyword 'Given, When or Then'. When a keyword is repeated, it is aliased by 'And'.
 
-The method 'scenario(title)' instantiates the Simple Test class the way you want it to print and log. This example is simple, and you can elaborate from that to meet other needs. For example, we may also use these tests to document the possible behaviors as living diagrams.
+The method 'scenario(title)' instantiates the 'SimpleTest' class of the framework the way you want it to print and log. From there you can elaborate to go further than just tests. For example, we may also use the knowledge from these tests to document the possible behaviors as living diagrams.
 
 ## Living Diagrams from Event Sourcing scenarios
 
@@ -119,3 +119,6 @@ Note that the same content could also be rendered as a table:
 | BatchCreatedWithCookiesEvent |
 | CookiesEatenEvent            |
 | CookiesWereMissingEvent      |
+
+
+You may also want not to mix scenarios together, or to improve with additional information mixed into the same picture. You may remove the noise of the 'Event' or 'Command' suffixes. It's up to you to decide which form works best for your purpose, in your context.
