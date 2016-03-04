@@ -1,0 +1,121 @@
+# Living Documentation with Event Sourcing tests
+
+Event Sourcing is a way to capture all changes to an application state as a sequence of events. In this approach, every change to the state of an application (what we call an aggregate in DDD terminology) is represented by events which are persisted. The state at a current point in time can be built by applying all past events.
+
+When a user or another part of the system wants to change the state, it sends a command to the corresponding state holder (the "aggregate") through a command handler. The command can be accepted or rejected. In either case, one or more events are sent for everyone interested to know.
+
+We can represent all this in the following way:
+
+> Given past events, when we handle a command, new events are emitted
+
+There are many benefits in this approach, and one of them is that you get a very decent automated tests and living documentation almost for free. This was initially proposed by Greg Young in [various talks](http://skillsmatter.com/podcast/design-architecture/talk-from-greg-young) and Greg has made his related  Simple.Testing framework available [on Github](https://github.com/gregoryyoung/Simple.Testing). This idea was later elaborated by (Jeremie Chassaing](thinkb4coding).
+
+
+## A concrete example in code
+
+Let's take the example of making (and eating) batches of cookies, a neat example taken from Brian Donahue on the [CQRS mailing list](https://groups.google.com/forum/#!topic/dddcqrs/JArlssrEXIY) discussing Greg's approach:
+
+
+> Given: Batch Created with 20 Cookies
+>
+> When: Eat Cookies: Amount = 10
+>
+> Then: Cookies Eaten: AmountEaten = 10, AmountRemaining: 10
+
+For illustration purpose, I've done a [similar framework in Java](https://github.com/cyriux/jSimpleTesting) in its simplest possible form.
+
+In this approach, and using this framework, the scenario is written literally in code, through the direct use of Domain Events and Commands which form the Event Sourcing API:
+
+~~~~~~~~
+@Test
+public void eatHalfOfTheCookies() {
+  scenario("Eat 10 of the 20 cookies of the batch")
+    .Given(new BatchCreatedWithCookiesEvent(20))
+    .When(new EatCookiesCommand(10))
+    .Then(new CookiesEatenEvent(10, 10));
+}
+~~~~~~~~
+
+This is a test, as the 'then' clause is an assertion. If no 'CookiesEatenEvent' event is emitted, then this test fails. But it's more than just a test, it's also a part of the living documentation, since running the test also describes the corresponding business behavior in a way that is quite readable, even for non developers:
+
+~~~~~~~~
+Eat 10 of the 20 cookies of the batch
+	Given Batch Created With 20 Cookies
+	When Eat Cookies 10 cookies
+	Then 10 Cookies Eaten and 10 remaining cookies
+~~~~~~~~
+
+Here the framework just invokes and prints the 'toString()' method of each event and command involved in the test aka scenario. This is as simple as that.
+
+As a result this is not as beautiful and "natural language" as text scenarios written by hand in a tool like Cucumber or Specflow, but still it is not bad.
+
+Of course there can be more than one event in the prior history of the aggregate, and more than one event emitted as a result of applying the command:
+
+~~~~~~~~
+@Test
+public void notEnoughCookiesLeft() {
+  scenario("Eat only 12 of the 15 cookies requested")
+    .Given(
+      new BatchCreatedWithCookiesEvent(20),
+       new CookiesEatenEvent(8, 12))
+    .When(new EatCookiesCommand(15))
+    .Then(
+       new CookiesEatenEvent(12, 0),
+       new CookiesWereMissingEvent(3));
+}
+~~~~~~~~
+
+This second scenario would print as the following text:
+
+~~~~~~~~
+Eat only 12 of the 15 cookies requested
+	Given Batch Created With 20 Cookies
+	And 8 Cookies Eaten and 12 remaining cookies
+	When Eat Cookies 15 cookies
+	Then 12 Cookies Eaten and 0 remaining cookies
+	And 3 Cookies were missing (no more cookies)
+~~~~~~~~
+
+## How does it work?
+
+This little framework is just a builder using [Method Chaining](https://en.wikipedia.org/wiki/Method_chaining) between its 3 methods Given(Event...), When(Command) and Then(Event...). Each method just stores the events and command passed as parameters. Calling the Then() method at the end runs the full test and prints its text scenario by calling the toString() method of each  event and command, prefixed by the keyword 'Given, When or Then'.
+
+The method 'scenario(title)' instantiates the Simple Test class the way you want it to print and log. This example is simple, and you can elaborate from that to meet other needs. For example, we may also use these tests to document the possible behaviors as living diagrams.
+
+## Living Diagrams from Event Sourcing scenarios
+
+In the example shown above the test checks the behavior and prints a description of the business behavior in plain text readable by anyone.
+
+There are several tests, each with different incoming events, commands and outcoming events. The union of all these tests represents the use-cases for the considered aggregate.
+
+Our Event Sourcing-based testing framework can collect all these inputs and outputs across the test suite in order to print a diagram of the incoming commands and the outcoming events.
+
+Each test collects commands and events. When the test suite has completed, it's time to print the diagram in the following fashion:
+
+~~~~~~~~
+add the aggregate as the central node of the diagram
+add each command as a node
+add each event as a node
+
+add a link from each command to the aggregate
+add a link from the aggregate to each command
+~~~~~~~~
+
+Once rendered with Graphviz in the browser, we get something like this:
+
+![The generated living diagram of commands, aggregate and events for the Cookies Inventory aggregate](images/command-event-diagram.png)
+
+It is up to you to find this kind of diagram useful or not, or to make your own based on this approach. This example illustrates how automated tests are also a source to mine for interesting knowledge that can then be turned into a living document like a living diagram.
+
+Note that the same content could also be rendered as a table:
+
+| Cookies Inventory Commands |
+|----------------------------|
+| BakeCookiesCommand         |
+| EatCookiesCommand          |
+
+| Cookies Inventory Events |
+|------------------------------|
+| BatchCreatedWithCookiesEvent |
+| CookiesEatenEvent            |
+| CookiesWereMissingEvent      |
