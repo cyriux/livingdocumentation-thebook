@@ -76,8 +76,6 @@ VisibleWorkings/IntrospectableWorkings.txt
 
 
 
-
-
 RefactorableDocumentation/Section------RefactorableDocumentation.txt
 RefactorableDocumentation/CollaborativeArtifactAsCode.txt
 RefactorableDocumentation/PlainTextArtifacts.txt
@@ -90,6 +88,7 @@ RefactorableDocumentation/TypeDrivenDocumentation.txt
 RefactorableDocumentation/ComposedMethod.txt
 RefactorableDocumentation/FluentStyle.txt
 RefactorableDocumentation/RefactoringGuidedByComments.txt
+RefactorableDocumentation/EventSourcingTests.txt
 
 
 
