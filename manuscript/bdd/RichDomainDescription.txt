@@ -1,0 +1,139 @@
+# Going further: Getting the best of your living documentation
+
+*Feature files describing business scenarios are a great place to gather rich domain knowledge in an efficient way.*
+
+Most tools to support team doing BDD understand the Gherkin syntax. They expect feature files following a fixed format:
+
+~~~~~~~~
+Feature: Name of the feature
+
+In order to... As a... I want...
+
+Scenario: name of the first scenario
+ Given...
+ When...
+ Then...
+
+Scenario: name of the second scenario
+ ...
+~~~~~~~~
+
+Over time, teams in rich domains like finance or insurance realized they needed more documentation than just the intent at the top and the concrete scenarios at the bottom. As a result, they started putting additional description of their business case in the middle area, ignored by the tools. Tools like Pickles which generate the living documentation out of the feature files adapted to this use and started to support Markdown formatting for what became called "the description area":
+
+
+~~~~~~~~
+Feature: Investment Present Value
+
+In order to calculate the breakeven point of the investment opportunity
+As an investment manager
+I want to calculate the present value of future cash amounts
+
+
+Description
+===========
+
+We need to find the present value *PV* of the given future cash amount *FV*. The formula for that can be expressed as:
+
+- Using the negative exponent notation:
+
+        PV = FV * (1 + i)^(-n)
+
+- Or in the equivalent form:
+
+        PV = FV * (1 / (1 + i)^n)
+
+Example
+-------
+
+         PV?                               FV = $100
+         |                |                |
+         ---------------------------------------> t (years)
+         0                1                2
+
+          For example, n = 2, i = 8%
+
+
+Scenario: Present Value of a single cash amount
+ Given a future cash amount of 100$ in 2 years
+ And an interest rate of 8%
+ When we calculate its present value
+ Then its present value is $85.73
+
+~~~~~~~~
+
+This will be rendered in the living documentation website as a pretty document:
+
+Feature: Investment Present Value
+
+In order to calculate the breakeven point of the investment opportunity
+As an investment manager
+I want to calculate the present value of future cash amounts
+
+
+Description
+===========
+
+We need to find the present value *PV* of the given future cash amount *FV*. The formula for that can be expressed as:
+
+- Using the negative exponent notation:
+
+        PV = FV * (1 + i)^(-n)
+
+- Or in the equivalent form:
+
+        PV = FV * (1 / (1 + i)^n)
+
+Example
+-------
+
+         PV?                               FV = $100
+         |                |                |
+         ---------------------------------------> t (years)
+         0                1                2
+
+          For example, n = 2, i = 8%
+
+
+Scenario: Present Value of a single cash amount
+---------
+
+         Given a future cash amount of 100$ in 2 years
+         And an interest rate of 8%
+         When we calculate its present value
+         Then its present value is $85.73
+
+## No guarantee of correctness
+
+This opens a lot of potential to gather every documentation in the same place, directly within the source control. Note that this kind of description is not really living, it is just co-located with the scenarios which; if we change the scenarios, we're just more likely to also update the description on top, but there is no guarantee.
+
+The best strategy would be to put knowledge that does not change very often in the description section, and to keep the volatile parts within the concrete scenarios. One way to do that is to clarify that the description uses example numbers, not the numbers necessarily used for the configuration of the business process at any point in time.
+
+Tools like [Pickle](http://www.picklesdoc.com/), [Relish](http://www.relishapp.com/) or [Tzatziki](https://github.com/Arnauld/tzatziki) now understand Markdown descriptions and even plain Markdown files located next to the feature files. This makes it easy to have an integrated and consistent approach for the domain documentation.
+
+## Manual glossary
+
+The idea glossary is a living one, extracted directly from your code. However in many cases this approach is not possible, but you'd still want a glossary.
+
+It's possible to do a glossary manually as a Markdown file and to co-locate it with the other feature files. This way it will be included in the living documentation website too. You could even do it as dummy empty *.feature* file.
+
+## Linking to non-functional knowledge
+
+Not all the knowledge shall be described in the same place. In particular we don't want to mix domain knowledge with UI-specific or legacy-specific knowledge. This knowledge is important and should be stored elsewhere. And when it's related to the domain language, then we should use links to represent the relationship and make it easy to find it.
+
+As described in this book, you can use different approaches to linking: you may link directly to an URL, with a risk of having a broken link whenever it changes.
+
+
+          https://en.wikipedia.org/wiki/Present_value
+
+
+You may go through a link registry that you maintain to manage links and to replace broken links with working ones.
+
+          go/search?q=present+value
+
+You may also use bookmarked searches to link to places that include the related content.
+
+
+          https://en.wikipedia.org/w/index.php?search=present+value
+
+
+This way you can have a resilient way to link to related content, at the expense of letting the reader select the most relevant results each time.

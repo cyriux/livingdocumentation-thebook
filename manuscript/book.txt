@@ -33,7 +33,8 @@ Introduction/Fun.txt
 
 
 LivingDocumentation/Section------LivingDocumentation.txt
-BDD/BDD.txt
+bdd/BDD.txt
+bdd/RichDomainDescription.txt
 
 Introduction/ArchitectureLandscape.txt
 
