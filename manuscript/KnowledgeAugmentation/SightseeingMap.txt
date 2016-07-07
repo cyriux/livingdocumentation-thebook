@@ -1,4 +1,4 @@
-# Guided Tour & Sightseeing Map
+# Guided Tour, Sightseeing Map
 
 
 *It is better to have a guide to quickly discover the best of a new place*
@@ -20,15 +20,56 @@ One important thing to realize is that all the tourism guidance in a city is hig
 
 But one important difference between a code base and a city is that a code base changes more frequently than most cities. As a result, the guidance must be done in a way that reduces the work to keep it up-to-date, for example using automation.
 
-**Therefore: Provide curated guides of the code base, each with a big theme. Augment the code to be visited with extra metadata about the guided tour, and setup an automated mechanism to publish an updated guide frequently from these metadata.**
+**Therefore: Provide curated guides of the code base, each with a big theme. Augment the code to be visited with extra metadata about the guided tour or the Sightseeing Lao, and setup an automated mechanism to publish an updated guide frequently from these metadata.**
 
 If the code base does not change much, a guided tour or a sightseeing map can be as simple as a bookmark with a list of the selected places of interest, and for each of them a short description and a link to its location in the code. If the code is on a platform like Github, it is easy to link to any line of code directly. This bookmark can be done in HTML, markdown, JSON, a dedicated bookmark format or any other form you like.
 
-If the code base changes frequently or may change frequently, a manually done bookmark will require too much work updating the bookmarks all the time, so you can do dynamic curation instead: place tags on the selected locations in the code, with the metadata necessary to reconstruct the guided tour by scanning the code base.
+If the code base changes frequently or may change frequently, a manually done bookmark will require too much work updating the bookmarks all the time, so you can do dynamic curation instead: place tags on the selected locations in the code, and rely on the search features of the IDE to instantly display the bookmarks. If needed you can add metadata to the tags that will enable to reconstruct the guided tour simply by scanning the code base.
 
-## An Integrated Guided Tour
+A sightseeing map or a guided tour based on tags in the code illustrate the approach of Augmented Code.
 
-The idea is to enrich the code base with extra hints for the guided tour, as in Augmented Code, for example using or perhaps re-using, annotations:
+## A sightseeing map
+
+It's very easy to get started with this approach. Just create your custom annotation or attribute, and put it on the few most important places that you want to emphasize.
+
+The most difficult decision here is to name the annotation or attribute. Here are some suggestions:
+
+- KeyLandmark
+- MustSee
+- SightSeeingSite
+- CoreConcept
+- CoreProcess
+- PlaceOfInterest
+- TopAttraction
+- PointOfInterest, or POI
+- Monument
+- VIP
+- KeyAlgorithm
+
+### An example in C#
+
+~~~~~~~~
+public class CoreConceptAttribute: Attribute
+{
+}
+~~~~~~~~
+
+You can now immediately use it to tag your code:
+
+~~~~~~~~
+public class Foo
+{
+  [CoreConcept("The main steps of enriching the Customer Purchase from the initial order to a ready-to-confirm purchase")]
+  public void Enrich(CustomerPurchase cp)
+  {
+    //... interesting stuff here
+  }
+}
+~~~~~~~~
+
+## An example in Java
+
+As usual, Java and C# are very similar:
 
 ~~~~~~~~
 @PointOfInterest("Key calculation")
@@ -44,7 +85,7 @@ public SupplyChainAllocation optimize(Inventory ...){
   ...
 ~~~~~~~~
 
-The wording is up to you: "point of interest", "attraction", "landmark", "sightseeing site", "itinerary" or "guided tour"... You can use one generic annotation with a generic name like "PointOfInterest", and add a parameter "Key calculation" to precise what it is about.
+The wording is up to you, and you can use one generic annotation with a generic name like "PointOfInterest", and add a parameter "Key calculation" to precise what it is about.
 
 Alternatively you can decide to create one annotation for each kind of point of interest:
 
@@ -54,6 +95,7 @@ private double pricing(ExoticDerivative ...){
   ...
 ~~~~~~~~
 
+## A Guided Tour Example
 
 In the example below, the idea was to take a newcomer by the hand along the complete chain of processing of an incoming transaction, from the event listener on a message queue down to storing the out-coming report to the database. Note that even though strictly separates the domain logic and the infrastructure logic, this guided tour spans both business logic elements with elements of the underlying infrastructure, in order to give a complete picture of a complete execution path.
 
@@ -172,4 +214,4 @@ That said, the devil is in the details, and this kind of code can quickly grow h
 
 This approach is totally reminiscent of Literate Programming, but in reverse. Instead of having *Prose with Code*, we have *Code with Prose*. For a sightseeing map you only have to select the points of interest, and perhaps group them by big themes. For a guided tour, you need to devise a linear ordering of the code elements, just like in Literate Programming where you tell a linear story which progresses through code to end up with a document explaining the reasoning and the corresponding software at the same time.
 
-Of course this is not just a documentation concern, but also a way to encourage continuous reflection on your own work as you do it. In this perspective, it would be a good idea to document a guided tour as soon as you are building the  very initial walking skeleton of the application. This way, you will benefit from thoughtful effect of doing the documentation at the same time of doing the work. See also SMALL-SCALE MODEL for similar ideas. 
+Of course this is not just a documentation concern, but also a way to encourage continuous reflection on your own work as you do it. In this perspective, it would be a good idea to document a guided tour as soon as you are building the  very initial walking skeleton of the application. This way, you will benefit from thoughtful effect of doing the documentation at the same time of doing the work. See also SMALL-SCALE MODEL for similar ideas.

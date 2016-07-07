@@ -68,11 +68,16 @@ We can make the link more robust but using a bookmarked search instead of the di
 Using the [Github advanced search](https://help.github.com/articles/searching-code/), you would create the following search:
 
 ~~~~~~~~
-ScenarioOutline // search for this term
-in:path // search term must appear in the path name
-extension:Java // the file extension must be Java
-repo:Arnauld/tzatziki // only search in this one repo
+ScenarioOutline in:path extension:Java repo:Arnauld/tzatziki
 ~~~~~~~~
+
+Where each options is useful to have a more relevant search:
+
+- ScenarioOutline // search for this term
+- in:path // search term must appear in the path name
+- extension:Java // the file extension must be Java
+- repo:Arnauld/tzatziki // only search in this one repo
+
 
 The result page of this search will show more than one result, but the one we're looking for is easy to grab in the list (here it is the second result in the list):
 
@@ -107,4 +112,4 @@ public void checkLinks() {
 }
 ~~~~~~~~
 
-Whenever we refactor, the check against the hardcoded literal would fail to signal we need to make a fix. 
+Whenever we refactor, the check against the hardcoded literal would fail to signal we need to make a fix.
