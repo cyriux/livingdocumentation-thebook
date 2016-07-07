@@ -2,6 +2,20 @@
 
 %% @Tough
 
+%% TODO move to another place
+
+## What's worth documenting?
+
+How do you do when discovering a new project?
+
+I like to start by browsing the dependency (e.g. Maven) manifest to have a quick look at the technologies involved, from the middleware to the testing libraries. Just from that nomenclature of dependencies I already have a rough big picture of the project in a few minutes.
+
+I quickly browse the modules and their packages, and try to recognize a regularity I know, like a consistent naming scheme, the way elements are grouped into folders, and design / architecture clues suggested by the names. I look for tests I could run right now to see the things in action. I look at the annotations as another cross-cutting axis of navigation: if I'm on a class annotated with an annotation, I can quickly find every other places this annotation where it is used too.
+
+When reading a piece of code, I would frequently check the full qualified name of a variable to check if it's from another package, to infer the level of dependency discipline like strict layering.
+
+
+-------
 End user documentation, like what technical writers do. Read the Doc etc.
 
 ------
