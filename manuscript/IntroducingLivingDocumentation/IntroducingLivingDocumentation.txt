@@ -1,0 +1,72 @@
+# Introducing Living Documentation
+
+It starts with someone willing to improve the current state of affairs in either the documentation or the way software is done. Since you are reading this book you are probably this person. You may want to start Living Documentation because you're afraid to lose knowledge, or because you'd like to go faster with the relevant knowledge more readily available. You may also want to start it as a pretext to show flaws in the way the team is making software, e.g. in the lack of deliberate design, and you expect the documentation to make it visible and obvious to everyone.
+
+The hardest step is to find out a compelling case of missing knowledge. Once you have a demonstrated case, and provided you can solve it with one of the Living Documentation approach, then you're on the right track.
+
+
+## Undercover Experiments
+
+If you feel alone in your interest for Living Documentation, you may want to start gentle, at your own pace, without making a lot of noise about it and most importantly, without asking for authorization. The idea is that documenting, whatever the way it is done, is part of the natural work of a professional developer.
+
+**Introduce nuggets of Living Documentation naturally as part of the daily work. Start annotating your design decisions, intents and rationales at the time you're making them. When there is some slack time or a genuine need for documentation, turn the allotted time to create simple documentation automation like a simple living diagram or a basic glossary. Keep it simple enough to have it work in a few hours or less. Don't talk about it as a revolution, but just as a natural way to do things efficiently. Emphasize the benefits, not the theory from this book.**
+
+Of course, when people become more interested in the approach, you can talk about "Living Documentation as a topic", and direct them to the book.
+
+## Official Ambition
+
+Another way to introduce Living Documentation is through an official ambition.
+
+Going the official route usually starts from management, or at least requires that the management is a sponsor. Documentation is often a source of frustration and anxiety for the managers, therefore this topic is often promoted even more by managers than by the development team itself.
+
+Having a sponsor is good news: you have dedicated time and perhaps even a team to implement. The counterpart is that as an official ambition, it will be highly visible, closely monitored, and there will be pressure to deliver something visible quickly. This pressure may endanger the initiative by forcing success. But Living Documentation is a discovery journey, there's an experimental side to it and there is no clear path to success in your own context. You'll have to try things, decide that some are not applicable, adjust other to your own cases. This is better done without excessive scrutiny by higher-ups.
+
+This is why I'd recommend to start with Undercover Experiments, and only promote the topic as an Official Ambition after you've found the sweet spots of Living Documentation in your environment.
+
+## New Things Are difficult for two reasons: they have to work, and they have to be accepted.
+
+A typical path I advice is to start with creating appetite, then try for quick opportunities to show benefits, and then to grow from there.
+
+1. Start by creating awareness in the larger audience. A great way to do that is through a all-audience talk, informative and entertaining. The point is not to explain how to do things, but to show how life could be better in contrast to the current state of affairs. [Nancy Duarte's book Resonate](http://www.duarte.com/book/resonate) is full of advices on how to that well. Listen to the feedback at the end of the session and a few days later to decide whether the appetite is there to go further. Otherwise, you may want try again some weeks or months later, or you may decide to go undercover first.
+
+1. Spend some time with the team or an influencer team member to identify what knowledge would most deserve to be documented. From that propose quick wins to try as short items in the backlog, or as part of time dedicated for improvements. Retrospectives are also a good time to consider Living Documentation issues and propose actions. It is important to focus on real needs that many people find important.
+
+1. Build something useful in a short period of time, and demo it like any other task. Collect feedback, improve, and collectively decide of whether to expand now or later, if needed.
+
+## Starting gentle
+
+As a consultant I regularly sit with teams in companies of all sizes. When they ask to create more documentation, I tend to suggest the below stone steps.
+
+First of all, I remind that interactive and face to face knowledge transfer must be the primary mean of documentation, before anything else.
+
+This said, we can then consider techniques to record the key bits of knowledge that have to be known by everyone, that every newcomer has to learn, and that matter in the long run.
+
+At this point they say "Let's write that stuff in our Wiki". Which is fine, as long as we understand that a Wiki is a nice place for Evergreen Documents, for knowledge that does not change often. For everything else, we can do better.
+
+Where to start? I like to mention various ideas very quickly to scan the interest of the team members. For example I would mention briefly each of the following:
+
+- Adding a simple README describing what the project is about
+- Adding a simple Decision Log as a Markdown file in the base directory of the project, with a recap of the 3-5 main architectural and design decisions since its inception
+- Tagging the code with a custom annotation or attribute to highlight the Key Landmarks or the Core Concepts. Combined with the search by reference in the IDE this becomes a simple yet effective way to provide a sightseeing map of the code base.
+- On a similar note, tagging the code with Guided Tour annotation or attribute to provide a simple way to follow a request or a processing end-to-end across the various fragments of code, across the various layers or modules, in a linear fashion. Again this relies on the search by reference in the IDE.
+- Turn the most important Napkin Sketch into an ASCII diagram in the Decision Log file.
+
+This list deliberately contains only stuff that can be done and committed within a short period of time. For example we've been able to add and commit a decision log with 5 past key decisions, marking three Key Landmarks plus a Guided Tour with 5 steps within 2 hours. This includes the creation of the two custom attributes for the Key Landmarks and the Guided Tour respectively, checking the search in the IDE worked well and checking the Markdown rendering was fine in TFS.
+
+The goal so far is more to create awareness and interest by reaching attractive results quickly. The goal is to hear "Wow, I really like that approach, I'm hooked now!" after doing that.
+
+Another goal is that just by going through these simple steps, the team members can already experience the "Beyond Documentation effect": "Ouch, I now realize how sloppy and half-finished our structure is." That's a lot of goodness for 2 hours!
+
+Given genuine interest from the team and some available time, we can go further and try Word Clouds, Living Glossary or Living Diagrams.
+
+
+## Going big and visible
+
+After a gentle start, you may want to go for bigger ambitions. I'm not saying it is always a bad idea, but it may be dangerous for several reasons:
+
+- Visible ambitions usually need to exhibit symbolic progress shown by a quantity of outcomes or even KPI's. But does it mean anything "to be 40% Living Documentation"? Doing living documentation for the sake of it will eventually discredit the approach.
+- The benefits can be deferred after months, which can make it hard to show the return on investment if measured over 3 months.
+- As mentioned before, it may take various adjustments when applying the techniques from this book in your particular context; these adjustments may be perceived as failures in the meantime.
+- What's useful for the team may not be what the management expected. If that's the case, put yourself in the management shoes: what would make you happy with respect to documentation? If you can make previously hidden knowledge accessible to non developers, it may be a good thing for everyone. The managers will be able to judge something by themselves, based on objective facts extracted from the code base. And when you setup the Living Diagram or whatever other mechanism you have an opportunity to do the curation and the presentation in a way that promotes your agenda, for example to encourage a good thing or to warn against a bad one.
+
+In any case, remember that documentation, living or not, is not an end to itself but just a mean to accelerate delivery. This acceleration of delivery can be direct, when decisions are taken faster thanks to the knowledge readily available through the living documentation. It can also be indirect, when creating the documentation raises awareness on everything sloppy in the system,  in the thinking or in the communication between the stakeholders. By fixing the root cause you improve the whole system, which in turn will accelerate delivery.

@@ -6,7 +6,7 @@ The first, and my preferred, answer is that it is up to the team to select the w
 
 If your company and managers are proud to be "really agile" and to "empower their teams", then they should trust the team, and you should not need any formal approval to try Living Documentation or any of the related recommended practices, even the most radical ones like pair-programming or mob-programming. Of course this autonomy comes with the full responsibility for the actual results.
 
-That said, it may be the case that putting in place a living glossary or a living diagram for the first time requires from half a day to two days of work. This may be toe long to do the effort without having it in a formal backlog, in which case you need to convince someone.
+That said, it may be the case that putting in place a living glossary or a living diagram for the first time requires from half a day to two days of work. This may be too long to do the effort without having it in a formal backlog, in which case you need to convince someone.
 
 If there is a documentation budget or documentation tasks planned already, you may also want to reuse that time to invest on living documentation instead. This again may again require an approval.
 
@@ -14,7 +14,11 @@ If there is a documentation budget or documentation tasks planned already, you m
 
 As usual when introducing new approaches, don't preach. Instead, show the benefits, and the best way to do that is on a real problem, when it is time to tackle it.
 
-Make sure to have everyone acknowledge that there is a problem first. Then propose a solution, inspired from this book. You don't have to use the term "Living Documentation", you can just mention that this approach has already been done in other companies, in large-ish rigid corporations, and in small early startups too, which is true just with my own past experience.
+To find out a real knowledge problem, you may ask around you "Is there anything you would not feel comfortable working on alone?", or "Is there anything that is not clear to you?". You may not ask anything but just pay attention to the questions asked during the day, the week or the iteration. Some will hint at candidates for documentation.
+
+One efficient way to know what's important is to carefully take notes of everything you mention or explain to each newcomer, during the on-boarding period. If you ask the new joiners for an astonishment report, it will also contain candidates for stuff that either should be fixed, or that should be documented because they are surprising.
+
+Once you identified a knowledge sharing issue, make sure that everyone acknowledges it is a genuine documentation problem worth tackling. Then propose a solution, inspired from this book. You don't have to use the term "Living Documentation", you can just mention that this approach has already been done in other companies, in large-ish corporations, and in small early startups too.
 
 You may also start with something small, done on your own time, that you can show to the managers you want to convince. It may be a report, or a diagram, or a mix of a documentation plus some indicators managers are particularly interested in. Emphasize how you can save time and improve the satisfaction thanks to the approach.
 

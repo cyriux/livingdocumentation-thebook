@@ -132,8 +132,10 @@ BeyondDocumentation/HygienicTransparency.txt
 
 
 IntroducingLivingDocumentation/Section------IntroducingLivingDocumentation.txt
-IntroducingLivingDocumentation/DocumentationCompliance.txt
+IntroducingLivingDocumentation/IntroducingLivingDocumentation.txt
 IntroducingLivingDocumentation/SellingLivingDocumentation.txt
+IntroducingLivingDocumentation/DocumentationCompliance.txt
+
 
 IntroducingLivingDocumentation/DocumentationInLegacy.txt
 
