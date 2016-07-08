@@ -34,9 +34,29 @@ Therefore: **In the context a rewriting a part of a legacy system, consider the 
 
 The ideal configuration is a Whole Team, with all skills and roles inside the team, as described earlier when talking about the 3 Amigos: business perspective, development perspective and quality perspective.
 
-Having access to both the working legacy application and to its source code is a nice bonus compared to projects starting purely from scratch. It's like having another expert in the team, even if it is an old, sometimes irrelevant, expert. After all, the legacy system is the result of a patchwork of the decisions of many different people over a long period of time. It's a fossil.
+Having access to both the working legacy application and its source code is a nice bonus compared to projects starting purely from scratch. It's like having another expert in the team, even if it is an old, sometimes irrelevant, expert. After all, the legacy system is the result of a patchwork of the decisions of many different people over a long period of time. It's a fossil.
 
 The perfect case is when the legacy system is instrumented, in which case it can also provide answers to the question "how often is this feature used?".
+
+
+
+## Archeology
+
+> Software source code is one of the most densely packed forms of communication we have. But, it is still a form of human communication. Refactoring gives us a very powerful tool for improving our understanding of what someone else has written
+> -- Chet Hendrickson, Software Archeology: Understanding Large Systems
+
+
+When you ask questions to a legacy code base, you need a piece of paper and a pen close to your keyboard at all times to take notes and draw.
+
+This is where you create an on-demand map of the terrain for the task at hand. While exploring the code and playing with it at runtime or with the debugger, you write down the inputs, outputs and more generally all the effects you discover. You take note of what's read or written since the side-effects are what matter ultimately. It will also be essential for mocking or estimating the impacts of a change. You sketch how each responsibility depends on its neighbors, a technique Michael Feathers calls "Effect Map" in his book *Working Effectively with Legacy Code*.
+
+
+It's important to keep the process low-tech so that it does not distract from the task itself. This documentation work is dedicated for the specific task, therefore there is no need to make it clean and formal right now. However when you're done with the task, you may review the notes and sketches and select the one or two key bits of information that are general enough and that would help for many tasks. They can be promoted into a clean diagram, an additional section or an addition within an existing document. Grow your documentation by a decantation.
+
+Of course you may find questions that the code does not answer. Perhaps the code itself is obscure or surprising. So you need help, ideally from your colleagues nearby, in which case human communication comes back in the picture. The legacy system is not just code, there are documents of all ages, slides, old blog posts, pages on the Wiki, and of course they are all wrong to some extent now.
+
+A legacy environment also include people who were there at the beginning. The old developers may have moved to other positions now but they may answer questions, especially about the context that led to the decisions years ago.
+
 
 ## Bubble Context (Evans)
 
@@ -49,8 +69,7 @@ If you have some amount of features to build, then you may decide to build the n
 As a Bubble Context is a project from scratch inside of a legacy project, it is also the perfect place to practice TDD, BDD and DDD on a limited functional area, to deliver a bulk of related business value.
 
 
-
-Therefore: **If you need to make a lot of changes on a legacy system, consider creating a Bubble Context. In this particular Bubble Context, it will be easy to invest in knowledge following a Living Documentation approach. Conversely, if you really need full documentation of a part of a legacy application, consider rewriting this part as a Bubble Context, using the state-of-the-art practices for the tests, the code and the documentation.**
+Therefore: **If you need to make a lot of changes on a legacy system, consider creating a Bubble Context. A Bubble Context defines boundaries within the rest the of the system. Within these boundaries, you can rewrite in a different way, for example driven by tests. In this Bubble Context, you can invest in knowledge by following a Living Documentation approach. Conversely, if you really need full documentation of a part of a legacy application, consider rewriting this part as a Bubble Context, using the state-of-the-art practices for the tests, the code and the documentation.**
 
 It is a good idea to start with high expectations for the code inside the Bubble Context. Its architecture and guidelines should be enforced using automated tools, as a set of Enforced Guidelines. For example you may want to forbid any new commit from having direct references (java import or C# using) on a deprecated component. You may require and enforce a test coverage higher than 90%, no major violation, a maximum code complexity of 2, and a maximum of 5 parameters by method.
 
@@ -87,11 +106,23 @@ With legacy code you usually start with lots of effort to make it testable. Thes
 
 For that purpose you read code, you interview older developers, you fix bugs to better understand the behavior. At the same time you use your brain to make sense of what you see. The result is a structure in your head that you *project* over the existing application. Since the existing application does not show this structure, it is up to you to superimpose a new clear structure onto the existing application.
 
-Therefore: **In the context of creating a Bubble Context, adding a feature or fixing a difficult bug in a legacy system, create your own mental model of the legacy system. This model does not have to visible at all in the legacy code, instead it is meant to be the most convenient model to perform your task. Then superimpose this model to the legacy code, and clarify how this model and the actual legacy code meet.**
+Therefore: **In the context of creating a Bubble Context, adding a feature or fixing a difficult bug in a legacy system, create your own mental model of the legacy system. This model does not have to visible at all when reading the legacy code. Instead this new structure of the old system is a projected vision, an invention. Document this vision using whatever form of documentation, so that it becomes part of your language for future discussions and decisions.**
 
-The funny thing here is that the documentation will emerge from thin air, and not directly from the system as built. It will often be the documentation of the system *as it should have been built*, in retrospect, now that we know better.
+This new structure is an hallucination, a vision, that is not directly extracted from the system as it is currently built. You may see it as the description of the system *as it should have been built* as opposed to the "how it is built", in retrospect, now that we know better.
 
-You can create a superimposed structure as a plain sketch that you show to everyone involved. You can invest in making it a proper slidedeck to present to every stakeholder during a roadshow. You can also decide to make it visible within the code itself to make it more obvious and to pave the way towards further transformations.
+
+You can show the new model as a superimposed structure on top of the legacy as a plain sketch that you show to everyone involved.
+
+
+%%TODO add pictures
+
+
+It is desirable to show how this new structure relates to the current state, but this can be too hard to achieve as soon as you want some details, given that the current system may have a totally different structure.
+
+
+%%TODO add pictures
+
+You can invest time in making it a proper slidedeck to present to every stakeholder during a roadshow. You can also decide to make it visible within the code itself to make it more obvious and to pave the way towards further transformations.
 
 Some examples of mental models superimposed on top of legacy systems are:
 
@@ -99,19 +130,21 @@ Some examples of mental models superimposed on top of legacy systems are:
 
 - **Main Business Assets**, as in "Asset Capture" (Fowler): this perspective simply focuses on the 2 or 3 main assets of the business domain, like the Customer and the Product in the case of an e-commerce system. Each asset can be seen as a dimension which can be itself split into segments, like customer segments and product segments.
 
-- **Domains and sub-domains**, i.e by Bounded Contexts (Evans). This perspective requires some maturity on both DDD and the overall business domain, but it also has the most benefits, especially in addition to the other views.
+- **Domains and sub-domains**, or by Bounded Contexts (Evans). This perspective requires some maturity on both DDD and the overall business domain, but it also has the most benefits, especially in addition to the other views.
 
-- A mix of these views, for example 3 dimensions: customer, product, and processing stage, each segmented in stages, customer segment and product segments.
+- **Levels of Responsibility: Operational, Tactical, and Strategic Levels**, from the business perspective. Eric Evans mentions that as well in his DDD book.
+
+- A mix of these views, for example 3 dimensions: customer, product, and processing stage, each segmented in stages, customer segment and product segments. You can also mix a business pipeline from left-to-right and the Operational, Tactical, and Strategic Levels bottom-up.
 
 Whatever the superimposed structure, once you have it it becomes simpler to talk about the system. You can propose to "rewrite everything about the payment stage, starting with products that can be downloaded as a first phase". You can decide to "rewrite the catalog part only for B2B customers". Communication becomes more efficient.
 
-However it is up to every member of the team to interpret these sentences the way they see it. It would be useful to make this superimposed structure more visible.
+However it is up to every member of the team to interpret these sentences the way they see it. It is useful to make this superimposed structure more visible.
 
 ## Highlighted Structure
 
 *Making a superimposed structure visible in relation with the existing source code*
 
-The superimposed structure can be linked to the existing code. If you're lucky, the mapping between the superimposed structure and the existing structure of the code is just a large number of messy one-to-one relationships.
+The superimposed structure can be linked to the existing code. If you're lucky, the mapping between the superimposed structure and the existing structure of the code is just a large number of messy one-to-one relationships. If you're not lucky, this can just be an impossible task.
 
 ![Example of mapping between a technical structure and a business-driven structure](images/legacy/legacy_modules_mapping.jpg)
 
@@ -137,7 +170,7 @@ module Billing
 - ShippingCost @Service
 ~~~~~~~~
 
-The end purpose of a superimposed structure should be to become the primary structure of the system, i.e. no longer "superimposed". Unfortunately in many cases this will never happen since the effort will not reach the "end state". This should not stop you from following this approach since the approach will help deliver precious business value in the meantime.
+The end purpose of a superimposed structure should be to become the primary structure of the system, i.e. no longer "superimposed". Unfortunately in many cases this will never happen since the effort will not reach the "end state". This should not stop you from following this approach since the approach will help deliver precious business value in the meantime. Even if the legacy code is badly structured, as long as you reason about it using a better structure you already get the benefits of better decisions.
 
 ## External Annotations
 

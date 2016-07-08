@@ -1,0 +1,32 @@
+LD - Documenting Legacy
+
+
+
+----------
+
+@KevlinHenney: The universe is made of information, but it doesn't have meaning — meaning is our creation. Searches for meaning are ∴ searches in a mirror.
+
+== lack of structure ==
+The biggest issue in legacy code is the big gap between the structure we would expect, clear and relatively simple, and the actual state of the code as a big confused mess.
+
+(Example: football team
+Code randomly mixes sorting of players by name
+Your mental expectation is to sort them by role or scoring)
+
+Example: code modules by DAO, DTO, Controller... Vs. Billing, Recommendation, Shopping Cart, Catalog.
+
+The mapping between both structures is just a set of a huge number of arbitrary one-to-one relationship.
+
+You can add intrinsic information where they belong: this DTO is part of the billing, this one is part of the Catalog, etc.
+
+This will help prepare the next step: move the classes that deal with Billing into the same Billing module. But even if you don't, your code now has an explicit structure by business domain.
+
+== When you have to do it the soft way ==
+
+It is hard to touch and commit large code bases just to add extra annotations. You don't want to risk introduce random regressions. You don't want to touch commit history. It may be so hard to build that you don't want to build it unless absolutely necessary. Or your boss may refuse you change the code at all "just for documentation".
+
+If it is possible then that's the best way, according to the intrinsic principle.
+
+Otherwise we can do a proof of concept at smaller scale using external annotations combined with parsing the actual source.
+
+--

@@ -16,16 +16,16 @@ It is much more than the question of automation or traceability - it is a mindse
 
 ITIL recommends using - adopting - the best practices, as they suit the organization and its needs.
 
-Often people believe that rapid deployment / continuous deployment / daily builds etc. can't work in a an environment that is highly process oriented, where rules and process have to be followed. (Usually they just don't like someone else's rules.)
+    Often people believe that rapid deployment / continuous deployment / daily builds etc. can't work in a an environment that is highly process oriented, where rules and process have to be followed. (Usually they just don't like someone else's rules.)
 
-Well, the process is there to ensure consistency, responsibility, accountability, communication, traceability, etc. and of course it CAN be designed to be a hinderance. It. alternatively, CAN be designed to allow quick passage of releases. People blaming process or ITIL are just being immature. They may as well blame the weather.
+    Well, the process is there to ensure consistency, responsibility, accountability, communication, traceability, etc. and of course it CAN be designed to be a hinderance. It. alternatively, CAN be designed to allow quick passage of releases. People blaming process or ITIL are just being immature. They may as well blame the weather.
 
 ITIL vs. DevOps vs. Agile vs. Cloud vs. Automation vs. chaos vs. …
 
 http://ppenny.varrowblogs.com/?p=199
 
-As Paul Penny [says](http://ppenny.varrowblogs.com/?p=199): "ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business".
+      As Paul Penny [says](http://ppenny.varrowblogs.com/?p=199): "ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business".
 
-Because, contrary to the horribly poor implementations many folks have experienced, ITIL is NOT all about being slow and inflexible. ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business. Last time I checked, this is still something that is expected from IT.
+      Because, contrary to the horribly poor implementations many folks have experienced, ITIL is NOT all about being slow and inflexible. ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business. Last time I checked, this is still something that is expected from IT.
 
 The art is in applying these principles, along with available tools and other enabling processes and methodologies, to attain an appropriate balance of speed, cost, and risk mitigation for each service, and for each unique organization

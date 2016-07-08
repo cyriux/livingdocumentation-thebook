@@ -1,7 +1,18 @@
-DocumentationMigration_BRIEF
-# Documentation Migration
+# Migration from an existing documentation
 
-Migration of existing documentation? Gilles: Strangle your specs/documentation! Deprecate / remove + redirect, perhaps with a one-off migration from Word to Markdown so that further maintenance and strangling can be done with just plain test in source control.
+## Strangle your specs/documentation!
+
+Gilles Philippart (@gphilippart)
+
+Deprecate / remove + redirect, perhaps with a one-off migration from Word to Markdown so that further maintenance and strangling can be done with just plain test in source control.
 
 
 ## Semantics from the use / proximity with other concepts (Mathieu Pauly)
+
+
+
+## Marginal documentation
+
+Focus on the new increments that can live in their own clean bubble context.
+
+Just like architecture and guidelines, the legacy strategy may also be enforced using automated tools. For example you may want to forbid any new commit from having direct references (java import or C# using) on a deprecated component.

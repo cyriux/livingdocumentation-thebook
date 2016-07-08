@@ -70,3 +70,23 @@ After a gentle start, you may want to go for bigger ambitions. I'm not saying it
 - What's useful for the team may not be what the management expected. If that's the case, put yourself in the management shoes: what would make you happy with respect to documentation? If you can make previously hidden knowledge accessible to non developers, it may be a good thing for everyone. The managers will be able to judge something by themselves, based on objective facts extracted from the code base. And when you setup the Living Diagram or whatever other mechanism you have an opportunity to do the curation and the presentation in a way that promotes your agenda, for example to encourage a good thing or to warn against a bad one.
 
 In any case, remember that documentation, living or not, is not an end to itself but just a mean to accelerate delivery. This acceleration of delivery can be direct, when decisions are taken faster thanks to the knowledge readily available through the living documentation. It can also be indirect, when creating the documentation raises awareness on everything sloppy in the system,  in the thinking or in the communication between the stakeholders. By fixing the root cause you improve the whole system, which in turn will accelerate delivery.
+
+
+## Common objections
+
+It's not because you'd like to start doing living documentation that everyone around agrees. Perhaps they don't have the need, or they don't see the benefits.
+
+### "We do it already"
+
+That's a standard objection to anything. To some extent everything looks like everything.  "At the end it's the same thing".
+
+Yes, you certainly do the practices in this book to some extent, but is that really a living documentation approach? The keyword here is *deliberate*. If you happen to do some of that by chance then it's fine, but it will be even better when done deliberately. It's up to your team to decide where to put the cursor and what's your documentation strategy. Such a strategy has to be emergent and deliberate. It must fit your particular context and be accepted by everyone involved.
+
+Your documentation strategy will mix practices you already do, push some of them further, and introduce new practices that sound promising. And you will adjust all that over time to get the most benefits with the minimum of efforts.
+
+"We have all the knowledge that we need"
+
+> If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better
+> Mark Seeman (@ploeh) on Twitter
+
+Perhaps you do have all the knowledge because you were there before the rest of the team, are you sure everyone else feels so comfortable?

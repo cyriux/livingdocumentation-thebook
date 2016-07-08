@@ -1,0 +1,7 @@
+# Skills Matrix (automated from source control? Declarative?)
+
+From [Jim Heidema](http://www.agileadvice.com/2013/06/18/agilemanagement/leaving-your-title-at-the-scrum-team-room-door-and-pick-up-new-skills/)
+
+This is a chart that can be posted in the room to identify the skills needed and the people on the team. On the left column you list all the team members.  Along the top you list all the various skills you need on the team.  Then each person reviews their row, looking at each skill, and then identifies how many quadrants of each circle they can fill in, based on the range below the chart.  The range is from no skills through to teach all skills in a given column.  After filling the columns and rows, now the work begins. 
+
+By using pair programming (an extreme programming method) and other methods like self-study and taking additional courses, the team member can begin to learn other skills. The objective is to have at least two persons on each team who possess each of the skills at the level of performing all the tasks of a specific skill. The goal is not to have every one do everything but to have a least enough people with specific skills to cover sicknesses and vacations so that required tasks are performed.  This is a method to capture the full extend of each person's current knowledge, skills and abilities and expand on it.

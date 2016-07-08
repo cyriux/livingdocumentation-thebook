@@ -1,0 +1,15 @@
+## Pattern-Oriented Living Diagram
+
+%%TODO re-write, from the blog
+
+### The challenges with automated generation of design documentation
+
+Producing a documentation of the design of a software project manually requires a lot of work, and becomes obsolete very quickly after the next change or refactoring. Manually drawing meaningful UML diagrams is very time consuming, and even choosing what to display takes a lot of time.
+
+Domain-Driven Design states that the code is itself the model, but code lacks the ability to clearly express larger-than-class structures and collaborations. This is why some additional, carefully selected, design documentation makes sense.
+
+### Generating design documentation
+
+One idea that we want to explore is the use patterns to help with the process of generating a design documentation. Patterns naturally lie "on top" of the language elements. They address a particular problem within a context, discuss a solution and have a clear intent. They involve a collaboration of several elements from the language, such as a collaboration of several classes or just relations between fields and methods within a class. Each pattern is a chunk of design knowledge. When comes the time to automate the description of the design, it sounds natural to chunk the automation process by pattern as well.
+
+Our experiment is to declare the patterns used in the code (using annotations), then let a tool derive from them a macro structure of the software design. Display instructions and hints are encoded as procedures and attached to each pattern definition. From the patterns declared in the code, the tool can then generate a design documentation informed by the knowledge chunked pattern by pattern.
