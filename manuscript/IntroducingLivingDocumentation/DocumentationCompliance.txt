@@ -32,7 +32,14 @@ Paul Reeves says in a great article [Agile Vs. ITIL](http://reevesresults.blogsp
 >
 > Well, the process is there to ensure consistency, responsibility, accountability, communication, traceability, etc. and of course it CAN be designed to be a hinderance. It, alternatively, CAN be designed to allow quick passage of releases. People blaming process or ITIL are just being immature. They may as well blame the weather.
 
-Recent experiences from applying the ideas of Continuous Delivery have shown indeed that it is possible to map from a lightweight, agile, low-cycle-time process inside of the development team to a more traditional, usually slower and paper-intensive process outside. In contrast to common beliefs, your agile process is probably more disciplined than the other project managed in an ITIL-by-the-book fashion: It's hard to beat a process where automation can produce extensive functional documentation, extensive test results and coverage, security and accessibility checks, design diagrams, and release notes with links to the requested features in a tool and archived emails for the release decision, on each build, several times a day!
+[Paul Penny](http://ppenny.varrowblogs.com/?p=199) also makes it clear that
+
+> ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business.
+>
+> Because, contrary to the horribly poor implementations many folks have experienced, ITIL is NOT all about being slow and inflexible. ITIL is about defining, designing, delivering, measuring, and improving services that add value to the business. Last time I checked, this is still something that is expected from IT.
+
+
+Our experience from applying the ideas of Continuous Delivery have shown indeed that it is possible to map from a lightweight, agile, low-cycle-time process inside of the development team to a more traditional, usually slower and paper-intensive process outside. In contrast to common beliefs, your agile process is probably more disciplined than the other project managed in an ITIL-by-the-book fashion: It's hard to beat a process where automation can produce extensive functional documentation, extensive test results and coverage, security and accessibility checks, design diagrams, and release notes with links to the requested features in a tool and archived emails for the release decision, on each build, several times a day!
 
 When strict procedures are important, automation and enforced guidelines are the best way to make sure they are respected, while reducing the burden of manually applying them. Procedures are great for machines, not for people. The right tooling protects the development team and removes the manual chores at the same time. However, and it may seem like a paradox, good tooling still draws attention to the quality expectations by making very visible whenever they are not met. With this protective harness, every team member is learning the quality expectations on the job, while having the satisfaction of always doing a  productive work.
 
