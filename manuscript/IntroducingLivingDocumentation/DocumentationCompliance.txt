@@ -61,3 +61,5 @@ Note that agile practices promote slicing the work as shortly as possible. This 
 | Approval | Decision, names of the decision makers, actual delivery date, target version, rollout date, decision date, go/no-go conditions | Email saved as PDF |
 | Deployment successful | Deployment and post-deployment tests | deploy tool & post-deploy tests reports |
 | Continuous improvement | Retrospectives notes, with names, action plan, issues | Wiki, email, picture of the whiteboard... |
+
+The point here is really to realize that your living documentation can meet or exceed the toughest compliance expectations, while keeping the extra compliance-specific work to a the minimum. This could be an incentive in itself to introduce a living documentation if you're in a compliance-intensive environment.
