@@ -71,10 +71,112 @@ After a gentle start, you may want to go for bigger ambitions. I'm not saying it
 
 In any case, remember that documentation, living or not, is not an end to itself but just a mean to accelerate delivery. This acceleration of delivery can be direct, when decisions are taken faster thanks to the knowledge readily available through the living documentation. It can also be indirect, when creating the documentation raises awareness on everything sloppy in the system,  in the thinking or in the communication between the stakeholders. By fixing the root cause you improve the whole system, which in turn will accelerate delivery.
 
+## A Tale of introducing Living Documentation to a team member
+
+One week I met with a team member who was interested in learning more on Living Documentation. He was just curious, not convinced. But he was at least curious, which is a good start.
+
+### Conversations first
+
+I start with questions in a conversational style. I'm supposed to explain what Living Documentation is; instead I start by putting myself in the shoes of another team member willing to learn about the project:
+
+"Tell me about the current projects." - "I work on 3 different projects." - "Let me take notes and sketch what we say on this flipchart."
+
+> What's the name of the project? What's its purpose, and for who?
+>
+> What's the eco-system with the external systems and external actors? What are the overall Input and Outputs?
+>
+> What's the execution style: is it interactive, a nightly batch, a Github hook? What's the main language: Ruby, Java & Tomcat?
+
+These are all standard questions so far. Answers come naturally. But then I ask:
+
+> What is the Core domain in your opinion?
+
+This comes at a surprise. He needs some time to think about it. His first moment of surprise is that the answer was not obvious, after several months on the project.
+
+"Oh... Now that you mention that, I now realize that our core domain is probably the way we insert deep links that point to our system in the feed we provide to the external partners, so that they bring us qualified inbound web traffic. I didn't think about it this way before, and I'm not sure everyone in the team is aware of that."
+
+"But is this deep link thing the raison d'être for the whole project?" - "Yes, absolutely." - "Do you think everyone should know about that? - "Obviously, yes". - "So we should document that somewhere?" - "Of course!"
+
+### First Debrief
+
+Now is the time to debrief and introduce the basic concepts of Living Documentation:
+
+"You realize how I learnt precisely what I was interested in through conversations?".
+
+Living Documentation is primarily about **having conversations to share knowledge**. My goal in the conversations so far was to show I could learn a lot of what matters to me, quickly and without wasting time on any other stuff. Interactive conversations and the high bandwidth of talking are hard to beat, especially with the support of the flipchart.
+
+> It was great that you sketch, it helped me check your understanding of what's I said.
+
+The second point I can introduce now is that some of the knowledge we talked about so far needs to be recorded in a persistent form. And the good thing to absolutely recognize is that most of this knowledge so far is **stable over time**. This is lucky, so in this case we can use **Evergreen Documents** in any form: Wiki, text etc. But we must make sure not to mix any volatile and short-lived knowledge, or we immediately loose the benefits of Evergreen documents: documents that don't need any maintenance yet remain true forever (or for a very long period of time).
+
+There is a third point here already: the concept of "Deep Linking" we uncovered is a standard concept already documented in the online literature. As such it's **Ready-Made Knowledge**. We can link to it on the web, so there is no need to explain what it is again. We're lazy.
+
+One last point we begin to see in this last example is that by paying attention to the documentation, even the person with the knowledge also learns and gains additional awareness in the process. That illustrates the benefits "Beyond documentation", and it's probably the biggest value added of a Living Documentation.
+
+### Time to talk about the code
+
+After all my questions on the context and on the problem side, I'd like now to know more about the solution side, in other words the code:
+
+"How's the code organized in packages & dependencies?"
+
+Then we draw the folder hierarchy on the flipchart. That's concrete, I recognize a structure very close to the Hexagonal Architecture (no, it's not a coincidence).
+
+I know that it's hard to tell your knowledge because what you know is, well, obvious cause you know it, so everybody knows it, right? That's the curse of knowledge. So I like to provoke a little bit:
+
+"Imagine you're all gone, after the project is delivered and there was no budget left to keep you. Then a year later the project has to resume with additional features to deliver, so a new team is formed; what risks do you see that the new team will degrade the current system?"
+
+In this fictive situation, it's easier to answer:
+
+"I'd say junior developers new to the project may put business logic in the REST endpoints, and that would bad". - "Sure it would be bad. Still I think there should be no need to tell that in 2016, it's supposed to be known by any professional developer nowadays."
+
+More generally, they mentioned that they were doing everything pretty much standard, with no surprise. This means no need for documentation on all the standard stuff. Also, the code is rather clean, so it tells HOW it's done. It just doesn't tell WHY it's done this way.
+
+Any other risk new team members could degrade the design of the system by accident?
+
+"In fact we designed a whitelist and a blacklist mechanism to filter content that we export depending on the external partner. But we did it in such a way that the code is totally agnostic with respect to the external partner. Only their configuration is specific."
+
+"You mean that does not necessarily show from the code without giving any hint?" - "Yes, it's likely that a newcomer would quickly add an IF statement around the next partner-specific behavior they need to support, and break the design as a result."
+
+### Decision Log & Guided Tour
+
+We should record that design decision. We can do that in a **Decision Log** as a plain Markdown file at the root of the project, in the source control. It's quite concise: date, decision, rationale, consequence. Three sentences can be enough.
+
+What else? The code of the project is not bad, but still is not obvious to follow a user request through all its stage in the system.
+
+"For that we could do a guided tour", I say. And I explain and show how to create a custom annotation ```@GuidedTour``` to mark each step in our guided tour. He quickly devises the best 7 steps of the guided tour and adds the annotation on each of them. It took 20 minutes to introduce the first tour.
+
+Furthermore, through the tour I found out that a significant part of the overall behavior was a cache on calculations on web-services, in a ```Read-through``` fashion: that's Ready-Made Knowledge again!
+
+We then create another custom annotation ```@ReadThroughCache``` to mark that knowledge, with a brief definition and a link to a standard explanation on the web.
+
+After 2 hours and a half of talking and creating annotations to support our very first Living Documentation, it's time to get feedbacks, and it sounds encouraging:
+
+"I like the idea of using annotations for documentation: it's lightweight and easy to add without asking the right to do it. I can start solo and locally. In contrast, other techniques like Living Diagram are more like team decisions I think. And linking to Ready-made knowledge saves time and is more accurate than if I tried to explain it myself in writing."
+
+I concur, mentioning that it's part of an Embedded Learning approach:
+
+"It's often the case. Simple annotations in the core also hint your team members at interesting ideas in the literature they may not know otherwise."
+
+But he's not totally convinced that it works for everyone:
+
+"Yes, if they realize they don't know and are curious to learn more. Some will read the links and learn by themselves, but some will probably not and will ask me instead..."
+
+"- But I see that as a feature! This invites a discussion. That's another opportunity for learning, probably for both of you."
+
 
 ## Common objections
 
 It's not because you'd like to start doing living documentation that everyone around agrees. Perhaps they don't have the need, or they don't see the benefits.
+
+### Annotations are not meant for documentation
+
+"I don't like to use annotations for documentation because I don't like adding code that does not execute"
+
+- "You know, you do it already when you mark code as [Obsolete] or @Deprecated".
+
+- "Oh, yes. Fair point. Why not then."
+
+For the sake of simplicity, let's be caricatural and let's polarize comments vs annotation as good vs bad: "Comments are bad and should be avoided; but if the information to record is really important, then it's worth its own custom annotation"
 
 ### "We do it already"
 
@@ -86,7 +188,9 @@ Your documentation strategy will mix practices you already do, push some of them
 
 "We have all the knowledge that we need"
 
+Perhaps you do have all the knowledge because you were there before the rest of the team, are you sure everyone else feels so comfortable?
+
 > If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better
 > Mark Seeman (@ploeh) on Twitter
 
-Perhaps you do have all the knowledge because you were there before the rest of the team, are you sure everyone else feels so comfortable?
+Perhaps you just hate documentation, and I can totally understand that. But please acknowledge what you don't know.

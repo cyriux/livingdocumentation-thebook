@@ -136,7 +136,7 @@ In this process described in the next chapters, we'll ask the following question
 > - Is the knowledge in one single place or fragmented?
 > - What's missing to make it 100% explicit?
 
-When the knowledge is not fully there or too implicit to be used, then the game becomes finding a way to add this knowledge directly into the source of the product. 
+When the knowledge is not fully there or too implicit to be used, then the game becomes finding a way to add this knowledge directly into the source of the product.
 
 ## Minimizing the extra work later
 
@@ -162,6 +162,20 @@ In this process described in the next chapters, we'll ask the following question
 - If there's a redundant knowledge, how to make the redundant sources in sync?
 
 
+## Living Documentation - The Very Short Version
 
+If you only want to spend 1 minute on what Living Documentation is all about, please remember the following big ideas:
 
-*This chapter is work in progress, and will be expanded soon.*
+> Favor conversations and working together over every kind of document
+
+> Most knowledge is already there: it just wants to break free
+
+> 99% of the knowledge is there already. Just needs to augment it with the extra 1%: context, intent, and rationale.
+
+> Pay attention to the frequency of change to choose the living documentation technique
+
+> Thinking about documentation is a way to draw attention to the quality or lack of thereof of the system being built
+
+Is that clear enough? If so, congratulation, you've understood the key message.
+
+%% TODO This chapter is work in progress, and will be expanded soon.

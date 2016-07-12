@@ -5,6 +5,7 @@
 - Decision / Task Oriented
 - Intention Revealing
 
+
 ## Segregate asset vs temporary information
 
 Sprint vs System/product
