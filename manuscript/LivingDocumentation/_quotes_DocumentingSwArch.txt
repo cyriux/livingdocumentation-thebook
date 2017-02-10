@@ -10,7 +10,7 @@ Grocery store chain owner Avram Goldberg, quoted in The Clock of the Long Now, p
 It’s a good idea to circulate your problem definition broadly in written form. The work of producing a tangible problem definition provides focus for the team and can bring together what is initially just a group of people and provide a seed for team dynamics. But remember that the main value isn’t in the document and that it’s not Lean to produce something unnecessarily large. A statement of one or two sentences is ideal, and a page is too long.
 There is something strangely powerful about documenting problem definitions on paper. Don’t bury them as a field on some methodological form deep in some database. We’d discourage you even from using E- mail as the primary distribution mechanism. Try printing your problem definitions on small pieces of paper (small is beautiful, and emphasizes the non-methodological tone of a good problem definition) and hand them out to all the stakeholders. Have all the stakeholders autograph a copy on a major project. Make it fun, not a death march. Use problem statements to open up possibilities.
 
-# Document the business domain partioning
+# Document the business domain partioning   
 
 # Document the Design Style (aka Paradigm)
 
@@ -18,9 +18,9 @@ There is something strangely powerful about documenting problem definitions on p
 
 see: David Snowden often tells the story about how people from different cultures classify cows, chickens, and grass. Westerners will put cows and chickens together as subjects of human consumption. Chinese will put cows and grass together in accordance with their natural link in agriculture. In the end, you want to do this partitioning on the basis of how the system will change over time. Often history is one of the best predictors of the future.
 
-Think of your architectural documentation as an as-built more than as a forward engineering document. Use code as your forward engineering document.	
+Think of your architectural documentation as an as-built more than as a forward engineering document. Use code as your forward engineering document.
 
-# No Documentation -- Focus on what matters:  Much of the documentation that ‘‘packs the punch’’ is that which describes relationships that you can’t see in the code. 
+# No Documentation -- Focus on what matters:  Much of the documentation that ‘‘packs the punch’’ is that which describes relationships that you can’t see in the code.
 
 # The Domain Dictionary
 
@@ -38,13 +38,13 @@ e.g:
 								Transfer money
 	￼￼￼Private Account Holder	Print account statements
 								Add regular payment
-								Pay bill   
+								Pay bill
 
 ---
 Martraire: Expose properties too!
 
 
-Martraire: Test-Driven Architecture for *-ilities: 
+Martraire: Test-Driven Architecture for *-ilities:
 
 - actual tests e.g. load, scaling, times, idempotence, data consistency...
 - tests documented as scenarios in the BDD / Living Documentation suite
@@ -111,7 +111,7 @@ Advice
 ---
 In architectural styles
 
-> For example, a system might employ a pipe-and-filter style to process input data, but the result is then routed to a database that is accessed by many elements. This system would be a blend of a pipe-and-filter and shared-data styles. 
+> For example, a system might employ a pipe-and-filter style to process input data, but the result is then routed to a database that is accessed by many elements. This system would be a blend of a pipe-and-filter and shared-data styles.
 
 Documentation for this system would include a pipe-and-filter view that showed one part of the system, and a shared-data view that showed the other part.
 
@@ -191,5 +191,3 @@ What to tell and what not to tell. Implementation notes. Usage guide.
 [Published is more public than public.]
 
 [preconditions @NotNull, invariants, etc are all essential documentation]
-
-
