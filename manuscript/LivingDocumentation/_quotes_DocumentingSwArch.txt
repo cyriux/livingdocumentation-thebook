@@ -1,6 +1,70 @@
-QUOTE
+QUOTES
 
-LD - Quotes and notes from Documenting Software Architecture
+From Lean Architecture for Agile Software Development - James Coplien, Gertrud Bjørnvig
+
+# Domain Vision Statement
+
+When a manager comes to me, I don’t ask him, ‘What’s the problem?’ I say, ‘Tell me the story.’ That way I find out what the problem really is.
+Grocery store chain owner Avram Goldberg, quoted in The Clock of the Long Now, p. 129.
+
+It’s a good idea to circulate your problem definition broadly in written form. The work of producing a tangible problem definition provides focus for the team and can bring together what is initially just a group of people and provide a seed for team dynamics. But remember that the main value isn’t in the document and that it’s not Lean to produce something unnecessarily large. A statement of one or two sentences is ideal, and a page is too long.
+There is something strangely powerful about documenting problem definitions on paper. Don’t bury them as a field on some methodological form deep in some database. We’d discourage you even from using E- mail as the primary distribution mechanism. Try printing your problem definitions on small pieces of paper (small is beautiful, and emphasizes the non-methodological tone of a good problem definition) and hand them out to all the stakeholders. Have all the stakeholders autograph a copy on a major project. Make it fun, not a death march. Use problem statements to open up possibilities.
+
+# Document the business domain partioning
+
+# Document the Design Style (aka Paradigm)
+
+# Document the partitioning into modules (and why it is that way) s
+
+see: David Snowden often tells the story about how people from different cultures classify cows, chickens, and grass. Westerners will put cows and chickens together as subjects of human consumption. Chinese will put cows and grass together in accordance with their natural link in agriculture. In the end, you want to do this partitioning on the basis of how the system will change over time. Often history is one of the best predictors of the future.
+
+Think of your architectural documentation as an as-built more than as a forward engineering document. Use code as your forward engineering document.	
+
+# No Documentation -- Focus on what matters:  Much of the documentation that ‘‘packs the punch’’ is that which describes relationships that you can’t see in the code. 
+
+# The Domain Dictionary
+
+# Use structured prose to capture the major elements of form that are invisible in the source code.
+Some of these invisible structures are so common that they become part of business core competency. They recur in your product. They may recur across multiple products. Such deep and often timeless forms should be captured as pattern languages. This leads us to our fourth rule of thumb: Documentation should focus on broad, lasting, and positive forms that capture core business competencies. Don’t waste time creating redundant documentation for specific or fleeting forms; capture those in the code.
+
+Emergent requirements also call for decisions and we need a home for them as well.
+
+
+## BDD & tags to highlight the key scenarios (use-cases?) Coplien "The Helicopter View"
+
+e.g:
+
+								View latest transactions
+								Transfer money
+	￼￼￼Private Account Holder	Print account statements
+								Add regular payment
+								Pay bill   
+
+---
+Martraire: Expose properties too!
+
+
+Martraire: Test-Driven Architecture for *-ilities: 
+
+- actual tests e.g. load, scaling, times, idempotence, data consistency...
+- tests documented as scenarios in the BDD / Living Documentation suite
+- external tools and their config documented as scenarios in the BDD / Living Documentation suite: e.g. pen tests, accessibility tests
+- static analysis tools along with their acceptance criteria: security, bugs, style violations, metrics thresholds
+- manual tests: usability...
+- monitoring rollback thresholds: conversion rate, response time, CPU consumption...
+- prose for other objectives, e.g. financials, satisfaction expectations etc.
+
+With distributed systems all the above can be done at the component level or at the level of a collection of components, which complicates the matter.
+
+--
+Documentation... Supports the Shared Vision... Is testable and defensible
+
+"The flow chart is a most thoroughly oversold piece of program documentation...
+The detailed blow-by-blow flow chart... is an absolute nuisance, suitable only for initiating beginners into algorithmic thinking.”
+-- F. P. Brooks, Jr. 1975
+
+---
+Quotes and notes from Documenting Software Architecture (Documenting Software Architectures: Views and Beyond, by By Paul Clements, Felix Bachmann, Len Bass, David Garlan, James Ivers, Reed Little, Paulo Merson, Robert Nord, Judith Stafford)
 
 Uses of architecture documentation
 Architecture documentation must serve varied purposes. It should be sufficiently abstract that it is quickly understood by new employees, it should be sufficiently detailed so that it serves as a blueprint for construction and it should has enough information that it can serve as a basis for analysis.
@@ -19,8 +83,8 @@ Descriptive documentation, especially self-descriptive documentation is very use
 Understanding the uses of architecture documentation is essential, since the uses determine the important forms. ****
 
 Fundamentally, there are three uses of architecture documentation.
-1. Architecture serves as a means of education. The educational use consists of introducing people to the system. The people may be new members of the team, external analysts or even a new architect.
-2. Architecture serves a primary role as a vehicle for communication among stakeholders.
+1. Architecture serves as a means of education. The educational use consists of introducing people to the system. The people may be new members of the team, external analysts or even a new architect. [OK]
+2. Architecture serves a primary role as a vehicle for communication among stakeholders. [NO!]
 
 
 ---
@@ -40,17 +104,19 @@ Advice
 - [make documentation easy to reference]
 -  Mark what you don't yet know with TBD "to be determined” rather than leaving it blank.
 5. Record rationale. Record the alternatives you rejected and say why
-6. Keep documentation current but not too current. [No: automate it]
+6. Keep documentation current but not too current. [NO: automate it]
 7. Review documentation for fitness of purpose
 [Beware the curse of knowledge]
 
 ---
 In architectural styles
 
-For example, a system might employ a pipe-and-filter style to process input data, but the result is then routed to a database that is accessed by many elements. This system would be a blend of a pipe-and-filter and shared-data styles. Documentation for this system would include a pipe-and-filter view that showed one part of the system, and a shared-data view that showed the other part.
+> For example, a system might employ a pipe-and-filter style to process input data, but the result is then routed to a database that is accessed by many elements. This system would be a blend of a pipe-and-filter and shared-data styles. 
+
+Documentation for this system would include a pipe-and-filter view that showed one part of the system, and a shared-data view that showed the other part.
 
 ---
-The decomposition view of the A-7E Avionics System is driven by the information-hiding principle[, by responsibility and unique reason to change]. The first-order decomposition produced three modules: hardware-hiding, behavior-hiding, and software-decision-hiding.
+The decomposition view of the A-7E Avionics System is driven by the information-hiding principle [, by responsibility and unique reason to change]. The first-order decomposition produced three modules: hardware-hiding, behavior-hiding, and software-decision-hiding.
 
 Each of these modules is decomposed into two to seven submodules. These are in turn decomposed, and so forth, until the granularity is fine enough to be manageable. A useful design heuristic holds that a module is small enough if it could be discarded and begun again if the programmer(s) assigned to implement it left the project.
 
@@ -71,54 +137,35 @@ UI
 Figure 22: A poorly documented C&C view. There is no key; it portrays an API as a component; it uses different shapes for same type of element; it uses the same shape for different types of elements; it confuses context with system to be built; its use of arrows is not explained; it has no explicit interface points.
 ---
 
-Data stream styles: Pipe-Filter Style, process control systems, concurrent pipelines, and batch sequential systems.
-
-Call-return styles: styles in which the components interact by requesting services of other components. Client-Server, Peer-to-Peer.
-
-Shared-data Styles: organized around one or more repositories, which store data that other components may read and write. Blackboard
-
-Publish-Subscribe style: components interact by announcing events. Components may subscribe to a set of events.
+- Data stream styles: Pipe-Filter Style, process control systems, concurrent pipelines, and batch sequential systems.
+- Call-return styles: styles in which the components interact by requesting services of other components. Client-Server, Peer-to-Peer.
+- Shared-data Styles: organized around one or more repositories, which store data that other components may read and write. Blackboard
+- Publish-Subscribe style: components interact by announcing events. Components may subscribe to a set of events.
 
 --
-Acme, a typical architec- ture description language (ADL).
-[don't bother too much with UML]
+Acme, a typical architecture description language (ADL). [don't bother too much with UML]
 
 ---
 [exosystem view: thing under focus in the center, all it's neighbors around, using icons or whatever]
-
 [Don't hesitate to add balloons on your diagrams to clarify or comment]
-
 
 Figure 44: A context diagram for an automotive control system. The software system whose context is being defined resides in the box labelled "ECU” at the far left.
 
 --
-Variability
 
-In some situations, decisions about some aspects of an architecture have not yet been made but the options still need to be represented. We distinguish two cases:
-• Variability: the decisions that are yet to be made will be made by a human (a member of the development team), prior to system deployment.
-• Dynamism: the decisions that are yet to be made will be made by the system, itself, during execution.
+## Documenting the variation points?
 
-Variability in an architecture can occur because:
-• some set of decisions has not yet been made during the design process for a single system but options have been explored, or
-• the architecture is the architecture for a family of systems and the option taken will depend on the specifics of the particular member of the family to be constructed.
-• the architecture is a framework for a collection of systems and contains explicit places where extensions to the framework can occur.
+> Variability in an architecture can occur because:
+> * some set of decisions has not yet been made during the design process for a single system but options have been explored, or
+> * the architecture is the architecture for a family of systems and the option taken will depend on the specifics of the particular member > of the family to be constructed.
+> * the architecture is a framework for a collection of systems and contains explicit places where extensions to the framework can occur.
 
-In the first two cases, there are three kinds of information that need to be documented:
-1. the variation points. A variation point is the place in the architecture where variation can occur. The options within a variation point are a list of alternatives. Each alternative has, in turn, a list of elements impacted if that option is chosen.
+"A variation point is the place in the architecture where variation can occur". Variations points planed by design are already in the code, through the use of interfaces and possibly some mean of dependency injection. Documentating patterns such as Strategy also emphasize the deliberate intent to introduce variation. For a variation point, the alternatives can be discovered by scanning the code for implementing classes for example, which most IDE's provide on-demand.
 
-2. the elements that are affected by the option. Each option will affect the existence of an element, the properties of that element or the relations among the elements. An element can exist in one option and not in another, An element can exist in two different options but compute different functions or have different properties. An example was given in [Section tbd] where multiple elements may realize a particular interface. Two elements can be related in one fashion in one option and in another fashion (or not at all) in another option. The elements and relations affected by an option need to be documented.
-
-3. binding time of an option. Choosing different binding time for elements affects their properties. For exam- ple, deciding to bind two components during initial load time will yield different system properties than de- ciding to bind these two components through a dynamic link mechanism, Possible binding times are design time, compile time, link time, load time, or run time. If binding time is an element of an option, it needs to be documented.
-
-- Show what's constant and what's not.
-- Denote whether the alternatives apply at design time, at build time, at run-time, or at compile time or link time.
-- Document dependencies among options?
-- Use scenarios of building different types of systems.
-
---
+---
 Use Cases, Use Case Maps, Interaction Diagrams, State Charts
 Figure 51: Possible usage of different behavioral descriptions.
---
+---
 Figure 64: Documenting a view consists of documenting seven parts: (1) the primary presentation; (2) the element catalog; (3) a context diagram; (4) a variability guide; (5) architecture background, including rationale, results of analysis, and assumptions made; (6) a glossary of terms used; and (7) management information. If the primary presentation is graphical, we call it a cartoon. A cartoon must be accompanied by a key that explains the notational symbology used, or points to the place elsewhere in the documentation where the notation is explained.
 
 --
@@ -145,9 +192,4 @@ What to tell and what not to tell. Implementation notes. Usage guide.
 
 [preconditions @NotNull, invariants, etc are all essential documentation]
 
---
-Documentation... Supports the Shared Vision... Is testable and defensible
 
-"The flow chart is a most thoroughly oversold piece of program documentation...
-The detailed blow-by-blow flow chart... is an absolute nuisance, suitable only for initiating beginners into algorithmic thinking.”
--- F. P. Brooks, Jr. 1975
