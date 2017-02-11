@@ -1,0 +1,28 @@
+# Machine Accessible Documentation
+
+*Documentation that is machine-accessible opens new opportunities for tools to help at design level*
+
+You code at design level, not just code level, but your tools cannot help you much at design level. They cannot help because they have no idea what you are doing on the design perspective from the code alone. If you make your design explicit, for example using annotations attached to the code, then tools can begin to manipulate the code at the design level too, and help you more.
+
+Design knowledge that can make the code more explicit is worth adding. An annotations attached to the language element is often enough, e.g. you can declare the layers on each top-level package, in the corresponding package-info.java file:
+
+      @Layer(LayerType.INFRASTRUCTURE)
+      package com.example.infrastructure;
+
+By putting the annotation @Layer on the package com.example.infrastructure,   you declare a particular instance of the pattern Layer which context is the package itself.
+
+As usual there are many options to design a custom annotation, like this alternative:
+
+      @Layer(id = "repositories")
+      package com.example.domain;
+
+With this design intent made explicit in the code itself, tools like a dependency checker could now automatically derive forbidden dependencies between layers, and detect when they are violated.
+
+Sure you could do that with tools like JDpend, but you have to declare each package-to-package dependency restrictions, which it tedious and does not directly describes the layering. Declaring every forbidden or acceptable package-to-package dependency is tedious, but now imagine doing it between classes? No way!
+
+However, if classes are tagged as @ValueObject, @Entity or @DomainService, now dependency checkers can now enforce our favorite dependency restrictions. For example I like to enforce the following rules:
+
+     Value Objects should never depend on anything other than other Value Objects.
+     Entities should never have any Service instance as member field.
+
+Once the classes are augmented with these stereotypes explicitly, we can now tell the tools what we want literally and concisely.

@@ -110,4 +110,26 @@ Let's consider a few examples of particular documentation interest.
 
 - **RESTful Web Service (JAX-RS Annotations)**: This set of annotations is clearly declarative: `@Path` identifies the URI path, `@GET` declares the GET request method, and `@Produces` defines the media type as a parameter. The resulting code is self-documented to a large extent. Furthermore, tools like Swagger can exploit these annotations to generate a living documentation of the API.
 
-It is possible to rely on the standard annotations for their particular documentation value, but this is almost always limited to technical concerns, where the annotation is just like particularly declarative code: it tells the **WHAT**, not the **WHY**. But in a few cases, it is possible to do a bit more to extend the standard mechanism to convey additional meaning, while still playing nice with the frameworks you depend on.
+It is possible to rely on the standard annotations for their particular documentation value, but this is almost always limited to technical concerns, where the annotation is just like particularly declarative code: it tells the **WHAT**, not the **WHY**. But as we mentioned, it is sometime possible to extend the standard mechanism to convey additional meaning, while still playing nice with the frameworks you depend on.
+
+# Standard Annotation @Aspect and Aspect-Oriented Programming
+
+The Spring Pet Clinic demonstrates Aspect-Oriented Programming by showing how to setup a simple Aspect that monitors call count and call invocation time *for every repository*.
+
+What's interesting here is how the requirement "to monitor every repository" is described *literally* in the aspect declaration. This is possible because the code was augmented with the meaningful '@Repository' stereotype beforehand.
+
+Spring AOP with @Aspect defined around annotated classes:
+
+~~~~~~~~~~~
+@Aspect
+public class CallMonitoringAspect {
+...
+@Around("within(@org.springframework.stereotype.Repository *)")
+public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {...}
+...
+}
+~~~~~~~~~~
+
+See https://github.com/bijoych/spring-petclinic-gemfire/blob/master/src/main/java/org/springframework/samples/petclinic/util/CallMonitoringAspect.java
+
+This illustrates perfectly how augmenting the code with explicit design decisions makes it possible to talk to tools the way we think, literally.

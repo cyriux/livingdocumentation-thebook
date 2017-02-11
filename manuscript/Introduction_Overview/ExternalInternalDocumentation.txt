@@ -4,9 +4,7 @@
 
 You've probably seen the pictures of the Google datacenters and of the Centre Pompidou in Paris. They both have in common a lot of color-coded pipes, with additional labels printed or riveted on the pipes themselves. On the Pompidou Center, air pipes are blue, water pipes are green. This logic of color-coding expands beyond the pipes: electricity transport is yellow, and everything about people transport is red, like the elevators and stairways.
 
-This logic is also ubiquitous in Google datacenters, with even more documentation printed directly on the pipes: arrows to show the direction of the water flow, and labels to identify them. In the real world, such color-coding and ad hoc marking is often mandatory for fire prevention and fire fighting: water pipes for firefighters have very visible labels riveted on them indicating where they come from. In a situation of crisis, you don't have time to look for the plan, you need the answer in the most obvious place: on the thing itsef.
-
-All the examples below illustrate the concept of Internal documentation.
+This logic is also ubiquitous in datacenters, with even more documentation printed directly on the pipes. There are arrows to show the direction of the water flow, and labels to identify them. In the real world, such color-coding and ad hoc marking is often mandatory for fire prevention and fire fighting: water pipes for firefighters have very visible labels riveted on them indicating where they come from. Emergency exits in buildings are made very visible above the doors. In airplanes, fluorescent signs on the central corridors document where to go. In a situation of crisis, you don't have time to look for a separate manual, you need the answer in the most obvious place: right where you are, on the thing itself.
 
 ## Internal vs. External documentation
 

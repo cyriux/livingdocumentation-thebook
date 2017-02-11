@@ -1,5 +1,0 @@
-# Machine Accessible Documentation
-
-*Documentation that is accessible to tools opens opportunities for tools to help at design level too*
-
-You code at design level, not just code level; but your tools cannot help you much at design level. They cannot help because they have no idea what you are doing on the design perspective from the code alone. If you make your design explicit, for example using annotations attached to the code, then tools can begin to manipulate the code at the design level too, and help you more.

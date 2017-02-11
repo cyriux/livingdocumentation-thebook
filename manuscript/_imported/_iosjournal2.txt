@@ -1,10 +1,9 @@
 LD - Journal 2
 
 
-
 --
 ## BDD: Expose properties too!
-
+---
 
 ## SLA/Test-Driven Architecture for *-ilities:
 
@@ -23,10 +22,6 @@ With distributed systems all the above can be done at the component level or at 
 The diagram you need is never part f the documentation: assessment is documentation in-demand
 
 Have a question? Quickly write a script to answer it, or use a tool like Moose, codecase or ndepend. Explore the hotspots in your source control.
---
-## Why documentation?
-
-For larger ambitions, documentation becomes necessary in order to enable a cumulative process of knowledge management that scales well beyond what fits in our heads. When our brains and memories are not enough, we need assistance from technologies like writing, printing, and software.
 
 --
 ## Domain Immersion / Investigation Wall
@@ -54,31 +49,6 @@ Everybody has a mental model, the difficulty is sharing and validating it @mathi
 Joke fun humor
 
 > Sorry this is taking so long, I lost my bash history and therefore have no idea how we fixed this last time. -- @honest status page
---
-TODO
-Introducing LD by example on a batch as a "data pump"
-
-README mentioning the Data Pump pattern with a brief and a link to a reference.
-
-Description of its main parameters: target system / format, and that it belongs to the source system.
-
-Links to some sample files as input and outputs.
-
-The eligibility determination is best described by scenarios. They also generate the sample files.
-
-Install Pickles for the living documentation to be available online to anyone, with a search engine.
-
-The transcoding is defined in code, and in an Excel file: <input field name, output field name, formatter>. We realize this is duplication for no value. We could improve that by considering the spreadsheet as the golden source. The code parses the file and then interprets it. In this approach the file is directly its own documentation. Or the other way round: You decide that the code is the single source of truth and you generate a file out of it. Both ways don't work of your code is mostly made of a lot of IF statements. They impose some generic structure to the design of the code. For example:
-
-> for each input field, lookup the corresponding output field, and apply the formatted to obtain the value to assign.
-
-Javadoc? No need for it, it's so easy to browse the code in your IDE. Same thing for UML class diagrams of classes and the type hierarchies. If you really need a reference to the concepts, you may introduce a little Living Glossary.
-
-The internal design follows the Hexagonal architecture. We make it visible thanks to naming conventions. The README tells it and links to a bookmarked search based on this convention.
-
-Who should I contact for questions? Just check the service registry.
-
-How does it fit within the bigger system? Collect the distributed traces of a journey test (Selenium?) and visualize it as another kind of guided tour.
 
 --
 # Ready-made documentation
@@ -123,26 +93,6 @@ Code should reflect your understanding of the domain.
 (? Weak example?)
 Imagine that a credit application initially has one single borrower. You model it that way in the code. Then after some time you notice that there may be a second borrower, so you add a second one in the code. Then you discover that you may even need 3 borrowers in some cases. Actually you are realizing that there may be any number of borrowers, but out of short term laziness you just add one more borrower. Now you have 3 fields, 2 of them which may be empty (using optional if you're lucky, null values If you're not), with validation & scoring logic applied 3 times. Now you understanding is that there may be any number of borrowers, but the code only claims there can be 3, with only one mandatory out of them. This is a problem for evolution, and
 
-# Code Augmentation
-## Annotations for tools
-
-Here is an example from Spring Pet Clinic of a simple aspect that monitors call count and call invocation time *for every repository*.  Notice how the requirement "to monitor every repository" is described literally in the aspect. This is possible because the code was augmented with the meaningful '@Repository' stereotype beforehand.
-
-Spring AOP with @Aspect defined around annotated classes:
-
-~~~~~~~~~~~
-@Aspect
-public class CallMonitoringAspect {
-...
-@Around("within(@org.springframework.stereotype.Repository *)")
-public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {...}
-...
-}
-~~~~~~~~~~
-
-See https://github.com/bijoych/spring-petclinic-gemfire/blob/master/src/main/java/org/springframework/samples/petclinic/util/CallMonitoringAspect.java
-
-This illustrates perfectly how augmenting the code enables leveraging on tools.
 
 ## Towards Machine Learning assured software design?
 

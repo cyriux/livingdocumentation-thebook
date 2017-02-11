@@ -10,4 +10,6 @@ This design activity is also most of the time, and for many good reasons, a team
 
 Something unique with software development is that the design involves not only people but also machines. Computers are part of the picture, and many of the decisions taken are simply told to the computer to execute. It's usually done through documents that are called "source code". Using a formal language like a programming language, we pass knowledge and decisions to the computer in a form it can understand.
 
-Having the computer understand the source code is not the hard part though. Even unexperienced developers usually manage to succeed at that. The hardest part is for other people to understand too, in order to do a better and faster work.
+Having the computer understand the source code is not the hard part though. Even unexperienced developers usually manage to succeed at that. The hardest part is for other people to understand what has been done, in order to do a better and faster work.
+
+The larger the ambition, the more documentation becomes necessary to enable a cumulative process of knowledge management that scales beyond what fits in our heads. When our brains and memories are not enough, we need assistance from technologies like writing, printing, and software to help remember and organize larger sets of knowledge.
