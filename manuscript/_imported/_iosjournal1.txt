@@ -1,0 +1,1300 @@
+LD - journal
+
+
+—
+Martin Fowler talk at O’Reilly conference
+http://radar.oreilly.com/2015/03/highlights-oreilly-software-architecture-conference-2015.html?cmp=tw-na-na-article-na_20150319_twitter_sb_image
+
+(heuristic for things worth documenting)
+irreversible stuff is hard to change and correlates with what’s important -> worth documenting, or better, to fix!
+
+Please describe the architecture using only 4 objects
+
+Code already there is often used as an example; better be very nicely done to be exemplar! need to highlight the best examples as eel (curation) Examplar Code
+--
+
+
+## Shared Mental Models
+
+Universal World Map
+Metaphors
+
+--
+
+
+--
+If you're about to manage skills matrix in a permanent fashion, you're already doomed!
+
+Get it from the commit logs?
+--
+
+
+--
+# Interactive Documentation (at runtime)
+
+As a section name for visible workings
+
+The documentation spectrum:
+No, stable, refactor-friendly, living, interactive, beyond (no + less together)
+
+The book is structured: living, interactive,
+--
+Group together things that change together. The rationale is to save time moving from on place to another, and to reduce the odds of forgetting a change somewhere.
+
+methods and fields within the same class. Classes and interfaces in the same module.
+
+Things that tend to change together.
+Functional scenarios about the same feature changes together so we group them in the same story or feature file. At the higher-level, even features change together, so we group them into cohesive functional chapters.
+
++ mentioned examples
++ case study example
++ image
+--
+
+
+# on-demand
+Instant media: conversation, flip chart, sketching, stickers, chat
+--
+Visible Workings / Visible Tests: tests that produce an output for humans
+--
+No Documentation -> disposable code à la micro services
+
+NoDocumentation: exploring alternatives to documentation
+
+No Documentation: we acknowledge the purpose of documentation, but we disagree with the way it's usually done. No Documentation is about exploring better alternatives for transferring knowledge between people and across time.
+--
+
+
+--
+
+
+**Tools usage as documentation**
+- Git commits comments, Jira tickets, emails, whiteboard pictures, chat, metrics
+
+Complete and integrate into your documentation landscape, eg email integration into the wiki / PDF archiving by keywords
+--
+
+From Visible Workings
+
+Todo: Using Patterns to Improve Our Architectural Vision, Norman L. Kerth and Ward Cunningham, IEEE Software, Vol. 14, No. 1, January/February, 1997, pp. 53 - 59.
+
+**Software Archeology: Understanding Large Systems**
+
+Chet Hendrickson
+
+Software source code is one of the most densely packed forms of communication we have. But, it is still a form of human communication. Refactoring gives us a very powerful tool for improving our understanding of what someone else has written
+
+**Experience Report: I Was a Smalltalk Gunslinger **
+by Kevin Johnson
+kmj@acm.org
+
+I generally find that I don't really understand a system until I start making some fairly big changes.  Or maybe it comes down to not having the confidence to make big changes until I understand the system. Either way you will need to make changes eventually.
+
+
+An automated reverse engineering tool would also be useful.  I don't want a tool to do “round trip engineering”.  In my opinion, if you extract enough detail to generate code, you might as well look at the code.  I want something that will help me draw the kind of medium detail diagrams that I currently do by hand.
+
+
+Andy Schneider
+**Make the value you’ve added permanent**
+
+Comment code that you are working on so the next person doesn’t have to go through the same pain.
+Find design documents to update and update them.
+Document how to run any tests you’ve developed.
+Give any useful scripts you’ve developed to the local toolsmith (there is always one).
+--
+Modeling questions heuristics
+
+**Before**
+Do your homework before: read about the topics, books, Google search, Wikipedia, investopedia, XML standards of the field
+
+Know your patterns: design, DDD, analysis
+Train in various modeling techniques: CRC Cards, UML in Color,
+
+**During interview**
+Ask Why? For who?
+Identify stakeholders: Who decides that? Who would disagree with that?
+Note the exact words
+Ask for brief definition
+Gimme an example please!
+Mark each word mentioned for the first time
+Challenge respectfully the domain experts: they may not always be right!
+Pay attention to side remarks, and note them
+Don't interrupt, take notes about ideas to come back to later
+Pay attention to hesitations and to unconvincing answers
+Ask for clarification whenever it seems that different words are used indifferently
+
+Challenge internal consistency: confront two previous statements that could contradict with each other
+Look for invariants
+Challenge invariants
+
+**After**
+Code what you understood
+Note every question, hesitation, contradiction for next interview
+
+--
+
+I've extracted my old little Java wrapper on top of dot and moved it to Github: https://github.com/cyriux/dot-diagram #LivingDiagram
+
+--
+The higher level, the easiest to write and the more useful it is
+
+--
+Living Glossary: a way to encourage the practice of actual DDD, with an unbiased feedback on the depth of practice, and a measure of signal to noise.
+--
+Knowledge is already there, as long as everything is meaningful because it's carefully crafted.
+--
+
+# When no documentation is better
+
+# Getting the best out of the documentation
+
+# Alternative media
+
+--
+TODO Rewrite solution patterns so that code is optional, and only keep as first-class patterns that work under any language
+
+Move other application details and variants as secondary patterns. Add a "Related Tools" section.
+—
+
+
+
+
+## Editorial Perspective
+
+The Editorial Perspective is based on the intent of the considered document. Of course this assumes that each document has a clearly identified purpose, for an identified audience, which should be the case.
+
+A document whose purpose is to clarify the external actors of the system for a non-technical audience should hide everything except the system as a black box and each actor with its non-technical name and the business relationship with the system. It should not show anything about JBoss, http or Json. It should not show components or service name. The Editorial Perspective is what makes a document relevant or not. A document that tries to show different things at the same time requires more work from its audience and does not convey a clear message.
+
+A related anti-pattern is showing what's convenient rather than showing what's relevant to an identified purpose.
+
+## Presentation Rules
+
+There are rules for a good document: showing or listing no more than 7+/-2 items is an important one, choosing a layout or list style or table or chart that is congruent with the structure of the problem etc.
+
+--
+What's differentiating in this book? Stuff (techniques and ideas) that's not common and almost unpublished so far
+
+- generic principles to evaluate if a particular technique is really up to the living documentation standard, and to improve it if needed
+- living glossary: useful for DDD
+- living diagram: the technique, and the examples of "what for
+- Visible (Introspectable) Workings: tree dump, formula, monad-ish, http://blog.jonudell.net/2008/03/04/ward-cunninghams-visible-workings/
+- "all knowledge directly in the code" approach, with augmented code
+- the insightful aspects of documentation, how it helps reflect on what's been done in order to improve it, not just after but *during* the development work
+- conversations matter most, and when there's no need for documentation
+- how to make documentation reliable, the two approaches
+- how to make documentation change-friendly
+- living enterprise architecture, in the large
+- automate and enforce over guides and guidelines, fix the trouble over documentation of the troubles
+- test curation: making documentation more interesting through careful curation
+- findable knowledge: a search engine is a very documentation system
+- lean on your tools: built-in search, type hierarchy, calls stack, link navigation of your IDE
+- other tips and tricks and a set of principles expressed as Preferences, and some weird ideas like using unorthodox media to help communication and collaboration, and some theory
+- a bonus: examples carefully chosen to also suggest better design decisions, inspired by DDD; a mini recap of the true BDD approach
+
+Hand-Rolled Acceptance Testing Framework: Excel-based, programmatic for combinations
+
+Standard Knowledge over Custom Folklore
+
+Less code, less to document: the patterns to make it systematic etc. example of calculations with accuracy intervals.
+--
+lack of documentation as a hidden cost, just like the lack of tests
+
+Documentation is Code for Humans
+--
+
+
+It's possible to add text files close to the related code, but it has all limitations of comments, plus it is not as close to the code than comments. You have to switch tabs in your text editor to go from the code to the text files and back.
+
+It's also possible to add knowledge by using the built-in extension mechanism for your programming language, along with writing code just for the purpose of expressing useful knowledge, although many developers find it awkward to add code that don't add value to users at runtime.
+
+
+
+
+
+--
+How to use Javadoc right? for Living Glossary & Living Diagram :)
+--
+Todo
+An introductory comics on living documentation that goes through most concepts
+
+Manual sketch
+Conversation and that's all
+Conversations to key scenario
+Write code
+Export living documentation of behavior
+Export living glossary
+Decide to improve naming
+New hire, uses the goals evergreen document
+Living Diagram
+Adjust design
+Code grows
+
+
+Conversation that needs be written as a document
+A question to request a document
+
+
+
+
+
+--
+First Living Diagram
+
+This diagram is a **Living Document**, refreshed whenever the system changes, automatically. If we were to add or delete a new module, the diagram would adjust as quickly as the next build. It is also an example of a **Plain-Text Diagram**; if we just want to change a word in a sentence, we can do it simply by editing the source code. No need to fire PowerPoint or a diagram editor.
+
+This diagram is an example of **Augmented Code** by using annotations to augment each main module with the knowledge of its corresponding business domain. This is also a case if **Consolidation** of information spread across many packages.
+
+Finally it's a Story-Telling Diagram, that tells a story from on node to the next through links that display a brief description.
+--
+Logical
+
+Class-Level: @Port (unique port name = String, mode = IN, OUT, IN_OUT)
+
+Then by consolidation it does not work because there can be many more port potentialities than actually used for a particular instance. It would work by taking into account one particular wiring configuration, eg Spring configuration.
+
+
+
+--
+
+# Living Diagram
+
+A Living Diagram is a diagram that you can generate again on any change so that it's always up-to-date.
+
+Why? Because surprise!
+
+## The quest for the perfect diagram
+
+From the traditional, manually-crafted diagram to the perfect Living Diagram, there is a scale of flavors, each with a different level of automatic adaptation to change, and and a different level of effort. The lower in the scale, the less effort to produce one diagram, but the more effort it will require to update the diagram in reaction to changes.
+
+- Napkin Sketch
+- Proprietary Diagram
+- Plain Text Diagrams
+- Code-Driven Diagram
+- Living Diagram
+
+If you need a diagram only once and then you can throw it away immediately after use, choose the Napkin Sketch. On the other hand, if the knowledge is important enough to over a period of time, choose the highest flavor of diagram in the scale   that you feel comfortable doing, with the help of this book of course.
+
+We'll now go through each flavor of diagram for more details.
+
+## Napkin Sketch: perfect for the instant, but disposable. No need for anything beyond a pen and a random piece of paper: the back of a letter, the napkin, whatever.
+
+## Proprietary Diagram: not the preferred option unless you want to do the layout manually, if you need more complete UML support, if you really want all the extra features the tools offer, or if you have to use them by law. Time consuming,  only editable by people with the tool installed, hard to diff, large files, takes time to adjust the layout and every graphical possibility.
+
+## Plain Text Diagrams: malleable, easy to change, easy to diff. If done as comment, many IDE can propagate refactorings like renaming to comments
+
+ASCII, little syntax, diagrammr, dot
+
+## Code-Driven Diagram: more refactoring-proof, but not totally
+
+Programmatic diagrams, with dedicated code and/or application code, eg driven by a DSL that includes references to code
+
+## Living Diagram: totally maintenance-free and with sincere feedback, more objective
+
+
+## Have the diagrams tell a story
+A diagram should tell a story. One story. It should hide everything that does not matter for the story.
+
+A great way to be more story-oriented is to use links as sentences:
+
+<actor A> "does something to" <Actor B>
+
+Diagrammr makes perfect use of this.
+--
+
+--
+Wikipedia on Living Document and Evergreen Document
+
+The opposite would be already-obsolete documents, or Delusive Document, Instantly Obsolete Documents, Perishable Document
+
+The "Documentation Delusion"
+--
+Tools Mylin intents (obeo) does the explicit traceability between documents and the relates source artifacts. This comes as a suite of tools in the ecosystem of the modeling solutions of the vendor.
+--
+# Legacy patterns
+
+What you can't do well on terrible legacy
+- living glossary
+
+What you can do instead
+
+## Visible Mess
+
+## Visible Plan
+transformation / rewriting / refactoring plan: not all the same thing!
+--
+# Designing Living Documentation for low maintenance
+
+Couple the specific to the generic, not the other way round
+
+Because it's more comfortable to couple the volatile to the stable than the over way round, otherwise the stable could not remain stable.
+
+Typically the relationship from the volatile to the stable is many-to-one. So the heuristic could often be: link from the (potentially) many to the one. For people with some background in relational databases, this is familiar with the way foreign keys work.
+
+How to link (don't link the other way round)
+- Link the implementation to the contract or interface
+- Link the code to the requirements
+- Link the tests to the (public) code
+- Link the artifacts to the project goals and constraints
+- Link the goals to the stakeholders
+- Link the goals to the vision
+
+# Designing for refactoring-proof
+
+Intrinsic
+- Car color vs car beautiful or ugly
+- Car is intrinsically red, vs not intrinsically "matching the color of my door"
+
+As soon as the property of the thing depends on something else than the thing, it is not intrinsic. Avoid coupling in this case, for example use indirection.
+
+Red button for president vs for Barack Obama. No need to rewrite the law each time there's a new president: that's refactoring-proof.
+
+This is all the basic of cohesion and coupling, and this is helpful guidance for documentation too.
+
+## Design Decision Records
+
+Blog, chat, Markdown files in source control, wiki, Enums?
+
+
+--
+## Typing over Comments
+
+Comments can lie and they often do. So does naming, to a less extent. But types don't lie, or the program would not even compile.
+
+A method name may pretend to be:
+
+GetCustomerByCity()
+
+But regardless of its name, if the signature and its types is actually:
+
+List<Prospect> f(ZipCode)
+
+You get a much more accurate picture of it really is. And it could even be improved: List<Prospect> could be a type in itself, something like Prospects or ProspectionPortfolio.
+
+
+Types are more accurate than naming and comments.
+
+**Therefore: Use types whenever possible, the stronger the better. Avoid bare primitives and bare collections. Promote them into first-class types. These types are named hence they are a support for communicating the Ubiquitous Language. Favor types over free comments, but don't neglect to describe the types in their structured comments.**
+
+With just primitives you're in your own to decide if you can trust the naming or not. What does the Boolean "ignoreOrFail" mean? Enums add accuracy: IGNORE, FAIL
+
+Optional<Customer> expresses the possible absence of result with total accuracy. In languages that support them, monads signal the presence of side-effects with total accuracy. In these examples the information is accurate because the compiler enforces it.
+
+Generics: Map<User, Preference> tells a lot, whatever the variable name.
+
+--
+
+
+--
+# Living Diagram
+
+Diagrams types by layout complexity
+- Tables
+- Pins on a fixed background
+- Diagram Template: source of the diagram made into a template (svg, dot)
+- Simple One-Dimension Flow (left-to-right, top-down)
+  - pipeline, sequence diagram, in-out ecosystem black box
+- Tree structure (left-to-right, top-down, radial)
+  - inheritance tree, layers
+- Containment (auto layout with Graphviz)
+
+- Rich Layout (vertical + horizontal layout + containment)
+
+Photo collage
+Flash template...
+
+--
+From static calls stack, exception stack trace or Runtime interception (how? aspects?) to sequence diagram
+
+Test with a mock that throws an exception?
+
+--
+Annotations or not annotation?
+
+- Annotate presence
+- Annotate absence
+- Annotate less frequent case
+- Annotate always: to add more information than just presence
+
+--
+# Case study
+
+Turn you PPT documentation into a living one! Put the knowledge into the source code, on each element
+- vision & goals
+- pseudo-code / sequence diagram
+- ASCII diagram
+- description of main modules and methods
+- comments in config items
+
+--
+AssemblyInfoDescription("package comment")
+--
+## Go the extra last mile
+
+User guide "ready to click" or "ready to copy-paste" in the context of the user environment. This may require to propose one version for each major tool: curl, httpie; maven, gradle, ant;
+
+--
+How to:
+
+- Declare Bounded Contexts
+--
+Commiters as custodian of knowledge (tribal knowledge)
+
+"We're the only one with a knowledge of the whole project, we know better the impacts of any part to any other part"
+
+--
+Listen to your documentation!
+
+If it's hard to extract your living glossary or living diagrams out of your code, then what does that difficulty is telling you?
+
+Perhaps you were expecting some design structure, but when trying to render it as a diagram you have to admit the code does not exhibit much structure after all. You were expecting the code to tell the business domain, but when trying to make it into a glossary it appears that the business is mangled in the middle of the processing and there is no easy way to get it out.
+
+Steeve Freeman and Nat Pryce said in the GOOS book: "listen to your tests". if it's hard to test then probably your code is not well designed, and you should fix that.
+
+The same advice applies to documentation: if it's hard to extract a living documentation out of your code, then your code probably has problems, and you should investigate how to fix that.
+
+--
+
+--
+Simple Learning through Koans (Russ Miles)
+--
+# In-situ knowledge / The expressed / codified knowledge assumption
+
+Most knowledge is already there, somewhere in the code, in the config files or a script. But that does not mean it is easily accessible or fully complete. We propose to go the extra mile.
+
+**Therefore: Add the little missing knowledge to make it complete, and add the little necessary automation to make it accessible to everyone, not just developers.**
+
+--
+@danbernier: "Searching for just the right words is a valuable use of time while designing." @KentBeck & @WardCunningham, http://t.co/PjQfDzRZcX
+--
+Pretty Scenario from technical tests: functional event sourcing, test DSL
+
+Spreadsheet-driven tests (Swapstream autogen)
+
+Brian Marick: Omnigraffle to tests experiments
+
+my colleague raphael: from excel flow charts to actual java workflow configuration through some VB conversion code.
+
+
+--
+Metaphors with glasses of beer
+
+Reliable
+- single source of truth: envelope with a transparent window, transparent glass of beer
+- reconciliation: beer pint volume = cumulated volume of these glasses of beer (the real thing, its documentation, and a reconciliation process: pour the glasses into the pint and check it's filled)
+
+Low-Effort
+- Pour the beer and you get an updated documentation!
+
+Collaborative
+- Beer is just a by-product, what we are really after is an opportunity to spend time together, indeed for me and many of my friends it works as well with a glass of wine or champagne, or even a cup of tea!
+
+Insightful: all these glasses of beer show me how much beer I'm about to drink, and I may better realize this is too much
+
+Most of the knowledge is already there. All you need to do is to add the little bits that are missing and to make it more accessible and more useful.
+
+Living Glossary: what are your consumption habits or favorite food brands? You could fill in a survey (a documentation), or you could just look at your garbage!
+
+Living diagram: what are your typical meals? Just dump the garbage and layer by starters, main dishes and deserts.
+--
+Types, then properties, then unit tests
+
+"Add a unit test for each error found by quickcheck; it's more readable."
+
+"Types are the best doc" scalex, hoogle
+
+Hole-driven development ("ctrl-space")
+
+"It's on you to properly describe!" You may describe wrong
+
+Expose a servlet at /api-docs that describes the API, with an API Info (title, license, author etc)
+
+"The first thing in REST is: make sure everyone agrees on 1/ what each http verb means 2/ agree on the error codes"
+
+--
+Scaffolding over documentation (g8)
+- generators / wizards
+- templates
+- scripts
+- helpful exceptions
+
+Of course the scaffolding has to be really easy to use without a user guide.
+- asking simple questions, step by step
+- with sensible default values
+- with very good example of answers
+
+Fix It over Known-Troubles Documentation
+
+@UdiDahan: The best kind of documentation! RT @jbogard NServiceBus v5 exception msgs are awesome, they tell you how to *fix* problems in great detail
+
+--
+Arnaud Bailly
+
+Extract the Clojure code to convert it into Latex (not ideal but working)
+
+https://github.com/kovasb/session
+
+Brute force solution as an oracle & as more accessible documentation
+
+Formula in fitness + reconciliation of the test against the actual code;
+Excel sheet as the actual reference: why copy-paste and lose the formula? Alternative formula as an oracle.
+--
+https://github.com/gdeer81/marginalia
+--
+#why #when documentation #conversation
+we’ve been looking at Swagger as a nice way of documenting all our APIs, internal and external, to reduce the interruptions when team A needs to consume component from team B
+--
+#design #deliberate
+@sbpankevich: "If there is no choice to be made, you're not doing design." from  Design, Structure, and Decisions http://t.co/rQsufqyKC2
+--
+#sumplicity #vision #communication
+@Paysonhall: Whiteboard rule: I've never seen a good IT system built without an architect who could describe it on a whiteboard in 5 minutes #PMOT
+
+@doublehelix: @Paysonhall @gdinwiddie which generally means that every team member can describe a consistent outline of the system too.
+
+@gdinwiddie: @doublehelix @Paysonhall Yes. And program with that picture in mind.
+--
+@KwalityRules: Documentation should be a tool, not a product.  @michaelbolton sharing @drcemkaner wisdom. #starwest
+
+@michaelbolton: .@KwalityRules Oops, not quite. Try: you should be conscious of the degree to which your documentation is one or the other. @DrCemKaner
+—
+lean
+* Consume your own output
+* new & noteworthy
+* show progress: Information Radiators: Wallboards
+* “Good fences make good neighbors.”
+
+With respect to Lean IT: Document your processes for each stage of the value stream
+•        Employees should never struggle to know what to do
+o   Visible working
+o   The infamous clipboard, but better: embed the documentation within the tool
+o   UX: teach the mental model by plain usage of the UI
+•        A philosophy of built in fault detection facilitating faster recovery
+o   Clear error reporting & exception handling; fail-safes is possible
+o   Monitoring, Alerting & Dashboards (Andon)
+--
+* Avoiding documentation: simplicity, small scale, familiar subject
+* Standards, Canned Knowledge...
+* Stable Knowledge: vision, impact mapping, README...
+* Self-Descriptive: Clean Code, Clean Tests, BDD, DSL
+* Living Glossary: a glossary of the important vocabulary of the business domain, extracted from the source code on each build.
+* Living Diagram: a diagram that you can generate on every change, so that it is always up-to-date.
+* Documentation by Annotations
+* Living Curation (by Annotations or Convention)
+* Documentation by Conventions (Naming conventions, Folder tree...)
+* Declarative Automation
+* Enforced Rule
+—
+## Alternate titles:
+ - Transparent Design
+ - Deliberate Design
+ - Exposed Design
+ - Published Design
+ - Literate Design
+ - Decision-Revealing Design
+ - Continuous Documentation
+ - Continuous Design
+ - Living Documentation / Reliable documentation for free with Domain-Driven Design
+ - Comprehensive Documentation lol
+
+(Litmus test: the fundamentals of LD should work with all these titles)
+
+--
+Automation (make it a script) over documentation (step by step guide)
+
+Discussion on how to automate code generation from xsd before we'll all gone and nobody knows how to update that.
+--
+http://t.co/TqMpaRM9dG
+
+
+--
+@angelaharms: "If you replace a conversation with a document, you've stopped using stories." @jeffpatton at #AgileDayChicago2014
+--
+--
+
+Living Glossary examples
+
+Festival ticketing system: festival series, festival event, location, partners, capacity, overbooking strategy, pricing strategy (over time), line-up, ticket (unique id), ticket, legal notes // from kickstart example
+
+Jsyn
+--
+Living Diagram examples
+
+- Sub-types of a type: FixedIncome <- Bond, Swap, Future, FRA // built-I'm most IDE on-demand
+- Message / debugging object graph (quasi actual example)
+- circle of a cyclic group Rock > Scissor > Paper > Rock
+- Tree of hierarchical config file entries (log.properties) // not sure it's very useful
+- runtime test results chart // payments over time
+- physical view from code written for that purpose // see blog using neo4j to graph
+(- pattern with its collaborators)
+- core domain / abstract core
+- hexagonal architecture
+- tribe around a concept // close to aggregate
+- context mapping // from annotations? Misses the point of a diagnostic tool
+(the sound of Fizzbuzz)
+
+Svg, Graphviz, pandoc, js, neo4j, dataviz
+--
+
+# Hint at what you know
+Like a biblio to declare the knowledge the author was aware of
+
+Even before looking at the code we'd like to know what to expect and how to understand the facts. (Grille de lecture)
+
+The team resume:
+- People we follow
+- Books we've read
+- Languages and frameworks were familiar with
+- Pre-existing inspirations
+- Typical kinds of projects we've mostly done so far (web, server, embedded, crud...)
+
+--
+"Quality of Service" requirements instead "non-functional"
+--
+Custom notation (eg Vaughn reactive book notation)
+
+Documentation by contrast: "Here is what you know. Now we don't do like that. Instead we do this way."
+--
+Use wifi password as a maxim (you have to carefully type it manually!):
+ReduceReuseRecycle
+--
+@mattbarcomb:
+
+work collaboratively
+act intentionally
+embrace uncertainty
+--
+## Runtime Self-Description
+
+Messages Interception: intercept message at chosen end points then print then using introspection or any other formatting rule
+
+Decorated Builder: the Decorator pattern applied to a Builder in order to print the recipe during the construction
+
+Self-Describing Object Graph: using introspection, the Visitor pattern or plain polymorphism with a continuation passing style
+
+Traceable Values: Value Object that remember internally where they come from
+
+Inspectable Meta: plugins etc.
+
+Homoiconicity: using the natural capacity of some languages to be able to process their own source code
+
+Data Report / Query Report: business calendars printed for each day even though they are not stored
+--
+Reconciliation Cucumber tags vs tag index thanks to tests by @aloyer
+--
+Ld
+Change-Friendly: embrace change, change will happen, and it means opportunities
+Obviously Reliable
+Low-Effort
+Collaborative
+Insightful
+
+Alt:
+Collaborative and Conversational
+Insightful and Deliberate
+
+--
+Cheap metrics
+@natpryce: Calculate total 'er-count' metric for a compiled Java project:
+
+find . -name '*.class' | xargs -n 1 basename | grep -Eoi '(e|o)r' | wc -l
+--
+Principles of LD
+
+Reliable
+- single source of truth (code, tests, runtime...)
+- reconciliation mechanism (tests, validations)
+
+Low-Effort
+- Simplicity (nothing to declare)
+- no documentation (avoiding the need for documentation: standard etc)
+- perennial knowledge (stuff that does not change)
+- refactoring-proof knowledge (stuff that automatically changes)
+- intrinsic knowledge + collocated (stuff that to together)
+
+
+Collaborative
+- conversations over documentation
+- knowledge decantation
+- accessible knowledge (make accessible to all audiences)
+- collective ownership (developers don't own the documentation, they just own the technical responsibility)
+
+Insightful
+- deliberate design (do I know what I'm doing? + tooling can help change behaviors)
+- embedded learning
+- emotional feedback (feedback with a sense of good or bad)
+
+--
+@tottinge: Product category: "Document Graveyard" -- are all document management & wiki & sharepoint & team spaces doomed?
+
+@James_R_Holmes: @tottinge Our standard joke is that "It's on the intranet" leads to the response, "Did you just tell me to go screw myself?"
+--
+@ploeh: If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better :)
+
+--
+No dependency injection: help trace how classes are constructed, which is harder when using a DI framework
+
+-- QA after my talk at Sgcib
+Documentation of the data schema to communicate with the outside?
+- Json API
+- DB as integration medium
+--
+Groovy Spock test framework extracts the expression from the code in its failing tests reports
+--
+Migration of existing documentation? Gilles: Strangle your specs/documentation! Deprecate / remove + redirect, perhaps with a one-off migration from Word to Markdown so that further maintenance and strangling can be done with just plain test in source control.
+--
+
+
+--
+@jeffsussna: @lunivore @tastapod What's the best way you've found to document/manage/share the results of BDD conversations?
+
+@lunivore: @jeffsussna Manage with conversations, document with actual working code. Prefer a wiki to Cucumber etc. these days. @tastapod
+
+@tastapod: @jeffsussna @lunivore I like having a product and/or team blog. Journalling decisions and conversations as you have them documents history.
+
+@tastapod: @jeffsussna @lunivore It also shows how decisions got made, and lets you see changing tastes or learnings over time.
+--
+Living Glossary:
+Remember to mention synonyms, antonyms, and faux-sens and common confusions, for improved discoverability by search.
+See semantic call by meaning
+--
+Living Enterprise Architecture Modeling (Cartography)
+See email
+
+Concepts fed from project source code, plus metal model in code to define the relations, and engines to display, enforce or measure the actual portfolio vs the target vision (alignment, dependencies, consistency, naming, technology choices...)
+
+Eg: no Tibco RV for reliable messaging (STP trades), no EMS for market data; one single golden source by conceptual object...
+
+--
+
+--
+
+--
+## Humane Registry
+Martin Fowler
+
+Wiki with contributions from both devs and users + auto-fed information from source control, usage tracking...
+--
+## Static Typing and use of Design Patterns
+
+See studies: "Types names help more than documentation"
+
+http://www.slideshare.net/mobile/devnology/what-do-we-really-know-about-the-differences-between-static-and-dynamic-types
+--
+@semanticwill: "Shared documents are not shared understanding.” - @jeffpatton
+--
+
+
+--
+How to?
+
+Name after it's used: tests, classes etc
+
+--
+A claim of this book: documentation is easy when you clearly know what you're doing:
+
+Red - Green - Refactor and explain
+
+This includes knowing how it's called in the classic books.
+
+Explaining Bounded Contexts: Collaborative Construction, Actual vs Target, Diverging Stakes...
+
+Explaining Command vs Query, side-effect or not, total function or not, intent / problem vs solution, published model vs working model...
+
+Business Rules
+--
+Visu algo
+http://www.comp.nus.edu.sg/~stevenha/visualization/index.html
+--
+LD - open space Agile France
+
+Retours d'expérience et témoignages (faits ou même imaginables) pour :
+
+living documentation reliable at all times:
+- extracted from code
+- reconciliation against the code
+- self-documenting code, beyond clean code
+- Any other idea for realtime update and always in in sync documentation
+--
+Internal Documentation (built-in the language, IDE support) vs External Documentation (separate and using non-programming formats)
+
+Task-Oriented, Audience-Specific
+
+Principles:
+- Several birds with one stone:m
+- Focus on the stable parts, let the machine take care of the rest
+--
+In this book we will focus on documentation for complex projects, projects where you're learning while doing, what Dan North calls Deliberate Discovery.
+--
+Read the doc (very nice intro to documentation)
+http://docs.writethedocs.org/writing/beginners-guide-to-docs/
+--
+@NickHodges: Excellent advice from @ploeh :  Always write robust, complete, and explicit exception messages.  It can actually become documentation.
+--
+@abdullin: Our auto-generated domain diagrams got awesome feature from @pjvds: show events that are subscribed but not tested. http://t.co/FtpS4QGsSH
+
+@abdullin: Unexpected side effect of having a living diagram of the system: it makes development more tangible. You can point to things in discussions.
+
+@cyriux: @FutureAaron @abdullin a living diagram is a diagram that you can generate on every change, so that it is always up-to-date.
+
+
+--
+
+--
+
+--
+@Thragor: The perfect annotation for #socrates14 code-retreat: LegacySucks from Google Annotations Gallery https//t.co/HtfKYeK9oR :-)
+--
+
+
+
+--
+@michaelbolton: @JariLaakso I observe the author—like many in our craft—seems to believe strategies and contracts are documents. Reification error. 1/2
+
+@JariLaakso: @michaelbolton Highlighting X doesn't mean replacing Y. This is where some agilists go wrong. You make a good point.
+--
+@tottinge: Code is documentation. Period. Bad, clumsy, ugly code is just really lousy documentation.
+--
+
+--
+Dexy: like make but for documents
+- Place prose in the code
+- Place code in the prose
+- Code is code, prose is prose, with tools to mix them together, plus data!
+
+Code, prose and data cost money. On the other hand, analysis, documentation and reporting have value
+--
+Search-First Documentation
+http://www.youtube.com/watch?v=ZwlrFWyeLT0
+
+Table of content: easy to index, structure hard to apply to tasks
+Vs
+Task-oriented documentation: hard to index, missing a lot of overview explanation
+Vs
+Guerrilla documentation: SO, forum... Signal to noise not too good, user-created, stale
+
+-> search-first: users-needs-driven like guerrilla, indexed like toc, modular like tasks, with tags and keywords
+
+tags and keywords: even words that don't occur in the documentation, words like blue screen of death... Use the words from actual users, failed searches etc
+--
+Literate programming with version control http://www.youtube.com/watch?v=T1ZEDElR7sA
+
+- Version of the tutorial step vs version of the creation of the tutorial (using branches?)
+
+- Layout file (literate) with instructions to include lines, files, collections of commits
+- you don't want to show the diffs but you wanna show what's replacing
+
+- literate programming is not a way to do documentation but a way to write programs
+--
+@FriendlyTester: "Having conversations,Is more important then documenting conversations,Is more important then automating conversations" @lunivore #bdd
+--
+@abdullin: Started developing a new module, using auto-generated diagram as first development feedback. Fast feedback FTW! http://t.co/PU0puXN2L3
+--
+@OlafLewitz: Use low fidelity representation for output as long as you want people feel invited to add their input.
+Ty @kearnsey :-)
+#TheLens #agile2014
+--
+Dire la destination plutôt que le chemin
+--
+On ne répète pas une norme, on la cite. (En prime on se couvre)
+--
+Joe Armstrong
+
+Programming is the act of turning an inexact description of something (the specification) into an exact description of the thing (the program)
+
+A program is the most precise description of the problem that we have
+--
+Thread macro clojure |> to document visually
+--
+
+--
+Leanpub is itself a form of LD: chapters and subset .txt to do the curation
+
+Content Curation
+Social citation (à la Pinterest)
+--
+
+Clean thinking
+--
+Notes for self: repetition
+
+--
+@cyriux: Lots of project management posters on the walls these days, but no big picture of the system: is it too obvious? No one cares?
+
+Makes it hard to reason about impacts, tasks, testing and help newcomers quickly understand what others are talking about.
+--
+Notifications inter-teams of SOA collaborative modifications of UML diagrams : see IBM rational
+--
+@danielwertheim: "GO" as a name for a language, from a company who is into web searches, isn't that name kind of...."unfortunate". Not so search friendly.
+--
+
+--
+
+Pinterest-like: pin stuff of interest by topic on a board. That's curation by links.
+--
+Mining et search on emails, notes and posts with attachements...
+--
+Map Vs territoire : on tente d'organiser les infos sur une mind-map et on découvre au passage des corrections à faire dans le code...
+--
+Jour férié : on passe son temps à expliquer au business !
+
+--
+--
+Mathieu Pauly chez Bi-Sam
+Metz model -> UML par dot, filtrage par euristiques (Tech*) etc
+
+En pair prog certains n'explique pas assez : lent à apprendre le métier :(
+
+Approche zéro documentation -> meilleur nommage
+
+Le sens est l'union de tous les usages
+
+#insightful
+Auto-diagramme : alternative pour exploiter les forces visuelles, eg trouver un chemin entre À et B etc ; aussi c'est jetable et perso !
+--
+Just because it is documented, it doesn't make it less stupid.
+--
+#migration
+Mining existing written documents: emails, slides, reports, meeting minutes, forum posts... To try to find why it was decided like that.
+--
+Title:
+
+# Living Documentation
+Reliable documentation for free with Domain-Driven Design
+--
+@MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK
+--
+Uncle Bob  http://butunclebob.com/ArticleS.UncleBob.TheThreeRulesOfTdd
+
+Micro tests as design documentation...
+--
+@nathanmarz: Why do so many engineers think complicated system diagrams are impressive? What's truly impressive are simple solutions to hard problems.
+
+@pavlobaron: @nathanmarz @sbtourist the ultimate rule of thumb: if there is at least one line crossing another in a diagram,the system is too complicated
+—
+Interfaces + chosen implem
+MongoDBAccount -> Account
+
+The implementation name prefix is a documentation
+--
+<funny block>
+Meanwhile in another universe...
+
+Literate programming
+Intentional programming
+MDA
+Formal proof
+Natural Language Expert systems
+...
+--
+"Make documentation, without spending time outside of making software at the same time"
+
+--
+- Audience -> curation
+Complete the code, or challenge the - code
+--
+
+@Morendil: I had to check the date, but it's not April 1st. Somebody wrote "comprehensive documentation over tribal knowledge" in earnest.
+--
+
+--
+Improve stuff by making it more visible: make quality visible, make design visible, make specs tree and goals visible, make dependencies visible, some metrics, build walls...
+--
+Anecdote de Claude Falguière
+Specs écrites, mais incompréhensibles. Les devs suggèrent de faire des revues des specs, les analystes décident de faire d'abord des revues entre eux. La semaine suivante, au reporting : "les revues on les a pas faites, car on n'arrive pas à relire et comprendre les specs" lol
+--
+@chrisparnin: Proof-of-concept, "TODO By", throws exceptions if TODO comment is not done by due date. https://t.co/QhLmX0du02
+
+@tvdstorm: .@chrisparnin Great idea. All comments should be executable. IOW there should be no comments.
+--
+Book title: Comprehensive Documentation lol
+
+--
+Another lean measurement the Poppendiecks explain in their book is financial return. If the team is developing a profitable product, it needs to understand how it can work to achieve the most profit. Even if the team is developing internal software or some other product whose main goal isn’t profit, it still needs to look at ROI to make sure it is delivering the best value. Identify the business goals and find ways to measure what the team delivers. Is the company trying to attract new customers? Keep track of how many new accounts sign on as new features are released.
+
+Agile Testing p.75
+
+A DTS is also a convenient place to keep all supplemental documentation, such as screen prints or uploaded files.
+Knowledge Base
+We have heard reasons to track defects such as, “We need to be able to look at old bug reports.” We tried to think of reasons why you would ever need to look at old bug reports, and as we were working on this chapter, Janet found an example.
+
+P. 80
+
+Defect tracking systems certainly don’t promote communication between programmers and testers. They can make it easy to avoid talking directly to each other.
+
+If your organization wants documentation about your overall test approach to projects, consider taking this information and putting it in a static document that doesn’t change much over time. There is a lot of information that is not project specific and can be extracted into a Test Strategy or Test Approach document.
+
+This document can then be used as a reference and needs to be updated only if processes change. A test strategy document can be used to give new employees a high-level understanding of how your test processes work.
+
+I have had success with this approach at several organizations. Processes that were common to all projects were captured into one document. Using this format answered most compliance requirements. Some of the topics that were covered were:
+• Testing Practices
+• Story Testing
+• Solution Verification Testing
+• User Acceptance Testing
+• Exploratory Testing
+• Load and Performance Testing
+• Test Automation
+• Test Results
+• Defect Tracking Process
+• Test Tools
+• Test Environments
+--
+Showing Model Responses
+Typical object collaboration diagrams look either deceptively simple or overly complex. They don’t reflect the thought or effort that went into producing them. In order to understand their significance, it is necessary to know what are key objects and what level of detail the designer intended to model. To find this information, either we need to look at supporting documents such as emerging class designs, prior conversations, and other supporting evidence. Designers can also help by walking others through their design. Diagrams alone can’t show the significance of key design decisions. This is hard to find in class specifications, too. That’s why designers need to tell us what they thought important.
+
+The Art of Designing Meaningful Conversations
+Reprinted from the Feb 1994 issue of The Smalltalk Report Vol. 3, No. 5
+By: Rebecca J. Wirfs-Brock
+--
+Executable Specifications with Scrum- A Practical Guide to Agile Requirements Discovery.
+
+Nice book
+
+Vision, stakeholders, high-level features, benefits
+Story-mapping
+Story boards (with or without screen mockup), scenarios (FIT or g/w/t)
+GWT as transitions within finite state machines -> FSM diagram?
+Ubiquitous Language in user stories, scenarios
+--
+Being able to work out the right name for a problem will help you greatly in your search. This is the one advantage of a grounding in computer science — rich technical jargon to find existing work easily. This is opposed to the “which pokemon would I name this library after” school of thought.
+
+http://programmingisterrible.com/post/83814757877/how-i-design-software
+--
+@bennett_nj: I worry that written requirements create an illusion that more communication has happened than actually has.
+--
+@lunivore: Automation should make it easier to change code safely, not harder. If it's getting harder, delete some. And never automate stuff in flux.
+—
+Focus on difference == Singularity
+--
+# Stable Knowledge Anchors
+--
+Documentation is best introduced just in time
+--
+## Human-Interpreted Code (replace debrief)
+--
+## Need for documentation is feedback - Knowledge gap signal - Missing Documentation Signal
+
+The less need the better, except for truly differentiating domain stuff, when there's a good reason to be unique and original.
+--
+
+--
+Your own BDD: given when expect combinators, in event sourcing. This generates a not too bad documentation for other developers.
+
+Generate markdown: easier to generate, and separate styling
+
+--
+Making the documentation linear from code in a different ordering (compilation ordering, file name alpha ordering...).
+
+Narrative ordering vs topological ordering
+
+Classification by categories, "not that difficult" to implement.
+
+Functional chapters to classify: @Billing @Legal @Compliance...
+
+@MustKnow, @NominalCase @Fundamentals, @CornerCase, @TypicalUse
+--
+How to explain a domain? Asking "How did they do before computers?" can certainly help make the business activity much more tangible and concrete!
+
+You may go further and play a role game with pieces of paper or stickies: people write on them and pass them on to other people and so on. You may simulate anomalies by having secretly stealing a piece of paper through its travel, and observe what's happening, or what's not happening.
+--
+@pcalcado: RT @extempore2: Arbitrary abbreviations exert an ongoing low-level mental tax. The accumulation […] is much of why programming is hard.
+--
+@WoodyZuill: You can't fix code problems with comments, but you can sure make them worse! #CommentsOnlyWhenThereIsNoBetterWayAndEvenThenBeCautious
+
+@dahankzter: @WoodyZuill like fixing poor usability with documentation
+--
+@smalltalk80: The value of documentation decreases exponentially with size.
+--
+@geoffcwatts: A phone call can save twenty emails. A face to face chat can save twenty phone calls
+--
+## Gamification / playful
+Offer interactive ways to share knowledge through attractive and engaging interactions
+- mob programming, pairing (dev-dev, )
+- timeboxing challenges
+- arbitrary constraints challenges
+- be weird manifesto, retrospectives experiments
+- stackoverflow style social network, I like, retweets
+- embedded games & contests
+Taking into account human mechanisms of reward / effort to make it work
+
+--
+## Congruent Media
+--
+Alt titles:
+Transparent Design
+Deliberate Design
+Exposed Design
+Published Design
+Literate Design
+Decision-Revealing Design
+Continuous Documentation
+Continuous Design
+
+(Litmus test: the fundamentals of LD should work with all these titles)
+--
+Purposeless == Aenemic
+
+In a test-driven mindset, it all boils down to one question and answer:
+Why this thing? Because this test.
+
+But at some point it is no longer tangible and becomes just wishful text:
+Why this thing? (executable) because this test (executable)
+Why this test? Because this narrative
+Why? Because this capability
+Why? For who? Because this impact map (not executable)
+
+Why this network router? Because this web server
+Why? Because this code
+Why this code? Because this business process
+
+
+--
+Rewriting projects are best avoided. Still, sometime you have good reasons to do a not-too-big rewrite.
+
+When starting over, this is like a new project, but with requirements proven over time. This does not mean the requirements are mature; it is common to earn money from a software product without knowing the rationale for each of its features. If you're to rewrite, you should take the opportunity to question the feature set.
+--
+## Human-Friendly Technologies
+REST + xHTML (human & robot) over   heavyweight we services, plain text over binary, self-descriptive over separate documentation, pretty printed over random formatting, no abbreviation, standard mime type over custom ones, runtime retention of annotations (all that unless requires otherwise of course)
+
+## NoDocumentation
+Some extreme practices reduce the need for documentation altogether: mob programming (permanent full-team cross-training on everything), and programmer anarchy (Don't understand the code? Redo it! )
+
+Approche zéro documentation -> meilleur nommage
+
+Disposable or single-use software doesn't need much documentation either. But keep in mind that most of the time it is actually reused and maintained for much longer than expected.
+--Steve McConnell
+--
+@abt_programming: "Progress is possible only if we train ourselves to think about programs without thinking of them as pieces of executable code" - E Dijkstra
+--
+One artifact, multiple purposes: over time, and for several audiences. The bigger the audience and the longer the lifecycle, the more useful the artifact is.
+--
+From https://t.co/v9iQSMmLoz
+
+"When Cucumber is adopted solely as a tool to write automated tests without any input from business analysts they tend to become imperative and lose their documentation value.
+
+This also makes them slow and brittle.
+...
+Your features should drive your implementation, not reflect it.
+...
+This takes us back to the Venn diagram in the beginning of this post. Cucumber features start their life as software requirements. The most important contributors to requirements aren’t programmers or testers - it’s business analysts. During this activity the programmers’ and testers’ primary responsibility is to ask questions and make sure they understand everything."
+--
+
+## Autonomation (Lean & Toyota TPS) spectrum automation-autonomy (see email LD)
+
+Automation provides benefits at a cost. It is not a mean in itself. There is always a point where the cost exceeds the benefits.
+
+Therefore:
+Invest in automation as long as the cost is low compared to the recurring benefits. Decide what to keep manual.
+
+--
+## Meaningless Behavior (Ward)
+## DSL (Systematic Combinations)
+## Little Arithmetic (monoid, space vectors etc)
+## Explained Result (value + full traceability included)
+--
+## Prior Knowledge
+--
+@tpope: @trptcolin just a corollary of "you don't really understand something until you can explain it to someone else."
+--
+Architecture has a fundamental focus on communication.
+
+## Domestic Ads:
+banners on build walls, wallpaper, idle screens, pair-programming blocker screens...
+
+T-shirts, card decks, cheat sheets, large posters, mugs... with maxims and important messages / logo on.
+--
+Persona: not just for stereotypes of people, also for products, market data and typical situations to deal with.
+
+--
+Object-Oriented Documentation? We invoke Solid principles, encapsulation, modularity, successive implementation of higher-level contracts... It takes similar neurons to do both well.
+--
+@thomaslindqvist: The coordination of value delivery is too important to be left to documents.
+Let ppl deliver value to ppl
+--
+@tottinge: It's hard to know how to communicate if we have to begin with preventing all possible misinterpretations. @net_zer0 @craftsmanadam
+--
+
+## Network of Information/knowledge (puzzle picture...)
+
+Information is more valuable when it is connected. Relationships convey additional information, and also bring structure.
+
+On a particular topic, eg a project, all information is related to another. On the internet, links between resources adds a lot of value: who's the author? Where to find more? What does this definition mean? Who's quoted here? In a book or paper, the bibliography tells you the context. Was the author aware of this publication? If it's cited you can guess it was the case.
+
+That's the same with your documentation. Therefore:
+
+Link. Refer explicitly. Qualify the relationship (source, reference on the topic, review, criticism, author, is part of, implements, is composed of...). Define a clear resource identification scheme. It can be your own, or a standard citation scheme. Use a link shortener and maintain it to avoid broken links.
+
+| Beware the direction of the links.
+Can you imagine a language where function would refer where they are called, as a list of each call site? It would be quite unmaintainable! |
+
+
+## anti pattern: project oriented documents
+There are process-heavy companies that require the use of standard file hierarchies, following company templates. What I often see is that most of the documents focus on projects. Projects begin and end, but the code remains.
+
+Project-oriented documents are painful to read after the fact: they're full of noise and arguments that were meant to convince someone long ago, or to please some compliance rule. Now nobody cares.
+
+
+
+
+
+--
+@sgranese: We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. #agilemanifesto
+--
+
+
+--
+## digest / curated content (Literate-ish Programming)
+Not all scenario is equally interesting for everyone. Not all code or configuration file is interesting for documentation. How to filter out and extract just the few snippets that matter for a given documentation purpose? (Python Sphinx, BDD categories...).
+
+You can review the code and copy snippets into a separate document, but you'll have to redo that every time the code changes.
+
+Therefore:
+Use Augmented Code or Convention over Configuration to add intrinsic categorization information to the source code artifacts. Then use that information to select content that matter for a given purpose.
+
+Need pretty solid examples... @DeveloperGuide("hello-world")
+@DeveloperGuide("extension-plugin-class")
+@DeveloperGuide("extension-plugin-manifest")
+@UserGuide("error-codes")
+
+Augmented Code enables to use the same snippet of code for multiple purposes. This makes it possible to cherry-pick content out of already existing code or tests.
+
+See: Glossary from Code, Augmented Code, Intrinsic Property, Curated Datasets
+--
+Curated or Generated Datasets can be named and can belong to the Ubiquitous Language.
+--
+Accurate -> enforced
+--
+Why is this actually an application of DDD?
+
+- code = model (documentation)
+- tricks to make the code express all the knowledge
+- deliberate practice
+- whirlpool
+- strategic design
+
+Living Documentation not only supports DDD, it is also in itself DDD.
+--
+What is documentation? What is it for?
+The problem of documentation
+Living documentation is:
+- Always Accurate
+- Change-Friendly
+- Collaborative-First
+- A Deliberate Practice (Thoughtful) (Reflective)
+
+--
+@JeffreyGoodReq: "The limits of my language are the limits of my world" @pragdave is quoting Wittgenstein to #thoughtworks
+
+@jeffsussna: Prod is no longer just prod. It's prod plus everything needed to deliver change to prod. #devops
+
+## Stable Contours
+Example: "everything about tax rates and how to apply them, in the context of selling to customers"
+
+## Cohesive Partitions / Areas
+Examples of large-scale architecture: e-commerce of cultural products and related consumer electronic products: functions x contexts x product ranges x customer segments. The same architecture analysis can be done at a large IS or a for just a big monolithic ERP (legacy superimposed structure).
+
+## Code is its own documentation example:
+- Supermarket pricing: literally "what's best for the customer"
+- composed methods of similar level of abstraction: grand total calculation in mixed currencies
+- Ward pattern of systematic behavior & total functions: encapsulate the variety of corner cases inside the objects so that the behavior is obvious from the outside
+- Fluent style: example in test data builders with predefined default arrangements that are overridden when necessary: use them to report the default arrangements into the website
+- Maths structures: monoids...

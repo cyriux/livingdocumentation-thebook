@@ -1,0 +1,77 @@
+LD - from legacy monolith to microservices in a bank
+
+
+## N+1 Documentation
+
+In the usual case of a main module with nested sub-modules, there's an opportunity for documentation at all levels: in the main module, and in each sub-module.
+
+At each level the documentation does not have the same focus. At the main module level, the scope is the whole system, hence focus is usually more on the the high-level problem side: goals, sponsors-facing information, stakeholders considerations, stakes and success criteria. At the sub-module level, the scope is smaller, and the focus is probably more on the lower-level solution side: design decisions, technical knowledge etc.
+
+However it is still possible to keep the same format of documentation everywhere, for example in the form "problem-then-solution". It's always a good idea to state the problem before talking about any solution. Documentation of the main module will focus on the high-level goals, and will try not to constrain the possible solutions too much. In contrast, lower-level documentation in each module would elaborate more on the details of the important decisions.
+
+
+@Evergreen
+## Introduction and Goals
+
+- Vision Statement
+- problem to address / value to earn / to protect / risk to prevent
+- list of stakeholder
+- list of main capabilities to deliver
+
+## Context & Constraints
+
+What's the business and technical context of the system?
+
+What kind of constraints restrict design decisions?
+
+brief definition of task, quality goals, summary of architecturally relevant requirements, especially the non-functional reqs
+
+
+# Solution Ideas and Strategy
+
+## Parti
+
+- Inspirations and bibliography
+- The way the problem is tackled, and the overall description of the solution
+
+A parti is the central idea or concept of a building
+A parti diagram can describe massing, entrance, spatial hierarch... and many other concerns… Some will argue that an ideal parti is wholly inclusive – that it informs every aspect of a building from its original configuration and structural system to the shape of the doorknobs. Others believe that a perfect parti is neither attainable nor desirable.
+
+
+## Business Domain View
+
+@LivingDiagram
+- Overview of the business domains
+@LivingGlossary or @PlainTextGlossary
+- Glossary by domain
+
+How does the solution work? What are the fundamental solution approaches?
+
+## Design Overview
+
+- External Dependencies
+- Technical Glossary
+- Inspirations and bibliography
+- ADR
+
+5. Building Block View
+Stativ structure of system, implementation Blocks.
+
+6. Runtime View
+Cooperation of (instances) of building blocks at runtime, relevant and important interactions.
+
+7. Deployment View
+Deployment: On which hardware will the building blocks be operated? What further information is required to operate the system?
+
+8. Concepts
+Recurring patterns and structures.
+Business domain models.
+Crosscutting (technical) concepts.
+These concepts can often be re-used across systems.
+
+9. Design Decisions
+Important design decisions.
+
+10. Quality Scenarios
+Risks
+Glossary & Important terms.

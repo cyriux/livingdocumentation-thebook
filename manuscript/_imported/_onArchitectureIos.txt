@@ -1,0 +1,66 @@
+LD - Architecture
+
+"Disseminating Architectural Knowledge on Open-Source Projects" to appear @ICSEconf looked at @aosabook . Preprint: bit.ly/1nRF5iX
+
+> Large software systems realize a number of important design decisions that are intended to remain stable. These decisions and the properties they induce are often referred to as a software system’s architecture. Knowledge of a system’s architecture helps ensure the preservation of its conceptual integrity in the face of on-going modifications.
+
+> an architecture must be documented for stakeholders to take it into account
+
+--
+Many approaches on codifying architecture have been proposed in the last decades, yet it appears none of them is universally used.
+--
+
+Essay style documentation... the multiple lens hypothesis, which states that "architectural information is focused from four different types of lenses: (1) technical, (2) historical, (3) personal, and (4) social."
+
+--
+At least one diagram in each essay
+
+> Under 10% of diagrams across all 45 chapters (14/164) were drawn in UML, and no chapter author pre- dominantly relied on UML.
+
+> when doodling a diagram I make sure I don’t expect people to know some conventions in order to understand it...”P3;“In my opinion most readers are not well versed in UML”
+
+> Background information was also provided to give the reader a historical perspective which, in some cases, was intended to illuminate the rationale for some ar- chitectural decisions. “An architectural design document would have been very dry and artificial, since it would have described the engineering features [...], without explaining why they came to be”
+
+- the general structure of the project”P3 , “a broad overview
+- Or internals: List of main features or key aspects
+- Chronological
+- Task-oriented: P12 structured the chapter “around a min- imal working [...] script”
+
+Topic sequence:
+- bottom-up (i.e., details first)
+- top-down
+- enumeration: We just identified the big topics [...] and wrote a section on each
+
+Ranking
+- descending order of importance, or - increasing complexity
+
+# Evolution
+
+> A system’s evolution was an active driver of architectural description. History can inform your understanding of the structure
+
+> it was important to describe how the architecture had progressed as opposed to presenting it fully formed. This can explain how we changed style and now both styles co-exist.
+
+The community in open source is a big part of the architecture. In companies, skills sets and main influencers shaped the outcome. Knowing about that also informs the understand of the end result.
+
+Documenting in essay form is always personal as well and reflects the personality of the author.
+
+
+# Documenting as an outsider
+
+Your exploration can be turned into a documentation! Sketches, notes, main eureka moments etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

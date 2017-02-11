@@ -1,6 +1,6 @@
 QUOTES
 
-From Lean Architecture for Agile Software Development - James Coplien, Gertrud Bjørnvig
+QUOTES FROM Lean Architecture for Agile Software Development - James Coplien, Gertrud Bjørnvig
 
 # Domain Vision Statement
 
@@ -10,7 +10,7 @@ Grocery store chain owner Avram Goldberg, quoted in The Clock of the Long Now, p
 It’s a good idea to circulate your problem definition broadly in written form. The work of producing a tangible problem definition provides focus for the team and can bring together what is initially just a group of people and provide a seed for team dynamics. But remember that the main value isn’t in the document and that it’s not Lean to produce something unnecessarily large. A statement of one or two sentences is ideal, and a page is too long.
 There is something strangely powerful about documenting problem definitions on paper. Don’t bury them as a field on some methodological form deep in some database. We’d discourage you even from using E- mail as the primary distribution mechanism. Try printing your problem definitions on small pieces of paper (small is beautiful, and emphasizes the non-methodological tone of a good problem definition) and hand them out to all the stakeholders. Have all the stakeholders autograph a copy on a major project. Make it fun, not a death march. Use problem statements to open up possibilities.
 
-# Document the business domain partioning   
+# Document the business domain partioning
 
 # Document the Design Style (aka Paradigm)
 
@@ -41,22 +41,13 @@ e.g:
 								Pay bill
 
 ---
-Martraire: Expose properties too!
 
 
-Martraire: Test-Driven Architecture for *-ilities:
 
-- actual tests e.g. load, scaling, times, idempotence, data consistency...
-- tests documented as scenarios in the BDD / Living Documentation suite
-- external tools and their config documented as scenarios in the BDD / Living Documentation suite: e.g. pen tests, accessibility tests
-- static analysis tools along with their acceptance criteria: security, bugs, style violations, metrics thresholds
-- manual tests: usability...
-- monitoring rollback thresholds: conversion rate, response time, CPU consumption...
-- prose for other objectives, e.g. financials, satisfaction expectations etc.
+---
+Quotes and notes from Documenting Software Architecture (Documenting Software Architectures: Views and Beyond, by By Paul Clements, Felix Bachmann, Len Bass, David Garlan, James Ivers, Reed Little, Paulo Merson, Robert Nord, Judith Stafford)
 
-With distributed systems all the above can be done at the component level or at the level of a collection of components, which complicates the matter.
 
---
 Documentation... Supports the Shared Vision... Is testable and defensible
 
 "The flow chart is a most thoroughly oversold piece of program documentation...
@@ -64,7 +55,7 @@ The detailed blow-by-blow flow chart... is an absolute nuisance, suitable only f
 -- F. P. Brooks, Jr. 1975
 
 ---
-Quotes and notes from Documenting Software Architecture (Documenting Software Architectures: Views and Beyond, by By Paul Clements, Felix Bachmann, Len Bass, David Garlan, James Ivers, Reed Little, Paulo Merson, Robert Nord, Judith Stafford)
+
 
 Uses of architecture documentation
 Architecture documentation must serve varied purposes. It should be sufficiently abstract that it is quickly understood by new employees, it should be sufficiently detailed so that it serves as a blueprint for construction and it should has enough information that it can serve as a basis for analysis.
