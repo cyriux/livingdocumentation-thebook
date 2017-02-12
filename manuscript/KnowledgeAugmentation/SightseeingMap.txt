@@ -22,11 +22,11 @@ One important thing to realize is that all the tourism guidance in a city is hig
 
 But one important difference between a code base and a city is that a code base can change more frequently than most cities. As a result, the guidance must be done in such a way that the work to keep it up-to-date is minimized, for example using automation.
 
-**Therefore: Provide curated guides of the code base, each with a big theme. Augment the code to be visited with extra metadata about the guided tour or the Sightseeing Map, and setup an automated mechanism to publish as often as desired an updated guide from these metadata.**
+**Therefore: Provide curated guides of the code base, each with a big theme. Augment the code to be visited with extra metadata about the Guided Tour or the Sightseeing Map, and setup an automated mechanism to publish as often as desired an updated guide from these metadata.**
 
 If the code base does not change much, a guided tour or a sightseeing map can be as simple as a bookmark with a list of the selected places of interest, and for each of them a short description and a link to its location in the code. If the code is on a platform like Github, it is easy to link to any line of code directly. This bookmark can be done in HTML, markdown, JSON, a dedicated bookmark format or any other form you like.
 
-If the code base changes frequently or may change frequently, a manually managed bookmark will require too much work to keep it up-to-date, so you would do dynamic curation instead: place tags on the selected locations in the code, and rely on the search features of the IDE to instantly display the bookmarks. If needed you can add metadata to the tags that will enable the reconstruction of the complete guided tour simply by scanning the code base.
+If the code base changes frequently or may change frequently, which is usually the case, a manually managed bookmark will require too much work to keep it up-to-date, so you would choose dynamic curation instead: place tags on the selected locations in the code, and rely on the search features of the IDE to instantly display the bookmarks. If needed you can add metadata to the tags that will enable the reconstruction of the complete guided tour simply by scanning the code base.
 
 A sightseeing map or a guided tour based on tags in the code is a perfect example of the Augmented Code approach.
 
@@ -104,6 +104,14 @@ public SupplyChainAllocation optimize(Inventory ...){
   ...
 ~~~~~~~~
 
+In C# we would use custom Attribute:
+
+~~~~~~~~
+public class CoreConceptAttribute : Attribute
+
+[CoreConcept("The main steps of enriching the Customer Purchase from the initial order to the ready to ship Shipment Request")]
+~~~~~~~~
+
 The wording is up to you, and you can use one generic annotation with a generic name like "PointOfInterest", and add a parameter "Key calculation" to precise what it is about.
 
 Alternatively you could decide to create one annotation for each kind of point of interest:
@@ -126,7 +134,8 @@ Here we use a custom annotation *@GuidedTour* with some parameters:
 - A description of the step *in the context of this tour*. This is in contrast to the Javadoc comment on the element which describes the element out of any context.
 - A rank, with a number or anything comparable, in order to order the steps when presenting them to the visitor.
 
-For example, the guided tour starts here:
+
+Here's an example of Guided Tour:
 
 ~~~~~~~~
 /**
@@ -223,6 +232,27 @@ Note that in this guided tour, each title is actually a link to the correspondin
 
 This living guided tour document is generated in markdown, for convenience. Then 'Maven site' (or sbt or whatever other similar too) can do the rendering to a web page or any other format. An alternative that we have done here, is to use a Js library to render the markdown in the browser, which requires no additional toolchain.
 
+An alternative to using Strings in the Guided Tour annotations would be to use enums; enums take care of naming, descriptions and ordering at the same time. However this moves the descriptions of each step of the Guided Tour from the annotated code to the enum class:
+
+~~~~~~~~
+public enum PaymentJourneySteps {
+  REST_ENDPOINT("The single page app call this endpoint with the id of the shopping cart"),
+  AUTH_FILTER("The call is being authenticated"),
+  AUDIT_TRAIL("The call is audit-trailed in case of dispute and to comply to regulation"),
+  PAYMENT_SERVICE("Now we enter the actual service to perform the job"),
+  REDIRECT("The response from the payment is sent by through a redirect");
+
+  private final String description;
+}
+~~~~~~~~
+
+This enum is then used as value in the annotation
+
+~~~~~~~~
+@PaymentJourney(PaymentJourneySteps.PAYMENT_SERVICE)
+public class PaymentService...
+~~~~~~~~
+
 ## The implementation
 
 In Java we use a Doclet-like library called QDox to do the grunt work here, as we want to be able to access the Javadoc comments. If you don't need the Javadoc, then any parser and even pain reflection could work.
@@ -231,8 +261,11 @@ QDox scans every Java file in *src/main/java*, and from the collection of parsed
 
 That said, the devil is in the details, and this kind of code can quickly grow hairy depending on how demanding you are with respect to the end result. Scanning code and traversing the Java or C# metamodel is not always nice. In the worst case you could even end up with a Visitor pattern. I expect that more mainstream adoption of these practices will lead to new small libraries which will take care of most of the grunt work for common use-cases, exactly like for Living Diagrams and Living Glossaries.
 
+
 ## Related
 
-This approach is totally reminiscent of Literate Programming, but in reverse. Instead of having *Prose with Code*, we have *Code with Prose*. For a sightseeing map you only have to select the points of interest, and perhaps group them by big themes. For a guided tour, you need to devise a linear ordering of the code elements, just like in Literate Programming where you tell a linear story which progresses through code to end up with a document explaining the reasoning and the corresponding software at the same time.
+A Guided Tour is reminiscent of Literate Programming, but in reverse. Instead of having *Prose with Code*, we have *Code with Prose*. For a sightseeing map you only have to select the points of interest, and perhaps group them by big themes. For a guided tour, you need to devise a linear ordering of the code elements. In Literate Programming you also tell a linear story which progresses through the code to end up with a document explaining the reasoning and the corresponding software at the same time.
 
-Of course this is not just a documentation concern, but also a way to encourage continuous reflection on your own work as you do it. In this perspective, it would be a good idea to document a guided tour as soon as you are building the  very initial walking skeleton of the application. This way, you will benefit from thoughtful effect of doing the documentation at the same time of doing the work. See also SMALL-SCALE MODEL for similar ideas.
+A Guided Tour or Sightseeing Map is not just a documentation concern, but also a way to encourage continuous reflection on your own work as you do it. In this perspective, it would be a good idea to document a guided tour as soon as you are building the early walking skeleton of the application. This way, you will benefit from thoughtful effect of doing the documentation at the same time of doing the work.
+
+See also SMALL-SCALE MODEL for similar ideas.

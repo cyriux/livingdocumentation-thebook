@@ -1,5 +1,41 @@
 Humor
 
+-
+# Code As Documentation
+
+"Don't mess with Georges" (TODO COMICS)
+
+Alice: why this code so complicated?
+Bob: It's Georges. Don't mess with Georges!
+Alice: What?
+Bob: Our Team Lead is a former developer. He's always micromanaging so he pissed the team off. Georges retaliated by refucktoring the code.
+
+Focus on code: extremely convoluted PINBALL of calls to abstract stuff calling abstract stuff, going through multiple levels of factories and builders, with generic names like sync() or execute(), build(), do()
+
+Bob: Now the Team Lead can't read the code by himself anymore.
+Claire: It makes our life better if he can't read the code anymore!
+
+--
+# Architecture / Ready-made knowledge? / Ackowledge the references
+
+> Coined Gierke's law yesterday: from the structure of a software system you can derive the book the architect read most recently...
+-- @olivergierke Oliver Gierke
+
+--
+# Working collectively
+
+> OH: "Mob programming. It's like 'pair programming meets RAID6'" via Phil Calcado
+
+
+--
+"And now for a pedantic word...""
+
+> Stigmergy is a mechanism of indirect coordination, through the environment, between agents or actions. The principle is that the trace left in the environment by an action stimulates the performance of a next action, by the same or a different agent.
+> 
+> [Stigmergy on Wikipedia](https://en.wikipedia.org/wiki/Stigmergy)
+
+---
+
 (a la Living Documentation Borat quotes)
 
 (Conversations between a stupid boring manager rigid and a candid engineer)
@@ -63,12 +99,16 @@ A> ### When annotations go too far...
 A>
 A> [Google Annotations Gallery](https://code.google.com/p/gag/)
 
----
+--
+# Comments
+
 What if you wrote your comments as click baits?
+
 [commitstrip](http://www.commitstrip.com/en/2014/08/07/our-cto-has-discovered-an-incredible-way-of-making-developers-read-his-commit-messages-you-wont-even-believe-how-he-did-it)
 - Next Time Someone Asks You How To Fix This, Remember this Commit
 - This Bug Has Driven Lots Of Developers Completely Mad. You Won't Believe How It Ended Up Being Fixed
 - It's Possible! You Can Turn a 50-Lines Code Chunk Into Just 3 Lines. Here's How.
+
 [storify link](https://storify.com/anirvan/buzzfeed-style-commit-messages)
 - This bugfix will SHOCK you!
 - This one weird trick to make the server run faster, DEVOPS HATE HIM

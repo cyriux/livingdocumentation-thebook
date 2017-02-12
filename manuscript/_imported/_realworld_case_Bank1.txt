@@ -75,3 +75,38 @@ Important design decisions.
 10. Quality Scenarios
 Risks
 Glossary & Important terms.
+
+
+------
+
+LD - Enforced Legacy Rules
+
+# Legacy
+
+You decided that some method should not be called anymore, except from one or two specific places. An example is you decided to turn a legacy application into a Legacy Read Model, which should not accept any request to update it except from the listener responsible to sync this read model to the other authoritative model.
+
+The design decision can be stated this way:
+
+> ”This model is a Read Model. It is therefore read-only. Don’t call this Save method, unless you are the listener which syncs this Read Model from the events sent from the Authoritative Write Model.”a
+
+And its rationale is:
+
+> The legacy system has proven to be un-maintenable so we don’t want to develop anymore in it. This is why we’re building a replacement as another system. But because so many external systems are integrated to it we can simply remove it in one go. This is why we decide to keep this old system just as a Legacy Read Model for integration purposes.
+
+This can and should be documented of course. I’d do it this way:
+
+- Mark the design decision with a custom annotation @LegacyReadModel with the message and the rationale
+- Mark the method as @Deprecated
+
+However being in a legacy system also means we have legacy teams around, some of them remote or in other departments, and we can never be sure they will read our documentation or email, or that they will pay attention when we mention that in our daily standup. However if some developers don’t respect the design decision then bad things will happen. We'll get bugs and pay the cost of extra accidental complexity due to the inconsistent data management strategies.
+
+My colleague Igor Lovich came up with a simple way to document that decision as an Enforced Guideline. Our design decision becomes:
+
+> ”Never call this method unless you’re in the White-List of the one or two classes responsible for the sync."
+
+Which we can then enforce at runtime with a few lines of code:
+
+- Capture the stack trace (e.g. throw an exception within a try-catch and extract its stack trace in Java)
+- Check that at least one caller in the stack trace belongs to the White-List of authorized callers
+- Make the check into a Java ‘assert', if you want to fail-fast in some environments but not all of them
+- Log when the check fails in a way that will trigger specific follow-up (if it gets fired then it’s actually a defect)

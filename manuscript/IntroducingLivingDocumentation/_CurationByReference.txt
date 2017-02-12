@@ -1,9 +1,18 @@
+# Documentation Compliance Workaround
 
+Retain your time and your sanity while conforming to the mandatory documentation requirements!
+
+What to do
 
 ---
+Sightseeing Map generalized in case of forced compliance to company documentation templates:
 
-For what documentation?
-For everything that has to be a document:
+- developer guide
+- error codes list
+- list of modules
+...
+
+
 Specifications
 Tests reports
 Getting started guide & all kinds of Tutorials, including dedicated how-to  guides for particular tasks and for particular audiences
@@ -24,6 +33,8 @@ You can review the code and copy snippets into a separate document, but you'll h
 Therefore:
 Use Augmented Code or Convention over Configuration to add intrinsic categorization information to the source code artifacts. Then use that information to select content that matter for a given purpose.
 
+// redundant with Guided Tour and Sightseeing maps!!!
+
 Need pretty solid examples... @DeveloperGuide("hello-world")
 @DeveloperGuide("extension-plugin-class")
 @DeveloperGuide("extension-plugin-manifest")
@@ -35,6 +46,8 @@ See: Glossary from Code, Augmented Code, Intrinsic Property, Curated Datasets
 --
 
 ## Scenario Digest (Curation by Reference, Scenario Curation, Curated Content, Literate-ish Programming)
+
+// redundant with BDD / tags
 
 Curated or Generated Datasets can be named and can belong to the Ubiquitous Language.
 --

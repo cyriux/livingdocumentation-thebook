@@ -1,5 +1,18 @@
 LD - journal
 
+# No Documentation / Architecture
+
+ant better documentation? Simplify and structure your design to make it possible!
+
+> Entropy is "the information required to describe a system".
+> -- Kent Beck (https://www.facebook.com/notes/kent-beck/entropy-as-understood-by-a-programmer-part-1-program-structure/695263730506494)
+
+> Code written every which way requires detailed study of every line to understand what's going on. Code written according to a consistent and shared pattern language can be described more concisely. "Inline editing is implemented as a State of the Controller" -- if you know the vocabulary, you know what you'll find when you look at the code.
+
+Fred George on the high frequency loop on Kafka and it's rivers etc -> can describe the whole architecture in less than one hour: GOOD!
+
+W
+
 
 —
 Martin Fowler talk at O’Reilly conference
@@ -12,7 +25,6 @@ Please describe the architecture using only 4 objects
 
 Code already there is often used as an example; better be very nicely done to be exemplar! need to highlight the best examples as eel (curation) Examplar Code
 --
-
 
 ## Shared Mental Models
 
@@ -1298,3 +1310,31 @@ Examples of large-scale architecture: e-commerce of cultural products and relate
 - Ward pattern of systematic behavior & total functions: encapsulate the variety of corner cases inside the objects so that the behavior is obvious from the outside
 - Fluent style: example in test data builders with predefined default arrangements that are overridden when necessary: use them to report the default arrangements into the website
 - Maths structures: monoids...
+
+--
+# Introducing Living Documentation
+
+Focus on Interactive, Face to Face knowledge transfer
+
+This said, consider techniques to record the key bits of knowledge that have to be known, that every newcomer has to learn, and that matter in the long run.
+
+Relax on the wiki.
+README
+Decision Log
+Core Concepts / Process aka Main Sites
+Guided Tours
+Napkin Sketches
+
+-
+documentation is code for your fellow developers, including bots
+
+Concrete fiction story to do
+
+--
+BCBS 239 -> transparency on data transformation & extreme traceability
+--
+“Everyone has to know where the boundaries lie, and be able to recognize the Context of any piece of code or any situation.” - @ericevans0
+
+--
+Stable links:
+To queries in TFS

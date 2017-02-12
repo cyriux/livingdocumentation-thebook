@@ -6,6 +6,10 @@ Compared to free text, code has many advantages: it's structured, offers auto-co
 
 This makes code a great tool for documentation purposes!
 
+Example with Adrian Cockroft Spigo DSL as Json: https://github.com/adrianco/spigo/tree/master/json_arch
+
+---
+
 As an example, let's describe a full Information System using code as a model. We'll see how we can even use this model to reason about our system and its testing strategy.
 
 ~~~~~~~~
