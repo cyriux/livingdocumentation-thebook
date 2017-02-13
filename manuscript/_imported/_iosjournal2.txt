@@ -1,6 +1,8 @@
 LD - Journal 2
 
 
+Raw artifact are not ready to be useful documentation; to be useful we need the curation to carefully select the few tests that are worth having a look at.
+
 --
 ## BDD: Expose properties too!
 ---

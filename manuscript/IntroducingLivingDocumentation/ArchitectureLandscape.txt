@@ -116,9 +116,11 @@ When knowledge is incomplete, like it usually is at the beginning of any interes
 
 
 
-### Easy to explain
+### Brief to explain
 
-A good architecture is simple and looks obvious. It is also easy to describe in just a few sentences. A few key decisions, sharp and opinionated and which guide every other decision is an architecture.
+A good architecture is simple and looks obvious. It is also easy to describe in just a few sentences. A few key decisions, sharp and opinionated, which guide every other decision is a good architecture.
+
+If architecture is "what everyone should know", then this puts an upper bound on its complexity. Anything complex to explain will not be understood by most.
 
 A> I've seen a good example of a good architecture in Fred George's talk at Oredev 2013 on micro-services architecture. Fred Georges manages to explain the key ideas of this architecture in minutes. It sounds as if it was simplified, and it probably is, deliberately. There is a lot of value in a caricatural architecture, which can be quickly understood by everyone. On the other hand, optimizing every detail is harmful if it makes the whole impossible to explain quickly.
 
@@ -278,26 +280,6 @@ In the example below, the decision log is maintained as a one single Markdown fi
 >
 >
 
-
-## Test-Driven Architecture
-
-Test-Driven Development brings a mindset which is not just for writing code "in the small". It's a discipline to first describe what we want, before we implement it, at which point we make it clean to help our work in the longer term.
-
-We can try to follow this same process at the architecture scale. The challenges we face are the larger scale of everything, which may not fit in our heads, and the longer feedback loops, which means we may forget what we were after when can eventually get the feedback.
-
-%% TODO
-
-- actual tests e.g. load, scaling, times, idempotence, data consistency... e.g. Threshold Tests may document some of the expected performance criteria.
-- tests documented as scenarios in the BDD / Living Documentation suite
-- external tools and their config documented as scenarios in the BDD / Living Documentation suite: e.g. pen tests, accessibility tests
-- static analysis tools along with their acceptance criteria: security, bugs, style violations, metrics thresholds
-- manual tests: usability...
-- monitoring rollback thresholds: conversion rate, response time, CPU consumption...
-- prose for other objectives, e.g. financials, satisfaction expectations etc.
-
-> To keep track of your expectations before doing experiments on the product, its successes and failures: https://t.co/y6ir9TeW5m #startup #hypotheses -- @fchabanois
-
-
 ## Polyglot Architecture and Documentation Landscape
 
 In any significant system, we should give up on the idea of one single architecture. A system is made of several modules, and each should have its own architecture. Of course the design of the modules and how they are related to each other is architecture too, of a high-level kind.
@@ -414,3 +396,14 @@ public enum Codex {
 	}
 }
 ~~~~~~~~
+
+## Transparent Architecture
+
+When architecture documentation becomes embedded within the software artifacts themselves in each source code repository, with Living Diagrams and Living Documents generated out of them automatically, everyone gets access to all the architecture knowledge by themselves. Contrast that with companies where the architecture knowledge remains in tools and slide-decks only known by the official architects, and not up-to-date.
+
+One consequence is that this enables decentralizing the architecture and the decision making dependent on architecture knowledge. I call that "transparent architecture": if everyone can see the quality of the architecture by themselves, then they can take decisions accordingly, by themselves, without necessarily asking the people in an architect role.
+
+![With access to the whole picture, each team can directly take decisions consistent with respect to the whole system](images/transparent_architecture.png)
+
+
+### All this is fine, but we can go even further with Test-Driven Architecture.

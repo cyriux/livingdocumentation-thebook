@@ -1,0 +1,89 @@
+## Test-Driven Architecture
+
+Test-Driven Development brings a mindset which is not just for writing code "in the small". It's a discipline to first describe what we want, before we implement it, at which point we make it clean to help our work in the longer term.
+
+We can try to follow this same process at the architecture scale. The challenges we face are the larger scale of everything, which may not fit in our heads, and the longer feedback loops, which means we may forget what we were after when can eventually get the feedback.
+
+Ideally, we would start by defining the desired quality attributes as tests. They will not pass for weeks or months, until they eventually pass, at which point they become the only really sincere documentation of the current quality attributes.
+
+For example, consider a performance quality attribute:
+
+> "10k requests over 5mn with less than 0.1% error and response time within 100ms at 99.5 percentile"
+
+First write it down in the bullet list of quality attributes, for example in the Markdown file.
+
+Then implement this criteria as literally as possible as a Gatlin or JMeter test on a realistic environment (perhaps even on production). It's not every likely that it passes right away.
+
+Now the team can work on it, among other things depending on the priorities. It may takes a few sprints to make it pass.
+
+The first time I mentioned that at a Socrates conference in Germany, the comment was:
+
+> We already do that indeed, as test scripts for proofs of concepts. Except we throw them away after.
+
+Perhaps it does't takes that much more effort to turn experiments you're already doing on a one-off basis into maintainable assets that can assert you still meet the requirements and that can document them at the same time.
+
+### Literal quality attributes as scenarios
+
+The test should describe the quality attribute as as declaratively as possible. One way to do that is to dress the criterion as a special Cucumber scenario:
+
+> @QualityAttribute @SlowTest @ProductionLikeEnv @Pending
+>
+> Scenario: Number of requests at peak time
+>
+> Given the system is deployed on a production-like environment
+>
+> When it receives a load of 10k requests over 5mn
+> Then the error rate is less than 0.1%
+>
+> And the response time is below 100ms at 99.5 percentile
+
+Note the custom tags:
+
+- @QualityAttribute to classify it as a Quality Attribute requirement
+- @SlowTest to launch it only as part of the nightly slow tests run
+- @ProductionLikeEnv to flag that this test is only relevant on a production-like environment for the metrics to be meaningful
+- @Pending to signal that this scenario is not passing yet
+
+With this approach, as soon as the scenario is written, it can become the Single Source of Truth for the corresponding Quality Attribute. Moreover, the Scenario Tests Reports becomes the Table of Content for these "Non-Functional Requirements" too.
+
+Note that the quality attributes scenarios are useful even if they are never actually implemented as true tests.
+
+You may describe all the quality attributes this way:
+
+- **Persistence**: "Given a purchase has been written, when we shutdown then restart the service, then the purchase we can read all the purchase data". Is it going to far documenting the obvious?
+- **Security**: "When we run *standard* penetration testing suites, then zero flaw is detected". Note that here the trick is the word "Standard" which refers to a more complete description somewhere outside of the scenario. This external link is part of your documentation too, even if you didn't write it yourself.
+
+When the Quality Attribute can be checked at compile time, it will probably be part of your quality dashboard, for example in Sonar. In this case you can turn this tool into your table of content of these quality attributes. And you may use something like the *Build Breaker* plugin to fail the build in case of too many violations.
+
+(This is another way of implementing Enforced Guidelines).
+
+
+### Quality Attributes at runtime in production
+
+There are quality attributes which are too difficult to test outside of their natural habitat. This calls for a more monitoring-oriented approach. Netflix introduced the Chaos Monkey to assert the fault-tolerance at the service-level. Later they introduced the Chaos Gorilla at the data center level:
+
+> Chaos Gorilla is similar to Chaos Monkey, but simulates an outage of an entire Amazon availability zone. We want to verify that our services automatically re-balance to the functional availability zones without user-visible impact or manual intervention. (from [the Netflix techblog](http://techblog.netflix.com/2011/07/netflix-simian-army.html))
+
+The mere description of these two Chaos engines, along with their configuration parameters in terms of outage frequencies, is in itself a documentation of the fault-tolerance requirements.
+
+Some cloud providers or container orchestration tools support automatic rollback if some metrics are degraded following a deployment. This configuration de facto documents what's considered "normal" metrics: CPU / memory usage, conversion rate etc.
+
+### Other quality attributes
+
+Some quality attributes cannot be tested automatically: financials expectations, user satisfaction, etc. They often reside within spreadsheets on shared drives. Alternatives exist online, to encourage sincere declarations of the objectives, before comparing them against the actual achievements.
+
+> To keep track of your expectations before doing experiments on the product, its successes and failures: http://growth.founders.as #startup #hypotheses -- @fchabanois on Twitter
+
+This kind of tools encourage working in a TDD-ish fashion for startup objectives.
+
+### From fragmented knowledge to usable documentation
+
+This approach can end up with many fragmented and heterogenous sources of truths about all the quality attributes. They need to be curated and consolidated into one or two Living Table of Content.
+
+**Therefore: Dress your quality attribute tests as Cucumber scenarios, into a separate "Quality Attributes" folder (hence into a separate chapter in the corresponding Living Documentation). Use tags to classify them more precisely. Decide on one existing tool to host the main table of content as the single entry point for all the quality attributes documentation, with references to any other tool.**
+
+For example you may decide that Cucumber is the main table of contents. You'll add pseudo scenarios to link to the Sonar configuration and to the *permalinks* to the configuration of each static analysis tools. (Permalinks are links which are permanent). You'll also mention the Chaos Monkey as a scenario and a link to its configuration on some Git repository.
+
+Or you decide on your build tool as the main table of content. By adding custom steps in the build pipeline (e.g. Jenkins or Visual Studio) you can pinpoint to Cucumber reports, Sonar reports, and to the Chaos Monkey configuration.
+
+These tools can at the same time be a table of content and fail the build in case one of the quality attribute is not met anymore. This helps keep the documentation sincere. If you just use a wiki as the main table of content, you no longer have that enforcement.

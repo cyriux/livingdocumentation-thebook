@@ -30,6 +30,12 @@ If the code base changes frequently or may change frequently, which is usually t
 
 A sightseeing map or a guided tour based on tags in the code is a perfect example of the Augmented Code approach.
 
+You may be worrying that adding tags about Sightseeing Maps or Guided Tours into the code pollutes the code, and you are right. These tags are not really about the tagged element intrinsically, but about how it it used. I usually prefer to avoid that. Use this approach sparingly.
+
+> Consider your code base as the beautiful wilderness in the mountains where you go hiking. This is a protected area, and yet you have read and white hiking trails signs painted on directly on the stones and on the trees. This is a small pollution of the natural environment, but we all accept it since it's very useful at the expense of a limited degradation of the landscape.
+
+%% ADD PICTURE of red white hiking trails here
+
 ## A sightseeing map
 
 To get started with this approach,, you first create your custom annotation or attribute, and then you put it on the few most important places that you want to emphasize. To be effective, keep the number of place of interest low, ideally 5 to 7 and no more than 10.
