@@ -31,8 +31,18 @@ Claire: It makes our life better if he can't read the code anymore!
 "And now for a pedantic word...""
 
 > Stigmergy is a mechanism of indirect coordination, through the environment, between agents or actions. The principle is that the trace left in the environment by an action stimulates the performance of a next action, by the same or a different agent.
-> 
+>
 > [Stigmergy on Wikipedia](https://en.wikipedia.org/wiki/Stigmergy)
+
+> The French entomologist Pierre-Paul Grassé described a mechanism of insect coordination he called “stigmergy”—work performed by an actor stimulates subsequent work by the same or other actors [4 , 5]. That is, the state of a building, code base, highway, or other physical construction determines what needs to be done next without central planning or autocratic rule. The actors—insects or programmers—know what to do next, based on what has already been done. This intuitive urge to extend the work of others becomes the organizing principle of modern software development.
+>
+> For example, ants find the shortest route to food in optimal time, and simple-minded termites build hives without central control mechanisms or intelligence oversight. Programmers know what to do by looking at the code base and email messages from fellow programmers. A chief programmer is not needed to dictate the next state of the code base
+>
+> Ants use a special type of chemical marker—pheromones—to highlight the results of their activity. This type of indirect stimulation, not by the work itself but by special markers, is called “marker-based stigmergy.” Similarly, distributed programmer teams involved in cooperative code development across the Internet lay down analogous pheromones for their unseen and virtual collaborators when they augment code development by email interaction, comments, phone calls, documentation, and webcast meetings [8]. In fact, the stronger the marker system, the better the resulting code [9].
+
+> The essence of modern software development is stigmergic intellect and markers embedded within the code base. Markers make stigmergy more efficient, by more reliably focusing a programmer’s attention on the most relevant aspects of the work that needs to be done. However, it incurs a cost because programmers must perform the task of manufacturing markers in addition to the work itself. But, in the Internet age of global software development, this cost is more than compensated for by speed, agility, and lower costs.
+>
+> If we want to advance the art and science of software development, we should direct our attention to the insect world of stigmergy. This means fully comprehending the value of decentralized collaboration and pheromones or markets embedded in the code, itself. -- @r7krecon: Stigmergy. https://t.co/yXkEFHLpDj
 
 ---
 

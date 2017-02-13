@@ -36,7 +36,6 @@ LivingDocumentation/Section------LivingDocumentation.txt
 bdd/BDD.txt
 bdd/RichDomainDescription.txt
 
-Introduction/ArchitectureLandscape.txt
 
 KnowledgeExploitation/KnowledgeExploitation.txt
 
@@ -69,6 +68,7 @@ LivingDocumentation/LivingGlossary.txt
 LivingDocumentation/LivingDiagram.txt
 LivingDocumentation/HexagonalArchitectureDiagram.txt
 LivingDocumentation/BusinessDomainDiagram.txt
+LivingDocumentation/PatternOrientedLivingDiagram.txt
 
 
 
@@ -116,6 +116,8 @@ NoDocumentation/ConsistencyReplaceability.txt
 
 
 NoDocumentation/CoffeeMachineCommunication.txt
+
+
 EfficientDocumentation/EfficientDocumentation.txt
 EfficientDocumentation/SpecificationWorkshops.txt
 EfficientDocumentation/SmallScaleSimulation.txt
@@ -136,6 +138,8 @@ IntroducingLivingDocumentation/Section------IntroducingLivingDocumentation.txt
 IntroducingLivingDocumentation/IntroducingLivingDocumentation.txt
 
 IntroducingLivingDocumentation/IntroducingLivingDocumentationByExample.txt
+
+IntroducingLivingDocumentation/ArchitectureLandscape.txt
 
 IntroducingLivingDocumentation/SellingLivingDocumentation.txt
 IntroducingLivingDocumentation/DocumentationCompliance.txt

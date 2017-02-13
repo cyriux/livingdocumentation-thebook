@@ -2,7 +2,7 @@ LD - journal
 
 # No Documentation / Architecture
 
-ant better documentation? Simplify and structure your design to make it possible!
+Want better documentation? Simplify and structure your design to make it possible!
 
 > Entropy is "the information required to describe a system".
 > -- Kent Beck (https://www.facebook.com/notes/kent-beck/entropy-as-understood-by-a-programmer-part-1-program-structure/695263730506494)
@@ -10,8 +10,6 @@ ant better documentation? Simplify and structure your design to make it possible
 > Code written every which way requires detailed study of every line to understand what's going on. Code written according to a consistent and shared pattern language can be described more concisely. "Inline editing is implemented as a State of the Controller" -- if you know the vocabulary, you know what you'll find when you look at the code.
 
 Fred George on the high frequency loop on Kafka and it's rivers etc -> can describe the whole architecture in less than one hour: GOOD!
-
-W
 
 
 —

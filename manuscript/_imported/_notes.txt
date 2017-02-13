@@ -396,3 +396,205 @@ LD - Entropy by Kent Beck
 https://www.facebook.com/notes/kent-beck/entropy-as-understood-by-a-programmer-part-1-program-structure/695263730506494
 
 entropy is "the information required to describe a system".
+
+
+# Living Documentation - An Overview
+
+This
+
+%% @Tough
+
+%% TODO move to another place
+
+## What's worth documenting?
+
+How do you do when discovering a new project?
+
+I like to start by browsing the dependency (e.g. Maven) manifest to have a quick look at the technologies involved, from the middleware to the testing libraries. Just from that nomenclature of dependencies I already have a rough big picture of the project in a few minutes.
+
+I quickly browse the modules and their packages, and try to recognize a regularity I know, like a consistent naming scheme, the way elements are grouped into folders, and design / architecture clues suggested by the names. I look for tests I could run right now to see the things in action. I look at the annotations as another cross-cutting axis of navigation: if I'm on a class annotated with an annotation, I can quickly find every other places this annotation where it is used too.
+
+When reading a piece of code, I would frequently check the full qualified name of a variable to check if it's from another package, to infer the level of dependency discipline like strict layering.
+
+
+-------
+End user documentation, like what technical writers do. Read the Doc etc.
+
+------
+## Continuous Documentation: a High-Yield Activity
+
+As always in agile mindset, documentation must not be a distinct activity, but must be done at the same time you create software. Like testing and specification. -> Don't waste time doing documentation, instead, spend time delivering software that is documented.
+
+an on-going, just-in-time, activity
+
+*Investing a little more care in the elaboration of the software in order to get a lot more value out of the process*
+
+The process
+
+talk, write document, code
+talk, take notes, code
+talk & code
+
+> I think the pattern is clear - If we don't use our documents, the whole eco-system of our product degrades to entropy and will ultimately lead us to revival by rewrite, or at least by going through the analysis again and likely to some re-engineering. Time wasted. -- [Itamar Hassin](https://ihassin.wordpress.com/category/living-documentation/)
+
+A matter of stability:
+
+Tom de Lancey described an approach on documentation which he called "Emergent Documentation" on LinkedIn. He says:
+
+> (...) we do not want to waste time and effort in documenting something that we have not yet discovered how to do. We document as we discover. We document only what we actually DID, as opposed to what we thought we were going to do.
+
+----
+
+# Who does the documentation? Everyone
+
+# When? The various possible lifecycles of an idea
+
+# How to? what makes a good documentation? - objectives
+
+1. No Documentation?
+1. Conversation?
+1. Internal (or external) documentation?
+1. Making the best of external documentation for stable stuff, otherwise I've no advice
+1. Existing knowledge + augmentation
+
+# Enforced documentation: signal that tell when there's a violation to the guidelines
+
+
+## Questioning the need to produce
+
+(overview with focus on benefits, like in the talk, but more extensive)
+
+No Documentation
+- short-term, transient -> conversation, immersion, napkin sketch, information radiators
+
+In-situ knowledge / The expressed / codified knowledge assumption
+
+Most knowledge is already there, somewhere in the code, in the config files or a script. But that does not mean it is easily accessible or fully complete. We propose to go the extra mile.
+
+**Therefore: Add the little missing knowledge to make it complete, and add the little necessary automation to make it accessible to everyone, not just developers.**
+
+
+# Overview of a Living Documentation
+
+Stable -> evergreen,
+- brain -> text, DSL
+
+%% lifecycle: where does it come from?
+
+%% different documentation for different stages of the project: Epics, and some rough user stories (before), precise US with acceptance criteria (during), living documentation (after)
+
+%% generic vs. specific
+%% include # Internal Vs. External Documentation
+
+
+%% fun
+
+Paul cites Mary Poppendieck:
+
+> All too often, detailed requirements lists and backlogs of stories are actually bad system design done by amateurs.
+
+%% frequency of change
+
+%% accuracy mechanism
+
+# Single Use Documentation @category
+
+# Techniques for internal documentation
+
+- not accessible -> single source of trust + publishing automation, searchable, integrated documentation
+- too abundant -> curation
+- fragmented -> consolidation
+- implicit in existing artifacts (99% there) -> augmentation
+- unrecoverable -> redundancy +  reconciliation
+
+automation -> @lunivore: Automation should make it easier to change code safely, not harder. If it's getting harder, delete some. And never automate stuff in flux.
+
+
+
+By aspect:
+- goals
+- domain language
+- design, architecture
+- business behavior
+
+Beyond Documentation
+
+- improving the work and the product: deliberate design
+- embedded learning
+
+4 goals of living documentation?
+
+============ REFACTORING THE BOOK AGAIN ==========
+Integrated Documentation = refactorable, using existing tools + augmentation
+# Interactive Documentation (at runtime)
+
+Living Documentation = Automated
+
+---
+From http://agileinaflash.blogspot.fr/
+
+On naming unit tests
+
+- Don't sweat the initial name.
+- ...
+- Rename based on content.
+- Rename based on a holistic fixture view. In Eclipse, for example, you can do a ctrl-O to bring up an outline view showing the names for all related tests. However you review all the test names, make sure your new test's name is consistent with the others. The test is a member of a collection, so consider the collection as a system of names.
+- Rename and reorganize other tests as appropriate.
+Reconsider the name with each revisit. Unit tests can act as great living documentation -- but only if intentionally written as such.
+
+---
+from http://www.infoq.com/articles/roadmap-agile-documentation
+
+
+
+
+> The principles behind the agile mindset focus on delivering value to the customer. That means that the time we spend developing the product should be spent doing something that adds value to the customer, avoiding wasting time in tasks that add little to no value. This also applies to documentation. (Tom Lancey)
+============
+Templated Diagram
+--
+Single Sourcing
+--
+The thinking process (the LD talk outline basically)
+--
+Plain-Text Diagram
+--
+Documenting a Knowledge Level
+Documenting behavior with Domain Events: given events, when command, then events
+Documenting SLA: enunciation, and tests
+--
+Creating your own annotations: Conventions, Policy, BusinessRule, Key, Monoid (bonus)
+Create your own ready-made knowledge (a good way to challenge if it's really new)
+--
+The reader is always right
+
+Pitfalls of writing documentation
+- speculative effort, e.g. talking about things not done
+- writing too much
+- writing stuff of interest only for a small period of time
+- mixing the target audiences
+--
+Web.xml as the big picture
+--
+---
+
+## One source of knowledge, multiple uses
+
+
+
+"One problem inherent with published, paper documentation is that it can become out of date as soon as it's printed.
+
+--
+Web site generation
+
+"Documentation that is extracted from code, requirements analyses, design documents, and any drawings, charts, or graphs all need to be published to the Web on a regular basis. We like to publish these documents automatically as
+part of the nightly build or as a hook into the source code check-in procedure.
+
+However it is done, Web content should be generated automatically from information in the repository and published
+without human intervention. This is really another application of the DRY principle: information exists in one form as
+checked-in code and documents. The view from the Web browser is simply that—just a view. You shouldn't have to
+maintain that view by hand."
+
+--
+The underlying idea is that managing documentation is just like like writing software. It takes developers skills to do it well and to minimize the work, for now and for later. Make it work first. Then make it more expressive, remove duplication, and use just enough elements.
+
+Just like every approach to automated testing do not replace the need for professional testers, there is no way we can totally replace technical writers, however in both cases their work becomes quite different.

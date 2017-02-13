@@ -2,13 +2,6 @@
 
 
 
-
-## Domain Immersion
-
-à la investigation wall
-
-
-
 ## Scenario's Digest
 annotate scenarios with intrinsic properties: nominal, sexy... so that to automatically extract a digest of them for a particular editorial purpose: user manual, stakeholders-specific documentation, one-tip-a-day etc
 

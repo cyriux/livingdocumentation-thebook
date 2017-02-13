@@ -5,21 +5,11 @@ LD - Journal 2
 ## BDD: Expose properties too!
 ---
 
-## SLA/Test-Driven Architecture for *-ilities:
 
-- actual tests e.g. load, scaling, times, idempotence, data consistency... e.g. Threshold Tests may document some of the expected performance criteria.
-- tests documented as scenarios in the BDD / Living Documentation suite
-- external tools and their config documented as scenarios in the BDD / Living Documentation suite: e.g. pen tests, accessibility tests
-- static analysis tools along with their acceptance criteria: security, bugs, style violations, metrics thresholds
-- manual tests: usability...
-- monitoring rollback thresholds: conversion rate, response time, CPU consumption...
-- prose for other objectives, e.g. financials, satisfaction expectations etc.
-
-With distributed systems all the above can be done at the component level or at the level of a collection of components, which complicates the matter.
 --
 # Throw-Away diagrams
 
-The diagram you need is never part f the documentation: assessment is documentation in-demand
+The diagram you need is never part of the documentation: assessment is documentation in-demand
 
 Have a question? Quickly write a script to answer it, or use a tool like Moose, codecase or ndepend. Explore the hotspots in your source control.
 
@@ -461,27 +451,24 @@ Parameterized tests -> not win all inputs and outputs? There must be something c
 --
 @r7krecon: Stigmergy. #conwayslaw https://t.co/yXkEFHLpDj
 
-> The French entomologist Pierre-Paul Grassé described a mechanism of insect coordination he called “stigmergy”—work performed by an actor stimulates subsequent work by the same or other actors [4 , 5]. That is, the state of a building, code base, highway, or other physical construction determines what needs to be done next without central planning or autocratic rule. The actors—insects or programmers—know what to do next, based on what has already been done. This intuitive urge to extend the work of others becomes the organizing principle of modern software development.
->
-> For example, ants find the shortest route to food in optimal time, and simple-minded termites build hives without central control mechanisms or intelligence oversight. Programmers know what to do by looking at the code base and email messages from fellow programmers. A chief programmer is not needed to dictate the next state of the code base
->
-> Ants use a special type of chemical marker—pheromones—to highlight the results of their activity. This type of indirect stimulation, not by the work itself but by special markers, is called “marker-based stigmergy.” Similarly, distributed programmer teams involved in cooperative code development across the Internet lay down analogous pheromones for their unseen and virtual collaborators when they augment code development by email interaction, comments, phone calls, documentation, and webcast meetings [8]. In fact, the stronger the marker system, the better the resulting code [9].
->
-> The essence of modern software development is stigmergic intellect and markers embedded within the code base. Markers make stigmergy more efficient, by more reliably focusing a programmer’s attention on the most relevant aspects of the work that needs to be done. However, it incurs a cost because programmers must perform the task of manufacturing markers in addition to the work itself. But, in the Internet age of global software development, this cost is more than compensated for by speed, agility, and lower costs.
->
-> If we want to advance the art and science of software development, we should direct our attention to the insect world of stigmergy. This means fully comprehending the value of decentralized collaboration and pheromones or markets embedded in the code, itself.
+
 --
+# Embedded Learning
+
 @opencontent: Properly conceived, educational materials are clues we leave behind for others to follow in their search for understanding.
 --
 @mbostock: It’s funny how writing documentation can spur redesign: it’s easier to simplify a complex API than try to document it completely.
 --
 Documenting dependencies: constructor arguments
 --
-@claussni: @simonbrown Architecture diagrams should show me things I can't read from the code - because it's to big or it's about runtime behavior.
+@claussni: @simonbrown Architecture diagrams should show me things I can't read from the code - because it's too big or it's about runtime behavior.
 --
-@jasongorman: The motivational poster I would hang in every dev office would say:
-"Another technology is almost certainly not the answer"
+# Unorthodox media
+
+@jasongorman: The motivational poster I would hang in every dev office would say: "Another technology is almost certainly not the answer"
 --
+
+
 Thx Nicolas Fedou while back from the skii resort
 
 Runtime documentation: generated infrastructure diagrams

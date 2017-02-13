@@ -1,4 +1,4 @@
-# Living Architecture
+# Architecture Landscape
 
 ## Architecture and documentation
 
@@ -13,6 +13,40 @@ Many definitions of architecture have been proposed over the past decades, but t
 
 The first definition in itself admits that architecture is totally a matter of shared knowledge, hence a matter of documentation. The second definition is more precise, but it seems likely that the things that are hard to change should also be known by everyone.
 
+## Living Architecture
+
+> Architecture should not be defined but rather discovered, refined, evolved, and explained. #theFirstMisconceptionAboutArchitecture -- @mittie
+
+The old-fashioned idea of architecture as something to perform *before* doing the implementation doesn't fit well with modern projects. Change is expected everywhere and at anytime, in the code and in the architecture, whatever you call architecture.
+
+Software architecture is about making sure that the major quality attributes of the overall system are met (e.g. conceptual integrity, performance, maintainability, security, fault-tolerance...) and communicating the most important decisions to everyone involved.
+
+Documentation in any form is therefore an integral part of what architecture really is. But we don't want old-fashioned architecture practices to slow down our projects. We want fast documentation that can help communicate knowledge to everyone, and that can also help reason and make sure the quality attributes are satisfied.
+
+The quality attributes usually don't change that frequently. But the decisions in the code do.
+
+**Therefore: Regularly visualize the architecture as the software changes. Get a feel for how close your implemented architecture is to your architectural vision, maybe you need to change the latter. With automated support of Living Diagrams this can be done as often as during each build. Compare the architecture as-implemented to your architecture as-intended to see how they differ. This assumes you have some vision of what your intended architecture should be. If you don't have this then you can gradually reverse engineer it from your architecture as-implemented.**
+
+There are tools available that can help with architecture visualization and checking, and you can also create your own living diagram generators totally dedicated to your own specific context.
+
+
+## Decision Log
+
+> Technology is about tradeoffs and choices @simonbrown from Twitter
+
+Why does the project use this particular heavyweight technology? Hopefully it was chosen because of some requirements, following some evaluation. Who remembers that? Now that the works has changed could you switch to something simpler?
+
+What do you talk about during meetings with the stakeholders? From inception meetings to sprint planning meetings and other impromptu meetings, a lot of concepts, thinking and decisions are taken. What happens to all this knowledge?
+
+Sometime it only survives in the mind of the attendees. Sometime it is quickly written as minutes of the meeting and sent by email. Sometime a snapshot of the whiteboard is taken and shared. Some put everything into the tracker tool, or in their wiki.
+
+One common problem in all these cases is that this knowledge lacks structure in the way it is organized
+
+**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any.**
+
+Michael Nygard calls this decision log an Architectural Decision Record, or ADR in short. Nat Pryce created a tool to support them from the command line.
+
+%% TODO examples of ADR here
 
 ### Understanding the problem
 
@@ -84,7 +118,7 @@ To caricature, don't spend too much of your time documenting the server technolo
 In any significant system, we should give up on the idea of one single architecture. A system is made of several modules, and each should have its own architecture. Of course the design of the modules and how they are related to each other is architecture too, of a high-level kind.
 
 
-Therefore: **Consider your system as several smaller sub-systems, which we will call "modules". They may be physical units, as components or services, or just logical modules at compile time. Document the architecture independently for each module, and describe the over-arching architecture between the modules as one system-level architecture too.**
+Therefore: **Consider your system as several smaller sub-systems, or "modules". They may be physical units, as components or services, or just logical modules at compile time. Document the architecture independently for each module, and describe the over-arching architecture between the modules as one system-level architecture too.**
 
 Typically you would document the architecture of each module with Internal Documentation, using a combination of package naming conventions, annotations in the source code, and a little plain text. You would document the overall architecture with more Evergreen Documents in plain text, and perhaps some specific DSL if you have one that fits. However the documentation of the overall architecture could also use some generated documents built by consolidation of the knowledge extracted from each module.
 
