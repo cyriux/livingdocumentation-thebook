@@ -1,5 +1,7 @@
 # Documentation Compliance Workaround
 
+%% TODO MOVE TO Documentation Compliance
+
 Retain your time and your sanity while conforming to the mandatory documentation requirements!
 
 What to do

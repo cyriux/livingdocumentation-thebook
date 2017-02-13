@@ -1,0 +1,21 @@
+## Intrinsic declarations only
+
+areas are defined by some criterion; if this criterion is intrinsic to the area, then we can declare the area directly in itself i.e. in the containing class or package, ideally using annotations directly attached to them.
+
+But this is not always the case, for example tiers are not really intrinsic to code. Code should be written with constraints in mind, like being serializable and with no direct use of database access, but the choice of actually distributed to the client tier or to another tier is a distinct matter, called tiered distribution (MSDN P&P).
+
+I have a problem on how to declare the domains being either Core, Generic / Supporting Subdomain or even Cohesive Mechanism, because Core, Generic, Supporting suggest a relative point of view, hence not intrinsic. Information that is not intrinsic to an artifact or area must not be declared within it, and may only declared outside on the other artifact or area using it, i.e. downstream.
+
+What's clear is that each Core Domain, Generic / Supporting Subdomain has its own domain, which must be declared. Cohesive Mechanism on the other hand has no particular domain. Domains exist in the air, independently of any application, and every representation of a domain is actually a model and its Ubiquitous Language living within its particular Bounded Context. The closest to a pure domain evocation would be a small text file with links to books of the domain.
+
+
+---
+## When the area does not match the natural organization of the artifacts
+
+Sometime you'd like to augment the code with knowledge that is only related to *every readonly service within a module*. You need a form of curation for that, based on filtering criteria.
+
+If the filtering criteria are not already present in the source artifacts, you first need to augment each of them in whatever way you like, for example with a @Readonly annotation on just the services that are readonly. Then you can declare the additional cross-cutting knowledge in one central place through a kind of query.
+
+In fact this kind of approach is something you already do when you use Aspects in Aspect-Oriented Programming. The pointcuts augment the code with tags that can then be used to select subsets of elements to apply the cross-cutting transformation to.
+
+This can be a formal query, as in AOP, or it can just be a plain text description of the subset of elements: "Every service marked as @Readonly is expected to be cached...", or "every service not marked as @readonly must be idempotent to support more than once delivery". A well-known example in Java again would be that "every DTO must implement Serializable". In this example, a DTO can be declared by a mere naming convention \*.dto.*.

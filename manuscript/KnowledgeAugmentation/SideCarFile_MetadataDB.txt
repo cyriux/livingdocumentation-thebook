@@ -32,7 +32,3 @@ A metadata database should be the last resort choice when it's not possible to t
 However it is also a convenient approach when the management of the metadata is done in bulk across all files at the same time, by different people than the people managing the files themselves.
 
 For examples, if hundreds of photos are managed by a photographer but the metadata database is a plain spreadsheet managed by a librarian, then it is easy for the librarian to quickly add all the metadata in a column thanks to the ability to copy-paste, interpolate and calculate data that a modern spreadsheet application can offer, independently of the photographer and without risk of corrupting the photo file by mistake.
-
-# Dedicated DSL
-
-When the knowledge that's missing from
