@@ -13,87 +13,85 @@ Many definitions of architecture have been proposed over the past decades, but t
 
 The first definition in itself admits that architecture is totally a matter of shared knowledge, hence a matter of documentation. The second definition is more precise, but it seems likely that the things that are hard to change should also be known by everyone.
 
-## Living Architecture
 
-> Architecture should not be defined but rather discovered, refined, evolved, and explained. #theFirstMisconceptionAboutArchitecture -- @mittie
-
-The old-fashioned idea of architecture as something to perform *before* doing the implementation doesn't fit well with modern projects. Change is expected everywhere and at anytime, in the code and in the architecture, whatever you call architecture.
-
-Software architecture is about making sure that the major quality attributes of the overall system are met (e.g. conceptual integrity, performance, maintainability, security, fault-tolerance...) and communicating the most important decisions to everyone involved.
-
-Documentation in any form is therefore an integral part of what architecture really is. But we don't want old-fashioned architecture practices to slow down our projects. We want fast documentation that can help communicate knowledge to everyone, and that can also help reason and make sure the quality attributes are satisfied.
-
-The quality attributes usually don't change that frequently. But the decisions in the code do.
-
-**Therefore: Regularly visualize the architecture as the software changes. Get a feel for how close your implemented architecture is to your architectural vision, maybe you need to change the latter. With automated support of Living Diagrams this can be done as often as during each build. Compare the architecture as-implemented to your architecture as-intended to see how they differ. This assumes you have some vision of what your intended architecture should be. If you don't have this then you can gradually reverse engineer it from your architecture as-implemented.**
-
-There are tools available that can help with architecture visualization and checking, and you can also create your own living diagram generators totally dedicated to your own specific context.
-
-
-## Decision Log
-
-> Technology is about tradeoffs and choices @simonbrown from Twitter
-
-Why does the project use this particular heavyweight technology? Hopefully it was chosen because of some requirements, following some evaluation. Who remembers that? Now that the works has changed could you switch to something simpler?
-
-What do you talk about during meetings with the stakeholders? From inception meetings to sprint planning meetings and other impromptu meetings, a lot of concepts, thinking and decisions are taken. What happens to all this knowledge?
-
-Sometime it only survives in the mind of the attendees. Sometime it is quickly written as minutes of the meeting and sent by email. Sometime a snapshot of the whiteboard is taken and shared. Some put everything into the tracker tool, or in their wiki.
-
-One common problem in all these cases is that this knowledge lacks structure in the way it is organized
-
-**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any.**
-
-Michael Nygard calls this decision log an Architectural Decision Record, or ADR in short. Nat Pryce created a tool to support them from the command line.
-
-%% TODO examples of ADR here
-
-### Understanding the problem
+## Everybody should know about the problem
 
 Architecture always starts with really understanding all the objectives and constraints of the problem to solve. You won't build the same point-of-sale system for a brand with 50 hot dog stands in the street as you would for a 1500 high-end pret-à-porter shops around the world, even if they have the same high-level basic features.
 
-The high-level goals, and the main constraints are "Things that everybody should know", and as such they are always part of the architecture. Make sure the knowledge about the problem, at least in the big-picture level is well described in a persistent form, and that it is in everybody's mind.
+The high-level goals, and the main constraints are "things that everybody should know", and as such they are always part of the architecture.
 
-### Explicit Assumptions
+Therefore: **Whatever your definition of architecture, make sure it is considered as much a documentation challenge as a technical one. Focus the discussions and their written records on the problems to solve, not just on the solutions. Make sure the essential knowledge about the problem is well described in a persistent form, and ensure it is in everybody's mind.**
 
-When knowledge is incomplete, like it usually is at the beginning of any interesting project, we make assumptions. Assumptions make it possible to move on, but at the expense of potentially being shown wrong later on. It is a matter of documentation to make it cheaper to rewind the tape when you reconsider an assumption. A simple way to do that is to explicitly mark decisions with the assumptions they depend upon. This way, when an assumption is reconsidered, it is possible to find all its consequences, to reconsider them in turn. For this to work efficiently, it should all be done as an Internal Documentation, in place within the decisions, i.e. usually in the source code itself.
+You may ask random questions from time to time to check everyone involved knows about the essential business knowledge. I regularly like to do that, since it it's not the case we'll probably waste a lot of time during every discussion.
 
+Keep in mind that written form is almost never enough, not everyone will read it. You'd better complement with random discussions and roadshows to present it to every team during official work time.
 
-### Easy to explain
+### An example of a problem brief
 
-A good architecture is simple and looks obvious. It is also easy to describe in just a few sentences. A few key decisions, sharp and opinionated and which guide every other decision is an architecture.
+Here is an example inspired from a real-world project on a legacy system for one of my customer.
 
-If that is not the case, then trying to express the architecture is a test of its quality. If it takes many hours and many sentences to explain the architecture, then it can probably be improved a lot.
+The brief is not in the wiki, but in a single Markdown text file at the root of the source code repository of the new component. It may even be in the README file.
 
-### Evolving continuously
-
-The best architecture is an evolving creature, since it is hard to get it right at first try, and then it has to adapt to the changing context.
-
-A good architecture is easy to explain succinctly and minimizes the number of decisions that are hard to change. But whatever is left hard to change or that everybody should know has to be documented. It has to be persistent over time and made accessible to everyone, by definition.
-
-This means that whatever makes the architecture or its documentation hard or expensive to change must be avoided. Your team should learn how to make reversible decisions, or to defer irreversible decisions. And if you fear changing the architecture because you have a lot of static documentation about it that would have to be redone, then your documentation is harming you and you should reconsider how you do it.
-
-Therefore: **Whatever your definition of architecture, make sure it is considered as much a documentation challenge as a technical one. Focus the discussions and their written records on the problems to solve, not just on the solutions. Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better. And keep it all evolving, removing any process or artifact which would impede continuous change.**
-
-### The project vs. system confusion
-
-Another thing to clarify is the distinction between a project and a system. A project builds or changes a system. A project starts, stops, has a purpose, a team, stakeholders, and a budget. A system exists, also has a vision, purpose, users and stakeholders, and is made of components or services on top of infrastructures. A system exhibits behaviors and has quality attributes.
-
-> The distinction is the same as the distinction between a balance sheet and a general ledger. The balance sheet describes the overall effect (the system) of all the transactions on the ledger (the projects). At the end of the year, we only care about the balance sheet, not about each individual transaction.
-
-The system and the project only match in the case of the first project whose sole goal is to build a system from scratch. But there are many other situations than this simple case, many systems go through more than one project over their lifetime, and even their death is yet another project.
-
-It is important to sort out precisely the knowledge about the project vs. the knowledge about the system. The knowledge about the project is only useful for the duration of the project, but the knowledge about the system is useful throughout the life of the system.
-
-In general, focus on documenting the knowledge about the system, as the lifetime of the system will far exceed the lifetime of the project. Overall, the system design far outlives the user stories which built it in the first place. After some time, you need to understand the system, and nobody (except auditors) cares how the user stories were split and prioritized.
-
-> ## An Example
+> # Vision Statement
 >
-> Keep all the knowledge about the project planning, teams and management in Jira, and use internal documentation for all the knowledge about the system.
+>Date: 01/06/2015
 >
-> Releases, Iterations and User stories are project artifacts. Use stickers on the wall or a tool like Jira for them. At the time of coding the system, you create key scenarios (or acceptance criteria) and you write the code. These are knowledge about the system, which is best expressed as Internal documentation, in the source control, as automated scenarios (tests) and other means as shown in this book.
+>*Delight the users with great UI's and new features delivered frequently*
 >
-> Notice that the sentences on the user story: "In order to... As a... I want..." will often end up as the narrative on top of your key scenarios files in the source control. This little duplication ensures that the system owns all its documentation in a standalone fashion. The source code repository is self-documented without the tracker.
+>
+>## Description
+>
+>The INSURANCE 2020 program aims at revamping the legacy software supporting the insurance claim management processes, with two main goals in target:
+>
+>1. User Experience (UX) & user-friendliness UI's
+>2. Continuous Delivery: reduced time to market and reduced cost of change
+>
+>
+>## Stakeholders
+>
+>The primary stakeholders are the Insurance Adjusters.
+>
+>Other stakeholders are:
+>
+>- Actuaries
+>- Management
+>
+>IT-related stakeholders are:
+>
+>- Development team
+>- Central Architecture Group
+>- Support and Ops teams
+>
+>## Business Domain
+>
+>The business domain focuses on the claim management part, and in particular the Claim Adjustment phase. This starts at the early mention of a claim to start every investigation necessary to plan, witness the damages, contact the police officers, lawyer in order to propose a monetary amount to give to the policy holder.
+>
+>The main business capabilities include for example:
+>
+>- Take note of a claim without much information about it
+>- Enrich the claim whenever more information is available: parties involved, checks, evidences, photographs...
+>- Prepare the claim with one or more possible settlement offer(s) (each made of one or more monetary amount(s))
+>- Manage the claim team and the related workflows
+>- Report the current state of one or all pending claims
+>- Help users see their tasks to do at any time
+>
+
+
+## Quality Attributes
+
+In software, quality attributes shape the solution. The technical solution to a given business problem will be radically different for millions of concurrent users as opposed to 100 concurrent users, if it's real-time as opposed to daily, or if each minute of downtime cost $500k to the company.
+
+As a consequence, everybody should be aware of the most challenging quality attributes. They should also understand that other quality attributes are which are not challenging are opportunities to keep the architecture simple. Pretending that your design should support millions of concurrent users when you really have only thousands is a dangerous misuse of the sponsor's money and time.
+
+**Therefore: At the start of a project, clarify the main quality attributes in writing. It can be as simple as a list of bullet points. Make it clear how to interpret the quality attributes, for example using maxims as guidance.**
+
+An example of describing the main quality attributes.
+
+And here are some examples of guidance on how to interpret them:
+
+> Overquality is NOT quality
+
+> Design for ~10X growth, but plan to rewrite before ~100X -- [Jeff Dean (Google)](http://static.googleusercontent.com/media/research.google.com/en//people/jeff/WSDM09-keynote.pdf)
 
 ## Stake-Driven Architecture Documentation
 
@@ -103,7 +101,7 @@ This diversity of perspectives is made obvious when doing an Architectural Kata.
 
 This workshop is very interesting to think about architecture. It is in itself a communication exercise. It is not just about the decisions taken, it is also about expressing them in a convincing way. Almost invariably, this kata reveals how different people think very differently about the same problem.
 
-> You may be tempted to use this kata on real business cases, as a form of competitive engineering, with different groups proposing different views which are later compared. However the risk is that on a real case would be to have "winners" and "losers" groups at the end. You should practice it several times as a pure kata first, without real stakes. You will get a lot of value and thinking out of it, and you will also learn how to avoid the "winner vs. loser" effect.
+A> You may be tempted to use this kata on real business cases, as a form of competitive engineering, with different groups proposing different views which are later compared. However the risk is that on a real case would be to have "winners" and "losers" groups at the end. You should practice it several times as a pure kata first, without real stakes. You will get a lot of value and thinking out of it, and you will also learn how to avoid the "winner vs. loser" effect.
 
 What I learnt from this kata is that different business problems call for a focus on different areas. The main aspect of point of sale system in the street is to be lightweight, cheap in case it is stolen, and easy to use while making hog dogs in a hurry in the middle of a little crowd. In contrast, a mobile app meant to sell itself on an app store has to be primarily visually attractive, whereas an enterprise system meant to serve millions of transactions by second should before all focus on performance as its main stake. And there are systems where the main stake is on their deeper understanding of the business domain.
 
@@ -112,11 +110,197 @@ Therefore: **Identify early the main stake of the project: business domain, tech
 To caricature, don't spend too much of your time documenting the server technology stack when the main stake of the whole project is on the UX. And by "documentation", we mean in the context of this book, i.e. using any media, from source code and annotations to short evergreen Markdown documents, not necessarily big MS Word documents.
 
 
+## Explicit Assumptions
+
+When knowledge is incomplete, like it usually is at the beginning of any interesting project, we make assumptions. Assumptions make it possible to move on, but at the expense of potentially being shown wrong later on. It is a matter of documentation to make it cheaper to rewind the tape when you reconsider an assumption. A simple way to do that is to explicitly mark decisions with the assumptions they depend upon. This way, when an assumption is reconsidered, it is possible to find all its consequences, to reconsider them in turn. For this to work efficiently, it should all be done as an Internal Documentation, in place within the decisions, i.e. usually in the source code itself.
+
+
+
+### Easy to explain
+
+A good architecture is simple and looks obvious. It is also easy to describe in just a few sentences. A few key decisions, sharp and opinionated and which guide every other decision is an architecture.
+
+A> I've seen a good example of a good architecture in Fred George's talk at Oredev 2013 on micro-services architecture. Fred Georges manages to explain the key ideas of this architecture in minutes. It sounds as if it was simplified, and it probably is, deliberately. There is a lot of value in a caricatural architecture, which can be quickly understood by everyone. On the other hand, optimizing every detail is harmful if it makes the whole impossible to explain quickly.
+
+**Therefore: Try to express the architecture out loud in less than 2 minutes as a test of its quality. If you succeed, then write it down immediately. If it takes much longer and too many sentences to explain the architecture, then it can probably be improved a lot.**
+
+### Evolving continuously - Change-Friendly Documentation
+
+The best architecture is an evolving creature, since it is hard to get it right at first try, and then it has to adapt to the changing context.
+
+A good architecture is easy to explain succinctly and minimizes the number of decisions that are hard to change. But whatever is left hard to change or that everybody should know has to be documented. It has to be persistent over time and made accessible to everyone, by definition.
+
+This means that whatever makes the architecture or its documentation hard or expensive to change must be avoided. Your team should learn how to make reversible decisions, or to defer irreversible decisions. And if you fear changing the architecture because you have a lot of static documentation about it that would have to be redone, then your documentation is harming you and you should reconsider how you do it.
+
+
+Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better. And keep it all evolving, removing any process or artifact which would impede continuous change.
+
+
+## Architecture Steering
+
+> Architecture should not be defined but rather discovered, refined, evolved, and explained. #theFirstMisconceptionAboutArchitecture -- @mittie
+
+The old-fashioned idea of architecture as something to perform *before* doing the implementation doesn't fit well with modern projects. Change is expected everywhere and at anytime, in the code and in the architecture, whatever you call architecture.
+
+Software architecture is about making sure that the major quality attributes of the overall system are met (e.g. conceptual integrity, performance, maintainability, security, fault-tolerance...) and communicating the most important decisions to everyone involved.
+
+Documentation in any form is therefore an integral part of what architecture really is. But we don't want old-fashioned architecture practices to slow down our projects. We want fast documentation that can help communicate knowledge to everyone, and that can also help reason and make sure the quality attributes are satisfied.
+
+Note that the quality attributes requirements usually don't change that frequently, but the decisions in the code do.
+
+**Therefore: Regularly visualize the architecture as the software changes. Compare the architecture as-implemented to your architecture as-intended. If they differ you may want to adjust one or the other. With automated support of Living Diagrams or other Living Documents, this comparison can be done as often as during each build.**
+
+All this assumes you have some vision of what your intended architecture should be. But if you don't have one then you can gradually reverse engineer it from your architecture as-implemented.
+
+There are tools available that can help with architecture visualization and checking, and you can also create your own living diagram generators totally dedicated to your own specific context.
+
+
+## Decision Log
+
+> Technology is about tradeoffs and choices @simonbrown from Twitter
+
+Why does the project use this particular heavyweight technology? Hopefully it was chosen because of some requirements, following some evaluation. Who remembers that? Now that the works has changed could you switch to something simpler?
+-
+What do you talk about during meetings with the stakeholders? From inception meetings to sprint planning meetings and other impromptu meetings, a lot of concepts, thinking and decisions are taken. What happens to all this knowledge?
+
+Sometime it only survives in the mind of the attendees. Sometime it is quickly written as minutes of the meeting and sent by email. Sometime a snapshot of the whiteboard is taken and shared. Some put everything into the tracker tool, or in their wiki.
+
+One common problem in all these cases is that this knowledge lacks structure in the way it is organized
+
+**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any.**
+
+Michael Nygard calls this decision log an [Architectural Decision Record](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions), or ADR in short. Nat Pryce created [ADR Tool](https://github.com/npryce/adr-tools) to support them from the command line.
+
+### An example of structured Decision Log
+
+In the example below, the decision log is maintained as a one single Markdown file at the root of the new Claim Management repository, after the vision statement, the description of the business domain and of the main stakeholders.
+
+> Because we want this new micro-service to become the blueprint for many other micro-services to create on top of the existing legacy system, we may end up with other decision logs looking quite similar to each other. When this becomes an issue, we may decide to turn the recurring decisions into a style, document it on one place (e.g. in its own empty repository) and reference it in each service which conforms to this style.
+
+
+>## The main decisions
+>
+>To improve the overall User Experience, it has been decided:
+>
+>- A UX approach, with a focus on beautiful and user-friendly screens, responsive across mobile devices, consistent between them regardless of the actual application behind, and with fast perceived response times. The focus is also on making sure that common tasks can be fulfilled efficiently, with few clicks and few page navigation.
+>
+>The context of the existing legacy software makes it hard to achieve the vision stated above. This is why a large part of the program is to revamp the legacy, by decommissioning it as much as possible. To mitigate the risks of this decommissioning, the following decisions have been made:
+>
+>- A Progressive approach, with frequent delivery: no Big Bang. New modules and legacy modules will co-exist, with a progressive migration to new code.
+>
+>- A Domain-Driven Design approach to help partition the legacy in a way which makes sense at the business domain level, to better understand the domain mechanisms, and to be easier to evolve when the business rules change.
+>
+>Another challenge is that many business rules are tacit in the mind of senior Adjusters, and need to be formalized. On top of that, with claims taking months to complete, these rules may change during the life of a pending claim. As a consequence, the following decision has been made:
+>
+>- A Business Process Modeling approach to formalize tacit domain business rules in one place which can be easily audited and changed.
+>
+>## Consequences
+>
+>### Risks
+>
+>One risk is the lack of expertise in the selected approaches. To mitigate this risk, external Experts have been involved:
+>
+>- UX experts (from the internal UX Center)
+>- BPMN expert (Not found yet)
+>- DDD expert (from Arolla)
+>
+>Another risk comes from the legacy context, in particular:
+>
+>- Cost of testing: the lack of automated tests of all kinds makes each release expensive (manual testing) and/or dangerous (not enough testing)
+>- User-Perceived Performance: the legacy is slow, which makes it not suited for the expected response time perceived by end-users.
+>
+>To reduce the cost of testing, and to not impede the users during all the changes in the legacy, test automation will be key (Unit Tests, Integration Tests, Non Regression Tests) in order to protect the system against regressions or defects
+>
+>On the issue of user-perceived performance, the design will have to find workarounds to improve the perceived performance even though the legacy code behind may remain slow.
+>
+>
+># Technical Decisions
+>
+>## new Claim Management as Single Source of Truth until the claim is accepted by the customer
+>
+>Accepted on 01/12/2015
+>
+>### Context
+>
+>We want avoid confusion arising from unclear authority of data, which consumes developer time to fix failing reconciliations. This requires that only source of truth (aka Golden Source) can exist at any point in time for a given piece of domain data.
+>
+>### Decision
+>
+>We decide that Claim Management is the only source of truth (aka Golden Source) for Claim on claim inception and until the claim is accepted by the customer, at which time it is **pushed** to the legacy claim mainframe. From the moment it is pushed, the only source of truth is the legacy claim mainframe (LCM).
+>
+>### Consequences
+>
+>Given the legacy background, it is unfortunately necessary for some time to have a different Golden Source across the life of a claim. Still, at any point in the life of the claim, the authoritative data are clearly in one single source. This should be re-considered to move to one constant single source whenever possible.
+>
+>Because of that discrepancy, before the push: commands to create or update a claim are sent to Claim Management, with events sent around and in particular to LCM to sync the LCM data (*Legacy claim mainframe as a Read Model*). After the push: remote calls to LCM are used to update the claim in LCM, with events sent back to Claim Management to sync it (*Claim Management as a Read Model*).
+>
+>See [CQRS, Read Models and Persistence on InfoQ](https://www.infoq.com/news/2015/10/cqrs-read-models-persistence)
+>
+>
+>## CQRS & Event Sourcing
+>
+>Accepted on 01/06/2015
+>
+>### Context
+>
+>In the claim adjustment domain audit is paramount: we need to be able to tell what happened in an accurate fashion.
+>
+>We want to exploit the asymmetry between write and read actions to the Claim Management models, in particular to speed up read accesses.
+>
+>We also want to keep track of the user intents by being more task-oriented.
+>
+>### Decision
+>
+>We follow the [CQRS](http://martinfowler.com/bliki/CQRS.html) approach combined with [Event Sourcing](http://martinfowler.com/eaaDev/EventSourcing.html)
+>
+>### Consequences
+>
+>We chose [AxonFramework](http://www.axonframework.org) to structure the developments with its ready-made interfaces, annotations and boilerplate code already written.
+>
+>
+>## Value-First
+>
+>Accepted on 01/06/2015
+>
+>### Context
+>
+>We want to avoid bugs that arise from mutability.
+>
+>We also want reduce the amount of boilerplate code necessary in Java to create value objects.
+>
+>### Decision
+>
+>We favor [value objects](http://martinfowler.com/bliki/ValueObject.html) whenever possible. They are immutable, with a valued constructor. They may come with a builder when needed.
+>
+>### Consequences
+>
+>We chose [Lombok framework](https://projectlombok.org) to help generate the boilerplate code for value objects and their builders in Java.
+>
+>
+
+
+## Test-Driven Architecture
+
+Test-Driven Development brings a mindset which is not just for writing code "in the small". It's a discipline to first describe what we want, before we implement it, at which point we make it clean to help our work in the longer term.
+
+We can try to follow this same process at the architecture scale. The challenges we face are the larger scale of everything, which may not fit in our heads, and the longer feedback loops, which means we may forget what we were after when can eventually get the feedback.
+
+%% TODO
+
+- actual tests e.g. load, scaling, times, idempotence, data consistency... e.g. Threshold Tests may document some of the expected performance criteria.
+- tests documented as scenarios in the BDD / Living Documentation suite
+- external tools and their config documented as scenarios in the BDD / Living Documentation suite: e.g. pen tests, accessibility tests
+- static analysis tools along with their acceptance criteria: security, bugs, style violations, metrics thresholds
+- manual tests: usability...
+- monitoring rollback thresholds: conversion rate, response time, CPU consumption...
+- prose for other objectives, e.g. financials, satisfaction expectations etc.
+
+> To keep track of your expectations before doing experiments on the product, its successes and failures: https://t.co/y6ir9TeW5m #startup #hypotheses -- @fchabanois
+
 
 ## Polyglot Architecture and Documentation Landscape
 
 In any significant system, we should give up on the idea of one single architecture. A system is made of several modules, and each should have its own architecture. Of course the design of the modules and how they are related to each other is architecture too, of a high-level kind.
-
 
 Therefore: **Consider your system as several smaller sub-systems, or "modules". They may be physical units, as components or services, or just logical modules at compile time. Document the architecture independently for each module, and describe the over-arching architecture between the modules as one system-level architecture too.**
 
@@ -187,6 +371,11 @@ Some of these principles were like the following:
 
 - "Know your golden source" (aka Single Source of Truth)
 - "Don't feed the monster": improving the legacy only helps last it longer
+- Increase the Straight-Through Processing Automation Ratio
+- Customer convenience first
+- API-First!
+- "Manual process is just a special case of an electronic process"
+
 
 This codex proved useful for everybody involved in architecture. The goal was to publish it for everyone, even if it was incomplete and not always easy to understand. At least it was useful to provoke questions and reactions. It was never formally published as far as I know, however its content leaked on many occasions and has been used several times for more consistent decision-making.
 

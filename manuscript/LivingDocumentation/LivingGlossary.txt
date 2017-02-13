@@ -184,7 +184,7 @@ The processing becomes:
 
 Let's have a close look at a sample project on the domain of music theory and MIDI.
 
-TODO: See Github code at http://github.com/cyriux/xxx
+%% TODO: See Github code at http://github.com/cyriux/xxx
 
 Here is what we see when we open the project in an IDE:
 

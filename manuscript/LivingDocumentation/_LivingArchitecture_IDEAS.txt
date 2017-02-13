@@ -14,11 +14,6 @@ With distributed systems all the above can be done at the component level or at 
 
 --
 
-
-## Commit Messages
-
-@MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK
-
 ## Tracing Bullets of Flow?
 
 ## No Comment Needed
@@ -46,7 +41,7 @@ Golden source for each aggregate: what application / schema is the one source of
 
 SLA: by application? By business area / function? As tests? By Bounded Context? Make the. Explicit somewhere anyway.
 
-Codex of principles. Company-wide guidelines, if any. Business strategy (automate more! Stp ratio++! Customer convenience first!), architectural strategy (decommission VB6 or J2EE, web-first). How and where to materialize that? As an Evergreen document, plus saved searches, saved monitoring configs... As a bunch info Json files with links? In a wiki, with pictures? As a slide deck for humans? Plus tools to scan the code base and report data. ASCIIdoc?
+
 
 ## Stable Contours
 Example: "everything about tax rates and how to apply them, in the context of selling to customers"
