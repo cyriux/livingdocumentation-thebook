@@ -58,9 +58,7 @@ When we mark a class as being a value object, we indirectly mark it with the met
 
 This approach enables additional enforcement of the design and architecture if you wish. For example @DomainEntity, @DomainService and @DomainEvent imply being part of a Domain-Model and perhaps related restrictions on the allowed dependencies as a result, which can all be enforced with static analysis.
 
-## Module-wide declarations
-
-Note that annotations in Java can be put on packages. This makes it simple to declare properties once to collectively mark every element of the package. I like to use that in a "unless specified otherwise" fashion. For example we could define a custom annotation named @FunctionalFirst, meant to be put on whole packages, which would mean @Immutable and @SideEffectFree by default for every type, unless stated otherwise explicitly on a particular type.
+As described in the Module-Wide Knowledge section, annotations in Java can be put on packages, so that a declaration in one place collectively marks every element of the package. I like to use that in a "unless specified otherwise" fashion. For example we could define a custom annotation named @FunctionalFirst, meant to be put on whole packages, which would mean @Immutable and @SideEffectFree by default for every type, unless stated otherwise explicitly on a particular type.
 
 There are many other catalogues of patterns and stereotypes of interest to express efficiently a lot of design and modeling knowledge. It is ready-made knowledge and vocabulary about your job as a developer, doing design, modeling and solving infrastructure problems. But you can go further and extend the standard categories into finer grain categories.
 
@@ -123,13 +121,16 @@ Spring AOP with @Aspect defined around annotated classes:
 ~~~~~~~~~~~
 @Aspect
 public class CallMonitoringAspect {
-...
-@Around("within(@org.springframework.stereotype.Repository *)")
-public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {...}
-...
+  ...
+  @Around("within(@org.springframework.stereotype.Repository *)")
+  public Object invoke(ProceedingJoinPoint joinPoint) throws Throwable {
+    ...
+  }
+  ...
 }
 ~~~~~~~~~~
 
-See https://github.com/bijoych/spring-petclinic-gemfire/blob/master/src/main/java/org/springframework/samples/petclinic/util/CallMonitoringAspect.java
+See [spring-petclinic-gemfire on Github](https://github.com/bijoych/spring-petclinic-gemfire/blob/master/src/main/java/org/springframework/samples/petclinic/util/CallMonitoringAspect.java
+) for an example of this.
 
 This illustrates perfectly how augmenting the code with explicit design decisions makes it possible to talk to tools the way we think, literally.

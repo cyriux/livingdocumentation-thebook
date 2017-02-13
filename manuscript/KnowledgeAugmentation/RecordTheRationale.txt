@@ -1,10 +1,12 @@
 # Record Your Rationale
 
-In the book "97 Things Every Software Architect Should Know", Timothy High says: "As explained in the axiom "Architectural Tradeoffs", the definition of a software architecture is all about choosing the right tradeoffs between various quality attributes, cost, time, and other factors." There are tradeoff in software architecture, whatever it is, but also everywhere in your code and around, and more generally everywhere a decision with a choice is made.
+In the book "97 Things Every Software Architect Should Know", Timothy High says: "As explained in the axiom "Architectural Tradeoffs", the definition of a software architecture is all about choosing the right tradeoffs between various quality attributes, cost, time, and other factors." Replace the word architecture with design, or even with code, and the sentence still holds.
 
-Decisions are stories. Humans love stories, and remember them better. Decisions tell the context. The context of past decisions is necessary to re-evaluate them in the new context. Past decisions are learning tools to learn from the thinking of the predecessors. Many decisions are also smaller information-wise than their consequences, hence they are easier to transfer from one brain to another than all the details that result from the decision.
+There are tradeoff everywhere in software, whenever a decision is being made. If you believe you're not doing any tradeoff, it just means the tradeoff is out of sight.
 
-**Therefore: Record the rationale of all decisions with important consequences in some form of persistent documentation. Include the context and the main alternatives. Listen to the documentation, if it's hard to formalize, the decision may not be deliberate enough. **
+Decisions belong to stories. Humans love stories, and remember them better. Decisions should remember their context. The context of past decisions is necessary to re-evaluate them in the new context. Past decisions are learning tools to learn from the thinking of the predecessors. Many decisions are also more compact to describe than their consequences, hence they are easier to transfer from one brain to another than all the details that result from the decision. If you tell me your intent and the context shortly, and provided I'm a skilled professional, I may come up with the same many decisions that the ones you've made.
+
+**Therefore: Record the rationale of all important decisions in some form of persistent documentation. Include the context and the main alternatives. And "Listen to the documentation": if you find it hard to formalize the rationale and the alternatives, then it may be that the decision was not as deliberate as it should have been. You may be programming by coincidence!**
 
 
 ## What's in a rationale?
