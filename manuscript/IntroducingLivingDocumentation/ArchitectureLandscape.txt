@@ -406,4 +406,4 @@ One consequence is that this enables decentralizing the architecture and the dec
 ![With access to the whole picture, each team can directly take decisions consistent with respect to the whole system](images/transparent_architecture.png)
 
 
-### All this is fine, but we can go even further with Test-Driven Architecture.
+*All this is fine, but we can go even further with Test-Driven Architecture.*
