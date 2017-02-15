@@ -1,5 +1,41 @@
 # Migration from an existing documentation
 
+### TO ADD TO ARCHITECTURE SECTION
+
+@abdullin: Started developing a new module, using auto-generated diagram as first development feedback. Fast feedback FTW! http://t.co/PU0puXN2L3
+
+Documentation segregated between side effect-free stuff vs side-effect stuff (Tetris in Clojure)
+
+## Enforced Architecture
+
+Architecture is a lot about self-imposed constraints:
+  restricted dependencies
+  segregation of elements by chosen criteria
+  hygiene rules and guidelines
+  chosen architectural styles...
+
+You can spend time documenting all that in guide books and prescriptive documents. Or you can try to enforce them automatically. For example during the builds you can verify that the code satisfies the hexagonal architecture, using tests or assertions at runtime.
+
+It's interesting to notice that this is often only possible provided that your code is well-annotated.
+
+@ericlemerdy: To respect the Acyclic Dependencies Principle : have only one package
+
+-----
+
+# Case study
+
+Turn you PPT documentation into a living one! Put the knowledge from the PPT back into the source code, whenever they fit best:
+
+- vision & goals
+- pseudo-code / sequence diagram
+- ASCII diagram
+- description of main modules and methods
+- comments in config items
+
+#migration
+Mining existing written documents: emails, slides, reports, meeting minutes, forum posts... To try to find why it was decided like that.
+--
+
 ## Strangle your specs/documentation!
 
 Gilles Philippart (@gphilippart)

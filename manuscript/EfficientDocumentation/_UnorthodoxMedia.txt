@@ -2,7 +2,16 @@
 
 ## Posters & Maxims & Domestic Ads:
 
+
+Use wifi password as a maxim (you have to carefully type it manually!):
+ReduceReuseRecycle
+
+
 Electronic
+
+## Domestic Ads:
+
+Persona: not just for stereotypes of people, also for products, market data and typical situations to deal with.
 
 banners on build walls, wallpaper, idle screens, pair-programming blocker screens...
 
@@ -41,8 +50,6 @@ Mutable state kills.
 Kill mutable state!
 
 Easy to do with a meme generator
-
-
 
 
 ## Infodecks

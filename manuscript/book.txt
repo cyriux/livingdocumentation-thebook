@@ -49,10 +49,10 @@ KnowledgeAugmentation/AugmentedCode.txt
 KnowledgeAugmentation/DocumentationByAnnotations.txt
 KnowledgeAugmentation/DocumentationByConvention.txt
 KnowledgeAugmentation/SideCarFile_MetadataDB.txt
+KnowledgeAugmentation/CustomAnnotations.txt
 KnowledgeAugmentation/ModuleWideKnowledge.txt
 KnowledgeAugmentation/IntrinsicKnowledgeAugmentation.txt
 KnowledgeAugmentation/InspiringExamplars.txt
-KnowledgeAugmentation/CustomAnnotations.txt
 KnowledgeAugmentation/MachineAccessibleDocumentation.txt
 KnowledgeAugmentation/LiterateProgramming.txt
 

@@ -1,0 +1,8 @@
+Tags in the discovery server (Consul)
+
+- QueryModel
+- CommandService
+
+- BackEndForFrontEnd
+- Cache
+- ReverseProxy

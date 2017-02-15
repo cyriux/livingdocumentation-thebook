@@ -1,0 +1,2 @@
+Read the doc (very nice intro to documentation)
+http://docs.writethedocs.org/writing/beginners-guide-to-docs/

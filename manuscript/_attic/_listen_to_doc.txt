@@ -1,0 +1,9 @@
+Listen to your documentation!
+
+If it's hard to extract your living glossary or living diagrams out of your code, then what does that difficulty is telling you?
+
+Perhaps you were expecting some design structure, but when trying to render it as a diagram you have to admit the code does not exhibit much structure after all. You were expecting the code to tell the business domain, but when trying to make it into a glossary it appears that the business is mangled in the middle of the processing and there is no easy way to get it out.
+
+Steeve Freeman and Nat Pryce said in the GOOS book: "listen to your tests". if it's hard to test then probably your code is not well designed, and you should fix that.
+
+The same advice applies to documentation: if it's hard to extract a living documentation out of your code, then your code probably has problems, and you should investigate how to fix that.

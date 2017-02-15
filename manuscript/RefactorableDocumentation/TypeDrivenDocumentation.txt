@@ -31,7 +31,9 @@ class Money {
 
 That's valuable information, and it's best located in the code itself rather than in random document somewhere else.
 
-**Therefore: Treat your types as an essential part of your documentation. Type everything, and name the types carefully. Add just enough documentation on the type itself. **
+**Therefore: Treat your types as an essential part of your documentation. Type everything, and name the types carefully.  **
+
+**Therefore: Use types whenever possible, the stronger the better. Avoid bare primitives and bare collections. Promote them into first-class types. Name your types carefully according to the Ubiquitous Language, and add just enough documentation on the types themselves.**
 
 ### From primitives to type
 
@@ -63,6 +65,29 @@ A type is a perfect place to put documentation about a concept, in a Javadoc sec
 The only risk is that if you change the definition of the type without changing its documentation you may still end up with misleading documentation. However this risk is as low as possible since the documentation is co-located with the type declaration.
 
 An obvious benefit of using types with their documentation is that this gives you an **Integrated Documentation**, directly within your IDE. When you mouseover a type name, the IDE shows a small popup with the related documentation, anywhere in the code. When you're using the auto-completion, a brief excerpt of the documentation is shown in front of each auto-completion proposal.
+
+## Types over Comments
+
+Comments can lie and they often do. So does naming, to a less extent. But types don't lie, or the program would not even compile.
+
+A method name may pretend to be:
+
+      GetCustomerByCity()
+
+But regardless of its name, if the signature and its types is actually:
+
+      List<Prospect> f(ZipCode)
+
+You get a much more accurate picture of it really is. And it could even be improved: `List<Prospect>` could be a type in itself, something like `Prospects` or `ProspectionPortfolio`.
+
+With just primitives you're in your own to decide if you can trust the naming or not. What does the Boolean "ignoreOrFail" mean? Enums add accuracy: IGNORE, FAIL
+
+Optional<Customer> expresses the possible absence of result with total accuracy. In languages that support them, monads signal the presence of side-effects with total accuracy. In these examples the information is accurate because the compiler enforces it.
+
+Generics: Map<User, Preference> tells a lot, whatever the variable name.
+
+In case you're still not convinced, here's a study on the topic: [Types names help more than documentation](http://www.slideshare.net/mobile/devnology/what-do-we-really-know-about-the-differences-between-static-and-dynamic-types)
+
 
 ### A Touch of Type-Driven Development
 

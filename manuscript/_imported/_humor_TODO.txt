@@ -4,6 +4,11 @@ Humor
 
 @MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK
 
+--
+@James_R_Holmes: @tottinge Our standard joke is that "It's on the intranet" leads to the response, "Did you just tell me to go screw myself?"
+--
+@ploeh: If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better :)
+
 -
 # Code As Documentation
 
@@ -107,12 +112,16 @@ Why do you insist on UML? UML is standard, but it's not popular. UML is fine, as
 @dwhelan: Puts lots of comments in your code so you don't have to spend time thinking how to make code more understandable. #shittyprogrammertips
 
 
+--
+@MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK
 
 ---
 A> ### When annotations go too far...
 A>
 A> [Google Annotations Gallery](https://code.google.com/p/gag/)
 
+@Thragor: The perfect annotation for #socrates14 code-retreat: LegacySucks from Google Annotations Gallery https//t.co/HtfKYeK9oR :-)
+--
 --
 # Comments
 

@@ -37,6 +37,20 @@ Inputs * --> System -->* Outputs
 // or just declare the stuff at macro-level, either in code or as plain DSL text? But would require maintenance too.
 
 --
+First Living Diagram
+
+This diagram is a **Living Document**, refreshed whenever the system changes, automatically. If we were to add or delete a new module, the diagram would adjust as quickly as the next build. It is also an example of a **Plain-Text Diagram**; if we just want to change a word in a sentence, we can do it simply by editing the source code. No need to fire PowerPoint or a diagram editor.
+
+This diagram is an example of **Augmented Code** by using annotations to augment each main module with the knowledge of its corresponding business domain. This is also a case if **Consolidation** of information spread across many packages.
+
+Finally it's a Story-Telling Diagram, that tells a story from on node to the next through links that display a brief description.
+--
+Logical
+
+Class-Level: @Port (unique port name = String, mode = IN, OUT, IN_OUT)
+
+Then by consolidation it does not work because there can be many more port potentialities than actually used for a particular instance. It would work by taking into account one particular wiring configuration, eg Spring configuration.
+--
 
 Example from the web
 

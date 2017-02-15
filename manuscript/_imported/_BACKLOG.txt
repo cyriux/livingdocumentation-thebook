@@ -7,6 +7,20 @@
 - red white hiking trail signs
 - investigation wall
 
+An introductory comics on living documentation that goes through most concepts
+
+  Manual sketch
+  Conversation and that's all
+  Conversations to key scenario
+  Write code
+  Export living documentation of behavior
+  Export living glossary
+  Decide to improve naming
+  New hire, uses the goals evergreen document
+  Living Diagram
+  Adjust design
+  Code grows
+
 # Unorthodox Media
 
 # Tools addendum

@@ -45,4 +45,9 @@ All the techniques to augment the code with additional knowledge apply for modul
 
 A common way to add documentation to a Java package is by using a special class named *package-info.java* as a location for the Javadoc and any annotation about the package. Note that this special pseudo-class with a magic name is also itself an example of a sidecar file.
 
-Package naming convention, like *something.domain*, can be used to mark a package as a domain model.
+In C# modules are often projects, which can have AssemblyInfoDescriptions:
+
+     AssemblyInfoDescription("package comment")
+
+
+In most programming languages, package or namespace naming convention can also be used to declare a design decision. For example *something.domain*, can be used to mark the package or namespace as a domain model. 

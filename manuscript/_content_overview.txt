@@ -1,0 +1,18 @@
+What's differentiating in this book? Stuff (techniques and ideas) that's not common and almost unpublished so far
+
+- generic principles to evaluate if a particular technique is really up to the living documentation standard, and to improve it if needed
+- living glossary: useful for DDD
+- living diagram: the technique, and the examples of "what for
+- Visible (Introspectable) Workings: tree dump, formula, monad-ish, http://blog.jonudell.net/2008/03/04/ward-cunninghams-visible-workings/
+- "all knowledge directly in the code" approach, with augmented code
+- the insightful aspects of documentation, how it helps reflect on what's been done in order to improve it, not just after but *during* the development work
+- conversations matter most, and when there's no need for documentation
+- how to make documentation reliable, the two approaches
+- how to make documentation change-friendly
+- living enterprise architecture, in the large
+- automate and enforce over guides and guidelines, fix the trouble over documentation of the troubles
+- test curation: making documentation more interesting through careful curation
+- findable knowledge: a search engine is a very documentation system
+- lean on your tools: built-in search, type hierarchy, calls stack, link navigation of your IDE
+- other tips and tricks and a set of principles expressed as Preferences, and some weird ideas like using unorthodox media to help communication and collaboration, and some theory
+- a bonus: examples carefully chosen to also suggest better design decisions, inspired by DDD; a mini recap of the true BDD approach

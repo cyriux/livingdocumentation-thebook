@@ -1,0 +1,11 @@
+## Layered app in .Net
+
+A typical architecture for .Net applications is the [Layered Application](https://msdn.microsoft.com/en-us/library/ee658109.aspx#Step4)
+
+The key to Layered Application is dependency management. Components in one layer can interact only with peers in the same level or components from lower levels, as in [Frank Buschmann](Pattern-Oriented Software Architecture, Patterns for Concurrent and Networked Objects, Volume 2). This helps bring some structure and reduce the dependencies between components on different levels. Layering can be strict: dependencies only allowed to the layer directly below) or relaxed: dependencies allowed to any layer below.
+
+Depending on the age of your application, you would have gone for a 3 layers architecture: presentation, business and data, or you would go for a 4 layers architecture today: presentation, services, business, data. Note that the layers can be collapsed in case one is almost empty.
+
+The presentation layer contains everything UI for smart client interaction or browser-based interaction. The business layer is all about functionalities, workflow, calculations and representing the business domain. The data layer provides access to external systems such as databases, mainframes or external web-services.
+
+By convention in .Net, the layered are represented by sub-projects and namespaces.

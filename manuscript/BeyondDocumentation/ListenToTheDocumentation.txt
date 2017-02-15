@@ -52,6 +52,9 @@ T> *If you can't explain it simply, you don't understand it well enough.*
 
 ## Deliberate Decisions
 
+> If there is no choice to be made, you're not doing design."
+> -- from  Design, Structure, and Decisions @sbpankevich http://t.co/rQsufqyKC2
+
 It is very hard to document random decisions. It is like attempting to describe noise: there is at the same time too many low-levels details, and almost nothing to tell at a higher-level. In contrast, when the decisions are deliberate, they are clear and conscious, so documentation is basically about putting that into words.
 
 If the decision is standard enough, it's READY-MADE KNOWLEDGE which has been already discussed in a book under a standard name, for example as a pattern. Documenting in this case is only a mark in the code that refers to the standard name, along with some brief reasons, motivation, context and main forces that led to the decision.

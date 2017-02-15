@@ -110,7 +110,7 @@ Let's consider a few examples of particular documentation interest.
 
 It is possible to rely on the standard annotations for their particular documentation value, but this is almost always limited to technical concerns, where the annotation is just like particularly declarative code: it tells the **WHAT**, not the **WHY**. But as we mentioned, it is sometime possible to extend the standard mechanism to convey additional meaning, while still playing nice with the frameworks you depend on.
 
-# Standard Annotation @Aspect and Aspect-Oriented Programming
+## Standard Annotation @Aspect and Aspect-Oriented Programming
 
 The Spring Pet Clinic demonstrates Aspect-Oriented Programming by showing how to setup a simple Aspect that monitors call count and call invocation time *for every repository*.
 
@@ -134,3 +134,18 @@ See [spring-petclinic-gemfire on Github](https://github.com/bijoych/spring-petcl
 ) for an example of this.
 
 This illustrates perfectly how augmenting the code with explicit design decisions makes it possible to talk to tools the way we think, literally.
+
+
+## Annotation by default or unless necessary
+
+When designing custom annotations to express properties, there's the choice of creating the annotation for the case when the property is met or when it's not:
+
+- @Immutable or @Mutable
+- @NonNull or @Nullable
+- @SideEffectFree or @SideEffect
+
+You may create both and let everyone decide which one to choose, but it may end up inconsistent, in which case no annotation means nothing at all.
+
+You may decide on the alternative that you want to promote, so that having the annotation in many places becomes a marketing campaign: for example @NonNull everywhere will encourage making everything non-null. No annotation then suggests it's nullable.
+
+Or on the other hand you may consider that annotations are noise, hence the fewer annotations the better. In this case the default and preferred choice should need to annotation. You'd only add an annotations to declare a deviation from the default: (default is Immutable) Oh, this class is exceptionally @Mutable!

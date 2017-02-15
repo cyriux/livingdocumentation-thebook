@@ -2,7 +2,14 @@ The principle of least surprise
 
 
 --
+Mathieu Pauly chez Bi-Sam
+Metz model -> UML par dot, filtrage par euristiques (Tech*) etc
 
+En pair prog certains n'explique pas assez : lent à apprendre le métier :(
+
+Approche zéro documentation -> meilleur nommage
+
+Le sens est l'union de tous les usages
 --
 ## NoDocumentation
 Some extreme practices reduce the need for documentation altogether: mob programming (permanent full-team cross-training on everything), and programmer anarchy (Don't understand the code? Redo it! )

@@ -12,6 +12,7 @@ This is when you need a Plain-Text Diagram.
 
 An important idea of a plain text diagram is that we favor the content over the formatting. You want to focus on the content in plain text, and let the tools take care of the formatting, layout and rendering, as much as possible.
 
+
 ## An example
 
 Let's take the example of the fuel card fraud detection algorithm. We started with a napkin sketch when thinking about the problem, listing every related responsibility needed, and how they interoperate to solve the problem:
@@ -20,7 +21,11 @@ Let's take the example of the fuel card fraud detection algorithm. We started wi
 
 After a few days we agree we need to keep as part of our documentation, and we need to make it more easy to read, and to maintain as we expect it to change from time to time.
 
-So basically we look at the napkin sketch and literally describe it using sentences:
+This diagram should tell one story. It should hide everything that does not matter for the story. To be story-oriented we use links as sentences:
+
+     <actor A> "does something to" <Actor B>
+
+So basically we look at the napkin sketch and literally describe it using sentences in this format:
 
 ~~~~~~~~
 FueldCardTransaction received into FuelCardMonitoring

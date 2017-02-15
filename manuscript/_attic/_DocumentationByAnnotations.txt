@@ -1,24 +1,9 @@
 %% TODO add to documentation by annotation (for design)
 
-
-Annotations or not annotation?
-
-- Annotate presence
-- Annotate absence
-- Annotate less frequent case
-- Annotate always: to add more information than just presence
-- Annotate area-wide the most common value, and on each element when different
-
 patterns help in documenting code. As a developer I often spend
 (too) much time to write good Javadoc documentation; if I were offered some
 more pattern tags I will be able to describe my intention with words, not sentences:
 I will save time again.
-
-
-
-moved to Augmented Code
-
-> how to + patterns for annotations... In Java / C#|
 
 ## How does it map to the core principles?
 
@@ -26,11 +11,6 @@ Low-effort:
 Easy to add to a class, method or even package
 A unique location to describe a brief explanation along with links to further complete references
 IDE "Find Usages" to find every occurrence, for on-demand documentation (instead of making it a document)
-
-Low-Effort + Reliable
-Refactoring-friendly, goes away when the class of method is deleted, survives after renaming etc.
-Structured, many error and typos can be found at compilation
-Annotations are tools-friendly, hence they enable automation of many tasks: generate diagrams, extract glossary from code, enforce coding style and design decisions...
 
 
 Collaborative:

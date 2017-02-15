@@ -5,9 +5,9 @@
 %% @Tough
 %% *Augment elements with their intrinsic knowledge.*
 
-W> This section is more abstract than usual. The concept is important but still particularly subtle. If abstract non-sense is definitely not your thing, you can safely skip it and perhaps come back to it later.
+W> This section is more abstract than usual. The concept is important but subtle. If abstract non-sense is definitely not your thing, you can safely skip it and perhaps come back to it later.
 
-It is important to make the distinction between what things really are for themselves, as opposed to what they are for someone or for a purpose. A car is red, is a coupé, or has an hybrid engine. These properties are really *intrinsic* to the car, they are part of its identity. In contrast, the owner of the car, its location at a point in time, or its role in a company fleet are *extrinsic* to the car. This extrinsic knowledge is not really about the car in itself, but about a relationship between the car and something else. As a consequence it can change for many reasons other than the car itself. Thinking about intrinsic versus extrinsic knowledge has many benefits, for design and for documentation.
+It is important to make the distinction between what things really are for themselves, as opposed to what they are for something else or for a purpose. A car is red, is a coupé, or has an hybrid engine. These properties are really *intrinsic* to the car, they are part of its identity. In contrast, the owner of the car, its location at a point in time, or its role in a company fleet are *extrinsic* to the car. This extrinsic knowledge is not really about the car in itself, but about a relationship between the car and something else. As a consequence it can change for many reasons other than the car itself. Thinking about intrinsic versus extrinsic knowledge has many benefits, for design and for documentation.
 
 If only intrinsic knowledge is attached to an element, then:
 

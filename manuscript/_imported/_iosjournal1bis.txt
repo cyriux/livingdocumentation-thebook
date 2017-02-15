@@ -1,0 +1,618 @@
+## Architecture / Vision Statement?
+
+Another lean measurement the Poppendiecks explain in their book is financial return. If the team is developing a profitable product, it needs to understand how it can work to achieve the most profit. Even if the team is developing internal software or some other product whose main goal isn’t profit, it still needs to look at ROI to make sure it is delivering the best value. Identify the business goals and find ways to measure what the team delivers. Is the company trying to attract new customers? Keep track of how many new accounts sign on as new features are released.
+
+Agile Testing p.75
+
+## Defect tracking systems -> Tool History
+
+A DTS is also a convenient place to keep all supplemental documentation, such as screen prints or uploaded files.
+Knowledge Base
+We have heard reasons to track defects such as, “We need to be able to look at old bug reports.” We tried to think of reasons why you would ever need to look at old bug reports, and as we were working on this chapter, Janet found an example.
+
+P. 80
+
+Defect tracking systems certainly don’t promote communication between programmers and testers. They can make it easy to avoid talking directly to each other.
+
+If your organization wants documentation about your overall test approach to projects, consider taking this information and putting it in a static document that doesn’t change much over time. There is a lot of information that is not project specific and can be extracted into a Test Strategy or Test Approach document.
+
+This document can then be used as a reference and needs to be updated only if processes change. A test strategy document can be used to give new employees a high-level understanding of how your test processes work.
+
+I have had success with this approach at several organizations. Processes that were common to all projects were captured into one document. Using this format answered most compliance requirements. Some of the topics that were covered were:
+• Testing Practices
+• Story Testing
+• Solution Verification Testing
+• User Acceptance Testing
+• Exploratory Testing
+• Load and Performance Testing
+• Test Automation
+• Test Results
+• Defect Tracking Process
+• Test Tools
+• Test Environments
+
+
+
+--
+Showing Model Responses
+Typical object collaboration diagrams look either deceptively simple or overly complex. They don’t reflect the thought or effort that went into producing them. In order to understand their significance, it is necessary to know what are key objects and what level of detail the designer intended to model. To find this information, either we need to look at supporting documents such as emerging class designs, prior conversations, and other supporting evidence. Designers can also help by walking others through their design. Diagrams alone can’t show the significance of key design decisions. This is hard to find in class specifications, too. That’s why designers need to tell us what they thought important.
+
+The Art of Designing Meaningful Conversations
+Reprinted from the Feb 1994 issue of The Smalltalk Report Vol. 3, No. 5
+By: Rebecca J. Wirfs-Brock
+--
+Executable Specifications with Scrum- A Practical Guide to Agile Requirements Discovery.
+
+Nice book
+
+Vision, stakeholders, high-level features, benefits
+Story-mapping
+Story boards (with or without screen mockup), scenarios (FIT or g/w/t)
+GWT as transitions within finite state machines -> FSM diagram?
+Ubiquitous Language in user stories, scenarios
+--
+Being able to work out the right name for a problem will help you greatly in your search. This is the one advantage of a grounding in computer science — rich technical jargon to find existing work easily. This is opposed to the “which pokemon would I name this library after” school of thought.
+
+http://programmingisterrible.com/post/83814757877/how-i-design-software
+--
+@bennett_nj: I worry that written requirements create an illusion that more communication has happened than actually has.
+--
+@lunivore: Automation should make it easier to change code safely, not harder. If it's getting harder, delete some. And never automate stuff in flux.
+—
+Focus on difference == Singularity
+--
+# Stable Knowledge Anchors
+--
+Documentation is best introduced just in time
+--
+## Human-Interpreted Code (replace debrief)
+--
+## Need for documentation is feedback - Knowledge gap signal - Missing Documentation Signal
+
+The less need the better, except for truly differentiating domain stuff, when there's a good reason to be unique and original.
+--
+
+--
+Your own BDD: given when expect combinators, in event sourcing. This generates a not too bad documentation for other developers.
+
+Generate markdown: easier to generate, and separate styling
+
+--
+Making the documentation linear from code in a different ordering (compilation ordering, file name alpha ordering...).
+
+Narrative ordering vs topological ordering
+
+Classification by categories, "not that difficult" to implement.
+
+Functional chapters to classify: @Billing @Legal @Compliance...
+
+@MustKnow, @NominalCase @Fundamentals, @CornerCase, @TypicalUse
+--
+How to explain a domain? Asking "How did they do before computers?" can certainly help make the business activity much more tangible and concrete!
+
+You may go further and play a role game with pieces of paper or stickies: people write on them and pass them on to other people and so on. You may simulate anomalies by having secretly stealing a piece of paper through its travel, and observe what's happening, or what's not happening.
+--
+@pcalcado: RT @extempore2: Arbitrary abbreviations exert an ongoing low-level mental tax. The accumulation […] is much of why programming is hard.
+--
+@WoodyZuill: You can't fix code problems with comments, but you can sure make them worse! #CommentsOnlyWhenThereIsNoBetterWayAndEvenThenBeCautious
+
+@dahankzter: @WoodyZuill like fixing poor usability with documentation
+--
+@smalltalk80: The value of documentation decreases exponentially with size.
+--
+@geoffcwatts: A phone call can save twenty emails. A face to face chat can save twenty phone calls
+--
+## Gamification / playful
+Offer interactive ways to share knowledge through attractive and engaging interactions
+- mob programming, pairing (dev-dev, )
+- timeboxing challenges
+- arbitrary constraints challenges
+- be weird manifesto, retrospectives experiments
+- stackoverflow style social network, I like, retweets
+- embedded games & contests
+Taking into account human mechanisms of reward / effort to make it work
+
+--
+## Congruent Media
+--
+Purposeless == Aenemic
+
+In a test-driven mindset, it all boils down to one question and answer:
+Why this thing? Because this test.
+
+But at some point it is no longer tangible and becomes just wishful text:
+Why this thing? (executable) because this test (executable)
+Why this test? Because this narrative
+Why? Because this capability
+Why? For who? Because this impact map (not executable)
+
+Why this network router? Because this web server
+Why? Because this code
+Why this code? Because this business process
+
+
+--
+Rewriting projects are best avoided. Still, sometime you have good reasons to do a not-too-big rewrite.
+
+When starting over, this is like a new project, but with requirements proven over time. This does not mean the requirements are mature; it is common to earn money from a software product without knowing the rationale for each of its features. If you're to rewrite, you should take the opportunity to question the feature set.
+--
+## Human-Friendly Technologies
+REST + xHTML (human & robot) over   heavyweight we services, plain text over binary, self-descriptive over separate documentation, pretty printed over random formatting, no abbreviation, standard mime type over custom ones, runtime retention of annotations (all that unless requires otherwise of course)
+
+## NoDocumentation
+Some extreme practices reduce the need for documentation altogether: mob programming (permanent full-team cross-training on everything), and programmer anarchy (Don't understand the code? Redo it! )
+
+
+Disposable or single-use software doesn't need much documentation either. But keep in mind that most of the time it is actually reused and maintained for much longer than expected.
+--Steve McConnell
+--
+@abt_programming: "Progress is possible only if we train ourselves to think about programs without thinking of them as pieces of executable code" - E Dijkstra
+--
+One artifact, multiple purposes: over time, and for several audiences. The bigger the audience and the longer the lifecycle, the more useful the artifact is.
+--
+From https://t.co/v9iQSMmLoz
+
+"When Cucumber is adopted solely as a tool to write automated tests without any input from business analysts they tend to become imperative and lose their documentation value.
+
+This also makes them slow and brittle.
+...
+Your features should drive your implementation, not reflect it.
+...
+This takes us back to the Venn diagram in the beginning of this post. Cucumber features start their life as software requirements. The most important contributors to requirements aren’t programmers or testers - it’s business analysts. During this activity the programmers’ and testers’ primary responsibility is to ask questions and make sure they understand everything."
+--
+
+## Autonomation (Lean & Toyota TPS) spectrum automation-autonomy (see email LD)
+
+Automation provides benefits at a cost. It is not a mean in itself. There is always a point where the cost exceeds the benefits.
+
+Therefore:
+Invest in automation as long as the cost is low compared to the recurring benefits. Decide what to keep manual.
+
+--
+## Meaningless Behavior (Ward)
+## DSL (Systematic Combinations)
+## Little Arithmetic (monoid, space vectors etc)
+## Explained Result (value + full traceability included)
+--
+## Prior Knowledge
+--
+@tpope: @trptcolin just a corollary of "you don't really understand something until you can explain it to someone else."
+--
+Architecture has a fundamental focus on communication.
+
+
+
+--
+Object-Oriented Documentation? We invoke Solid principles, encapsulation, modularity, successive implementation of higher-level contracts... It takes similar neurons to do both well.
+--
+@thomaslindqvist: The coordination of value delivery is too important to be left to documents.
+Let ppl deliver value to ppl
+--
+@tottinge: It's hard to know how to communicate if we have to begin with preventing all possible misinterpretations. @net_zer0 @craftsmanadam
+--
+
+## Network of Information/knowledge (puzzle picture...)
+
+Information is more valuable when it is connected. Relationships convey additional information, and also bring structure.
+
+On a particular topic, eg a project, all information is related to another. On the internet, links between resources adds a lot of value: who's the author? Where to find more? What does this definition mean? Who's quoted here? In a book or paper, the bibliography tells you the context. Was the author aware of this publication? If it's cited you can guess it was the case.
+
+That's the same with your documentation. Therefore:
+
+Link. Refer explicitly. Qualify the relationship (source, reference on the topic, review, criticism, author, is part of, implements, is composed of...). Define a clear resource identification scheme. It can be your own, or a standard citation scheme. Use a link shortener and maintain it to avoid broken links.
+
+| Beware the direction of the links.
+Can you imagine a language where function would refer where they are called, as a list of each call site? It would be quite unmaintainable! |
+
+
+## anti pattern: project oriented documents
+There are process-heavy companies that require the use of standard file hierarchies, following company templates. What I often see is that most of the documents focus on projects. Projects begin and end, but the code remains.
+
+Project-oriented documents are painful to read after the fact: they're full of noise and arguments that were meant to convince someone long ago, or to please some compliance rule. Now nobody cares.
+
+
+
+
+
+--
+@sgranese: We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. #agilemanifesto
+--
+
+
+--
+## digest / curated content (Literate-ish Programming)
+Not all scenario is equally interesting for everyone. Not all code or configuration file is interesting for documentation. How to filter out and extract just the few snippets that matter for a given documentation purpose? (Python Sphinx, BDD categories...).
+
+You can review the code and copy snippets into a separate document, but you'll have to redo that every time the code changes.
+
+Therefore:
+Use Augmented Code or Convention over Configuration to add intrinsic categorization information to the source code artifacts. Then use that information to select content that matter for a given purpose.
+
+Need pretty solid examples... @DeveloperGuide("hello-world")
+@DeveloperGuide("extension-plugin-class")
+@DeveloperGuide("extension-plugin-manifest")
+@UserGuide("error-codes")
+
+Augmented Code enables to use the same snippet of code for multiple purposes. This makes it possible to cherry-pick content out of already existing code or tests.
+
+See: Glossary from Code, Augmented Code, Intrinsic Property, Curated Datasets
+--
+Curated or Generated Datasets can be named and can belong to the Ubiquitous Language.
+--
+Accurate -> enforced
+--
+Why is this actually an application of DDD?
+
+- code = model (documentation)
+- tricks to make the code express all the knowledge
+- deliberate practice
+- whirlpool
+- strategic design
+
+Living Documentation not only supports DDD, it is also in itself DDD.
+--
+What is documentation? What is it for?
+The problem of documentation
+Living documentation is:
+- Always Accurate
+- Change-Friendly
+- Collaborative-First
+- A Deliberate Practice (Thoughtful) (Reflective)
+
+--
+@JeffreyGoodReq: "The limits of my language are the limits of my world" @pragdave is quoting Wittgenstein to #thoughtworks
+
+@jeffsussna: Prod is no longer just prod. It's prod plus everything needed to deliver change to prod. #devops
+
+## Stable Contours
+Example: "everything about tax rates and how to apply them, in the context of selling to customers"
+
+## Cohesive Partitions / Areas
+Examples of large-scale architecture: e-commerce of cultural products and related consumer electronic products: functions x contexts x product ranges x customer segments. The same architecture analysis can be done at a large IS or a for just a big monolithic ERP (legacy superimposed structure).
+
+## Code is its own documentation example:
+- Supermarket pricing: literally "what's best for the customer"
+- composed methods of similar level of abstraction: grand total calculation in mixed currencies
+- Ward pattern of systematic behavior & total functions: encapsulate the variety of corner cases inside the objects so that the behavior is obvious from the outside
+- Fluent style: example in test data builders with predefined default arrangements that are overridden when necessary: use them to report the default arrangements into the website
+- Maths structures: monoids...
+
+--
+# Introducing Living Documentation
+
+Focus on Interactive, Face to Face knowledge transfer
+
+This said, consider techniques to record the key bits of knowledge that have to be known, that every newcomer has to learn, and that matter in the long run.
+
+Relax on the wiki.
+README
+Decision Log
+Core Concepts / Process aka Main Sites
+Guided Tours
+Napkin Sketches
+
+-
+documentation is code for your fellow developers, including bots
+
+Concrete fiction story to do
+
+--
+BCBS 239 -> transparency on data transformation & extreme traceability
+--
+“Everyone has to know where the boundaries lie, and be able to recognize the Context of any piece of code or any situation.” - @ericevans0
+
+--
+Stable links:
+To queries in TFS
+
+
+--
+
+
+
+With distributed systems all the above can be done at the component level or at the level of a collection of components, which complicates the matter.
+
+--
+
+## Tracing Bullets of Flow?
+
+## No Comment Needed
+Avoid traps. Make unbreakable API's. No need for troubleshooting sections. Car no longer have maintenance manuals, they offer auto-diagnosis instead, embedded into your dashboard. Minimal surface over a larger volume...
+
+## Declarative Automation
+automation and documentation at the same time, as in BDD or infra as code.
+
+
+
+## Enforced Architecture
+A special case of Declarative Automation, where the architecture is considered as a set of constraints to enforce through automated checks and metrics. All these constraints should be declarative.
+
+> Picture: cop going to fine the coder
+
+## Explicit Declarative Alignment (Knowledge Level)
+- Declare the meta model of the business domain, and have each component declare it is strictly aligned with one particular element, or not well aligned because it maps partially to several elements.
+
+
+What business area and function (features?) does an application implement? Declare that explicitly, if possible in the source code itself.
+
+Golden source for each aggregate: what application / schema is the one source of truth / master data for a given concept? Glossary of golden sources. Sometimes it's mixed between applications and depending on the status of the things...
+
+SLA: by application? By business area / function? As tests? By Bounded Context? Make the. Explicit somewhere anyway.
+
+
+
+## Stable Contours
+Example: "everything about tax rates and how to apply them, in the context of selling to customers"
+
+## Cohesive Partitions / Areas
+by Bounded Context by domain / SLA / Aggregate, idea target for consistent documentation.
+Examples of large-scale architecture: e-commerce of cultural products and related consumer electronic products: functions x contexts x product ranges x customer segments. The same architecture analysis can be done at a large IS or a for just a big monolithic ERP (legacy superimposed structure).
+
+## Code is its own documentation example:
+
+@WoodyZuill: You can't fix code problems with comments, but you can sure make them worse! #CommentsOnlyWhenThereIsNoBetterWayAndEvenThenBeCautious
+
+@dahankzter: @WoodyZuill like fixing poor usability with documentation
+
+@pcalcado: RT @extempore2: Arbitrary abbreviations exert an ongoing low-level mental tax. The accumulation […] is much of why programming is hard.
+
+- Supermarket pricing: literally "what's best for the customer"
+- Ubiquitous Language directly in code, signal to noise ratio
+- composed methods of similar level of abstraction: grand total calculation in mixed currencies
+- Ward pattern of systematic behavior & total functions: encapsulate the variety of corner cases inside the objects so that the behavior is obvious from the outside
+- Fluent style: example in test data builders with predefined default arrangements that are overridden when necessary: use them to report the default arrangements into the website
+- Maths structures: monoids...
+- Literally graphical (grid as matrix...)
+- toString(), pretty printer to render compilation AST
+- Literate programming
+
+### Meaningless Behavior (Ward)
+### DSL (Systematic Combinations)
+### Little Arithmetic (monoid, space vectors etc)
+### Explained Result (value + full traceability included)
+
+### Documenting Dependencies
+
+Nuget manifest as bill of material
+
+
+Dependencies management (Maven, Ivy, Nuget...) is useful documentation
+-> manifest files as bill of material. It tells the required nterfaces and the particular chosen implementations
+-> cascaded build config
+=> may be used to extract module-level consolidated dependencies diagrams for review
+
+
+
+### Human-Friendly Technologies
+REST + xHTML (human & robot) over   heavyweight we services, plain text over binary, self-descriptive over separate documentation, pretty printed over random formatting, no abbreviation, standard mime type over custom ones, runtime retention of annotations (all that unless requires otherwise of course)
+
+
+## Generated diagrams
+
+@nathanmarz: Why do so many engineers think complicated system diagrams are impressive? What's truly impressive are simple solutions to hard problems.
+
+@pavlobaron: @nathanmarz @sbtourist the ultimate rule of thumb: if there is at least one line crossing another in a diagram,the system is too complicated
+
+### Ecosystem views
+Context (Ecosystem) diagram - TODO See Simon Brown book/blog
+
+### Business Map
+Business map of groups of concepts with relationships between them -> Derive permissible dependencies
+
+@DomainConcept(BusinessDomain.PreTrade)
+@Concern(Realtime, Critical, HighAvailability)
+
+Or better: BoundedContext(domain = BusinessDomain.PreTrade, concerns = Realtime, Critical, HighAvailability)
+
+Automatically generate diagrams from that. Layout based on constraints and relationships between the respective domains.
+
+### Protocols of Interactions
+
+Showing Model Responses
+Typical object collaboration diagrams look either deceptively simple or overly complex. They don't reflect the thought or effort that went into producing them. In order to understand their significance, it is necessary to know what are key objects and what level of detail the designer intended to model. To find this information, either we need to look at supporting documents such as emerging class designs, prior conversations, and other supporting evidence. Designers can also help by walking others through their design. Diagrams alone can't show the significance of key design decisions. This is hard to find in class specifications, too. That's why designers need to tell us what they thought important.
+
+The Art of Designing Meaningful Conversations
+Reprinted from the Feb 1994 issue of The Smalltalk Report Vol. 3, No. 5
+By: Rebecca J. Wirfs-Brock
+
+
+### Misc
+Fred George on the high freq loop on Kafka and it's rivers etc -> can describe the whole architecture in less than one hour: GOOD!
+
+Want better documentation? Simplify and structure your design to make it possible! Make it visible, make it feedback-prone
+-
+
+Coding style and Design patterns consistency within areas: keep a mostly consistent style. By declaring the patterns used, one may create metrics to measure the deliberativeness of the code, and at the same time the consistency level of the code.
+
+A list of architectural styles (I think most of them are caricatures, but that's what most people have in mind when they make architectural decisions)
+
+·  Client/Server Architectural Style (deployment)
+·  Component-Based Architectural Style (structure)
+·  Domain Driven Design Architectural Style (domain)
+·  Layered Architectural Style (structure)
+·  Message-bus Architectural Style (communication)
+·  N-Tier / 3-Tier Architectural Style (deployment)
+·  Object-Oriented Architectural Style (structure)
+·  Service-Oriented Architectural Style (communication)
+·  Micro-Services (communication)
+
+[One style may be nested within an element of another]
+
+From http://msdn.microsoft.com/en-us/library/ee658117.aspx
+
+Highlight the contracts between components and make them formal
+
+Identify and write somewhere the overview in terms of:
+
+- Inputs and Outputs
+- Key Scenarios
+- Key Stakes (domain, quality attributes, UX, business)
+
+--
+
+"Do style guides help? Eg android style code from Google."
+
+
+%% project management. The goal is to reach a desired system state
+%% single root, or doc
+%% different modules, each with its own arch declaration
+
+
+
+
+
+
+Transparent Architecture -> decentralize architecture and decision making
+Metaphors & architectural patterns: pipeline, blackboard...
+Word Cloud: code, scenarios; clustering?
+
+Application B owns the concept X, and is the authoritative source for it. Other UI may call it to write X. Other systems can subscribe to changes of X, through a feed of events.
+
+ES example of BDD documentation: Documenting behavior with Domain Events: given events, when command, then events
+
+--
+Documentation Strategy (Landscape) Arc42, C4
+--
+
+Living Context Map Diagram (TODO CODE?)
+
+Documenting a Knowledge Level
+
+Documenting SLA: enunciation, and tests
+
+Creating your own annotations: Conventions, Policy, BusinessRule, Key, Monoid (bonus)
+Create your own ready-made knowledge (a good way to challenge if it’s really new)
+
+
+But also
+
+Arbitrary upfront
+JIT
+
+## Codex
+Coding style / paradigm & idioms (default style of design decisions)
+
+
+---
+
+Hard to change: Everything with a deep investment on: programming language, lock-I'm technology, framework and dependencies spread everywhere... Lost business rules, lack of testability: ironically there are things that are hard to change precisely because of lost knowledge.
+
+That everybody should know: same, plus a focus on the primary concepts and large-scale structures. What you need to know also in order to protect or improve the capacity of the system to be easy to change.
+
+@adampknight: Are 'non-functional requirements' named such because that's what how your software ends up if you ignore them? #testing
+
+"Visible, legible and coherent to the business" Cyrille Dupuy Dauby
+
+@mittie: Architecture should not be defined but rather discovered, refined, evolved, and explained.
+#theFirstMisconceptionAboutArchitecture
+
+--
+Context (Ecosystem) diagram -
+TODO See Simon Brown book/blog
+--
+
+Examples
+
+Business map of groups of concepts with relationships between them -> Derive permissible dependencies
+
+@DomainConcept(BusinessDomain.PreTrade)
+@Concern(Realtime, Critical, HighAvailability)
+
+Or better: BoundedContext(domain = BusinessDomain.PreTrade, concerns = Realtime, Critical, HighAvailability)
+
+Automatically generate diagrams from that. Layout based on constraints and relationships between the respective domains.
+
+--
+
+## Pre-Computer metaphor
+
+At DDDx 2014, Greg Young in his talk suggested to ask the question: "How did they do before computers?" Businesses were certainly able to run fine long before computers, using paper, routing slips and smart business rules. All this  can certainly help make the business activity much more tangible and concrete to start with. It can also trigger ideas on how to solve hard problems with non technical solutions, with no distributed transaction and race condition arguments.
+
+As Greg suggested too, you may go further and play a role game with pieces of paper or stickies representing messages in your system: people write on them and pass them on to other people and so on. You can simulate anomalies like lost messages by stealing a piece of paper in secret, to observe what happens, or what does not happen.
+
+
+## Test-Driven Architecture (Open-Space/workshop)
+
+It's the role of architecture to take care of the required quality attributes. These quality attributes must be primarily defined with respect to the business objectives. For example, the response time for a web pg
+
+My questions: Is it a bad idea? Is there a need? Are all these tests only used one-off or useful over time?
+
+[quick presentation]
+
+Find out problems early, e.g. realistic test data (Roland)
+When there is a need to change the RDBMS for political reasons, these tests can be reused for non-regression, or when we upgrade or patch the DB
+
+It happened to a team to change from pessimistic to optimistic locking in their application; this requires some re-testing too.
+
+Test changeability
+Of course stress and performance tests are useful regularly
+
+They can help be more aware of the architectural decisions, and who this feature is for. As such they are part of the specification efforts.
+
+Of course they are often slow tests. Even it we should keep them does not mean we have to run them all the time. The present value of many tests is greater than their future value. The only limit is to run them often enough so that they remain in sync with the actual application.
+
+How do you choose a framework? e.g. which ORM? which DB? which table layout? You already do something not that far from TDA: you create a script, (e.g. in PERL) to populate just one table with 10M rows, and you look for what happens when you do special operations, or you compare how it performs for various table layouts to find the best one.
+
+These scripts are disposable, and pretty unreadable too, because they are ran only once.
+
+If you only keep them and make them more readable, perhaps BDD-style, you can reuse them as a living documentation of the architectural decisions, to answer the questions of auditors and to justify you thought about that.
+
+And when you say to your customer: "we run on Oracle" and they answer: "well, but we yes DB2" then you are happy to reuse your scenarios when you have to port from Oracle to DB2! This is valuable for software vendors that need their software to work for different customers, with different DBs and middleware. If you only target your own infra it is a bit less essential.
+
+These scenarios should ideally use production data (but that's fragile so I'd better limit to just a few scenarios and not every of them). Just like every test, all-together tests lack the capability to pinpoint the problem when it happens. Separation of concerns remains paramount, and the tests must be time-independent and independent from data .
+
+We need non-regression scenarios for performance, e.g. what happens when 1000 users book at the same time?
+
+Think about operations earlier
+Developers should write the tests and provide them to the production team. It may help them spot a lock in the DB.
+
+What happens to these tests?
+From Jenkins to Nagios
+Include tools like penetration test tools as part of the suite
+
+(were most participating: Roland, Stephan, Franck, Tilman, Patrick)
+
+--
+@TypicalStyle snippet -> to include in a document about style guidelines
+--
+
+--
+Documenting unfinished work, decision points, extension points, alternatives and assumptions
+
+Threshold Tests
+Tags @ Linked Tags
+
+--
+Application, toolkit or framework? Often a bit of all.
+-> You don't document each part the same way.
+
+Applications define everything down to the exact requires behaviors. The scenarios are the real ones.
+
+Toolkit and frameworks offer a set of potential building blocks that can be assembled or extended in many ways for multiple purposes. You can at best propose typical samples of use. For a given need it is common to not need all the code that comes with the toolkit or framework.
+
+For a given deployment you provide specific wiring and configuration to instantiate the concrete application. This is typically managed by Infrastructure as Code.
+
+--
+
+--- box---
+
+
+
+Doing some extra work everywhere is good business when it can pay off many times. Annotations of the code to make it explicit to machines is often good business when it enables other good things, including the automated enforcement of the constraints of the architecture.
+---/box---
+
+Say no when asked for the perfect architecture. Don't over-commit
+
+World map to share mental map and reasoning.
+
+
+
+Optimize for flexibility and macro transparency
+
+Conviction over truth (?)
+
+
+
+intrinsic tags on stuff, (intensional) dynamic filtering
+
+Prioritize by audience (dynamic filtering)

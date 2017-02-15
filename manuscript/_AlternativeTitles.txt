@@ -1,0 +1,14 @@
+## Alternate titles:
+
+ - Transparent Design
+ - Deliberate Design
+ - Exposed Design
+ - Published Design
+ - Literate Design
+ - Decision-Revealing Design
+ - Continuous Documentation
+ - Continuous Design
+ - Living Documentation / Reliable documentation for free with Domain-Driven Design
+ - Comprehensive Documentation lol
+
+(Litmus test: the fundamentals of LD should work with all these titles)
