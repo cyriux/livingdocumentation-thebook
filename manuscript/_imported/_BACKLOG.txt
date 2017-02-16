@@ -1,4 +1,19 @@
+TO WRITE
+
 # Living System Diagram
+
+# Documentation by Registry (Consul / Eureka)
+
+
+# Living Design
+
+
+# Unorthodox Media
+
+# Tools addendum
+
+---------------
+TO MAKE MORE PLEASANT
 
 # Spread quotes & humor a bit everywhere
 
@@ -21,10 +36,8 @@ An introductory comics on living documentation that goes through most concepts
   Adjust design
   Code grows
 
-# Unorthodox Media
 
-# Tools addendum
-
-# To fix
+-------------------
+TO FIX
 
 - markdown in markdown in Architecture landscape / Decision Log

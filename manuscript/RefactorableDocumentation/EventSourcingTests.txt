@@ -1,14 +1,22 @@
 # Living Documentation with Event Sourcing tests
 
-Event Sourcing is a way to capture all changes to an application state as a sequence of events. In this approach, every change to the state of an application (what we call an aggregate in DDD terminology) is represented by events which are persisted. The state at a current point in time can be built by applying all past events.
+Event Sourcing is a way to capture all changes to an application state as a sequence of events. In this approach, every change to the state of an application (an *aggregate* in DDD terminology) is represented by events which are persisted. The state at a current point in time can be built by applying all past events.
 
 When a user or another part of the system wants to change the state, it sends a command to the corresponding state holder (the "aggregate") through a command handler. The command can be accepted or rejected. In either case, one or more events are sent for everyone interested to know.
 
+Events are named as verbs in the past tense, using nothing but domain vocabulary. Commands are named with imperative verbs, also from the domain language.
+
 We can represent all this in the following way:
 
-> Given past events, when we handle a command, new events are emitted
+      Given past events
+      when we handle a command
+      Then new events are emitted
 
-There are many benefits in this approach, and one of them is that you get a very decent automated tests and living documentation almost for free. This was initially proposed by Greg Young in [various talks](http://skillsmatter.com/podcast/design-architecture/talk-from-greg-young) and Greg has made his related  Simple.Testing framework available [on Github](https://github.com/gregoryyoung/Simple.Testing). This idea was later elaborated by (Jeremie Chassaing](thinkb4coding).
+In this approach, each test is a scenario of the expected business behavior, and there is not much to do to make it a business-readable scenario in fluent English. Back to typical BDD goodness, without Cucumber!
+
+**Therefore: You need no "BDD framework" when you're doing Event Sourcing. In this approach, and if the commands and events are named properly after the domain language, then the tests are naturally business-readable scenarios. If you want an additional reporting for non-developers, pretty print the events and the command through simple text transformations in your Event Sourcing testing framework.**
+
+There are many benefits of using Event Sourcing, and one of them is that you get a very decent automated tests and living documentation almost for free. This was initially proposed by Greg Young in [various talks](http://skillsmatter.com/podcast/design-architecture/talk-from-greg-young) and Greg has made his related *Simple.Testing* framework available [on Github](https://github.com/gregoryyoung/Simple.Testing). This idea was later elaborated by (Jeremie Chassaing](thinkb4coding).
 
 
 ## A concrete example in code
@@ -86,9 +94,9 @@ The method 'scenario(title)' instantiates the 'SimpleTest' class of the framewor
 
 In the example shown above the test checks the behavior and prints a description of the business behavior in plain text readable by anyone.
 
-There are several tests, each with different incoming events, commands and outcoming events. The union of all these tests represents the use-cases for the considered aggregate.
+There are several tests, each with different incoming events, commands and outcoming events. The union of all these tests represents the use-cases for the considered aggregate. This is often enough.
 
-Our Event Sourcing-based testing framework can collect all these inputs and outputs across the test suite in order to print a diagram of the incoming commands and the outcoming events.
+If you do want to turn that into diagrams, the Event Sourcing-based testing framework can collect all these inputs and outputs across the test suite in order to print a diagram of the incoming commands and the outcoming events.
 
 Each test collects commands and events. When the test suite has completed, it's time to print the diagram in the following fashion:
 
@@ -105,7 +113,7 @@ Once rendered with Graphviz in the browser, we get something like this:
 
 ![The generated living diagram of commands, aggregate and events for the Cookies Inventory aggregate](images/command-event-diagram.png)
 
-It is up to you to find this kind of diagram useful or not, or to make your own based on this approach. This example illustrates how automated tests are also a source to mine for interesting knowledge that can then be turned into a living document like a living diagram.
+It is up to you to find this kind of diagram useful or not, or to make your own based on this approach. This example illustrates how automated tests are also a data source to be mined for valuable knowledge that can then be turned into a living document or a living diagram.
 
 Note that the same content could also be rendered as a table:
 
@@ -121,4 +129,4 @@ Note that the same content could also be rendered as a table:
 | CookiesWereMissingEvent      |
 
 
-You may also want not to mix scenarios together, or to improve with additional information mixed into the same picture. You may remove the noise of the 'Event' or 'Command' suffixes. It's up to you to decide which form works best for your purpose, in your context.
+You may also want not to mix scenarios together, or to improve with additional information mixed into the same picture. You may remove the noise of the 'Event' or 'Command' suffixes. Please customize this idea for in your particular context.

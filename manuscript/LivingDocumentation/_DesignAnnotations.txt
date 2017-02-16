@@ -55,3 +55,27 @@ Boolean way = BUY;
 orderRouter.send(new Order(price, quantity, way);
 // @ Snippet How to be notified of execution
 ...
+
+
+
+--
+Type & typing OR Enforced Annotations
+
+On the callback interface used to subscribe your own handlers
+
+~~~~~~~~
+// This hook guarantees at least once delivery
+@AtLeastOnceDelivery
+void onEvent(Event e);
+~~~~~~~~
+
+On each implementation:
+
+~~~~~~~~
+// See the corresponding property-based testing to enforce the idempotence property
+@Idempotent
+void onEvent(Event e){
+...}
+~~~~~~~~
+
+Typically, mocking the data source should verify that no update is being done when the same arbitrary event is delivered more than once.

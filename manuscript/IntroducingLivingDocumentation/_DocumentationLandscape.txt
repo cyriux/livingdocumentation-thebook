@@ -1,5 +1,18 @@
 # Documentation Landscape (Andrea Ruping)
 
+
+# Add tags the way you would look for it - task-oriented indexing?
+
+Meta annotation to find everything documentation everywhere without any entry point. Full-text search for the string "documentation" in the core base and find out everything of interest.
+
+---
+
+--
+@Policy to produce a report of the most important business policies from the code, and where to audit them.
+
+---
+
+
 ## Different kinds of content
 - Content Ordering: narrative, logical, dramatic
 - Decision / Task Oriented

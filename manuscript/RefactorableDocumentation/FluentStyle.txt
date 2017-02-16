@@ -11,8 +11,10 @@ This reads just like English: "The Pricing of phone calls is in Euro, with a fee
 It can grow bigger while remaining readable as a quasi English sentence:
 
 ~~~~~~~~
-Pricing.of(PHONE_CALLS).is(inEuro().withFee(12.50).atRate(0.35))
-.and(TEXT_MESSAGE).are(inEuro().atRate(0.10).withIncluded(30));
+Pricing.of(PHONE_CALLS)
+  .is(inEuro().withFee(12.50).atRate(0.35))
+  .and(TEXT_MESSAGE)
+    .are(inEuro().atRate(0.10).withIncluded(30));
 ~~~~~~~~
 
 ## An Internal DSL
@@ -90,6 +92,39 @@ An equivalent in Java is AssertJ.
 
 http://n-fluent.net/
 http://joel-costigliola.github.io/assertj/
+
+## Test DSL aka DSTL
+
+You can create your own Domain Specific Test Language to enable writing pretty scenarios in plain code. This involves Test Data Builders, obviously.
+
+### Example 2: With builders
+
+Using builders it is not  very difficult to create an internal DSL for creating test data. Nat Pryce calls that a Test Data Builder (see ref). (Also see Dave Farley post)
+
+We could extend the previous example with the use of a test data builder to create objects on the given section.
+
+See my github repo. Test data builders can be nested. Les build a bundled travel. We define a bundled travel as a travel that groups flights, accommodation and additional services into one basket so that it's more convenient to buy. We have a test data builder to create each element independently.
+
+     aFlight().from("CDG").to("JFK").withReturn().inClass(COACH).build();
+
+     anHotelRoom("Radisson Blue")
+       .from("12/11/2014").forNights(3)
+       .withBreakfast(CONTINENTAL).build();
+
+We have another test data builder to create the bundle from each product.
+
+     aBundledTravel("Blue Week-End in NY")
+       .with(aFlight().from("CDG").to("JFK")
+       .withReturn().inClass(COACH).build())
+     .with(
+        anHotelRoom("Radisson Blue")
+        .from("12/11/2014").forNights(3)
+        .withBreakfast(CONTINENTAL).build()).build();
+
+It is possible that test data builders are so useful that you decide to use them not just for tests. It happened to me to move them into the production code, making sure they are no longer "test" data builders but just regular companion builders with nothing test-specific in them.
+
+See Martin Fowler book on DSL for more on DSL.
+
 
 ## Fluent All the Things! Not.
 

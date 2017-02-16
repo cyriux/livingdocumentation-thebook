@@ -1,3 +1,5 @@
+ALREADY INCORPORATED
+
 See studies: "Types names help more than documentation"
 
 http://www.slideshare.net/mobile/devnology/what-do-we-really-know-about-the-differences-between-static-and-dynamic-types
@@ -14,7 +16,7 @@ List<Prospect> f(ZipCode)
 
 You get a much more accurate picture of it really is. And it could even be improved: List<Prospect> could be a type in itself, something like Prospects or ProspectionPortfolio.
 
-if it was Set<Prospect> we would know that a prospect can only be present once. 
+if it was Set<Prospect> we would know that a prospect can only be present once.
 
 
 Types are more accurate than naming and comments.

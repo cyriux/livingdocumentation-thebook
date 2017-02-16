@@ -2,6 +2,12 @@
 
 *Design is about the all decisions taken. It especially revolves between the things and how they collaborate in a valuable way*
 
+
+
+@eoinwoodz at #XP2016: "Design documentation  should be Minimal, Usable, Significant". I'd also add Indexed and Checked. MUSIC.
+
+@eoinwoodz Go ahead! By "indexed" I mean searchable, and "checked" I mean automated tests check for consistency of docs, code, etc
+
 ## What is design anyway?
 
 The best answer to this question I know is from Alistair Cockburn:
@@ -16,6 +22,58 @@ In this view, design is everywhere:
 - In the relationships between these elements, in the way they are used together or not. In other words, in the empty space between the things.
 
 ![Design is between the things and how they collaborate in a valuable way](images/element_of_a_system.png)
+
+
+---
+Non functional requirements and Adr as scenarios in "quality attributes" and "design" chapter
+
+Include Markdown and PlantUML diagrams. Specify the conformty criteria as a test!
+
+How do we know we've done it right? How do we know it's being violated? How do we know it's still the right thing to do?
+
+-> make design properties explicit!
+
+Eg. Event Sourcing: No calling the aggregate method directly from outside the domain model.
+CQRS: write model ignores the view models. Write model knows of the API in terms of commands and events.
+
+Eg. Assumption: this decision holds as long as we don't have to touch module A whenever we touch module B (at 10%). Check that against the source control history.
+
+Assumption: The Visitor pattern is best when it's more frequent to add a  new behavior on elements than to add a new element. Check that against the source control history, or just as a max ratio # Visitors / # Elements
+
+One-to-one relationships: for each Command there has to be exactly one matching command handler.
+
+Layers, Hexagonal architecture: no external dependency in the Domain Model.
+
+A refactoring: The single source of truth about the Sales Team is in the Sales Team microservice, and no longer in the Agora application. For example, we can always repair data in Agora after they are randomly corrupted or physically deleted.
+
+A style: To avoid large classes of bugs, the main style in the component domain model is Value-First aka Functional-First: immutable, side-effect free functions (but not necessarily interfaces), and without visible null (with a tolerance of 10% expressed in number of un-conforming classes)
+
+Other examples
+- All published service (*/web/**Service) is idempotent.
+- No data physically deleted, ever
+
+
+Quality attribute:
+
+The user must see a completely rendered page after no longer than 500ms after a gesture (even if he page may still be loading additional non visible stuff in the background)
+
+Pen testing: the system shall not be compromised by any of the hacking techniques listed in market-standard pen tools.
+
+Nice to have: include test attachments / by-product (eg generated diagram) in the reporting itself.
+--
+# Conform to an opinionated documented framework
+
+The code not written needs no documentation. Using an off the shelf framework like Axon that is documented may be a good idea, in particular for teams of limited maturity where the framework will constrain the design to follow some structure. This may sound like a bad thing, and it often is, but it can sometimes be used deliberately.
+
+If you write an app 'without a framework' you end up with an under-specified, undocumented, informal framework. bit.ly/1PMzHIP
+
+
+---
+
+“If your model is telling a story, the Modules are chapters.” - @ericevans0
+
+“Modules are a communication mechanism. Group classes in a Module to tell the next developer to think about them together.” - @ericevans0
+
 
 %% TODO
 --
@@ -89,6 +147,28 @@ From http://msdn.microsoft.com/en-us/library/ee658124.aspx
 
 > If we adhere to the Information Hiding as advocated by Parnas, the logical consequence of these principles should be that each element of the programming language (class, module) should be able to clearly declare what design decision it is hiding internally.
 
+
+---
+
+## When naming gets creative to enforce a design decision
+
+/**
+    * This method simply acts a friendly reminder not to implement Matcher directly and
+    * instead extend BaseMatcher. It's easy to ignore JavaDoc, but a bit harder to ignore
+    * compile errors .
+    *
+    * @see Matcher for reasons why.
+    * @see BaseMatcher
+    * @deprecated to make
+    */
+   @Deprecated
+   void _dont_implement_Matcher___instead_extend_BaseMatcher_();
+
+Hamcrest Matcher method "don't implement Matcher ___ instead extend the Base Matcher" is an impossible to miss useless documentation method !
+
+The funny things is that in this example of Enforced Guidelines, the enforcement is done by the very potential violator.
+
+---
 
 
 Design for change

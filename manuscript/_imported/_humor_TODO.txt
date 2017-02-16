@@ -9,6 +9,47 @@ Humor
 --
 @ploeh: If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better :)
 
+--
+Joke fun humor
+
+> Sorry this is taking so long, I lost my bash history and therefore have no idea how we fixed this last time. -- @honest status page
+
+
+--
+
+# Diagrams / Architecture
+
+This is the universal architecture.
+Box arrow box arrow cylindar.
+Now you are an architect
+@tedneward #gotoams
+
+--
+# Introduction
+
+#Documentation is the castor oil of #programming —managers think it is good for programmers, & #programmers hate it!
+
+Gerald Weinberg Psychology of Computer Programming
+--
+
+---
+
+On many cases a wiki is just a hipster version of sharepoint. Where information goes to die.
+@tastapod #gotoams
+--
+I've spent one week working on a Software Architecture Document, friendly called SAD. No acronym would be more appropriate.
+@weppos
+
+--
+Engineers arguing about where to store documents: wiki, gdocs, github, etc The new vi vs emacs
+-- Camille Fournier @skamille
+
+@skamille nah this one is clear. They are stored in git so you can edit them in vi
+-- Daniel Schauenberg @mrtazz
+
+@skamille Only one wiki and not like 5 different ones to choose from? Amateurs!
+-- Andrew McCreight ‏@amccreight
+
 -
 # Code As Documentation
 

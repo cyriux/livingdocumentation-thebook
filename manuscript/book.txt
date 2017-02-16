@@ -79,7 +79,6 @@ VisibleWorkings/IntrospectableWorkings.txt
 
 
 RefactorableDocumentation/Section------RefactorableDocumentation.txt
-RefactorableDocumentation/CollaborativeArtifactAsCode.txt
 RefactorableDocumentation/PlainTextArtifacts.txt
 RefactorableDocumentation/SourceControlReference.txt
 RefactorableDocumentation/PlainTextDiagram.txt

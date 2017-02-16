@@ -8,13 +8,11 @@ Collaborative artifacts are the artifacts the team works on and maintains over t
 
 ## Keep together what varies together
 
-The usual way of storing documentation is to put MS Office documents into a shared drive somewhere, or to write random stuff in a wiki that is hardly organized. Either way, this documentation will quickly get out of sync because the code is continuously changing, independently of the documents stored somewhere else, and as you know, "Out of sight, out of mind”.
+The old-fashioned way of doing documentation was massive overhead, and not even satisfying. We now have better alternatives. Over the last decade, there has been many changes in software development. Github has popularized the README.md overview file written in Markdown. DevOps brought the principle of Infrastructure as Code. The BDD practice introduced the idea of text scenarios as a living documentation and as a viable alternative for both specifications and acceptance tests.
 
-We now have better alternatives. Over the last decade, there has been changes in software development. Github has popularized the README.md overview file written in Markdown. DevOps brought the principle of Infrastructure as Code. The BDD approach introduced the idea of text scenarios as a living documentation and an alternative for both specifications and acceptance tests. Even mind-maps can be stored as text files.
+All this suggests that we could replace most traditional documents and break free the knowledge imprisoned within proprietary tools by favoring plain-text, standard alternatives, and we could have all these files collocated within the source control together with the source.
 
-All this suggests that we could replace most traditional documents and liberate knowledge imprisoned within proprietary tools by favoring plain-text, standard alternatives, and we could have all these files collocated within the source control together with the source.
-
-**Therefore: Agree as a team to collaborate on plain-text files, in a standard syntax, stored on the source control together with the source code. Treat these collaborative artifacts as the authoritative single source of knowledge. At build time, generate every other document from them through automated means.**
+**Therefore: Agree as a team to collaborate on plain-text files as much as possible, in a standard syntax, stored on the source control together with the source code. Treat these collaborative artifacts as the authoritative single source of knowledge. At build time, generate every other document from them through automated means.**
 
 In any given branch in the source control we would then have our collaborative artifacts acting like their own documentation like this:
 

@@ -21,6 +21,11 @@ Any decision happens in a context, and is one of the considered answers to a pro
 
 - The **main alternatives** that were considered seriously, and perhaps why they were not selected, or why they would be selected if the context was different: "Buying an off-the-shelves solution would be a better choice if the needs were more standard","A graph structure would be more powerful but is harder to map with the Excel spreadsheets of the users", "A NoSQL datastore would be a better choice, if we didn't have all this investment with our current Oracle DB"
 
+
+> Generally speaking design rationale is very much about discarded options, so *not in the code*
+> -- @CarloPescio on Twitter in a conversation on self-documenting code
+
+
 ## Make it explicit
 
 - **Ad hoc document**: Explicit document about the requirements, including all quality attributes. This needs to evolve slowly but still at least once a year; only done for the main attributes which span large areas of the system, not for more local decisions

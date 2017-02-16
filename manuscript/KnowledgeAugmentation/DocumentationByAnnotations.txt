@@ -131,4 +131,12 @@ You can use structured tags within comments:
 
      /** @Adapter */
 
-It's a good idea in this case to conform to a common style of structured documentation from the language. It may give you some tool support, like autocompletion and code highlighting.
+It's a good idea in this case to conform to a common style of structured documentation from the language. It may give you some tool support, like autocompletion and code highlighting. The XDoclet library did that with great success in the early Java days, hijacking the Javadoc tags in order to use them as annotations.
+
+You may also use the good old Marker Interface pattern: implementing an interface with no method just to mark the class. For example, to mark a class as Serializable, you would implement the `Serializable` interface:
+
+     public class MyDto implements Serializable {
+		    ...
+		 }
+
+Note that this is quite an intrusive way to tag a class, and it pollutes the type hierarchy. 

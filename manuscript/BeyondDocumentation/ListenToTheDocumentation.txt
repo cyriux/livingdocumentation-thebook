@@ -49,6 +49,13 @@ We want to encourage deliberate thinking. Documenting decisions as they are take
 
 T> *If you can't explain it simply, you don't understand it well enough.*
 
+Sometime it's frustrating when working with a team at a customer site to observe decisions to be taken without anyone being clear on the reasoning. "Just make it work right now" seems to be the motto. In one instance I had to take notes about one such situation:
+
+> We've been discussing for one hour over the semantics of the messages between a legacy app and a new event-sourcing-based app. Is it event or command? As usual, the discussion doesn't lead to a clear conclusion, and yet the unclear choice works. Had we decided to document the semantics of all integration interactions clearly, we would have had to decide, and to turn it into a tag or something written and visible. Then we would have to conform to it, or to question it explicitly when it's no longer relevant.
+>
+> Instead, we're going to live with the continuous confusion. Each contributor will interpret as he or she wishes. And it will bite us.
+
+Now I can tell that coming back one year later, the team has matured and now this discussion would be probably converge to a sound reasoning. 
 
 ## Deliberate Decisions
 

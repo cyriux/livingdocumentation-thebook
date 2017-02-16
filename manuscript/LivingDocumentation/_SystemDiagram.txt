@@ -4,6 +4,20 @@
 
 %% TODO include the generated system diagram
 
+
+Ecosystem diagram
+
+By consolidation of several components diagrams
+
+- Nothing to declare: it's the considered system itself
+- Non-system: external systems or components, or end actors. Each can be belong to nested scopes: components of the same app, of the same department IS, of the same company IS, of a partner company, foreign system
+
+The ecosystem diagram on a particular scope will consider everything contained as part of itself, and the rest as external
+
+@Port(Scope.Component, Kind.System)
+
+But what about unused ports / adapters?
+
 No system is an island, every system is part of a bigger eco-system with other actors, typically people and other systems. This context is often considered obvious, so we do not talk much about it. However this knowledge is essential and has to be in mind of everybody on the project, so it deserves to be shown on regularly, and in particular before any conversation with a new person.
 
 The context can be expressed as a simple list:

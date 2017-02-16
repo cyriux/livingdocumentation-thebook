@@ -1,8 +1,17 @@
 LD - Journal 2
 
 
+--
 Raw artifact are not ready to be useful documentation; to be useful we need the curation to carefully select the few tests that are worth having a look at.
 
+--
+### Example 1: Given-When-Then Test
+
+One way to structure this DSL is to follow the Given-When-Then template.
+
+A> See Github code from Fabien. and todo: use specific runner for test scenario reporting
+
+???
 --
 ## BDD: Expose properties too!
 ---
@@ -38,9 +47,6 @@ Everybody has a mental model, the difficulty is sharing and validating it @mathi
 --
 # Tools-based documentation
 
-Joke fun humor
-
-> Sorry this is taking so long, I lost my bash history and therefore have no idea how we fixed this last time. -- @honest status page
 
 --
 # Ready-made documentation
@@ -54,27 +60,7 @@ From https://t.co/enPfZAYM4O?ssr=true on metaphors we live by
 Good documentation is documentation that you use day to day and improve when you see something missing/incorrect/awkward.
 
 Gregory Brown @practicingdev
---
-Type & typing OR Enforced Annotations
 
-On the callback interface used to subscribe your own handlers
-
-~~~~~~~~
-// This hook guarantees at least once delivery
-@AtLeastOnceDelivery
-void onEvent(Event e);
-~~~~~~~~
-
-On each implementation:
-
-~~~~~~~~
-// See the corresponding property-based testing to enforce the idempotence property
-@Idempotent
-void onEvent(Event e){
-...}
-~~~~~~~~
-
-Typically, mocking the data source should verify that no update is being done when the same arbitrary event is delivered more than once.
 --
 # Code as Documentation
 
@@ -98,43 +84,16 @@ See Felienne and @Peterhilton post on that
 
 .@DragonBe In fact, my argument is that by _not_ adding this layer, you are _creating_ incidental complexity, technical debt. The original meaning (in the first example) is lost, and can’t be reliably reverse engineered from the code. - @mathiasverraes
 
-# Literate Programming
 
-Let us change our traditional attitude to the construction of programs: Instead of imagining that our main task is to instruct a computer what to do, let us concentrate rather on explaining to human beings what we want a computer to do.
-
-Donald Knuth
-http://www.literateprogramming.com/
 --
 https://michaelfeathers.silvrback.com/characterization-testing
 
 "The purpose of characterization testing is to document your system's actual behavior"
 --
 When to document? JIT whenever we find out we were missing an important bit of information
----
-Chez Bnp, j'ai rejoint une équipe qui mettait un point d'honneur à adhérer à tous les standards, du marché, pas des standards internes. Résultat : dès le premier jour j'étais opérationnel ! Je connaissais les technologies et leurs usages, j'étais immédiatement familier sur tout le périmètre du projet. Aucun besoin de documentation, aucune surprise, aucun customization spécifique.
-
-Soyons clair, cela demande un effort bien réel. Chercher les standards, trouver la façon de résoudre les problèmes spécifiques tout en restant sur des standards. Une démarche délibérée, mais les bénéfices sont bien là ensuite pour tout le monde et surtout les new-comers!
-Khaled
----
-# Maxims
-
-"if in doubt, do it the way Erlang does it @BeRewt
-—
-Engineers arguing about where to store documents: wiki, gdocs, github, etc The new vi vs emacs
--- Camille Fournier @skamille
-
-@skamille nah this one is clear. They are stored in git so you can edit them in vi
--- Daniel Schauenberg @mrtazz
-
-@skamille Only one wiki and not like 5 different ones to choose from? Amateurs!
--- Andrew McCreight ‏@amccreight
 
 --
-Be the adult you wish you had around when you were a child.
 
-Write the documentation you wish you had when you started on this project.
-
-@willowbl00
 --
 I am tired of documentation that just states the obvious. :-(
 
@@ -166,8 +125,7 @@ Source code should be a conversation between the author and the reader that prov
 Make it work. Make it right. Make it fast. Make it understandable. Few make it to the 3rd step, never mind the 4th.
 -- @hlship
 
-@monkeyonahill @hlship @missingfaktor @cyriux generally speaking design rationale is very much about discarded options, so *not in the code*
--- @CarloPescio
+
 --
 Document actual usage, not speculative usage
 
@@ -177,19 +135,8 @@ Some say "document after" the stuff that's actually done. Note that it doesn't n
 The header of Gherkin files is one of the most underrated locations for documenting *why* some behavior is there #soThat
 @Giorgiosironi
 --
-Make accessible
-Example: the tool to display cron config for non developers
 
-Google cron translate
 
---
-Marble diagrams literally in unit tests -> alex Victoor
-
-ASCII Art Domain-specific notation
-
-   ^      ^
-   |       |
--------------------->
 --
 3 hours custom 1-to-1 one LD with Stephane K. at Arolla
 
@@ -209,54 +156,16 @@ Meta annotation to find everything documentation everywhere without any entry po
 --
 Package-info.java // remind everyone that it exists, plus annotations at module granularity, eg Immutable, Deep-Linking
 
+
 --
-@Policy to produce a report of the most important business policies from the code, and where to audit them.
+
+
 --
-I've spent one week working on a Software Architecture Document, friendly called SAD. No acronym would be more appropriate.
-@weppos
---
-# Diagrams / Architecture
 
-This is the universal architecture.
-Box arrow box arrow cylindar.
-Now you are an architect
-@tedneward #gotoams
---
-# Ready-made knowledge to speed up knowledge transfer big time
 
-- Hello JB, so how's your startup going? Oh quite well, Jam Shake is going to round A financing now. So we're ready to grow a lot for the next year! - oh great! What does it do?
-
-- <todo: include pitch>
-
-- On the technical side, how's your system organized in a nutshell?
-
-- I know you're familiar with Software Craftsmanship and design, and DDD in particular, so you won't be surprised to hear our system is made of several sub-systems, one by Bounded Context indeed.
-
-- Oh yes, makes perfect sense! Each one is a microservice then?
-
-- Yes and no. They begin as modules very strictly decoupled in terms of dependencies, i.e. ready to be extracted into their own process at runtime. But we keep them within the same process until we really need the separate processes, usually to scale with the increasing load.
-
-- Yes! I call that the "microservice-ready" style of code. You don't have to pay the full cost of too many physical services upfront, as long as you have the option to do it at anytime. But it takes discipline.
-
-- yes and that's easy when you're just 1 or 2 developers like we are at the moment. In practice we regularly use these options because of the increasing load.
-
-- Increasing load: that's good problems to have when you're a startup growing and looking for financing!
-
-- yes absolutely.
-- I'm curious to have an overview of the full system. Perhaps Bounded Context by Bounded Context?
-
-- sure. There are around 7 Bounded Contexts at the moment: Acquisition (registration of new users), Arrangement, Audio Rendering (mixing, limiter and compression kinds of processing), Stems Management, and Reporting. They all rely on Spring Boot instances on top of separate Postgres databases, except the Stems management built with Node.js on top of an S3 storage. Each Bounded Context is paying attention to their domain model, except Registration that CRUD-y based on Hibernate. It's a survivor from the early version of the system!
-
-- Alright, I see. Thanks JB!
---
-# Beyond Documentation
-
-Here's a secret about documentation. It's not just useful to read. It's the act of writing that pushes for quality in the same way as tests
-@giorgiosironi
 --
 # Wiki
-On many cases a wiki is just a hipster version of sharepoint. Where information goes to die.
-@tastapod #gotoams
+
 --
 # Configuration / Dependencies
 
@@ -264,12 +173,7 @@ Whoever started the trend to do configuration in json obviously did not see any 
 @jbandi
 --
 
-# Introduction
 
-#Documentation is the castor oil of #programming—managers think it is good for programmers, & #programmers hate it!
-
-Gerald Weinberg Psychology of Computer Programming
---
 # Domain  Language & Knowledge Ubiquitous Language
 
 Great advice from @SoCraTes_UK to know if your code is align with your domain: Put your git log in a cloud word #socratesuk
@@ -282,9 +186,6 @@ Domain partitioning has the benefit of being rather stable over time
 --
 # Code as documentation / Enforced Guidelines
 
-Hamcrest Matcher method "don't implement the base class" implement ... Instead as an impossible to miss useless documentation method !
-
-The funny things is that in this example of Enforced Guidelines, the enforcement is done by the very potential violator.
 --
 # Deliberate Decisions / rigorous thinking
 
@@ -302,11 +203,7 @@ Serenity
 
 Also: domain-specific notations embedded into the test reports? Thx @aloyer
 --
-# Design Documentation
 
-@eoinwoodz at #XP2016: "Design documentation  should be Minimal, Usable, Significant". I'd also add Indexed and Checked. MUSIC.
-
-@eoinwoodz Go ahead! By "indexed" I mean searchable, and "checked" I mean automated tests check for consistency of docs, code, etc
 --
 # A vision
 
@@ -314,400 +211,5 @@ Todo: add a chapter "pure opinion" on how I see documentation. What u want, don'
 --
 # Architecture Documentation
 
-“If your model is telling a story, the Modules are chapters.” - @ericevans0
 
-“Modules are a communication mechanism. Group classes in a Module to tell the next developer to think about them together.” - @ericevans0
---
-# Throw away Diagrams
-
-Graphs are like white board diagrams: they communicate to the people who created them. Anyone else who walks up
-sees squiggly lines.
-
-Jessica Kerr - Twitter
---
-# Commits
-
-Commit messages as tiny Architecture Decision Records
-
-@jessitron Pull Requests as slightly larger Architectural Decision Records.
-
-@ph1 @jessitron but who goes reading them? If PRs are Commands and commits Events, we need projections --@giorgio sironi
---
-> And code is not the Grail, value is the Grail, so artifacts that add or shore up value (like architecture models and descriptive and prescriptive architecture documents, etc.) are peer considerations to code when it comes to weighing how to invest time/budget/attention/talent. Remember, when we think in value terms, time invested in enabling many people to be more productive (create more value with less resources), can be economically justified!
-
-From Ruth Malan
-
---
-We get so down in the channel of automated visualizations (yes, even I) that we overlook the role of the architect and engineer developing a mental model of the built system, and drawing out that mental model to explain the system. Then, what do we draw? Anything from blobs and boxes to UML diagrams. And I highly value blobs and clouds and boxes and other sketchy ephemeralia! So long as we don't pretend/expect that to be the system specification!
---
-# Obstacles to honest documentation  / failures / impediments
-
-# Solution Envy: a desired solution later "rationalized" into a convincing-enough business case. (See also Resume-Driven Development and Guru-Driven Developmen)
-
-From Ruth Malan Traces:
-The flow of energy through a system tends to organize that system" -- (ascribed to) Buckminster Fuller (source??)
-
-"Dana observed, watching Man on Wire, that when intense passion and energy is poured into something, the very universe seems to organize around it!"
-
-My own experience shows this too. The design as it is was not that rationale indeed. Instead, it was shaped by the team willing to use a new technology (Spring, Hibermate and JSF back then), then willing to try a new style (CQRS / event sourcing with frameworks). It started with Solution Envy, later rationalized to make a convincing case. The team, and the management equally, wanted Netflix-like scalability real bad, because it sounds good, not because it was necessary. Again the rationale comes after.
-
-We should document that as it is, for the sake of honesty. But who would admit that so crudely in a documentation?
---
-Surprise is one of the most expensive things you can put into a software architecture. Adam Thornhill
---
-#Documentation is a love letter you write to your future self—Damian Conway (from
---
-http://bit.ly/1RdDez2
---
-# Beyond Documentation
-
-Documentation-Driven Development: explaining in prose how your system can be used will force you to notice inconsistencies to resolve
---
-When should we create a document on an #agile team? disciplinedagiledelivery.com/agile-document…
---
-BDD tooling for design too?
-
-Non functional requirements and Adr as scenarios in "quality attributes" and "design" chapter
-
-Include Markdown and PlantUML diagrams. Specify the conformism criteria as a test!
-
-How do we know we've done it right? How do we know it's being violated? How do we know it's still the right thing to do?
-
--> make design properties explicit!
-
-Eg. Event Sourcing: No calling the aggregate method directly from outside the domain model.
-CQRS: write model ignores the view models. Write model knows of the API in terms of commands and events.
-
-Eg. Assumption: this decision holds as long as we don't have to touch module A whenever we touch module B (at 10%). Check that against the source control history.
-
-Assumption: The Visitor pattern is best when it's more frequent to add a  new behavior on elements than to add a new element. Check that against the source control history, or just as a max ratio # Visitors / # Elements
-
-One-to-one relationships: for each Command there has to be exactly one matching command handler.
-
-Layers, Hexagonal architecture: no external dependency in the Domain Model.
-
-A refactoring: The single source of truth about the Sales Team is in the Sales Team microservice, and no longer in the Agora application. For example, we can always repair data in Agora after they are randomly corrupted or physically deleted.
-
-A style: To avoid large classes of bugs, the main style in the component domain model is Value-First aka Functional-First: immutable, side-effect free functions (but not necessarily interfaces), and without visible null (with a tolerance of 10% expressed in number of un-conforming classes)
-
-Other examples
-- All published service (*/web/**Service) is idempotent.
-- No data physically deleted, ever
-
-
-Quality attribute:
-
-The user must see a completely rendered page after no longer than 500ms after a gesture (even if he page may still be loading additional non visible stuff in the background)
-
-Pen testing: the system shall not be compromised by any of the hacking techniques listed in market-standard pen tools.
-
-Nice to have: include test attachments / by-product (eg generated diagram) in the reporting itself.
---
-# Conform to an opinionated documented framework
-
-The code not written needs no documentation. Using an off the shelf framework like Axon that is documented may be a good idea, in particular for teams of limited maturity where the framework will constrain the design to follow some structure. This may sound like a bad thing, and it often is, but it can sometimes be used deliberately.
-
-If you write an app 'without a framework' you end up with an under-specified, undocumented, informal framework. bit.ly/1PMzHIP
---
-# Commit guidelines
-
-Write commit messages so that the commit log can be understood by your Product Owner
-
-Write commit messages describing the "why" -- because the "what" can be read in the diff
-
-Write commit messages so that they complete the sentence "This commit will..."
---
-Li Engie: would like having:
-- Ubiquitous Language glossary -> manual markdown file
-- Explanations of products -> in their own feature files, along with their specific behavior
-- How to deal with that in the legacy UI -> separate user manual in the wiki, with loose links, ideally as a search
-
-
---
-# BDD
-
-Pickles now supports Markdown descriptions. Useful for formulas, simple ascii diagrams (eg timelines), and for organizing the description by sections and bullets. It also enables embedding images and links to external resources.
-
-Link to direct page
-Link to a search
-Link to a search through an URL registry / shortener
---
-ADR tool by Nat Pryce following Michael Nygardt post
-
-ADR should be referenced in the artifacts which follow them as rationales.
-
-ADR supersedes each other regularly, are marked obsolete. Move them to attic/ or pending-deprecation/
---
-Add a section on language meta models: AST of IDE, meta model with or without Javadoc... It's not that hard! Don't cry or run away!
-
--- Beyond documentation
-
-We've been discussing for one hour over the semantics of the messages between a legacy app and a new event-sourcing-based app. Is it event or command? As usual, the discussion doesn't lead to a clear conclusion, and yet the unclear choice works. Had we decided to document the semantics of all integration interactions clearly, we would have had to decide, and to turn it into a tag or something written and visible. Then we would have to conform to it, or to question it explicitly when it's no longer relevant.
-
-Instead, we're going to live with the continuous confusion. Each contributor will interpret as he or she wishes. And it will bite us.
-
---
-Parameterized tests -> not win all inputs and outputs? There must be something common across each sample in a method (error, nominal, etc.)
---
-@springrod: Good error messages are like good documentation in code: A one-time investment by one person that can make many others more productive.
---
-@r7krecon: Stigmergy. #conwayslaw https://t.co/yXkEFHLpDj
-
-
---
-# Embedded Learning
-
-@opencontent: Properly conceived, educational materials are clues we leave behind for others to follow in their search for understanding.
---
-@mbostock: It’s funny how writing documentation can spur redesign: it’s easier to simplify a complex API than try to document it completely.
---
-Documenting dependencies: constructor arguments
---
-@claussni: @simonbrown Architecture diagrams should show me things I can't read from the code - because it's too big or it's about runtime behavior.
---
-# Unorthodox media
-
-@jasongorman: The motivational poster I would hang in every dev office would say: "Another technology is almost certainly not the answer"
---
-
-
-Thx Nicolas Fedou while back from the skii resort
-
-Runtime documentation: generated infrastructure diagrams
---
-Generic notation vs specific notation
---
-Carte grise vs serial number : external vs internal documentation
---
-C4 Consul config -> container diagram
---
-maven license plugin
---
-Quoi, pourquoi : knowledge augmentation
-Comment : knowledge exploitation
-
-Internal documentation : the more urgent, the more you need internal, not external documentation.
-
-Polkution? Like trekking paths on the mountains
---
-Spreadsheet Driven code
-
-
-
-Product segment, category x tax, fee, discount, sell at a loss
-
-(Yes, No, NA, %)
-
-Config in a human-readable format directly driving the code doing the processing. Eg from cloud spreadsheet, or using Apache POI.
---
-Code layout Tetris: https://github.com/jcollard/elmtris
---
-@KentBeck: comments are echoes along the timeline from future refactorings, pleading to be born
---
-@gvwilson: Lazy competence quotient (LCQ): %age of comments in code that include links to Q&A on Stack Overflow.
---
-https://t.co/pgPLTVBcp1 on documentation of ET testing sessions + Da Vinci
---
-"Faire parler de façon spontanée"
---
-Decision Table (and similar Fowler DSL patterns
-
---
-Document the impacts? That's easy! There is a 50% likelihood that a change here will break there :)
---
---
-Beyond: document your achievements on the wall on order to be more happy!
-
---
-Runtime documentation anti-pattern:  logger at each entry and exit of methods
---
-
-@fchabanois: pour garder une trace et prévoir ses expériences sur le produit (et les succès + failures) https://t.co/y6ir9TeW5m #startup #hypotheses
---
-Illustration miroir de blanche neige (beyond documentation )
---
-@dtanzer: I'm unit testing at a very low detail to document my code and my thoughts when I wrote it. @simonbrown #GeeCON
-
---
-Some lost content here to retrieve from cyrillemartraire@gmail.com / note
-
-Beyond archi template as a checklists: a feedback mechanism to improve your thinking and to think earlier about aspects of a system or project that you forgot or neglected so far.
-
---
-Rules are for machines to automate or enforce, and judgement is for humans
---
-
-http://t.co/IT1qFASkg4
---
-
---
-Todo curation for living diagrams: where to stop navigation on the metamodel?
---
---
-Curation code
-
-Is this noise? Just like trekking signs in the forest, mountain in the best places in the world...
---
-Anecdote Loustic
-
-Papiers print Hermes 1950
-Label Toilettes
-"On fait tout pour réduire le nombre de questions" for the staff
---
-Ecosystem diagram
-
-By consolidation of several components diagrams
-
-- Nothing to declare: it's the considered system itself
-- Non-system: external systems or components, or end actors. Each can be belong to nested scopes: components of the same app, of the same department IS, of the same company IS, of a partner company, foreign system
-
-The ecosystem diagram on a particular scope will consider everything contained as part of itself, and the rest as external
-
-@Port(Scope.Component, Kind.System)
-
-But what about unused ports / adapters?
---
---
-Living Glossary -> add hierarchy of all subtypes for an entry
---
-
-
-
-More factoring
-Symmetries
-Recursive
-Consistency
-Replaceability
-
-As such the mere quantity of specific knowledge to document is an indicator of the maturity of the design.
---
-
---
-Auto generated quizzes out of the documentation, eg BDD
---
-Puppet: modular dependencies document an important part of the WHY
---
-Small-scale simulation
-
-Take the core 12 classes out of the 500 of the project, and assemble them in less a day into a simpler system you can do a complete walk-trough of in less than an hour. // Abstract Core
-
-Also useful for some kinda of testing, like testing the rounding throughout the chain, regardless of the concurrency model.
---
-
---
-
---
-Organic growth as natural documentation
-
-Small is easy to understand, hence at the beginning of the project the code itself is a naive form of documentation.
-
-We can keep a version of it for the sake of documentation for when the code has grown much larger (see Small-Scale Simulation)
-
-When the code grows, evolve the small-scale or not? Preferred option is a small-scale system built from the very elements of the actual system, in which case it evolves just like your tests evolve with the code. If it does not evolve well, perhaps your design has a problem. Otherwise the small-scale doesn't have to evolve for most changes, unless changes go as far as even reconsidering the purpose or the fundamental work process of the full system. On a typical project, as the project matures changes turn over time from radical changes impacting the overall structure to increasingly local enhancements.
---
-Tests as documentation, how-to
---
-@sarahmei: Pair programming: the best way to do less email, attend fewer meetings, AND write less documentation! https://t.co/qzhzfM6OTz
---
-Type-driven -> Optional()
---
-Templated Diagram
---
-Single Sourcing
---
-
-
-Factual Argument: Living Documentation to convince
---
-Questions for each case:
-- what problem am I trying to solve?
-- what's the solution?
-- how do I do that in practice?
-- tips & pitfalls -> other patterns / advices
-- related ideas
-- examples, code samples
---
-Go to meetings with a folder of screenshots and diagrams and reference documents for in-session concrete data
---
-Todo: identify principles that are / have to be always true
-
-
---
-Insights / feedback
-
-Having someone coming into your team from another team brings in new ideas and answering their questions can trigger existing team members to reconsider design decisions.
-
-http://t.co/g33BYV4dtv
-
---
-Transparent Architecture -> decentralize architecture and decision making
-
-What business area and function (features?) does an application implement? Declare that explicitly, if possible in the source code itself.
-
-Golden source for each aggregate: what application / schema is the one source of truth / master data for a given concept? Glossary of golden sources. Sometimes it's mixed between applications and depending on the status of the things...
-
-SLA: by application? By business area / function? As tests? By Bounded Context? Make the. Explicit somewhere anyway.
-
-Codex of principles. Company-wide guidelines, if any. Business strategy (automate more! Stp ratio++! Customer convenience first!), architectural strategy (decommission VB6 or J2EE, web-first). How and where to materialize that? As an Evergreen document, plus saved searches, saved monitoring configs... As a bunch info Json files with links? In a wiki, with pictures? As a slide deck for humans? Plus tools to scan the code base and report data. ASCIIdoc?
-
---
-
-
---
-
-
---
-
-
-Link to the reference.
---
-https://mobile.twitter.com/mariofusco/status/587873251348582400
-
---
-
-Collaborative
-Single source of truth = excel
---
-Scaffolding tips
-
-
-
-### Astonishment Report
-!!!! Lost content here on mardi 31 mars 9.??  To recover content from emails !!!!
-
-
-
---
-
-No documentation
-
-Type-driven documentation
-
-Type providers in F#
-
-—
-
-Less silos, less work handover, less need for documentation
--> whole team FTW
-
---
-# Tools History
-
-A lot of knowledge is already there, hidden in the history of the tools you already use. Source control systems are an obvious example. They know about every commit, when they were done, by who, what were the changes, and remember each commit comment. Other tools like Jira or even your email also know a lot about your project.
-
-However this knowledge is not readily accessible, and is not used as much as it could. Even worse, sometime you have to re-enter the same knowledge in another form in another tool. For example a commit to fix a bug with a comment that states it fixed the bug, however in many companies you have to also go to the work tracker to declare you've fixed the bug. You also have to declare the time spent on the task, only to enter it again into the time tracking tool later in a aggregates form. This is a waste of time. As soon as you setup the integration between the tools you can save time without losing anything.
-
-For documentation, the history of tools can be a gold mine
-
-- Git blame
-- perhaps link from there to the ticket in the tracker
-- emails to archive for auditing (thru a simple forward to the archived address)
-
-- storify for email?
-
---
-Docker documentation is key!
-
-"Success of products depends a lot on the quality of the documentation." Jerome Petazzoni, Docker
-
-Don't do something twice: once I have to answer the same question twice, I start the documentation about it. Docker file is the golden source. (?)
+---

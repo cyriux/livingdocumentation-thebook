@@ -54,3 +54,41 @@ A tool like that is in fact only a wrapper on top of an automatic layout tool li
 It's not difficult to create your own flavor of this approach, using perhaps different conventions to interpret the text sentences. However the point is to keep it really rustic. If you don't pay attention to the simplicity of the syntax, you may end up with a syntax so complicated you have to look at its syntax sheet sheet all the time, which would defeat the purpose of simplicity.
 
 When there are changes that require to update the diagram, it's easy to make them in the text. Renaming can be done with a find-and-replace. Perhaps your IDE can even have its refactoring automation reach the plain-text files, in which case you're less at risk of forgetting to update the diagram.
+
+
+## Diagram as Code
+
+An alternative flavor of a plain-text diagram is to use code in a programming language as the way to declare the nodes and their relationships. There are benefits:
+
+- Auto-completion
+- Checks from the compiler or interpreter to catch invalid syntax
+- Can move along with any automated refactoring to remain in sync with all changes
+- Can programmatically generate many dynamic diagrams from data sources
+
+There are some drawbacks too:
+
+- The code itself is less readable by non-developers than plain-text
+- Identifiers names cannot contain whitespace
+
+Here is an example of a diagram generated from my little library [DotDiagram](https://github.com/LivingDocumentation/dot-diagram) which is a just a wrapper on top of Graphviz:
+
+~~~~~~~~
+final DotGraph graph = new DotGraph("MyDiagram");
+final Digraph digraph = graph.getDigraph();
+
+// Add the nodes
+digraph.addNode("Car").setLabel("My Car").setComment("This is a BMW");
+digraph.addNode("Wheel").setLabel("Its wheels").setComment("The wheels of my car");
+
+// Add the associations between the nodes
+digraph.addAssociation("Car", "Wheel").setLabel("4*").setComment("There are 4 wheels").setOptions(ASSOCIATION_EDGE_STYLE);
+
+// Render everything
+final String actual = graph.render().trim();
+~~~~~~~~
+
+This diagram expressed as code should render like this:
+
+![Rendering MyCar ---> 4* Wheel](images/dotdiagram_rendering.png)
+
+Of course the biggest benefits by far are the ability to generate diagram from any source of data. This technique is a key ingredient for any Living Diagram.

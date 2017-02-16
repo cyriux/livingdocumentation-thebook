@@ -25,6 +25,7 @@ T> **Pro Tip** Use wifi password as a maxim (you have to carefully type it manua
 
 T> **Pro Tip** If it rhymes it's more credible
 
+"if in doubt, do it the way Erlang does it @BeRewt
 
 à la Banksy street art
 

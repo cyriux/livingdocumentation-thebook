@@ -6,6 +6,9 @@ It is often a good idea to start with a focus on the end result we are aiming fo
 
 Chris Matts in a talk at the BDD eXchange conference had a great example on a typical british goal: having a cup of tea. Starting with this goal, we can then derive the need for hot water, a clean cup, and a tea bag, and so on.
 
+> Here's a secret about documentation. It's not just useful to read. It's the act of writing that pushes for quality in the same way as tests
+> @giorgiosironi
+
 Some developer find that starting with a piece of documentation helps do that, like Dave Balmer in his blog [I want control of my documentation](https://davebalmer.wordpress.com/2011/03/29/source-code-documentation-javadoc-vs-markdown/):
 
 > I can start by documenting only that which is important. That satisfies the "write this down before I forget” part of documentation, and frees me up to improve it in later drafts.
@@ -20,4 +23,4 @@ Continuous improvement starts with honest retrospectives on how well we performe
 
 Therefore: **Document early what you assume and the experiments you try in order to have reliable and honest data when it is time for retrospective.**
 
-This is a way to be a little more data-driven. And there are tools for that! For example growth.founders.as offers a tool to declare your assumptions and to describe your experiments.  
+This is a way to be a little more data-driven. And there are tools for that! For example growth.founders.as offers a tool to declare your assumptions and to describe your experiments.

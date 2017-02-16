@@ -6,3 +6,4 @@ Tags in the discovery server (Consul)
 - BackEndForFrontEnd
 - Cache
 - ReverseProxy
+- Projection

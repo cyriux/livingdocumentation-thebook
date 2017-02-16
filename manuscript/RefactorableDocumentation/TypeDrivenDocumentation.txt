@@ -66,6 +66,42 @@ The only risk is that if you change the definition of the type without changing 
 
 An obvious benefit of using types with their documentation is that this gives you an **Integrated Documentation**, directly within your IDE. When you mouseover a type name, the IDE shows a small popup with the related documentation, anywhere in the code. When you're using the auto-completion, a brief excerpt of the documentation is shown in front of each auto-completion proposal.
 
+
+## Types and Associations
+
+Associations in code are expressed as member fields to types. The code and its types can tell a lot, but sometimes we need something more. Let's consider a few examples.
+
+When the associations are 1-to-1, and the member fields are well-named, we need nothing more:
+
+     // nothing to say
+     private final Location from;
+     private final Location to;
+
+
+There is no need to tell much when types can **also** express meaning themselves. In the example below, the annotation is redundant with the declared type. It is common knowledge that a `Set` enforces unicity.
+
+~~~~~~~~
+@Unicity
+private final Set<Currency> currencies;
+~~~~~~~~
+
+Similarly the code below does not need the additional ordering declaration, it is implied by the concrete type. But is it really the case from the caller point of view?
+
+~~~~~~~~
+@Ordered
+Collection<Item> items = new TreeSet<Item>();
+~~~~~~~~
+
+We could refactor into a new declared type to make the documentation redundant:
+
+~~~~~~~~
+SortedSet<Item> items = new TreeSet<Item>();
+~~~~~~~~
+
+But doing that exposes a lot of methods we may not want to expose. Perhaps we would only like to expose `Iterable<Item>`. If that's the case, perhaps the ordering is an internal detail.
+
+We see here is that we prefer **Types over Annotations** as well!
+
 ## Types over Comments
 
 Comments can lie and they often do. So does naming, to a less extent. But types don't lie, or the program would not even compile.
@@ -76,7 +112,7 @@ A method name may pretend to be:
 
 But regardless of its name, if the signature and its types is actually:
 
-      List<Prospect> f(ZipCode)
+      List<Prospect> function(ZipCode)
 
 You get a much more accurate picture of it really is. And it could even be improved: `List<Prospect>` could be a type in itself, something like `Prospects` or `ProspectionPortfolio`.
 

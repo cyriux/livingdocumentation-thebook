@@ -36,6 +36,16 @@ Swagger
 
 Svg, Graphviz, pandoc, js, neo4j, dataviz
 
+- Markdown, yaml, even json for the content in itself, plus tools to render that into other documents
+- interactive slideshow from markdown files with Reveal.js
+- ASCIIDoc
+- d3.js
+
+- Diagrammr-like
+- Structurizr
+
+
+
 - custom parser
 
 Tools like the Javadoc standard Doclet, or alternative tools like QDox or even [Google Guava] ClassPath(http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/reflect/ClassPath.html)

@@ -14,6 +14,6 @@ Luckily we can still derive important information from the artifacts in order to
 
 If you use the Hexagonal Architecture, you already have de-facto Anti-Corruption Layer for all the external dependencies.
 
-Interchange Context is defined as a schema or as a norm: a Published Language. Examples: mime types, Json or XML schemes, DB schema, standard file formats: png, mp3... Commonly in companies there are custom formats that are based on cvs plus a schema expressed as a Word document that is not perfectly accurate, but there's nothin better.
+Interchange Context is defined as a schema or as a norm: a Published Language. Examples: mime types, Json or XML schemes, DB schema, standard file formats: png, mp3... Commonly in companies there are custom formats that are based on cvs plus a schema expressed as a Word document that is not perfectly accurate, but there's nothing better.
 
 Examples of schema in action are useful, and a good reference on the norm should include some well-chosen and well-named examples.

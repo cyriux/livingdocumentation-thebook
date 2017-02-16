@@ -10,4 +10,11 @@ It does not matter that you actually reach this point or not, but it has to be t
 
 ![Living Documentation long term goal is for documentation to become unnecessary](images/biodegradabledoc.png)
 
+
+My Arolla colleague Khaled Souf once told me of a former experience at a bank:
+
+> In that bank, I joined a team who took pride in conforming to every standard. I mean market standards, not in-house standards. The result was that I was able to be productive as soon as the first day! Since I knew the technologies and their standard usage, I was immediately familiar on all the project perimeter. No need for documentation, no surprise, no need for any specific customization.
+>
+> Make no mistake, this was taking a real and continuous effort indeed. Find out the standards, find out the way to solve specific issues while still conforming to standards. This was a deliberate approach, and the benefits were real, for everyone but especially for new joiners!
+
 In the book *Software Craftsmanship Apprenticeship Patterns*, Dave Hoover and Adewale Oshineye advocate: "Create feedback loops". A living documentation with generated diagrams, glossary, word cloud or any other media is such a feedback look to help criticize what you're doing and to check against your own mental model. This feedback loop becomes particularly useful when your mental model and the content of the generated documents don't match.

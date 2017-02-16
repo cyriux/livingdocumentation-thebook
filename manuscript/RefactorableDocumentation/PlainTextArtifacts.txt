@@ -16,10 +16,18 @@ Plain text has many advantages over other binary or proprietary formats:
 - Easy to search and most OS knows how to index plain text files
 - Works well with source control, easy to diff and merge in case of conflict
 
-Tool-specific files formats require having the tool installed to read and write them. Unfortunately it's not uncommon that you cannot open a file written in version 8 of a tool when you have only version 7 of the tool installed. Over time it becomes increasingly difficult to have the right tool in the right version for everyone involved, therefore tool-specific files become progressively inaccessible  and unmaintained. If the files contained important knowledge, this knowledge becomes inaccessible hence lost, and that is sad.. In contrast, information stored in plain text never gets lost. Also plain text is always editable, even if corrupted.
+**Therefore: Agree as a team to collaborate on plain-text files as much as possible, stored on the source control together with the source code. Treat these collaborative artifacts as the authoritative single sources of knowledge. At build time, and if necessary, generate every other document from them through automated means.**
+
+Tool-specific files formats require having the tool installed to read and write them. Unfortunately it's not uncommon that you cannot open a file written in version 8 of a tool when you have only version 7 of the tool installed. Over time it becomes increasingly difficult to have the right tool in the right version for everyone involved, therefore tool-specific files become progressively inaccessible  and unmaintained. If the files contained important knowledge, this knowledge becomes inaccessible hence lost, and that is sad. In contrast, information stored in plain text never gets lost. Also plain text is always editable, even if corrupted.
+
+Open Plain Text formats should be preferred whenever possible, e.g. .csv over xls, rtf or .html over .doc, otherwise the usual big PPT files must go to another dedicated wiki where they can be safely forgotten and become instantly deprecated.
 
 Plain text should also be not just readable by humans, but also understandable by humans.
 
 > Dave Thomas: I can give you 128 bit cipher key as ASCII, and you can read it, but it may not make sense to you.
 > Andy Hunt: So it is readable, but not understandable.
 To be understandable, a plain text file can be self-descriptive thanks to meta-data. CSV files with headers that describe the meaning of each column are an example. Well-named XML tags are another example. Self-descriptive means you can read and understand the content of a file without a user manual.
+
+
+
+This approach is nothing really new (think about LateX...), and many of the tools we need for it already exist (Markdown renderers, diagram auto-layout tools), web site generators (Maven), website generator to organize and display Gherkin scenarios (Pickles).

@@ -1,5 +1,19 @@
 ## On-Demand Documentation
 
+
+
+
+### Astonishment Report
+!!!! Lost content here on mardi 31 mars 9.??  To recover content from emails !!
+
+---
+Be the adult you wish you had around when you were a child.
+
+Write the documentation you wish you had when you started on this project.
+
+@willowbl00
+
+
 > Don't do something twice: once I have to answer the same question twice, I start the documentation about it. Docker file is the golden source. (?)
 
 "Success of products depends a lot on the quality of the documentation." Jerome Petazzoni, Docker

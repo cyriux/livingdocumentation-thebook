@@ -1,5 +1,22 @@
 %% TODO add to documentation by annotation (for design)
 
+
+---
+
+When an association is keyed, we use a Map or Dictionary or Hashtable. When the member field is well-named and the key and value have well-named types, then there is often nothing more to tell. When a type is not specific enough, we may have to resort to add a declaration:
+
+      @KeyedBy("Buy-Side Counterparty")
+      private final Map<Couterparty, Exposure> exposure;
+
+Why an annotation? Well, you could just go with a regular comment:
+
+      // KeyedBy Buy-Side Counterparty
+      private final Map<Couterparty, Exposure> exposure;
+
+However the annotation can be used by tools to recognize 
+
+---
+
 patterns help in documenting code. As a developer I often spend
 (too) much time to write good Javadoc documentation; if I were offered some
 more pattern tags I will be able to describe my intention with words, not sentences:
