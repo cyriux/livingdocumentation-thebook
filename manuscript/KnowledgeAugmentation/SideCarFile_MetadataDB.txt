@@ -12,7 +12,7 @@ The main problem with this approach is that when the file manager are not aware 
 
 For this reason, I don't recommend this approach unless there is no other choice.
 
-%% Old source control systems like cvs used a lot of sidecar files
+A> Old source control systems like cvs used a lot of sidecar files
 
 
 

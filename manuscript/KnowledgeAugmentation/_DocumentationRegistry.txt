@@ -1,5 +1,8 @@
 Tags in the discovery server (Consul)
 
+
+TO MOVE TO Sidecar_file_MetaDB.txt
+
 - QueryModel
 - CommandService
 

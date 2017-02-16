@@ -1,16 +1,22 @@
 TO WRITE
 
-# Living System Diagram
 
 # Documentation by Registry (Consul / Eureka)
 
+# Templated diagram (image map but better)
+
+# Pattern oriented -> add some sample generated diagrams
 
 # Living Design
 
 
 # Unorthodox Media
 
-# Tools addendum
+# Tools addendum -> add Graphviz pure JVM!
+
+
+# Living System Diagram: mostly OK
+
 
 ---------------
 TO MAKE MORE PLEASANT

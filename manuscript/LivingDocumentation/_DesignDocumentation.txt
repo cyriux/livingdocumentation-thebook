@@ -177,3 +177,39 @@ Design for change
 --
 
 Can you imagine a language where function would refer where they are called, as a list of each call site? It would be quite unmaintainable. Passive patterns participants
+
+
+---
+
+
+
+-----
+Context Diagram
+
+Logical
+
+Class-Level: @Port (unique port name = String, mode = IN, OUT, IN_OUT)
+
+Then by consolidation it does not work because there can be many more port potentialities than actually used for a particular instance. It would work by taking into account one particular wiring configuration, eg Spring configuration.
+----
+Use-case context diagram derived from Cucumber, but what for?
+
+Roles (stick people or external systems) -->* Features (boxes within the system boundary)
+
+// could it be generated from the Cucumber feature files narratives?
+System diagram
+Roles * --> System
+
+// could it be generated from the use-cases diagrams? (just by hiding the features and only keeping the system boundary)
+
+// or just declare the stuff at macro-level, either in code or as plain DSL text? But would require maintenance too.
+
+--
+Example from the web
+
+@ComponentInput(
+description = "The frequent itemsets found by an <i>Apriori</i> module. These are ” + "the item combinations that frequently appear together in the original examples.”, name = "Frequent Item Sets”)
+final static String DATA_INPUT_FREQ_ITEM_SETS = "Frequent Item Sets”;
+
+@ComponentOutput(
+description = "A representation of the association rules found and accepted by this module. ” + "This output is typically connected to a <i>Rule Visualization</i> module.”, name = "Rule Table”)

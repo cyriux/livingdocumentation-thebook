@@ -1,0 +1,106 @@
+# Context Diagram
+
+*Showing how a system is integrated to surrounding actors*
+
+No system is an island, every system is part of a bigger eco-system with other actors, typically people and other systems. From a developer point of view, the integration to other systems is sometime considered obvious knowledge not worth documenting, especially in the early years of a system. After a while the system has grown and is now deeply integrated with many other actors, and even people in the team no longer know about this ecosystem. From now on it'll take time reviewing code and interviewing many people to try to reconstitute the whole picture.
+
+This knowledge is essential to reason about impacts to or from other actors when considering changes in this system or in another external system.
+
+As such it deserves to be made clearly visible, up-to-date at any time.
+
+Basically an context diagram is about a recap of all actors using the system (API side) or used by the system (Service Providers side):
+
+      Actors using     * --> System --> *   Actors used
+      using the system                     by the system
+
+The context can be expressed as a simple list:
+
+API (actors using the system)
+ - Fuelo Card API
+ - Fleet Management Teams
+ - Support & Monitoring
+
+SPI (actors providing services to the system)
+ - Google Geocoding
+ - GPS Tracking from Garmin
+ - Legacy Vehicle Assignment
+
+But a visual layout has its advantages too:
+
+![A generated context diagram with 3 actors on the left and 3 actors on the right](images/system_diagram_flottio.png)
+
+This diagram was generated from the sample *Flottio* fleet management used throughout this book.
+
+A> The name 'context diagram' is borrowed from Simon Brown [C4 Model](http://www.codingthearchitecture.com/2014/08/24/c4_model_poster.html), a lightweight approach to architecture diagrams which is becoming increasingly popular among developers.
+
+This diagram is a **Living Document**, refreshed whenever the system changes, automatically. If we were to add or delete a new module, the diagram would adjust as quickly as the next build. It is also an example of a **Refactoring-proof Diagram**; if we just want to rename a module, it would get renamed too. No need to fire PowerPoint or a diagram editor.
+
+This diagram is an example of **Augmented Code** by using annotations to augment each main module with the knowledge of its corresponding *external actors*. This is also a case if **Consolidation** of information spread across multiple packages and sub-packages.
+
+This diagram tells the story of the system through its links to external actors, with some brief descriptions on some of them.
+
+The problem, of course, is to identify automatically the external actors, their name, description and direction of use (using or being used). Unfortunately I haven't found a miracle solution for that.
+
+To generate this diagram, the code had to be augmented with some annotations, for example this package `flottio.fuelcardmonitoring.legacy` which takes care of the integration with the legacy system for vehicle assignments to drivers, a provider of services for the system under consideration:
+
+~~~~~~~~
+/**
+ * Vehicle Management is a legacy system which manages which drivers is associated to a vehicle for a period of time.
+ */
+@ExternalActor(
+   name = "Legacy Vehicle Assignment System",
+   type = SYSTEM,
+   direction = ExternalActor.Direction.SPI)
+package flottio.fuelcardmonitoring.legacy;
+
+import static flottio.annotations.ExternalActor.ActorType.SYSTEM;
+import flottio.annotations.ExternalActor;
+~~~~~~~~
+
+Another example is the class listening to the incoming message bus, which basically uses the system to check if fuel card transactions have anomalies:
+
+~~~~~~~~
+package flottio.fuelcardmonitoring.infra;
+   // more imports...
+
+/**
+ * Listens to incoming fuel card transactions from the external system of the Fuel Card Provider
+ */
+@ExternalActor(
+   name = "Fuelo Fuel Card Provider",
+   type = SYSTEM,
+   direction = Direction.API)
+public class FuelCardTxListener {
+   //...
+~~~~~~~~
+
+We don't have to use annotations. We could also add sidecar files in the same folder than the annotation code, with the same content than the annotation inside, as Yaml, Json or as a .ini file:
+
+~~~~~~~~
+; external-port.ini
+; this sidecar file is in the integration code folder
+name=Fuelo Fuel Card Provider
+type=SYSTEM
+direction=API
+~~~~~~~~
+
+
+Some time later we want to add information to the context diagram, so we add this information to the code itself, in the Javadoc of the integration code, and then the diagram gets updated:
+
+![A generated context diagram with 3 actors on the left and 3 actors on the right](images/system_diagram_flottio2.png)
+
+## Limitations & Benefits
+
+Because of the need for some code augmentation with annotations or sidecar files, there remains the risk of not knowing about some external actors.
+
+If in your project you can enumerate the few only possible ways perform integration, you may try to detect them all and add them to the diagram unless silenced explicitly through code augmentation.
+
+In any case, integration through the database will be hard to detect and document. You may believe the database is a private detail of your system, but if another system queries or writes into it directly, it will be hard to find out without a conversation with the culprits.
+
+On the other hand, this diagram shows every possible integration, but it cannot tell if they are active in production or not. If the code base is a toolkit for a product line, it will show all the potential integrations, not the one actually used in practice in a particular instance.
+
+Another drawback of a generated diagram like the above compared to a ad hoc manual diagram is that they are not tailored for the particular matter of the day. But they're also much faster to produce.
+
+Still, you may want to tweak the diagram generator, for example to focus on a subset of the context.
+
+As opposed to a manually created diagram, a generated diagram can feature hyperlinks to the accurate locations in the code base for each displayed external actor integration, for example URL in the source code repository online. Even without a link, the wording in the diagram can be used verbatim to perform a search in the code base. Since the wording came from the code and the additional annotations, it would be easy to find the corresponding location.
