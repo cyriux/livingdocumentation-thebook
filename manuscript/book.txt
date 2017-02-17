@@ -120,7 +120,6 @@ NoDocumentation/CoffeeMachineCommunication.txt
 
 EfficientDocumentation/EfficientDocumentation.txt
 EfficientDocumentation/SpecificationWorkshops.txt
-EfficientDocumentation/SmallScaleSimulation.txt
 EfficientDocumentation/StackOverflowDocumentation.txt
 EfficientDocumentation/UnorthodoxMedia.txt
 
@@ -142,6 +141,7 @@ IntroducingLivingDocumentation/IntroducingLivingDocumentationByExample.txt
 
 IntroducingLivingDocumentation/ArchitectureLandscape.txt
 IntroducingLivingDocumentation/TestDrivenArchitecture.txt
+IntroducingLivingDocumentation/SmallScaleSimulation.txt
 
 IntroducingLivingDocumentation/SellingLivingDocumentation.txt
 IntroducingLivingDocumentation/DocumentationCompliance.txt

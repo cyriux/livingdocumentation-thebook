@@ -40,6 +40,30 @@ When someone has reasons not to share knowledge.
 
 ---
 
+## Tangible Media
+
+Tangible media are things you can touch and which can communicate information.
+
+Some examples of digital tangible media are the USB traffic light to tell the status of the build, the USB Missile Launcher to fire a missile on some event or the Fliike real-time Facebook Like Counter by smiirl to display the number of likes on Facebook.
+
+
+![Mechanical Display Facebook Like Counter](images/likecounter.jpg)
+
+
+## Interactive & Gamification
+
+Offer interactive ways to share knowledge through attractive and engaging interactions:
+
+- Time-boxed challenges
+-
+- arbitrary constraints challenges
+- be weird manifesto, retrospectives experiments
+- stackoverflow style social network, I like, retweets
+- embedded games & contests
+Taking into account human mechanisms of reward / effort to make it work
+
+---
+
 Company blog
 
 Company chat, and chatbot

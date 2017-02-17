@@ -119,6 +119,8 @@ Stories of users doing their job and sharing their most important stakes are als
 
 I've used child-ish comics in very corporate environments to explain a process for the development team. I've used less child-ish comics to help explain a governance process to senior management too, in a real big serious bank. It worked and was appreciated.
 
+There are several online comics generators which can help create basic comics from libraries of characters, settings and effects. This makes it possible to anyone to create a comics, even without any drawing skill. 
+
 
 ## Infodecks
 
@@ -144,28 +146,9 @@ A great example is the beautiful [visualization of Distributed Consensus in Raft
 
 Another personal favorite is the apparently crazy idea of showing [how sort algorithms work](http://m.youtube.com/watch?v=kPRA0W1kECg) using sound along with crude display:
 
-## Interactive & Gamification
+## Lego blocks
 
-Offer interactive ways to share knowledge through attractive and engaging interactions
-- mob programming, pairing (dev-dev, )
-- timeboxing challenges
-- arbitrary constraints challenges
-- be weird manifesto, retrospectives experiments
-- stackoverflow style social network, I like, retweets
-- embedded games & contests
-Taking into account human mechanisms of reward / effort to make it work
-
-## Tangible Media
-
-Tangible media are things you can touch and they can deliver information.
-
-The most famous examples are the USB traffic light to tell the status of the build, the USB Missile Launcher to fire a missile on some event or the Big Fliike real-time Facebook Like Counter by smiirl.
-
-
-![Mechanical Display Facebook Like Counter](images/likecounter.jpg)
-
-
-Lego block have become popular among Agile circles over the past years, so now we can use legos during meetings, as a planning tool, or even to represent a software architecture physically in 3D. Any other system of avatars can be used as well as a mediation tool during conversations.
+Lego block have become popular among Agile circles over the past years, so now we can use legos during meetings, as a planning tool, or even to represent a software architecture physically in 3D. Other system of avatars or construction blocks can be used as well as a mediation tool during conversations. The problem with these constructions is that usually nobody can understand what they meant after a few days.
 
 ## Furniture
 
