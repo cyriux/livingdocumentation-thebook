@@ -2,15 +2,17 @@
 curation + scenario digest
 intrinsic
 
-======= August 15
-+
+======= Feb 2017
 
-2O+ parts
 
 Dear readers,
-Thanks for your support on this book! Here's another update of the book, with more than 20 new parts, for example on Conversations & Working Collectively.
+Thanks for your support on this book! I'm happy to give you some news about the book Living Documentation. It has grown a lot over the last months, with 400 pages now. Many new chapters and sections were added.
 
-There's a chapter dedicated to having the code be its own documentation, and other patterns that also leverage code and configuration files for documentation purposes: Declarative Automation & Small Scale Simulation. This is just a subset. The book is still a draft, but now it gives a clear ideas of what it's about. Don't hesitate to send feedback on what you like or what you'd expect, and ask any questions.
+The content is really mostly there now. the completion rate is only 99% because it should still get some editing to fix typos, improve the writing style and remove extraneous verbiage.
+
+Also, some big news 
+
+
 
 Cyrille
 

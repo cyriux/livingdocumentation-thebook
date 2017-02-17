@@ -16,11 +16,13 @@ Basically an context diagram is about a recap of all actors using the system (AP
 The context can be expressed as a simple list:
 
 API (actors using the system)
+
  - Fuelo Card API
  - Fleet Management Teams
  - Support & Monitoring
 
 SPI (actors providing services to the system)
+
  - Google Geocoding
  - GPS Tracking from Garmin
  - Legacy Vehicle Assignment
