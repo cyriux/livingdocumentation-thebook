@@ -1,4 +1,6 @@
-# Passing Theory
+# Theory-Passing
+
+%% TO MOVE TO DESIGN
 
 (Peter Naur, Programming as Theory Building, 1985)
 
@@ -11,6 +13,15 @@ The key aspect of programming "is to have the programmers build a theory of the 
 "The programmer having the theory of the program is able to respond constructively to any demand for a modification of the program so as to support the affairs of the world in a new manner"
 
 "For a new programmer to come to possess an existing theory of a program it is insufficient that he or she has the opportunity to become familiar with the program text and other documentation."
+
+
+- Interactive: tweakable tests, Visible Workings, Small-Scale Models
+- Redundancy of media: Source Code, Integrated Documentation in IDE, generated living Diagrams, Domain-Specific sketches (Smoke & Mirror, Ruth Malan?)
+- Background: influences from the literature, dominant styles of code, design and architecture
+- Recorded decisions and their Rationales
+- Metaphors
+- Brain dump as blog posts
+- Tribal knowledge by Working Collectively with veterans of the system
 
 --
 Project = Delivery + Learning

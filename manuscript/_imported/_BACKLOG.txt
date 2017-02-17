@@ -10,12 +10,12 @@ TO WRITE
 # Living Design
 
 
-# Unorthodox Media
 
 # Tools addendum -> add Graphviz pure JVM!
 
-
-# Living System Diagram: mostly OK
+DONE
+# Living System Diagram
+# Unorthodox Media
 
 
 ---------------

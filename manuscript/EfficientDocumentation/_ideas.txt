@@ -19,7 +19,37 @@ it's hard to talk and decide on a war strategy without at least some maps of the
 ## Meaningful Layout
 when drawing diagrams use layout to express meaning: symmetries, vertical vs horizontal axis, proximity, boundaries and containment...
 
+## Drawing when you don't know how to draw
 
+- Collage of stuff found on the Internet
+Use icons, comics balloons
+- Learn visual facilitation tips
+- Practice on every occasion
+- Search Google Images for similar stuff to find inspiration
+- Tell stories, that involve people and their emotions
+- 4 steps on one slide is perfect for a workflow
+- 7 elements on a diagram is a lot already
+- Don't mix perspectives
+- Should be visible at a distance
+- proximity, grouping and containment, horizontal and vertical directions and alignment matter
+
+Ref: Craig Larman UML book
 
 ## Information Retention (anti-pattern)
 When someone has reasons not to share knowledge.
+
+---
+
+Company blog
+
+Company chat, and chatbot
+IA on knowledge base
+
+
+Persona: not just for stereotypes of people, also for products, market data and typical situations to deal with.
+
+à la Banksy street art
+
+<climbing with rope safety picture>
+
+<"poison" label on bottle manually overwritten with "orange juice" by mistake>

@@ -1,113 +1,150 @@
 # Unorthodox Media
 
-## Posters & Maxims & Domestic Ads:
+The corporate world tends to be unoriginal. When it comes to documentation,
+the traditional media remain the Mighty Email, MS Office with the boring mandatory templates, SharePoint, and all the various Enterprise tools notorious for their outstanding User Experience.
 
+**But life does not have to be so dull. Shake up your team or department by using unexpected Unorthodox Media for your communication and your documentation purposes!**
 
-Use wifi password as a maxim (you have to carefully type it manually!):
-ReduceReuseRecycle
-
-
-Electronic
-
-## Domestic Ads:
-
-Persona: not just for stereotypes of people, also for products, market data and typical situations to deal with.
-
-banners on build walls, wallpaper, idle screens, pair-programming blocker screens...
-
-Goodies
-
-T-shirts, card decks, cheat sheets, large posters, mugs... with maxims and important messages / logo on.
+Below are various ideas to use as inspirations to spice up your communication in general, and which can be useful to share knowledge and objectives.
 
 ## Maxims
 
-T> **Pro Tip** Use wifi password as a maxim (you have to carefully type it manually!):
+When your current initiative is to improve the code quality:
 
-T> **Pro Tip** If it rhymes it's more credible
+> Fix a bug?
+> Add a test.
 
-"if in doubt, do it the way Erlang does it @BeRewt
+Or
 
-à la Banksy street art
+> Fight Legacy code
+> Write unit tests
 
-Some examples:
+Don't directly copy and paste these maxims. Create yours that will stick in your culture. The only way to know if a maxim stick is to tell it out loud on different occasions, to see if you resonates and if anyone mentions it later.
 
-Are you awesome?
-<Mr T. Picture>
-Close the door once you're done.
+A> You may read the book *Made to Stick: Why Some Ideas Survive and Others Die* by Chip Heath and Dan Heath on this topic.
 
-You can turn technical recommendations into motivational maxims:
+When your project is to rewrite only a portion of a large legacy system, and you don't want to rewrite more than what's absolutely useful now, that is the billing engine and nothing else:
 
-Fix a bug?
-Add a test.
+> One work site at a time (the billing engine)
 
-Fight Legacy code
-Write unit tests
+With the corollary of being conservative when working in the legacy code that will not be rewritten:
 
-The only way to go fast is to go well
-<climbing with rope safety picture>
+> When in Rome, do as Roman do (don't revamp everything in the legacy)
 
-Mutable state kills.
-<"poison" label on bottle manually overwritten with "orange juice" by mistake>
-Kill mutable state!
+Good maxims are useful and amusing at the same time:
 
-Easy to do with a meme generator
+> If in doubt, do it the way Erlang does it. (from by @BeRewt on Twitter)
+
+Once you have a maxim, your job is to repeat it as often as possible (without becoming a spammer of course).
+
+T> Repetition also works inside a maxim. For example "Mutable state kills. Kill mutable state!" has internal repetition which can help make it more memorable.
+
+A maxim has to remain trivially simple, because complicated stuff does not scale over larger audiences. You want to broadcast your maxims. Therefore, be ready to trade nuance for stickiness. You can only tell one or two key messages. Make sure these are the most important messages. Take care of the other less important messages in a different way.
+
+T> **Pro Tip** Statements that rhyme are more believable than those that don't. This is [the rhyme-as-reason effect](https://en.wikipedia.org/wiki/Rhyme-as-reason_effect) (or Eaton-Rosen phenomenon)
+
+## Posters & Domestic Ads
+
+Consider your communication like a marketing campaign. You can use the same tools, internally.
+
+Once you have maxims, you can turn them into illustrated posters.
+
+The first thing you can do is start with an image search. For example consider this maxim:
+
+> The only way to go fast is to go well!
+
+Searching on Google Image shows a ready-made image meme with this exact text and with Uncle Bob picture. This is no surprise considering that he like to repeat this maxim. And by the way this maxim also exhibits internal repetition and symmetry around the word 'go', which makes it more sticky.
+
+![Robert C. Martin: The only way to go fast is to go well!](images/gofastgowell.jpg)
+
+## Meme-based posters
+
+Now consider another you don't have your maxim yet but you'd like everyone to remember to close the door of the bathroom after use. Let's create a motivational poster for that!
+
+That's easy with all the available free online *meme generators*. From a given idea you can browse the most common memes until you find one that fits the message best. Here we found a "Mr T" meme (this example is a real one I've seen at a customer site. The poster was awesome on the bathroom door.)
+
+![Mr T. Picture: Are you awesome?
+Close the door once you're done.](images/areyouawesome.jpg)
+
+One drawback of memes is that they tend to become annoying when used too frequently.
+
+
+T> **Pro Tip** Display Cute Kitten along or between your messages. Everybody loves cute kitten!
+
+
+## Information Radiators
+
+Posters don't necessarily have to be printed and pinned on the walls or windows to be visible. Some companies have TV sets on the walls or in the lifts with a carousel of slides for internal communication. This is a nice place for your posters.
+
+The downside is that you probably have to go through an acceptance process, and you may be rejected.
+
+Still, you can insert your posters as banners into your build walls, screen savers, or pair-programming blocker screen!
+
+
+## Very Short Story, Humor, Cheap media, and implicit message
+
+You may have seen this very cheap yet quite efficient poster already:
+
+![](images/noprojects_poster.jpg)
+
+Storytelling is very powerful, even when this short. It takes training or pure luck to author this kind of gem. Fortunately you can reuse (steal or hijack) many existing such gems for your own purposes. Twitter is a great source of very short, and often funny, stories to plagiarize. But keep in mind that having everyone doing it does not mean it's legal.
+
+## Digital Native!
+
+Maxims can be so short they can fit within a hashtag. This is a popular practice on Twitter, with hashtags like "BlackLivesMatter". Our software industry also loves hashtags as a way to name new practices: [#NoEstimates](https://twitter.com/search?q=%23NoEstimates), [#BeyondBudgeting](https://twitter.com/search?q=%23BeyondBudgeting), or [#NoProject](https://twitter.com/search?q=%23noprojects).
+
+Note that hashtags are not just for Twitter or Facebook. You can use them IRL (In Real Life), and even verbally, which sounds deliciously awkward.
+
+
+T> **Pro Tip** Use wifi password as a maxim (you have to carefully type it manually! For example, if like in my company Arolla you'd like to encourage environment-friendly behavior, you could rename your wifi network or wifi code as "ReduceReuseRecycle".
+
+## Goodies
+
+Goodies are not always green, but sometime they are useful. Goodies are a traditional way to repeat a message, and it does not have to be your brand, it can be a maxim too.
+
+The conference DDD Europe recently did a great job at that with 3 different T-shirt designs with 3 different maxims, for example:
+
+- MAKE THE IMPLICIT EXPLICIT
+- THROW AWAY THE MODEL
+
+![MAKE THE IMPLICIT EXPLICIT blue t-shirt](images/tshirt.jpg)
+
+Most typical goodies are T-shirts, card decks, cheat sheets, large takeaway posters, mugs, pens, postcards, stickers, sweets, relaxation widgets...
+
+## Comics
+
+Comics are compelling ways to tell a story, for example a story of frustrated users now, with their dream of a better software. This can be used to document and explain the rationale for a new project.
+
+Stories of users doing their job and sharing their most important stakes are also great to explain hence document in an accessible way the fundamental business stakes of a business activity.
+
+I've used child-ish comics in very corporate environments to explain a process for the development team. I've used less child-ish comics to help explain a governance process to senior management too, in a real big serious bank. It worked and was appreciated.
 
 
 ## Infodecks
 
-http://martinfowler.com/bliki/Infodeck.html
+Infodecks are slides used as documents to be read on screen rather than projected in front of an audience. As Martin Fowler writes, they are "more approachable and easier to communicate information than a traditional prose text"
 
-there are advantage to these infodecks.
+Infodecks offer many advantages:
+
 - You can use spatial layout to help explanation
 - They discourage long prose that people don't read
 - It's easy to include diagrams as primary elements in the communication
 
-"more approachable and easier to communicate information than a traditional prose text"
+The important thing is not to confuse infodecks with slide decks meant to be projected to a large audience. When projected, there should very little text, using a very big font size, along with many illustrations.
 
-"Infodecks are an interesting form to me, if only because it seems nobody takes them seriously.""
-
-"we are communicating on computer devices and not using paper. Modern computers have bright multi-color screens, and aren't worried about conserving paper. So a colorful, diagram-heavy approach that uses lots of virtual pages is an effective form of document - especially as tablets become more prevalent.""
+"Infodecks are an interesting form to me, if only because it seems nobody takes them seriously. [...] A colorful, diagram-heavy approach that uses lots of virtual pages is an effective form of document - especially as tablets become more prevalent." -- [Martin Fowler bliki](http://martinfowler.com/bliki/Infodeck.html)
 
 
-## Drawing when you don't know how to draw
-
-- Collage of stuff found on the Internet
-Use icons, comics balloons
-- Learn visual facilitation tips
-- Practice on every occasion
-- Search Google Images for similar stuff to find inspiration
-- Tell stories, that involve people and their emotions
-- 4 steps on one slide is perfect for a workflow
-- 7 elements on a diagram is a lot already
-- Don't mix perspectives
-- Should be visible at a distance
-- proximity, grouping and containment, horizontal and vertical directions and alignment matter
-
-Ref: Craig Larman UML book
-
-## Comics
-Comics telling stories of frustrated users now, and their dream of a better software (explain project rationale). Or stories of users doing their job and sharing their most important stakes (explain fundamental business stakes).
-
-I've used child-ish comics in very corporate environments to explain a process for the development team. I've used less child-ish comics to help explain a governance process to senior management too.
-
-Cheat Sheet or Card Decks are also interesting media to spread important ideas, and may be branded too.
 
 ## Visualizations & Animations
 
-Animations are perfect to explain temporal behaviors.
+A bit more difficult to produce, animations and animated visualizations are perfect to explain temporal behaviors.
 
-Beautiful visualization of Distributed Consensus in Raft: http://thesecretlivesofdata.com/raft/
-How sort algorithms sound: http://m.youtube.com/watch?v=kPRA0W1kECg
+A great example is the beautiful [visualization of Distributed Consensus in Raft]() http://thesecretlivesofdata.com/raft/) which shows how the nodes elect their leader in the face of various events.
 
-Company blog
+Another personal favorite is the apparently crazy idea of showing [how sort algorithms work](http://m.youtube.com/watch?v=kPRA0W1kECg) using sound along with crude display:
 
-Company chat, and chatbot
-IA on knowledge base
-
-## Congruent Media
-
-
-## Gamification / playful
+## Interactive & Gamification
 
 Offer interactive ways to share knowledge through attractive and engaging interactions
 - mob programming, pairing (dev-dev, )
@@ -118,18 +155,24 @@ Offer interactive ways to share knowledge through attractive and engaging intera
 - embedded games & contests
 Taking into account human mechanisms of reward / effort to make it work
 
-
-
-## Information Radiators
-
-
 ## Tangible Media
 
-The most well-known examples of tangible documentation are : Build walls, Nabaztag etc. Other examples include the use of legos during meetings, and other avatars as well.
+Tangible media are things you can touch and they can deliver information.
 
-Furniture
+The most famous examples are the USB traffic light to tell the status of the build, the USB Missile Launcher to fire a missile on some event or the Big Fliike real-time Facebook Like Counter by smiirl.
 
-Even your furniture tells stories. Perhaps each table represents a project team, perhaps the Mac hints at designers whereas Linux machines suggest developers.
 
----
+![Mechanical Display Facebook Like Counter](images/likecounter.jpg)
+
+
+Lego block have become popular among Agile circles over the past years, so now we can use legos during meetings, as a planning tool, or even to represent a software architecture physically in 3D. Any other system of avatars can be used as well as a mediation tool during conversations.
+
+## Furniture
+
+Even your furniture can tell stories. Fred Georges explained in one of his talks how the tables expressed literally the internal organization of a startup: each table represents one project team. No more room on the table means the team has reached its maximal size. Otherwise you're welcome to join the team if you feel like to! It's a direct proposition!
+
+Furthermore, you can tell from the huge iMac screens where the designers are, whereas Linux machines more likely suggest developers are working there.
+
+## 3D printed stuff
+
 3D printed models are now easy to produce. This means you could project a particular view of your application and print it in a solid material. This helps everyone use their visual and world-sensing strength to grasp visually and by touching the elements. 3D and removable layers are useful to represent several dimensions of the problem stacked on each other, and well aligned.

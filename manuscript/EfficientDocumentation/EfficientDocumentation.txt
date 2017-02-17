@@ -8,7 +8,10 @@ There are many little techniques to communicate more efficiently. The overal goa
 This is about all communication, not just documentation. It's as useful to describe requirements or in training on anything.
 
 ## Focus on Differences
+
 When describing a specific thing, e.g. a dog, focus on its differences versus the generic thing, e.g. a mammal. The generic thing must be well-known, or well-described preliminary. This enables to describe a rich thing with just a few points, one for each significant difference.
+
+> The precise keyword here is *Salience*, which means "most noticeable or important". We primarily want to describe the salient points out of the mass of information.
 
 ### How is Your lemon?
 
@@ -45,6 +48,10 @@ For example, Martin Fowler suggests writing [Duplex Books](http://www.martinfowl
 Too often a diagram that was meant to brainstorm, explore, propose ideas is misunderstood as a piece of specification. This results in premature feedback on details like "I'd prefer another color", even though the whole thing will change a lot in the next hours or days. This situation is especially true for everything done on a computer, since it is quick and easy to create nice-looking documents, pictures and diagrams using the proper piece of software.
 
 **Therefore: When the knowledge is still being shaped, make it clear in the documents thanks to low-fidelity content like wireframe and sketchy rendering.**
+
+As @kearnsey said at #agile2014 (reported by @OlafLewitz):
+
+> Use low fidelity representation for output as long as you want people feel invited to add their input.
 
 ### Visual Facilitation
 
