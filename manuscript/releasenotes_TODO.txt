@@ -8,9 +8,9 @@ intrinsic
 Dear readers,
 Thanks for your support on this book! I'm happy to give you some news about the book Living Documentation. It has grown a lot over the last months, with 400 pages now. Many new chapters and sections were added.
 
-The content is really mostly there now. the completion rate is only 99% because it should still get some editing to fix typos, improve the writing style and remove extraneous verbiage.
+All the content is mostly there now. the completion rate is only 99% because it should still get some editing to fix typos, improve the writing style and remove extraneous verbiage.
 
-Also, some big news 
+Also, some big news
 
 
 

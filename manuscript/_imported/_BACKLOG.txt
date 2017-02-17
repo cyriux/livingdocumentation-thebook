@@ -1,17 +1,16 @@
 TO WRITE
 
 
+# Living Design
+# Tools addendum -> add Graphviz pure JVM!
 # Documentation by Registry (Consul / Eureka)
+Living Context Map Diagram
+
 
 # Templated diagram (image map but better)
 
 # Pattern oriented -> add some sample generated diagrams
 
-# Living Design
-
-
-
-# Tools addendum -> add Graphviz pure JVM!
 
 DONE
 # Living System Diagram

@@ -1,4 +1,0 @@
-# Tests as Documentation of Event-Driven systems
-
-%% TODO Jeremie Chassaing
-  

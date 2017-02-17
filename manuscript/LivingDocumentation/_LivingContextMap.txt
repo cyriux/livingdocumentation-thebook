@@ -6,14 +6,14 @@ Don't confuse between Data flow, who's calling who, and who's using the service 
 
 Also keep in mind that Context Mapping is a diagnosis tool, not a way to define a target situation. In this view it makes sense to derive as much as possible of the Context Mapping from the actual artifacts.
 
-The presence of a Bounded Context is always characterized by an artifact like a module of code, an XML schema or a DB schema, but you usually need to make it explicit. You may need naming conventions, regex filtering, annotations or annotations as special comments to do that. In practice, projects with enough convention and style consistency may find it possible to at least enumerate the list of all Bounded Contexts involved. If you can rely on such an automated inventory of Bounded Contexts, that's very good news for the maintenance of the Context Map: even if you need to add explicit declaration for each of them, at least you have a way to highlight those that don't have a declaration yet. Whenever a new Bounded Context appears, it will show up in the list without a declaration, so you know you have to so something.
+The presence of a Bounded Context is always characterized by an artifact like a module of code, an XML schema or a DB schema, but you usually need to make it explicit.
+
+You may need naming conventions, regex filtering, annotations to augment the code with Bounded Context declarations. In practice, projects which are consistent in their conventions and style may at least enumerate the list of all Bounded Contexts involved. If this enables the automated creation of an automated inventory of Bounded Contexts, that's very good news for the maintenance of the Context Map: even if you need to add explicit declaration for each of them, at least you have a way to highlight those that don't have a declaration yet. Whenever a new Bounded Context appears, it will show up in the list without a declaration, so you know you have to so something.
+
+A Context Map is a diagram which shows the various Bounded Contexts and the Strategic patterns between them.
 
 The presence of a relationship between two Bounded Contexts can often be derived: there's a dependency between code to code, code to schema or schema to schema. Unfortunately as far as I know, the upstream or downstream relationship direction has to be declared. It's obvious for humans to tell who's providing value to the other, but it's almost impossible for machines to guess that accurately. The exact relationship pattern has to be declared too: Conformist, or Customer-Supplier, or Partnership?
 
-Luckily we can still derive important information from the artifacts in order to create a Context Map. Being conformist is easy to spot as a coupling to stuff external to the Bounded Context. If you pretend to be isolated and the code disagrees, then the Context Map will highlight the discrepancy in red!
+We may still derive some partial information from the artifacts in order to create a Context Map. For example, AntiCorruption Layers (ACL) hardly ever happen by random luck. Therefore having dependencies but no declared ACL likely signals a Conformist relationship.
 
-If you use the Hexagonal Architecture, you already have de-facto Anti-Corruption Layer for all the external dependencies.
-
-Interchange Context is defined as a schema or as a norm: a Published Language. Examples: mime types, Json or XML schemes, DB schema, standard file formats: png, mp3... Commonly in companies there are custom formats that are based on cvs plus a schema expressed as a Word document that is not perfectly accurate, but there's nothing better.
-
-Examples of schema in action are useful, and a good reference on the norm should include some well-chosen and well-named examples.
+Some Bounded Contexts are harder to identify since there may be no code for them; that's definitely the case for Interchange Context, which are defined as a schema or as a norm, perhaps outside of your company: MIME types, Json or XML schema, DB schemas, standard file formats: png, mp3...
