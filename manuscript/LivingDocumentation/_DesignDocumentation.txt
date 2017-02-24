@@ -148,32 +148,10 @@ From http://msdn.microsoft.com/en-us/library/ee658124.aspx
 > If we adhere to the Information Hiding as advocated by Parnas, the logical consequence of these principles should be that each element of the programming language (class, module) should be able to clearly declare what design decision it is hiding internally.
 
 
----
-
-## When naming gets creative to enforce a design decision
-
-/**
-    * This method simply acts a friendly reminder not to implement Matcher directly and
-    * instead extend BaseMatcher. It's easy to ignore JavaDoc, but a bit harder to ignore
-    * compile errors .
-    *
-    * @see Matcher for reasons why.
-    * @see BaseMatcher
-    * @deprecated to make
-    */
-   @Deprecated
-   void _dont_implement_Matcher___instead_extend_BaseMatcher_();
-
-Hamcrest Matcher method "don't implement Matcher ___ instead extend the Base Matcher" is an impossible to miss useless documentation method !
-
-The funny things is that in this example of Enforced Guidelines, the enforcement is done by the very potential violator.
-
----
-
+--
 
 Design for change
 
---
 --
 
 Can you imagine a language where function would refer where they are called, as a list of each call site? It would be quite unmaintainable. Passive patterns participants

@@ -1,3 +1,13 @@
+
+--
+Guided Tours
+
+For example you can create a "Getting Started" page, with narrative text and code snippets, both collocated within the same standard F# file.
+
+In the generated report, the code has tooltips, when you hover over it you can see the type information. And when you click on code identifiers, they become links towards the source code on a repository like GitHub.
+
+---
+
 “If your model is telling a story, the Modules are chapters.” - @ericevans0
 
 “Modules are a communication mechanism. Group classes in a Module to tell the next developer to think about them together.” - @ericevans0

@@ -1,0 +1,21 @@
+# Affordable && Attractive
+
+> We can make information available, but we cannot make people care for it. Maybe journalism as a solution? @malk_zameth
+
+## Specs Digest
+
+*Small is Beautiful*
+
+I've seen a project where the team decided to curate all the accumulation of design and specifications documents into a much shorter (about 10 pages-long)  "Specs Digest" document. This was mostly done by copy-pasting the best parts out of various existing documents, updated, fixed and supplemented with the obviously missing bits in the process. This digest was a highly-valued document in the team.
+
+The digest is strongly organized into sections, each typically half-page long, with clear titles recap-ed in a table of contents. The structure is meant so that you can skip any section safely to jump directly to the part of interest.
+
+The content mostly focuses on everything not obvious: business calculations (dates, eligibility, financial and risk calculations), principles and rules. But it may also describes key semi-technical aspects like the versioning scheme between multiple related concepts.
+
+Note that if you already have a Living Documentation based on scenarios in a Cucumber-ish kind of tool, you should move all this content into the feature files themselves, or in side-car "preambule" markdown files in the same folders.
+
+## Easter Eggs & Fun Anecdotes
+
+*Having fun is the best way to learn*
+
+Turn any kind of documentation into something more engaging by hiding anecdotes from the project, its sponsors and team members into the document, as a way to encourage and reading. Add simple illustrations.

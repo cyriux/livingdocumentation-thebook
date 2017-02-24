@@ -1,5 +1,6 @@
+## Search-First Documentation
 
-Search-First Documentation
+Making information available is not enough. You have to know where to find what you need when you need it (navigation and search)
 
 http://www.youtube.com/watch?v=ZwlrFWyeLT0
 

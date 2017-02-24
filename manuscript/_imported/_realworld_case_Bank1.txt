@@ -110,3 +110,49 @@ Which we can then enforce at runtime with a few lines of code:
 - Check that at least one caller in the stack trace belongs to the White-List of authorized callers
 - Make the check into a Java ‘assert', if you want to fail-fast in some environments but not all of them
 - Log when the check fails in a way that will trigger specific follow-up (if it gets fired then it’s actually a defect)
+
+-----
+
+
+
+--
+
+Manual documentation 1st, in particular about surprises, and about the guided tour. + blog?
+
+--
+**Beyond Doc: Hard to explain? This signals a potential for improvement and simplification!**
+
+Denormalizer: no clear, with arrows from/to every box. But: No such box in standard CQRS diagrams!
+
+**Consider: what would it take to come back to the standard situations of the literature?**
+
+- we would move that part to the left, and the other part to the right. But then we would have this , so we can't! - It's hard or impossible to solve that as long as your thinking remains in the context of the existing situation which caused the problem in the first place. Step back, and consider how this purpose (not this implementation [ladybird comment]) is achieved in the standard literature. - Oh yes we could live the replay to the left, and it works :)
+
+..
+In practice legacy makes everything more complicated than the standard literature. The point is to find the simplest variation that preserves most of the benefits and that works in the particular context.
+—
+ADR
+Samples proposed to include in book
+--
+
+
+Module Stereotypes (on packages in Java)
+
+Command Gateway <
+Query Gateway <
+Denormalizer <>
+
+Core-api
+Domain
+Query
+--
+
+documentation
+- Axon
+- Custom annotations
+- Package & projects structure
+- README & wiki
+
+conformity
+- Hexagonal-ity metrics? define inside vs. outside?
+- Clustering as a tool to suggest re-engineering opportunities?

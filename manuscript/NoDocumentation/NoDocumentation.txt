@@ -8,6 +8,7 @@ So far, here are some of the ideas that belong to the #NoDocumentation quest:
 - Declarative Automation
 - Shameful Documentation
 - Enforced Decisions
+- Make It Easy to Do the Right Thing
 - Scaffolding
 - On-demand Documentation
 - Throw-Away Documentation

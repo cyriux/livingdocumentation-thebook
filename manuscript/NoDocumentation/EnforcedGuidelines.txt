@@ -2,6 +2,12 @@
 
 *The best documentation does not even have to be read, if it can alert you at the right time with the right piece of knowledge*
 
+Making information available is not enough. Nobody can read and remember all the possible knowledge ahead of time. And there is a lot of knowledge that you'd need without having any way to figure out that you need it.
+
+T> You don't even know that you don't know something that you should know.
+
+Consider the code guidelines.
+
 Many companies and teams spend time writing guidelines. Still, the resulting documents are seldom read and often ignored.
 
 How do you document all the decisions that have been made and that everybody should conform to when doing their work? Examples of these decisions include the main architectural decisions, coding guidelines and other decisions about style and team preferences.
@@ -22,7 +28,7 @@ Code analysis tools help maintain a high level of quality anywhere in the code, 
 
 The point of enforced guidelines is to accept that documentation does not even have to be read to be useful. The best documentation brings you the right piece of knowledge at the right time, i.e. when you need it. Enforcing rules, properties, decisions through tools (or code reviews) is a way to teach the team members with the knowledge they need precisely at the moment they ignore it.
 
-T> Enforced Guidelines: persistent knowledge made interactive again 
+T> Enforced Guidelines: persistent knowledge made interactive again
 
 ## Some examples of rules
 
@@ -127,7 +133,36 @@ At the time of writing, existing static analysis tools and plugins likely don't 
 
 In fact, such design declarations expressed as annotations in turn make it possible to enforce them with analysis tools. Once you declare that your code should be all immutable in a given package, it becomes possible to check the main violations using a parser. (see Patternity project on Github)
 
-For example, immutability and null-free expectations can to some extent be enforced programmatically: no setter and no modifiable collection exposed in the API, and no mention of 'null' in the source. This is far from perfect, but this is enough for any new joiner to learn the style after a few commits.
+Immutability and null-free expectations can to some extent be enforced programmatically. This is far from perfect, but this is enough for any new joiner to learn the style after a few commits.
+
+## Warranty Sticker Void If Tampered
+
+*Knowledge that you can't avoid, right when you need time*
+
+[Hamcrest](http://hamcrest.org) is a popular Open Source project providing matchers to write beautiful unit test. It provides a lot of matchers out of the box, but you can also extend it with your own custom matchers. Usually when you do that you should read the Developer's Guide, but not everyone does that.
+
+That's why Hamcrest uses naming in a creative way to make it very unlikely to break a design decision by ignorance:
+
+    /**
+    * This method simply acts a friendly reminder not to implement Matcher directly and
+    * instead extend BaseMatcher. It's easy to ignore JavaDoc, but a bit harder to ignore
+    * compile errors .
+    *
+    * @see Matcher for reasons why.
+    * @see BaseMatcher
+    * @deprecated to make
+    */
+    @Deprecated void _dont_implement_Matcher___instead_extend_BaseMatcher_();
+
+Hamcrest Matcher method `don't implement Matcher ___ instead extend the Base Matcher` is an impossible to miss useless documentation method. You can still break it deliberately, but the point is that you're aware of doing that. That's a kind of warranty sticker "void if tampered". This is an original way to do Unavoidable Documentation.
+
+The funny things is that in this example of Enforced Guidelines, the enforcement is done by the potential violator him/herself.
+
+Some more similar examples:
+
+- Documentation by Exception: You decide turn a legacy component from `READ-WRITE` to `READ-only`. You can document that with text or annotations, but how to make sure nobody will add `WRITE` behavior? One way is to keep the WRITE methods on all the Data Access Objects but have them throw exceptions: `IllegalAccessException("The component is now READ-ONLY")`
+- You create a module that nobody should import except one particular project, and you have no way to do that within the package manager itself. You can implement a very simple `license` mechanism: When you import the module it throws exceptions complaining it's missing a license text file or license `ENV` variable. The license can be the verbatim text: "I should not import this module" acting as a disclaimer. You can hack it, but this means you accept the disclaimer!
+
 
 ## Trust-First
 

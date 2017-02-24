@@ -1,0 +1,16 @@
+# Make It Easy to Do the Right Thing
+
+Enforcing guidelines is not the only approach to bring the right piece of knowledge at the right time to the developers; an interesting alternative is to make it easy to do the right thing in the first place.
+
+For example, you could decide that "from now on, developers MUST create more modular code, as new small services that MUST be deployed individually". You could print that on the guidelines document, hope everyone will read it and follow this decision.
+
+Or you could invest into changing the environment:
+
+- **Providing good self-service CI/CD tools**: By making it easy to setup a new build and deployment pipeline, you make it more likely that developers will create new separate modules rather than putting all new code into the same big ball of mud that we know how to build and deploy.
+- **Providing a good Micro-Services Chassis** (from [Chris Richardson website](http://microservices.io/patterns/microservice-chassis.html)) encourage modularity by making it easy to bootstrap a new micro-service without spending time wiring together all the necessary libraries and frameworks.
+
+The environment is also passing information. It's implicit, passive and we don't often pay attention to that. You can make it deliberate and decide what message to pass by designing the path of least resistance in the environment to be the one that you favor.
+
+More generally, it's about making behavior not just *easier* but also more *rewarding*. By showing the commit history as a nice pixel art diagram, Github makes it rewarding to commit often. Developers pride is powerful!  
+
+A major point of Living Documentation in general as advocated in this book is to offer simple ways to document, to encourage doing it more.
