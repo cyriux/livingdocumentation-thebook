@@ -23,7 +23,7 @@ This overall statement show some similarity to a resume, but for the team or tea
 - Authors we follow
 - Books we've read, blogs we often go to
 - Languages and frameworks we're familiar with
-- Any kind of inspiration that matters
+- Any kind of inspiration that matters, e.g. "Stripe as an inspiration for developer-friendliness"
 - Typical kinds of projects we've mostly done so far (web, server, embedded, crud...)
 
 To be refactoring-proof, this information should reside within the module or project itself. It can be done with annotations @Style(Styles.FP) on packages (Java), attributes on the AssemblyInfo (.Net) or using a style.txt file with a key-value syntax at the root of the module or project.

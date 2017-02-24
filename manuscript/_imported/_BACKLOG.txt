@@ -3,7 +3,7 @@ TO WRITE
 
 # Living Design
 # Tools addendum -> add Graphviz pure JVM!
-
+ 
 # Documentation by Registry (Consul / Eureka)
 Living Context Map Diagram
 

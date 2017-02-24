@@ -19,3 +19,8 @@ Note that if you already have a Living Documentation based on scenarios in a Cuc
 *Having fun is the best way to learn*
 
 Turn any kind of documentation into something more engaging by hiding anecdotes from the project, its sponsors and team members into the document, as a way to encourage and reading. Add simple illustrations.
+
+## News Promotion
+
+Push Swagger updates to Slack
+Journalism
