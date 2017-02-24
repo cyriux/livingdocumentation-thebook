@@ -169,9 +169,12 @@ Sometime it only survives in the mind of the attendees. Sometime it is quickly w
 
 One common problem in all these cases is that this knowledge lacks structure in the way it is organized
 
-**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any.**
+**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any. Never update the entries in the decision log; instead, add a new entry that supersedes the previous one, with a link to it.**
 
 Michael Nygard calls this decision log an [Architectural Decision Record](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions), or ADR in short. Nat Pryce created [ADR Tool](https://github.com/npryce/adr-tools) to support them from the command line.
+
+*You can find good examples of ADR online in the [Arachne-framework
+Repository of Architecture Decision Records](https://github.com/arachne-framework/architecture)*
 
 ### An example of structured Decision Log
 
