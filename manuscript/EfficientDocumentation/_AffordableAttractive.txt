@@ -24,7 +24,14 @@ As [Peter Hilton mentions in his talk on Documentation Avoidance](https://www.sl
 
 > Use humour. There’s no rule that says that jokes aren’t allowed. Insufficiently serious documentation is probably not your biggest problem. Staying awake might be.
 
-## News Promotion
+## Promoting News
 
-Push Swagger updates to Slack
-Journalism
+Adding knowledge somewhere is not enough for its audience to notice and use it. Provide ways to promote the documentation, especially when it changes:
+
+- "Recent Changes" page, the bare minimum
+- Changes feed (Swagger...) pushed to Slack
+- Slackbot custom replies, to remind where's the doc is in response to keywords
+- Release notes: do you really read them?
+- Journalism by a real person: when you're really serious about knowledge sharing, hire a real professional journalist on-site!
+
+This paragraph is too short for this very important topic. Unfortunately it's so hard I don't have miracle solutions here...

@@ -1,0 +1,37 @@
+BREAKING!!! Live Interview: Mrs Reporter Porter (RP) interviewing Mr Living Doc Doctor (LDD)
+
+**What is a good documentation?**
+
+The best documentation is when you never have to use the word. When everything is so obvious you understand it immediately, or he naming is so good it's instantly clear. Or when it's so integrated in your workflow and into you daily tools that you don't even think about it as really documentation. One striking example is when a tools reminds you of something you forgot or didn't know, right when you need it. We usually don't call that documentation, but the end purpose of bringing the right piece of knowledge at the right time is what matters.
+
+**Why is that not popular?**
+
+I think it's popular, but nobody noticed. Remember all the focus on UML in the early 2000's? Now projects are bigger, and we don't use them. Instead, every IDE offers instant, integrated and hickory contextual Type Hierarchy trees, outline, smooth hypermedia navigation between classes... this is more useful than hundreds of static UML diagrams. Still we take it for granted and still feel bad about the "lack of proper documentation" (lol)
+
+And there's new technologies as well...
+
+**How new techs changed the picture?**
+
+Most people still haven't realized all the potential of newer tools and practices when it comes to transfer knowledge.
+
+Consul, Zipkin offer live recap of what's actually there, even as living diagrams. They offer tag mechanism to customize and convey intents.
+
+Monitoring of key SLA metrics with thresholds get close to documenting the SLA.
+
+Puppet, Ansible and Docker files allow for a declarative style for describing what you expect. Imagine all the Word documents they advantageously replace!
+
+**So you need not doing anything special now?**
+
+Almost. But not totally. All the new techs & practices is fantastic to document the WHAT and the HOW, but the weak point mostly everywhere remains the rationale, the WHY, that often gets forgotten. That's why you should still find a way to record the rationale of the main decisions. Immutable Append-Only Log, Augmenting Code with tags, and a few Evergreen Documents for the overall vision can be invaluable to complete the whole picture.
+
+**And what about the code?**
+
+Code should be self-documented as much as possible. Your tests and business-readable scenarios are an important part of this recorded knowledge. But sometime you have to add extra code just to record your design decision and intention right inside the corresponding code: custom annotations for documentation and naming conventions are your tools of choice here.
+
+**Ok, but these days systems are made of dozens of services, how do I do with such fragmented systems?**
+
+You just apply the same techniques, but at a different level. For example, annotations become tags in your service registry and in your distributed tracing system. Naming conventions of packages and modules become naming conventions of services and their endpoints. Similar thinking, similar design skills, different implementation!
+
+**Thank you very much!**
+
+No, thank YOU very much!
