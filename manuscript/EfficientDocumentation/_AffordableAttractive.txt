@@ -20,6 +20,10 @@ Note that if you already have a Living Documentation based on scenarios in a Cuc
 
 Turn any kind of documentation into something more engaging by hiding anecdotes from the project, its sponsors and team members into the document, as a way to encourage and reading. Add simple illustrations.
 
+As [Peter Hilton mentions in his talk on Documentation Avoidance](https://www.slideshare.net/pirhilton/documentation-avoidance):
+
+> Use humour. There’s no rule that says that jokes aren’t allowed. Insufficiently serious documentation is probably not your biggest problem. Staying awake might be.
+
 ## News Promotion
 
 Push Swagger updates to Slack

@@ -51,6 +51,20 @@ Svg, Graphviz, pandoc, js, neo4j, dataviz
 Tools like the Javadoc standard Doclet, or alternative tools like QDox or even [Google Guava] ClassPath(http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/reflect/ClassPath.html)
 
 
+--
+from peter hilton
+
+Use Markdown or similar Things that seemed like a good idea at the time: troff, SGML, RTF, DocBook, XHTML, XSL-FO
+Things that seem like a better idea now: Markdown, reStructuredText, AsciiDoc
+The ultimate text markup language is still: HTML
+
+GitHub repo - plain Markdown files
+GitHub Pages - Jekyll site builder
+GitHub Wiki - Gollum wiki
+Read the Docs - Sphinx docs builder
+Asciidoctor - asciidoc to many formats
+Swagger - API docs structure and layout
+Silk - API docs
 ---
 literate programming
 

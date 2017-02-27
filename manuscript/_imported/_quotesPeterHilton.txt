@@ -1,0 +1,18 @@
+Peter Hilton From Documentation Avoidance slides
+
+[Peter Hilton on Documentation Avoidance](https://www.slideshare.net/pirhilton/documentation-avoidance)
+
+> The development tenure half life is 3.1 years, whereas the code half-life is 13 years [Rob Smallshire]( http://sixty-north.com/blog/predictive-models-of-development-teams-and-the-systems-they-build)
+
+
+we have projects with short, badly written, or entirely missing documentation… There must be some middle ground between reams of technical specifications and no specifications at all. And in fact there is. That middle ground is the humble Readme.’ http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
+
+> Aim to write the Minimum Viable Documentation. The rest is waste.
+>@PeterHilton
+
+
+# Decision Log / Evergreen / Blog
+
+Today I Learned (TIL) Short independent articles that each document one thing. Markdown files in a GitHub repository in ``/til/``
+
+---

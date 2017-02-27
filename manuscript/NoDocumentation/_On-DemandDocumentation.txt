@@ -1,71 +1,92 @@
-## On-Demand Documentation
+# On-Demand Documentation
+
+The best documentation is the one that you really need and that suits actual purposes. The best way to achieve that is to create the documentation on-demand, in response to actual needs.
+
+The need we have right now is a proven need from a real person. It's not a speculation of *something* that *someone* could find useful in *some future*. The need we have right now is precise and has a purpose, and it can be expressed as a question. The documentation to be created will just have to answer the question. This is a simple algorithm to decide *when* to create documentation about *what* topic.
 
 
+## Just-In-Time Documentation
+
+Documentation is best introduced just-in-time. The need for documentation is a precious feedback, a "Knowledge Gap" signal that should trigger some documentation action in response. The most important bit of documentation may be the one that is missing. Listen to knowledge frustrations to decide when to fill the gap.
+
+A> The idea of Just-In-Time Documentation are inspired from the *Pull System* of Lean. A pull system is a production or service process which is designed to deliver goods or services as they are required by the customer or, within the production process, when required by the next step.
 
 
-### Astonishment Report
-!!!! Lost content here on mardi 31 mars 9.??  To recover content from emails !!
+Still you may not invest time in some documentation action on each question. There's a need for some threshold:
 
----
-Be the adult you wish you had around when you were a child.
+- Some follow the "Rule of 2": Once you have to answer the same question twice, start the documentation about it.
 
-Write the documentation you wish you had when you started on this project.
+- Open-Source project sometime rely on the community votes to decide what to spend time on, including for the documentation.
 
-@willowbl00
+- Commercial products sometime rely on website analytics to decide what to spend time on, including for the documentation.
 
+- [Peter Hilton on Documentation Avoidance](https://www.slideshare.net/pirhilton/documentation-avoidance) has his own take on this process, a bit similar to the Rule of 2:
 
-> Don't do something twice: once I have to answer the same question twice, I start the documentation about it. Docker file is the golden source. (?)
-
-"Success of products depends a lot on the quality of the documentation." Jerome Petazzoni, Docker
-
-
-## On-Demand (pull)
-Documentation is best introduced just in time
-
-Need for documentation is feedback - Knowledge gap signal - Missing Documentation Signal
-> todo lean pictures
-
-- Voting Mechanism
-- Documentation Analytics
-
-Assessment: the best documentation is often the one that is missing! On-demand documentation is important
-
-JIT documentation & Promoted Documentation
-
-# Explain along the road.
-
-It's very hard to guess in advance what information will be useful for other people we don't know yet, trying to do tasks we can't predict.
-
-Therefore: when a team member asks for help on something, explain interactively, using whatever existing and improvised support: browsing the source code, searching and visualizing in the IDE, sketching on paper or whiteboard, or even in PowerPoint. Then immediately refactor the key parts of the explanation into a little section of documentation. You know what parts the explanations are key mainly from the interactions with the colleague. If it was difficult to understand, or surprising, or if it was recognized as a "Aha! Moment" by your counterparty, then it's probably worth keeping for other people later.
-
-It's already hard enough to just explain what was built, in particular because of the Curse of knowledge. Once you know something it's hard to remember how it's like not knowing the the thing.
-
-A> The Curse of knowledge
+1. Don't write the docs.
+1. Bluff, "it’s on the wiki".
+3. Still don't write the docs.
+4. If they come back, feign ignorance.
+5. Then write it.
+6. Later, casually mention that you "found it".
 
 
-Every time you're asked for information that you don't have any documentation already available for, log the request as a sticky on a wall.
+In practice, you can keep it low-tech: every time you're asked for information that you don't have any documentation already available for, log the request as a sticky note on a wall.
 
-Whenever you have repeated requests for a similar kind of information you can decide as a team to invest some minimal work to create it. It's a voting over time mechanism.
-Start manual and informal; observe and challenge how it's still useful or not over time; throw away or promote into a clean automated documentation as a result.
+Whenever you have repeated requests for a similar kind of information you can decide as a team to invest some minimal work to create it. It's a rustic voting mechanism on the wall.
 
-
-
-The best documentation is the one that you really need and that suits your purpose. Often, the best way to achieve that is to create the documentation on-demand, in response to an actual need. The need we have right now is certain, it's not a speculation of what someone could find useful in the future. The need we have right now is precise and has a purpose, and can be expressed as questions. Therefore the documentation to be created will just have to answer the questions, which makes it simpler and faster to create.
-
-### Astonishment Report
-
-Ask every newcomer to report all their surprises. Make sure they don't all come from the same company or from a similar background in order to bring fresh perspectives. Improve based on the remarks. Also make sure try write their remarks immediately, and ideally within the first two days. Two days are enough to get accustomed enough so that weird stuff is no longer that weird. It's important to preserve the candor.
+Start manual and informal; observe and discuss the stickers during the team ceremonies; throw away or promote into a clean automated documentation as a result.
 
 
-Fixing bugs or making small evolutions, from the code to production, is a great way to learn quickly about an application and its complete development process. That's why many startups include such tasks as part of the immediate on-boarding process for newcomers.
+Start by explaining interactively, using whatever existing and improvised support: browsing the source code, searching and visualizing in the IDE, sketching on paper or whiteboard, or even in PowerPoint or Keynote as a quick drawing pad (it's sometime easier to use a tool when you need a lot of "copy-paste-change a little" kinds of sketches). Then immediately refactor the key parts of the explanation into a little section of documentation. You know what parts the explanations are key mainly from the interactions with the colleague. If it was difficult to understand, or surprising, or if it was recognized as a "Aha! Moment" by your counterparty, then it's probably worth keeping for other people later.
 
-For example it's a common policy in startups that you have to deliver something into production by yourself, with some guidance though, within the first two days on the job. It forces you to discover quickly the full process and all colleagues involved, if any. It's a mark of trust, you are trusted enough to be allowed to deliver something immediately, for real. It's also a mark of confidence in the process, in particular its tests and deployment automation strategy.
+Peter Hilton has another fantastic trick to write doc, which he calls "Reverse Just-In-Time Doc":
 
-But it's also a great way to get fresh feedback on the process. If the installation all the pre-requisite workstation setup takes two days or more, there's no way it can be done. If someone has to help often during the local developer setup, then you need better documentation at the minimum, or preferably better automation of this process. The same goes for the full delivery pipeline, and any other matter.
+> Instead of writing documentation in advance, you can trick other people into writing JIT documentation by asking questions in a chat room (and then pasting their answers into the docs)
+
+## Provoking Just-In-Time Learning Early
+
+Fixing bugs or making small evolutions, from the code to production, is a great way to learn quickly about an application and its complete development process. That's why many companies include bug fixing and minor evolutions tasks as part of the immediate on-boarding process for newcomers. This creates needs for knowledge, which in itself triggers the need to find sources of knowledge: people, artifacts, whatever.
+
+In some startups there's a policy that you have to deliver something into production by yourself, with some guidance, within the first two days on the job. It forces you to discover quickly the full process and all colleagues involved, if any. It's a also mark of trust, you are trusted enough to be allowed to deliver something immediately, for real. It's also a mark of confidence in the process, in particular its tests and deployment automation strategy. You not only learn the code, you also learn that you can trust the delivery approach, and you also learn that the typical timeframe of a change is that long.
+
+It's also a great way to get fresh feedback on the process. If the installation all the pre-requisite workstation setup takes two days or more, there's no way you can deliver something in two days. If someone has to help often during the local developer setup, then you need better documentation at the minimum, or preferably better automation of this process. The same goes for the full delivery pipeline, and any other matter.
 
 If you have a weird in-house or proprietary stuff that new joiners have to learn, newcomers will tell you that there is a standard alternative that you could switch to.
 
 
+## Astonishment Report
 
+Astonishment Report is a simple yet effective tool to learn both about what should be documented and about what could be improved.
 
-￼
+**Ask every newcomer to report all their surprises during their very first days on the job. Even if they come from the same company or from a similar background they may bring fresh perspectives. Suggest they keep a notebook to take notes immediately as they notice an astonishment, or they will forget most of them. It's paramount to preserve the candor, so keep the observation period short, like two days, or a week. Beware, two days may be long enough to get accustomed enough so that weird stuff is no longer that weird. Improve based on the remarks.
+
+## Some Upfront Documentation?
+
+Sometime an on-demand documentation approach can supplemented by some upfront documentation. The danger is to create speculative documentation that may never be useful. The benefit is that obviously essential knowledge is available to help people without waiting for the Rule of 2 to trigger.
+
+Imagine yourself as a beginner on the project, knowing nothing. If you remember how it was like when you joined, it's simpler. Then create the ideal documentation that you would have loved to find.
+
+In the words of Willow Brugh on Twitter:
+
+> Be the adult you wish you had around when you were a child.
+> Write the documentation you wish you had when you started on this project.
+> @willowbl00
+
+However there's this *Curse of Knowledge* that will make this approach mostly ineffective. You simply can't imagine any more how it's like not knowing something once you know it.
+
+A> The curse of knowledge is a cognitive bias that occurs when an individual, communicating with other individuals, unknowingly assumes that the others have the background to understand.
+A>
+A> [Curse of knowledge on Wikipedia](https://en.wikipedia.org/wiki/Curse_of_knowledge)
+
+It's extremely hard to guess in advance what information will be useful for other people we don't know yet, trying to do tasks we can't predict.
+
+Still, there are some heuristics to help decide when a piece of knowledge should be documented right now:
+
+- Everybody agrees it should be documented
+- It's a hot topic (controversial)
+- It's been discussed for a long time, e.g. during the sprint planning ceremony
+- There has been a profound or shocking misunderstanding by some people involved
+- It's important and there's no way it can be guessed or inferred from the code
+- It should be refactored to avoid the need for documentation, but it's not practical to do now
+
+From that it's up to the team to decide on the default choice: document by default, or don't document by default. Ok, I'm not really helping you there!
