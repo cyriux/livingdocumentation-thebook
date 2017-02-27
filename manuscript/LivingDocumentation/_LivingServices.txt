@@ -1,0 +1,75 @@
+# Living Services Diagram
+
+Distributed tracing based on the [Google Dapper paper](http://research.google.com/pubs/pub36356.html) is becoming a vital ingredient of a microservices architecture. It's "the new debugger for distributed services", a key tool for monitoring, typically to solve response time issues.
+
+But it's also a fantastic ready-made Living Diagram tool to discover the living architecture of your overall system with all its services on a given day.
+
+
+For example, Zipkin UI and Zipkin Dependencies provide a services dependency diagram out-of-the-box:
+
+![Zipkin dependencies diagram on screen](images/zipkin_deps_tracegen.png)
+
+This view is nothing more than the aggregation of every distributed trace over some period, for example for a whole day.
+
+## A matter of Augmented Code, but at runtime
+
+For distributed tracing to work, you need to augment the system through 'instrumentation'. Every service or component must use a `Tracer` that conforms to the Trade Identifiers to declare the reception of a request, and the sending of the response, along with annotations, and additional "baggage" as a key-value store.
+
+The Trace Identifiers involve a context made of 3 identifiers which enable to build the call tree as an offline process:
+
+- Trace ID // the correlation ID of a complete call tree
+- Span ID // the correlation ID of this single client - server call
+- Parent ID // the parent call we're in
+
+The span name can be specified, for example with Spring Cloud Sleuth it's done with an annotation:
+
+     @SpanName("calculateTax")
+
+Some of the core annotations used to define the start and stop of a client - server request are:
+
+- cs - client start
+- sr - server receive
+- ss - server send
+- cr - client receive
+
+The annotations may be extended to classify your services or to perform filtering. However the tools may not naturally support your own annotations.
+
+The baggage, or "binary annotation" goes beyond to capture key runtime information:
+
+      responsecode = 500
+      cache.somekey = HIT
+      sql.query = "select * from users"
+      featureflag.someflag = FALSE
+      http.uri =	/api/v1/login
+      readwrite = READONLY
+      mvc.controller.class = Application
+      test = FALSE
+
+Here, all the tagging with metadata and other live data happens at realtime. But you recognize this is a similar approach to Augmented Code. You need to inject some knowledge for tools to help more!
+
+## Discover the architecture
+
+The ability to inspect the distributed system in realtime isn’t just for the front end developers. by aggregating the traces over time into a runtime service dependency graph "goes a long way to help architects and management to understand accurately how things work, negating much of the need for higher level documentation" as Mick Semb Wever write [on his blog](http://thelastpickle.com/blog/2015/12/07/using-zipkin-for-full-stack-tracing-including-cassandra.html).
+
+## The magic to make this work
+
+By sampling, some request get instrumented as they go through each node of the system. The instrumentation generate span traces that are collected and stored into some central (logically) datastore. Individual traces can then be searched and displayed. A daily cron triggers then post-processes all the traces into aggregates representing the "dependencies" between services. The aggregation is something like this (simplified):
+
+     select distinct span
+     from zipkin_spans
+     where span.start_timestamp between start and end
+     and span.annotation in ('ca', 'cs', 'sr', 'sa')
+     group by span
+
+
+The UI then displays all the dependencies using some sort of automated nodes layout.
+
+## Going further
+
+All the above-mentioned is just the beginnging. By getting creative on the tags and through test robots stimulating the system on predefined scenarios, a distributed infrastructure like Zipkin has a lot of potential for Living Architecture Diagrams:
+
+- Create "controlled" traces from a test robot driving one or more service(s), with a specific tag to flag the corresponding traces
+- Display different diagrams for the "Cache = HIT" and the "cache = MISS" scenarios
+- Display distinct diagrams for the "Write part" vs the "Read part" of an overall conversation across the system.
+
+Trying something in this area? Please let me know!
