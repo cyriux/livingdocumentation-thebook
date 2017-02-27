@@ -6,7 +6,7 @@ The best documentation is when you never have to use the word. When everything i
 
 **Why is that not popular?**
 
-I think it's popular, but nobody noticed. Remember all the focus on UML in the early 2000's? Now projects are bigger, and we don't use them. Instead, every IDE offers instant, integrated and hickory contextual Type Hierarchy trees, outline, smooth hypermedia navigation between classes... this is more useful than hundreds of static UML diagrams. Still we take it for granted and still feel bad about the "lack of proper documentation" (lol)
+I think it's popular, but nobody noticed. Remember all the focus on UML in the early 2000's? Now projects are bigger, and we don't use them. Instead, every IDE offers instant, integrated and highly contextual Type Hierarchy trees, outline, smooth hypermedia navigation between classes... this is more useful than hundreds of static UML diagrams. Still we take it for granted and still feel bad about the "lack of proper documentation" (lol)
 
 And there's new technologies as well...
 
