@@ -1,5 +1,6 @@
 # Documenting Legacy Applications
 
+
 > The universe is made of information, but it doesn't have meaning - meaning is our creation. Searches for meaning are searches in a mirror. - @KevlinHenney
 
 ## Documentation Bankruptcy
@@ -64,7 +65,7 @@ A legacy environment also include people who were there at the beginning. The ol
 
 If you have some amount of features to build, then you may decide to build the new features in their own new clean Bubble Context. In practice it can be a new specific module, namespace or project, which means it is then easy to document as explained in previous chapters, e.g. using Annotations, Naming Conventions and Enforced Guidelines. A Bubble Context brings the comfort and the efficiency of writing software from scratch in a brand new project, but integrated within a bigger legacy surrounding.
 
-![A clean Bubble Context integrated within a legacy mess](images/legacy/legacy_bubble_context.jpg)
+![A clean Bubble Context integrated within a legacy mess](images/legacy_bubble_context.jpg)
 
 As a Bubble Context is a project from scratch inside of a legacy project, it is also the perfect place to practice TDD, BDD and DDD on a limited functional area, to deliver a bulk of related business value.
 
@@ -96,11 +97,11 @@ A bubble context is a perfect technique to rewrite a part of a legacy system, as
 
 Especially when creating a Bubble Context integrated within a bigger legacy application, it is hard to define the boundaries between the old and the new systems. And it is even hard to just discuss about that clearly, because it is hard to talk about a legacy system. You would expect to see a simple and clear structure, but what you actually discover is a big unstructured mess.
 
-![Mental Expectations Vs. Actual Situation](images/legacy/legacy_expected_vs_actual.jpg)
+![Mental Expectations Vs. Actual Situation](images/legacy_expected_vs_actual.jpg)
 
 Even when there is a structure, it is often arbitrary and can mislead more than it helps.
 
-![Unlucky project structure](images/legacy/legacy_bad_modules.jpg)
+![Unlucky project structure](images/legacy_bad_modules.jpg)
 
 With legacy code you usually start with lots of effort to make it testable. These tests enable to make changes but are not enough. In order to do changes you also need to reconstruct a mental model of the legacy application in your head. This can be local within a function, or as big as the full business behavior plus the complete technical architecture.
 
@@ -146,7 +147,7 @@ However it is up to every member of the team to interpret these sentences the wa
 
 The superimposed structure can be linked to the existing code. If you're lucky, the mapping between the superimposed structure and the existing structure of the code is just a large number of messy one-to-one relationships. If you're not lucky, this can just be an impossible task.
 
-![Example of mapping between a technical structure and a business-driven structure](images/legacy/legacy_modules_mapping.jpg)
+![Example of mapping between a technical structure and a business-driven structure](images/legacy_modules_mapping.jpg)
 
 You can add the intrinsic information of the superimposed structure on each element. For example, this DTO is part of the Billing domain, this one is part of the Catalog domain, etc.
 
@@ -189,7 +190,7 @@ acme.phenix.spring = Infrastructure Dispatching
 
 With that it is possible to build tools which parse the source code and exploit these external annotations just like they would exploit the regular internal ones.
 
-![Using a registry so that the code is not touched](images/legacy/legacy_annotation_registry.jpg)
+![Using a registry so that the code is not touched](images/legacy_annotation_registry.jpg)
 
 The issues with this approach is that it is an External kind of documentation, hence fragile to changes in the legacy system. If you ever rename a package in the legacy, you have to update the related external annotations.
 
@@ -212,7 +213,7 @@ Therefore you'd better add a StrangledBy("new bubble context application") annot
 
 Of course you could still tag the new application as a StranglerApplication, but you will have to clean this tag eventually, when you are done. And if the strangling never completes, this will another hint pointing to the unfinished initiative.
 
-![An application annotated as being strangled by another](images/legacy/legacy_strangled_app.jpg)
+![An application annotated as being strangled by another](images/legacy_strangled_app.jpg)
 
 ### Example: Bankruptcy
 
@@ -227,7 +228,7 @@ You can mark the application as "bankrupt" using a number of means:
 - Removing the commit privilege to everyone. If anyone tries to commit and asks why it is not possible, it is an opportunity to explain that it is bankrupt.
 - As a weaker alternative, you could monitoring the commits and raise an alert when changes are met in a bankrupt application.
 
-## Maxims (Ducasse)
+## Maxims
 
 *Big changes to legacy systems are made by a number of people who share common objectives*
 
@@ -235,12 +236,14 @@ Once you have your legacy transformation strategy, you want to make sure everyon
 
 Maxims are a powerful answer for that, and they have been for ages.
 
-> Only one work site at a time!
+When your project is to rewrite only a portion of a large legacy system, and you don't want to rewrite more than what's absolutely useful now, that is the billing engine and nothing else:
+
+> One work site at a time (the billing engine)
 
 It has been one of my favorite maxims in a big legacy project. It was meant to remind everyone not to get distracted when working on the project; they had to focus on the main worksite only.
 
 > When in Rome, do as Romans do
 
-This was the counterpart to the single work site maxim. When you happen to walk outside of your work site, don't innovate or change much, just do the minimum in the local style, even if you don't like it.
+This was the counterpart to the single work site maxim. When you happen to walk outside of the main work site, don't innovate or change much, just do the minimum in the local style, even if you don't like it. Be conservative when working in the legacy code that will not be rewritten.
 
 I've found maxims to be a valuable form of documentation. The point is to repeat them often, whenever it makes sense, ideally at least once a day. The maxim format is made to stick, and that is why you may want to give it a try next time. Maxims can also help share the conclusions of your team retrospectives, as agreed upon by the team.

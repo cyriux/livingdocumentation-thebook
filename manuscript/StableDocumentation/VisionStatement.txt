@@ -24,6 +24,9 @@ Startup love vision statements, but they sometime lack depth, by just extrapolat
 
 The perfect companion to a vision statement is a couple of stories that illustrate it and make it more real.
 
+> When a manager comes to me, I don’t ask him, ‘What’s the problem?’ I say, ‘Tell me the story.’ That way I find out what the problem really is.
+> Grocery store chain owner Avram Goldberg, quoted in The Clock of the Long Now, p. 129.
+
 A vision statement is usually on the stable end of the spectrum, at least compared to other project artifacts like source code and configuration data. But it is true that a company pivoting could change its vision several times.
 
 Once the vision is set, it can be split into high-level goals.

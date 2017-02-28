@@ -125,6 +125,7 @@ NoDocumentation/CoffeeMachineCommunication.txt
 EfficientDocumentation/EfficientDocumentation.txt
 EfficientDocumentation/SpecificationWorkshops.txt
 EfficientDocumentation/StackOverflowDocumentation.txt
+EfficientDocumentation/AffordableAttractive.txt
 EfficientDocumentation/UnorthodoxMedia.txt
 
 
@@ -135,8 +136,9 @@ BeyondDocumentation/AbusingLivingDocumentation.txt
 BeyondDocumentation/ListenToTheDocumentation.txt
 BeyondDocumentation/BiodegradableDoc.txt
 BeyondDocumentation/HygienicTransparency.txt
+BeyondDocumentation/LivingDocumentationGoingWild.txt
 
-
+Summing_it_up_Interview_Doctor_by_Reporter.txt
 
 IntroducingLivingDocumentation/Section------IntroducingLivingDocumentation.txt
 IntroducingLivingDocumentation/IntroducingLivingDocumentation.txt

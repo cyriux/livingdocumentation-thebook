@@ -18,3 +18,55 @@ Guerrilla documentation: SO, forum... Signal to noise not too good, user-created
 tags and keywords: even words that don't occur in the documentation, words like blue screen of death... Use the words from actual users, failed searches etc
 
 Remember to mention synonyms, antonyms, and faux-sens and common confusions, for improved discoverability by search.
+
+## Navigation Path
+
+Create a Navigation Path, which is like a journey that goes through the various aspects of the project in a sensible order, with a sense of continuity and of progressive refinement, from the general to the detail.
+
+We can decide to build a path by decreasing priority, such as if you had to stop at any point, you would still have seen the most important so far. Another objective of a navigation path is to walk through the complete project (or at least the most important part), and too avoid duplication.
+
+This navigation path is made of a sequence of Frames. Each frame describes a limited scope of the project. A frame can be a diagram, or a piece of text, or a table.
+
+Each frame has a clear and deliberate perspective on what message it must convey: an Editorial Perspective. For example, a layer diagram is usually used within the editorial perspective of showing the coarse-grain dependencies, rather than within a perspective of data flow.
+
+For each frame, we only Focus on a selection of Elements (programming language elements and patterns on top of them) and on a selection of their Associations. This also means that every other element and association is left out. This selection is dependent on the editorial perspective.
+5 - 7 items at a time
+
+Only display or describe no less than 2 and no more than 7 elements at a time, ideally 5-7 items at a time. The issue is that this constraint propagates to every other aspect of navigation path planning!
+
+If for a given frame there are too many items, they must be ranked by decreasing importance, then the 7 first are selected for display, while the other are left for the next frame, and so on until they are all presented, no more than 7 at a time. So far this is just a kind of Pagination. Anyway the next frame must usually reference one or two elements from a previous frame, such as the interface at the top of their type hierarchy, which complicates the pagination a bit.
+
+If there are too many pages, the last pages may be skipped altogether or moved as Addendum or reference, because they may not be of high importance.
+
+On the other hand, to help focusing on 5-7 elements at a time, if a frame does not have much to present (for instance only 2 elements) and if another frame the next frame itself does not contain much (for instance only 4 elements), then we can merge the two frames into one. This Frame Merge can also be done recursively, for instance we could merge 5 frames of only one element into one with 5 elements. A merge can only be done between frames that share a consistent editorial perspective and that describes related elements (e.g. elements with associations between them).
+
+Navigation path planning & Dimensions of navigation
+
+Many navigation paths are possible, along the many dimensions of a software project, each with its distinct editorial perspective and focus:
+
+-  By module or folder containment: à la "Russian Dolls", simply recursively traverse projects and sub-projects, modules and sub-modules, classes and their members. The natural ranking is given by how each scope is nested within another.
+
+-  Specs Vs. Implementation: Present the Vision Statement, Ubiquitous Language and the Business Domains, then describe  to the corresponding modules: this requires the ability to link modules to their context.
+
+-  By contexts map that shows the relationships between contexts, perhaps including strategic design downstream or upstream links, ACL etc.
+
+-  Domain Vs. Cross-cutting concerns: this requires that the patterns definitions or patterns occurrences explicitly declare which domain or concern they address
+
+-  By view (deployment, data flow...); this requires that the patterns definitions (or patterns occurrences) explicitly declare which view is relevant for them
+
+-  By pattern: drill down "architectural" patterns (desktop app, client-server, smart UI, 3-tiers, PoEAA MVC, layers, transaction scripts, table modules, frameworks viewed as arrangements of patterns): this requires either a fixed predefined ordering of the patterns definitions, or a manual configuration of the drill down, or the capability to sort the patterns and their relationships by some sort of topological sort
+
+A navigation path may also interleave several drill-down along various axes, in a similar approach to the breadth-first traversal where we explore several branches in parallel, level by level.
+Ranking strategies
+
+When the navigation dimension does not provide a natural ranking of its elements, we can use explicit ranking strategies:
+
+-  By relative importance = level of distillation: rank from Core concepts to Supporting concepts; from highlighted part of the Core Module to other parts
+
+-  By most depended upon: Depended upon first is a good approach that estimates the relative importance of each element, a a similar way to the Page Rank of search engines
+
+-  By frequency of participation in patterns
+
+-  By abstractness: Abstract first; this can be seen as a consequence of sorting most depended upon elements first since super types are more depended upon than concrete classes
+
+-  By topological sort in the graph of patterns, which again is a consequence of "depended upon first" sorting

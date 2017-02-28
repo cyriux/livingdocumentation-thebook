@@ -1,0 +1,17 @@
+# Living Documentation Going Wild
+
+Living documentation is not a free license to rehash old ideas from the 90's. In particular, beware of the following, which is not Living Documentation:
+
+- **MDA and everything code generation**: No, code is not a dirty detail to replace or generate, it is the reference and the preferred media whenever we can. Extend your language, or chose a better programming language, instead of generating code from diagrams
+
+- **Documenting everything, even automatically**: Documenting has a cost, which must be weighted against the benefits. The ideal case is when the code is so self-descriptive it needs nothing else, but even that is not an absolute. Perfection and the quest for purity is often a form of procrastination to be avoided.
+
+- **UML Obsession**: Some basic UML is fine, but it is not an end in itself. Chose the simplest notation that the intended audience will really understand with as few explanation as possible. Don't obsess on generic notations, problem-specific or domain-specific notations are often more expressive.
+
+- **Design Patterns Everywhere**: Patterns are good to know, and they help documenting the design through the vocabulary they bring. Don't abuse patterns. It's called "patternitis". Simplicity always first. Perhaps two IF statements are better than a Strategy pattern here!
+
+- **Analysis Paralysis**: Spending 15 mn all the team together on the whiteboard before each important design decision is time well spent. Spending hours or days is waste. Start with something, anything really. Then it becomes obvious to everyone what's ok and what's not so ok. Now iterate, and take some brief notes Living Documentation-style!
+
+- **Living Documentation Masterpiece**: Again that's a form of procrastination, when the production work is so boring you escape and work on something more fun instead. Keep in mind Living Documentation is just a mean to help deliver production code, not the other way round.
+
+- **Documentation before building**: Documentation should reflect what's actually built, more than prescribe what will be built. If your project is interesting, then nothing can beat starting the code. Detailed design specs are waste. Start coding and reflect along the way, collectively, in a just-enough, just-in-time fashion.

@@ -1,19 +1,15 @@
 TO WRITE
 
-
-TODO contact Peter Hilton to quote
-TODO contact Accraze.info to quote http://accraze.info/living-documentation/
-
-# Living Design
+# Living Design - # Documentation by Registry (Consul / Eureka)
 # Tools addendum -> add Graphviz pure JVM!
+# Visual Tests
+# metaphor
 
 
-# Zipkin / AppDynamic
 
-http://thelastpickle.com/blog/2015/12/07/using-zipkin-for-full-stack-tracing-including-cassandra.html
-
-# Documentation by Registry (Consul / Eureka)
-
+TODO contact JB Dussault
+TODO contact Peter Hilton to quote (?)
+TODO contact Accraze.info to quote http://accraze.info/living-documentation/
 
 Living Context Map Diagram
 

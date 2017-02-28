@@ -23,14 +23,6 @@ Don't directly copy and paste these maxims. Create yours that will stick in your
 
 A> You may read the book *Made to Stick: Why Some Ideas Survive and Others Die* by Chip Heath and Dan Heath on this topic.
 
-When your project is to rewrite only a portion of a large legacy system, and you don't want to rewrite more than what's absolutely useful now, that is the billing engine and nothing else:
-
-> One work site at a time (the billing engine)
-
-With the corollary of being conservative when working in the legacy code that will not be rewritten:
-
-> When in Rome, do as Roman do (don't revamp everything in the legacy)
-
 Good maxims are useful and amusing at the same time:
 
 > If in doubt, do it the way Erlang does it. (from by @BeRewt on Twitter)
@@ -119,7 +111,7 @@ Stories of users doing their job and sharing their most important stakes are als
 
 I've used child-ish comics in very corporate environments to explain a process for the development team. I've used less child-ish comics to help explain a governance process to senior management too, in a real big serious bank. It worked and was appreciated.
 
-There are several online comics generators which can help create basic comics from libraries of characters, settings and effects. This makes it possible to anyone to create a comics, even without any drawing skill. 
+There are several online comics generators which can help create basic comics from libraries of characters, settings and effects. This makes it possible to anyone to create a comics, even without any drawing skill.
 
 
 ## Infodecks

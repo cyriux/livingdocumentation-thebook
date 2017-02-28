@@ -1,6 +1,8 @@
-# Affordable && Attractive
+# Affordable & Attractive
 
-> We can make information available, but we cannot make people care for it. Maybe journalism as a solution? @malk_zameth
+> We can make information available, but we cannot make people care for it. Maybe journalism as a solution? My Arolla colleague Romeu Moura
+
+> Documentation should be attractive for the same reason flowers are attractive: for self-preservation. (paraphrasing Romeu Moura again)
 
 ## Specs Digest
 
