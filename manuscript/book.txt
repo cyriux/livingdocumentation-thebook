@@ -68,6 +68,8 @@ LivingDocumentation/LivingGlossary.txt
 LivingDocumentation/LivingDiagram.txt
 LivingDocumentation/HexagonalArchitectureDiagram.txt
 LivingDocumentation/BusinessDomainDiagram.txt
+LivingDocumentation/LivingServices.txt
+
 LivingDocumentation/ContextDiagram.txt
 LivingDocumentation/PatternOrientedLivingDiagram.txt
 
