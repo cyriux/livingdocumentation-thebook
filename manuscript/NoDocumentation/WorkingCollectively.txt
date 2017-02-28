@@ -58,6 +58,19 @@ If a team of 5 people doing mob-programming full time, knowledge sharing is no l
 
 The concept of the 3 Amigos working together during *Specification Workshops* is central to the BDD approach. In contrast with Pair-programming, Cross-programming and Mob-programming, they are not working on code but on concrete scenarios describing the expected business behavior of the software to build. Still, everyone involved owns the scenarios, and it does not matter who writes them down on paper or in a the test automation tool like Cucumber, as it's on behalf of every other. We use the term "3 amigos", but in practice they may be more than three whenever another perspective is key for the success of the work. There may be a need for a UX expert, an Ops etc.
 
+
+## Event Storming as an on-boarding process
+
+Alberto says that some teams find it valuable to run a new Event Storming session whenever a new member joins the team, as an fast on-boarding mechanism.
+
+I can testify it works very well for that. As a consultant spending just a few days always in new teams with new domains, I need to learn as much as possible of the new domain in a short period of time. Recently I've used short Event Storming sessions for that, even if the team had dome it several times before. It is really impressive how much you can learn in just 2 hours with this kind of workshop.
+
+It happened recently that a business domain expert in the Event Storming told us he had already created well-crafted diagrams on the domain. Once we were mostly done with posting the events on the wall and organizing them, he drew the diagram on the whiteboard.
+
+What was interesting is that his diagram was in many ways more complete than our wall of events. Still, the interactive workshop form meant that we were all much more engaged with our wall of stickers than is typically the case when just looking at a static diagram. The session became a game of comparing the diagram and the events wall to better understand both, and a lot of new insights appeared in this process!
+
+
+
 ## Continuous Documentation
 
 Collective forms of work optimize for continuous documentation. Because face-to-face interactive conversations are the most efficient form of communication, Pair-programming, Cross-programming, the 3 Amigos or Mob-programming organize the work precisely to maximize the opportunities for effective conversations. Documentation happens at the very time the knowledge is necessary. Everyone who must know about it is present. They can immediately ask questions to clarify a point.

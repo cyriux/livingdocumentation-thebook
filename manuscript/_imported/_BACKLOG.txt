@@ -3,7 +3,13 @@ TO WRITE
 # Living Design - # Documentation by Registry (Consul / Eureka)
 # Tools addendum -> add Graphviz pure JVM!
 # Visual Tests
-# metaphor
+# Metaphor
+# Doc by DSL & Simon Brown?
+
+_integrate tools history
+_integrate conversation with JB
+
+integrate quotes?
 
 
 

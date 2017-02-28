@@ -1,3 +1,8 @@
 On blogs
 
 Some Past facts with a very visible date are eternal. For example a blog lists posts, each with its date. Each blog describes something, that may be decisions or a state of the system that was true at its publication date. However, even if the decision or state of the system have changed since, the blog post remains relevant because each post clearly shows its date. Also a blog post typically describes a mood, a thinking, a decision or an observation of the moment. This is in contrast with typical documentation that promises much more, and too much indeed.
+
+
+# Decision Log / Evergreen / Blog
+
+Today I Learned (TIL) Short independent articles that each document one thing. Markdown files in a GitHub repository in ``/til/``
