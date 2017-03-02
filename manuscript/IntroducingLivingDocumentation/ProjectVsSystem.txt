@@ -1,12 +1,12 @@
-## The project vs. system confusion
+## Project vs. System Segregation
 
-Another thing to clarify is the distinction between a project and a system. A project builds or changes a system. A project starts, stops, has a purpose, a team, stakeholders, and a budget. A system exists, also has a vision, purpose, users and stakeholders, and is made of components or services on top of infrastructures. A system exhibits behaviors and has quality attributes.
+It's important to clarify is the distinction between a project and a system. A project builds or changes a system. A project starts, stops, has a purpose, a team, stakeholders, and a budget. A system exists, also has a vision, purpose, users and stakeholders, and is made of components or services on top of infrastructures. A system exhibits behaviors and has quality attributes.
 
 > The distinction is the same as the distinction between a balance sheet and a general ledger. The balance sheet describes the overall effect (the system) of all the transactions on the ledger (the projects). At the end of the year, we only care about the balance sheet, not about each individual transaction.
 
 The system and the project only match in the case of the first project whose sole goal is to build a system from scratch. But there are many other situations than this simple case, many systems go through more than one project over their lifetime, and even their death is yet another project.
 
-It is important to sort out precisely the knowledge about the project vs. the knowledge about the system. The knowledge about the project is only useful for the duration of the project, but the knowledge about the system is useful throughout the life of the system.
+It is important not to mix the knowledge about the project vs. the knowledge about the system. The knowledge about the project is only useful for the duration of the project, but the knowledge about the system is useful throughout the life of the system.
 
 In general, focus on documenting the knowledge about the system, as the lifetime of the system will far exceed the lifetime of the project. Overall, the system design far outlives the user stories which built it in the first place. After some time, you need to understand the system, and nobody (except auditors) cares how the user stories were split and prioritized.
 

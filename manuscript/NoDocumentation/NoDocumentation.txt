@@ -7,6 +7,7 @@ T> Documentation is only a mean, not an end. It's only a tool, not a product.
 So far, here are some of the ideas that belong to the #NoDocumentation quest:
 
 - Conversations over Documentation
+- Continuous Training
 - Declarative Automation
 - Shameful Documentation
 - Enforced Decisions

@@ -1,9 +1,0 @@
-# Throw-Away Documentation
-
-*Documentation that's only useful for a limited period of time, before it can be deleted.*
-
-You need a specific diagram while you're designing around a problem. Once you're done with the problem, the diagram immediately loses most of its value because now nobody cares any more about the focus of this diagram. And for the next problem, you'd likely need another completely different diagram with another focus.
-
-**Therefore: Don't hesitate to throw away documentation that is specific to a particular problem. If you really want to archive a diagram, turn it into a blog post, telling the story with the diagram as an illustration.**
-
-One important set of transient documentation is everything about planning, like the User Stories and everything about estimation, tracking etc. User Story is only useful just before development. A burn down chart is only useful during an iteration. You may want to keep the stats to check later how hard it is to plan and estimate, but that is something different. Throw the User Stories stickies away after the iteration. 

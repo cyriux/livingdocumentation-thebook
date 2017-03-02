@@ -1,0 +1,38 @@
+## Ideas Sedimentation
+
+A lot of knowledge is only important at the moment it's created. You debate design options, try one, find out it's not right, try another. After some time it's obvious it was the right choice, and the choice is visible in the code. It's already there. No need to do anything more.
+
+You discuss options around the coffee machine. You simulate how they perform mentally. Everybody agrees on the best option. Then a pair goes back to their computer to implement it. The knowledge exchanged and created during the discussion was important *at that particular time*. But the day after it's already nothing more than a mere detail.
+
+Once in a while, some of this knowledge remains important, even after a while. It gets reinforced, until it's worth recording to be shared to larger audience and for the future.
+
+**Therefore: Favor quick, fast, cheap interactive means of knowledge exchange like conversations, sketching and sticker notes by default. Only promote the fraction of knowledge which proved repeatedly useful, critical or that everybody should know.**
+
+- Start with impromptu conversations, later turn the key bits into something permanent: Augmented code, Evergreen document, or anything durable.
+
+> The sedimentation metaphor relates to ideas flowing like sand in the water flowing quickly in the water streams. The sand particles move away quickly, but some of them become sediment at the bottom of the river, where they accumulate slowly. A similar process is at work in a wine decanter.
+
+![Some of the sand in suspension in the river streams becomes sediment at the bottom of the river](images/sedimentation.jpg)
+
+- Start from Napkin sketch to document a design aspect , later if it proves essential turn it into something maintainable like a plain text diagram or a living diagram, or a Visible Test.
+
+- Start with bullet points to document the quality attributes, later when it hasn't changed much turn them into executable scenarios
+
+
+> Memory is the residue of thought." - simple but profound realization that is so important to my work. I intend to honor it more fully.
+> Tim Ottinger on Twitter.
+
+
+
+## Throw-Away Documentation
+
+*Documentation that's only useful for a limited period of time, before it can be deleted.*
+
+You need a specific diagram while you're designing around a problem. Once you're done with the problem, the diagram immediately loses most of its value because now nobody cares any more about the focus of this diagram. And for the next problem, you'd likely need another completely different diagram with another focus.
+
+**Therefore: Don't hesitate to throw away documentation that is specific to a particular problem.**
+
+When it's worthwhile to archive a diagram, turn it into a blog post, telling the story with the diagram as an illustration.
+
+
+One important set of transient documentation is everything about planning, like the User Stories and everything about estimation, tracking etc. User Story is only useful just before development. A burn down chart is only useful during an iteration. You may want to keep the stats to check later how hard it is to plan and estimate, but that is something different. Throw the User Stories stickies away after the iteration.

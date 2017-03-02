@@ -170,9 +170,22 @@ Todo : difficult to evolve new features / major changes
 
 
 --
-Reverse engineer the source code: that's the only documentation we could find! 
+Reverse engineer the source code: that's the only documentation we could find!
 
 
 --
 
 Michael Nygard training & pictures
+
+
+---
+
+@thomaslindqvist: The coordination of value delivery is too important to be left to documents. Let ppl deliver value to ppl
+
+@tottinge: It's hard to know how to communicate if we have to begin with preventing all possible misinterpretations. @net_zer0 @craftsmanadam
+
+> Picture huge people talking side by side with small few documents
+
+> Picture: So you mean...? - not really, in fact rather the opposite, because... -oh I see so why about... - oh yes it's a great idea!
+
+@maaretp: You want to write notes of what you're thinking, not about what happens on the computer @sgershon #sqats14

@@ -1,0 +1,14 @@
+## Continuous Training
+
+As general knowledge becomes more widespread, the less you need to document in average. Investing in continuous training is therefore a way to lower the need for documentation.
+
+Learning standard skills also makes it more likely to  use more ready-made knowledge at the expense of original solutions. This is good the quality of the solution and because it alleviates the need for specific documentation.
+
+More consistency of skills and shared culture also helps faster decision-making. It's not about removing all diversity in the team, since diversity is an essential ingredient. Still, we don't need all diversity in every detail, and there's a lot that we can make more consistent without loosing much.
+
+Investing in continuous training can be done with:
+
+- Coding Dojos on code kata, e.g at lunch time every Friday
+- Short Training sessions during the day
+- Interactive Mini-Trainings, e.g. half an hour twice a week right after lunch
+- Time for deliberate practice, e.g. 20% time policy.
