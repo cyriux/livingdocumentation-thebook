@@ -1,0 +1,26 @@
+# Making Mistakes Impossible - Error-Proof API
+
+*Design your API in a way that makes it impossible to misuse. This reduces the need for documentation, since there's nothing to warn the user of.*
+
+Michael L Perry listed many common API traps in a [blog post](http://qedcode.com/practice/provable-apis.html):
+
+- You must set a property before calling this method
+- You must check a condition before calling this method
+- You must call this method after setting properties
+- You cannot change this property after calling a method
+- This step must occur before that step
+
+These traps should not be documented; instead they should be refactored to be removed!
+ *Otherwise the documentation will be a great case of Shameful Comment.*
+
+There are endless ways to make an API impossible to misuse:
+
+- Using types to only expose methods
+you can actually call, in any order
+- Using enums to enumerate every valid possible choice
+- Detecting invalid properties as early as possible (e.g. catching invalid inputs directly in the constructor) well before it is actually used then repair whenever possible, such as replacing nulls with null objects in the constructors or setters
+- It's not just about errors, but also about any harmful naive usage. For example if a class is likely to be used as the key in a hashmap, it should not make the hashmap slow or inconsistent. You could use internal caches to memoize the results of any slow computations of  hashcode() and toString().
+
+A common objection is that experienced developers don't get caught hence no need to be so defensive; however even good developers have more important things to focus on that avoiding the traps of your API.
+
+In the wording of Don Norman, these advises on how to guide the use of something would all be called "affordances", from his famous book "The Psychology of Everyday Things" (http://www.jnd.org/dn.mss/affordances_and.html)

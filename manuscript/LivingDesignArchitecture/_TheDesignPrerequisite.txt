@@ -1,7 +1,0 @@
-# The design pre-requisite
-
-You start with the goal of solving the documentation problem, but you quickly discover the root cause is design by coincidence. To solve one you have to solve the other, which is pretty good news indeed.
-
-Now you have a concrete, visible criteria for everyone to see the big mess that the design is.
-
-Positive pressure to improve the design, which has benefits well exceeding the sole benefits of documentation per se.

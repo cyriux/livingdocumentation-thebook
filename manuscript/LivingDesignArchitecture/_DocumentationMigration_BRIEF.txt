@@ -1,4 +1,6 @@
-# Migration from an existing documentation
+Guidebook: a mix of evergreen and living documents covering the big picture: persona, vision, stakes (text or slides), Quality Attributes (code as a DSL), brief glossary, a few key scenarios, external actors in a context diagram, principles (annotations with rationale), technologies & dependencies (comments in Pom manifest)
+
+
 
 ### TO ADD TO ARCHITECTURE SECTION
 

@@ -58,7 +58,7 @@ When the Quality Attribute can be checked at compile time, it will probably be p
 (This is another way of implementing Enforced Guidelines).
 
 
-### Quality Attributes at runtime in production
+### Quality Attributes at runtime in production - Netflix Simian Army
 
 There are quality attributes which are too difficult to test outside of their natural habitat. This calls for a more monitoring-oriented approach. Netflix introduced the Chaos Monkey to assert the fault-tolerance at the service-level. Later they introduced the Chaos Gorilla at the data center level:
 

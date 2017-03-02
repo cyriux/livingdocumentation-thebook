@@ -21,9 +21,9 @@ A> Old source control systems like cvs used a lot of sidecar files
 
 # Metadata Database
 
-A metadata databases is database which contains metadata for several source files. A famous example is the iTunes database, which contains a lot of metadata associated to each song and that don't fit within the audio files themselves, like playlists and recent listening history. The metadata may not fit within the file because the file format does not have a place to store them, or because it would not be a good idea to change the file at all.
+A metadata databases is a database which stores metadata referencing other source files or components. A famous example is the iTunes database, which contains a lot of metadata associated to each song and that don't fit within the audio files themselves, like playlists and recent listening history. The metadata may not fit within the file because the file format does not have a place to store them, or because it would not be a good idea to change the file at all.
 
-Another reason could be that the metadata reference the file but are not really intrinsic to it, hence they should be stored somewhere else. For example, a photo should not store that its part of an album, we'd rather have the album being stored somewhere else. In a similar fashion, the url of the thumbnail of a photo is a metadata only of interest for the photo application, and it would be intrusive to corrupt the photo file to add that kind of metadata into its own structure, assuming it was even possible.
+Another reason could be that the metadata reference the files but are not really intrinsic to it, hence they should be stored somewhere else. For example, a photo should not store that its part of an album, we'd rather have the album being stored somewhere else. In a similar fashion, the url of the thumbnail of a photo is a metadata only of interest for the photo application, and it would be intrusive to corrupt the photo file to add that kind of metadata into its own structure, assuming it was even possible.
 
 The main problem with this approach, just like with sidecar files, is that it's easy for the metadata database and the corresponding files to get out of sync if one of these files is renamed, moved or deleted without updating the database.
 
@@ -32,3 +32,5 @@ A metadata database should be the last resort choice when it's not possible to t
 However it is also a convenient approach when the management of the metadata is done in bulk across all files at the same time, by different people than the people managing the files themselves.
 
 For examples, if hundreds of photos are managed by a photographer but the metadata database is a plain spreadsheet managed by a librarian, then it is easy for the librarian to quickly add all the metadata in a column thanks to the ability to copy-paste, interpolate and calculate data that a modern spreadsheet application can offer, independently of the photographer and without risk of corrupting the photo file by mistake.
+
+Common examples of MetadaDB are the various key-value stores embedded in your Discovery registries, Deployments / Configuration / Provisioning tools, Service Catalogues, Bookmarking registries etc. Whenever you can reference something and add tags, you have a de-facto MetadaDB! 

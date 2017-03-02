@@ -115,7 +115,9 @@ NoDocumentation/On-DemandDocumentation.txt
 
 NoDocumentation/DeclarativeAutomation.txt
 NoDocumentation/EnforcedGuidelines.txt
+NoDocumentation/MakeItEasytoDotheRightThing.txt
 NoDocumentation/ShamefulDocumentation.txt
+NoDocumentation/MakingMistakesImpossible.txt
 NoDocumentation/ConsistencyReplaceability.txt
 
 

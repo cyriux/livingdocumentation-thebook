@@ -11,6 +11,7 @@ Or you could invest into changing the environment:
 
 The environment is also passing information. It's implicit, passive and we don't often pay attention to that. You can make it deliberate and decide what message to pass by designing the path of least resistance in the environment to be the one that you favor.
 
-More generally, it's about making behavior not just *easier* but also more *rewarding*. By showing the commit history as a nice pixel art diagram, Github makes it rewarding to commit often. Developers pride is powerful!  
+More generally, it's about making behavior not just *easier* but also more *rewarding*. By showing the commit history as a nice pixel art diagram, Github makes it rewarding to commit often. Developers pride is powerful!
 
-A major point of Living Documentation in general as advocated in this book is to offer simple ways to document, to encourage doing it more.
+
+*A major point of Living Documentation in general as advocated in this book is to offer simple ways to document, to encourage doing it more.*

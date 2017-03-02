@@ -87,11 +87,15 @@ As a consequence, everybody should be aware of the most challenging quality attr
 
 An example of describing the main quality attributes.
 
-And here are some examples of guidance on how to interpret them:
+> The system shall respond to user requests with a response time within 1 second for 98% of the transactions. The system shall support 3000 concurrent users.
+
+It should come with some internal guidance on how to interpret the quality attribute, for example:
 
 > Overquality is NOT quality
 
 > Design for ~10X growth, but plan to rewrite before ~100X -- [Jeff Dean (Google)](http://static.googleusercontent.com/media/research.google.com/en//people/jeff/WSDM09-keynote.pdf)
+
+These quality attributes can then be turned into executable scenarios against the system, expressing the quality attributes literally in plain English sentences (see Test-Driven Architecture).
 
 ## Stake-Driven Architecture Documentation
 
@@ -135,7 +139,7 @@ A good architecture is easy to explain succinctly and minimizes the number of de
 This means that whatever makes the architecture or its documentation hard or expensive to change must be avoided. Your team should learn how to make reversible decisions, or to defer irreversible decisions. And if you fear changing the architecture because you have a lot of static documentation about it that would have to be redone, then your documentation is harming you and you should reconsider how you do it.
 
 
-Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better. And keep it all evolving, removing any process or artifact which would impede continuous change.
+**Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better.** And keep it all evolving, removing any process or artifact which would impede continuous change.
 
 
 ## Architecture Steering
@@ -407,6 +411,12 @@ When architecture documentation becomes embedded within the software artifacts t
 One consequence is that this enables decentralizing the architecture and the decision making dependent on architecture knowledge. I call that "transparent architecture": if everyone can see the quality of the architecture by themselves, then they can take decisions accordingly, by themselves, without necessarily asking the people in an architect role.
 
 ![With access to the whole picture, each team can directly take decisions consistent with respect to the whole system](images/transparent_architecture.png)
+
+For example, in a microservices architecture, a transparent architecture will make use of Living System Diagrams generated out of the working system at runtime. This knowledge is already there in the distributed tracing infrastructure (e.g. Zipkin). You may have to augment it a bit with custom annotations and binary annotations added in your instrumentation.
+
+You may as well rely on your Discovery Registry (e.g. Consul, Eureka...) and its tags to produce Living Documents. Dependencies between services can also be derived from the Consumer-Driven Contracts, if you apply this practice. And if you care about the physical infrastructure, it can be made visible through custom Living Diagrams generated with Graphviz from data you get from your Cloud through its programmatic API. Note that more "virtuous" practices also makes living documentation easier!
+
+![Living Diagram of a Cloud infrastructure generated from cron, python, boto, pydot, graphviz - from James Lewis slides ](images/james_lewis_cloud_diagram.png)
 
 
 *All this is fine, but we can go even further with Test-Driven Architecture.*
