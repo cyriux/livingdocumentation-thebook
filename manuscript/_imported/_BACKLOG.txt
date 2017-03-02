@@ -4,7 +4,7 @@ TO WRITE
 # Tools addendum -> add Graphviz pure JVM!
 # Visual Tests (domain mostly )
 # Metaphor
-# README
+# README, zero doc etcs
 # Doc by DSL & Simon Brown?
 
 _integrate tools history
