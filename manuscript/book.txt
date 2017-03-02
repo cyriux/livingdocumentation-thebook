@@ -68,7 +68,7 @@ LivingDocumentation/LivingGlossary.txt
 LivingDocumentation/LivingDiagram.txt
 LivingDocumentation/HexagonalArchitectureDiagram.txt
 LivingDocumentation/BusinessDomainDiagram.txt
-LivingDocumentation/LivingServices.txt
+LivingDocumentation/LivingServicesDiagram.txt
 
 LivingDocumentation/ContextDiagram.txt
 LivingDocumentation/PatternOrientedLivingDiagram.txt
@@ -138,22 +138,25 @@ BeyondDocumentation/BiodegradableDoc.txt
 BeyondDocumentation/HygienicTransparency.txt
 BeyondDocumentation/LivingDocumentationGoingWild.txt
 
+
 Summing_it_up_Interview_Doctor_by_Reporter.txt
+
+
+LivingDesignArchitecture/Section------LivingDesignArchitecture.txt
+LivingDesignArchitecture/LivingDesign.txt
+LivingDesignArchitecture/ArchitectureLandscape.txt
+LivingDesignArchitecture/TestDrivenArchitecture.txt
+LivingDesignArchitecture/SmallScaleSimulation.txt
+
+
 
 IntroducingLivingDocumentation/Section------IntroducingLivingDocumentation.txt
 IntroducingLivingDocumentation/IntroducingLivingDocumentation.txt
-
 IntroducingLivingDocumentation/IntroducingLivingDocumentationByExample.txt
-
-IntroducingLivingDocumentation/ArchitectureLandscape.txt
-IntroducingLivingDocumentation/TestDrivenArchitecture.txt
-IntroducingLivingDocumentation/SmallScaleSimulation.txt
-
 IntroducingLivingDocumentation/SellingLivingDocumentation.txt
 IntroducingLivingDocumentation/DocumentationCompliance.txt
-
-
 IntroducingLivingDocumentation/DocumentationInLegacy.txt
+
 
 BeyondDocumentation/Summary_TheCurator.txt
 

@@ -2,8 +2,9 @@ TO WRITE
 
 # Living Design - # Documentation by Registry (Consul / Eureka)
 # Tools addendum -> add Graphviz pure JVM!
-# Visual Tests
+# Visual Tests (domain mostly )
 # Metaphor
+# README
 # Doc by DSL & Simon Brown?
 
 _integrate tools history

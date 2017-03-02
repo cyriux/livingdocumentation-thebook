@@ -1,0 +1,11 @@
+# Living Design & Architecture
+
+Software design is about deciding carefully between all the possible ways to code the same behavior. Or in Jeremie Chassaing's words: "it's picking one in gazillions of possibilities with good reasons." Hence the frequent objection during design discussions: "but it's the same thing at the end!" Yes it is. If you just care about making it work, design is irrelevant. Design is when you care about concerns beyond just making it work.
+
+If you practice TDD, design is what you do in the third step "Refactoring", after creating a failing test (specs) and making it work with just enough code.
+
+Even if you don't, design means trying things only to change them later when we know better. Being serious about design means continuous changes of the design and the code which embodies the design.
+
+The code as you see it is a consequence of all the past design decisions. You can recognize many of these past decisions just by looking at the code base, but you'll miss many as well.
+
+Living Documentation of design is precisely about finding practices that help explain more design decisions accurately, without slowing down the continuous flow of changes that we make when we design.

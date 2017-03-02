@@ -1,0 +1,178 @@
+them: is that written down?
+me: we communicate in the viking tradition. Let me tell you the saga of that system.
+
+--
+Visible Tests & Visual Notation in tests
+
+*Tests that produce a visual output for human review*
+
+Good tests check the code against predefined assertions all the time. They are silent unless something goes unexpected: a failed assertion, or an error.
+
+However I've found that tests could sometime also be used to produce visible output like diagrams, in various domain-specific notations.
+
+Exploration: no assertions yet, visible outputs
+
+Non-regression: assertions expressed visually
+
+-
+
+A> Domain-Specific Notations
+
+Accounting left column sum = right column sum (tabular)
+
+Cash management timeline with cash paid or received (timeline): bonds coupons or other financial instruments, insurance contract, loan interests...
+
+Anything lifecycle: e-commence sale and return, legal agreement, ads retargeting, financial options events
+
+Geography on a real map or on a specific map: itinerary, routing, distribution
+
+Matching: orderbook, dating sites
+
+Planning:
+Équivalence relationships: chemical equations, arbitrage relations (cash carry), swap as futures, swap diagram between two parties
+Genealogy: BOM, ingredients, dependency graphs
+
+Metaphors!
+
+
+
+During exploratory development, for example during a spike, when the problems are not clear and you're not sure how to solve them, you want quick feedback anyway. Usually tests are great at providing this feedback, but in this case it's difficult to decide what to assert, and it will change a lot very soon while you discover the problem more in-depth. You need something cheaper
+
+
+Marble diagrams literally in unit tests -> alex Victoor
+
+ASCII Art Domain-specific notation
+
+   ^ ^
+   | |
+-------------------->
+
+
+## Visual Tests
+
+
+
+###
+
+### An example with Model-based testing
+
+Oracle as a simpler documentation of the workflow / processing as opposed to the full thing that's much more complicated in its implementation
+
+The model based testing generates a reference documentation as a catalogue of sequence diagrams. It's proved useful for developers regularly, to explain specific portions of behaviors.
+
+
+Examples:
+
+--
+
+--
+Ran @jensschauder​s degraph against my biking app and I’m pleased with the result,matches the described architecture biking.michael-simons.eu/docs/index.html
+--
+
+Mini live Interview - Mrs Reporter Porter interviewing Mr Living Doc Doctor
+
+- What is a good documentation?
+
+The best documentation is when you never have to use the word. When everything is so obvious you understand it immediately, or he naming is so good it's instantly clear. Or when it's so integrated in your workflow and into you daily tools that you don't even think about it as really documentation. One striking example is when a tools reminds you of something you forgot or didn't know, right when you need it. We usually don't call that documentation, but the end purpose of bringing the right piece of knowledge at the right time is what matters.
+
+- Why is that not popular?
+
+I think it's popular, but nobody noticed. Remember all the focus on UML in the early 2000's? Now projects are bigger, and we don't use them. Instead, every IDE offers instant, integrated and hickory contextual Type Hierarchy trees, outline, smooth hypermedia navigation between classes... this is more useful than hundreds of static UML diagrams. Still we take it for granted and still feel bad about the "lack of proper documentation" (lol)
+
+And there's new technologies as well...
+
+- how new techs changed the picture?
+
+Most people still haven't realized all the potential of newer tools and practices when it comes to transfer knowledge.
+
+Consul, Zipkin offer live recap of what's actually there, even as living diagrams. They offer tag mechanism to customize and convey intents.
+
+Monitoring of key SLA metrics with thresholds get close to documenting the SLA.
+
+Puppet, Ansible and Docker files allow for a declarative style for describing what you expect. Imagine all the Word documents they advantageously replace!
+
+All that is fantastic to document the What and How, but the weak point mostly everywhere remains the rationale, the why that is often not recorded. Immutable Decision Logs, and Evergreen Documents can complete the picture.
+
+Business transactions journey tests
+--
+"Activation Sets" between services
+--
+
+--
+# Beyond documentation
+
+“Don’t talk about invisible things. Make them visible first.” --Alberto Brandolini @ziobrando
+--
+Aligning components on the domain x product line map by incremental build-time declarations
+
+E-Commerce example
+--
+Own language of stereotypes to help express intentions of components
+
+Data pump
+MicroService
+Macro-Service
+UI Read Model
+Aggregator
+BFF
+Reporting Read Model
+Legacy Read Model
+Proxy
+Gateway
+
+Front / Back - Tiers
+Read Model / write model / aggregator / Data Pump - Data Authority & Distribution
+
+--
+Event schema / samples somewhere with a permalink that can be found from Consul at /readme
+
+
+--
+Cat Boot Structurizer
+https://t.co/NUbhO8wto0?ssr=true
+
+--
+"Doc don't drive, they grow out of it"
+
+Use documentation to capture, present, explore
+
+Implicit knowledge: there's a line between what know by most, and unknown by most
+--
+You don't change the ADR!
+
+Arachne -> good examples of ADR
+
+Not easy to tell the true reason for a decision: "mighty power", "team consensus"
+Not a documentation problem: a team problem
+--
+C4 : "easier without training"
+--
+# Legacy Path Balisage
+
+Action : condition
+
+Todo : asap
+- expose as service
+- extract this into that to remove duplication
+
+Todo : project rewriting other app
+
+-
+-
+
+Todo : difficult to evolve new features / major changes
+
+- decompose into microservices
+
+--
+
+@tooky  Adding a LIABILITIES.md file to our repo to track tech debt we are willing to live with for the moment.
+
+
+--
+Reverse engineer the source code: that's the only documentation we could find! 
+
+
+--
+
+Michael Nygard training & pictures

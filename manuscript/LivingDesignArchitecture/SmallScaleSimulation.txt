@@ -16,6 +16,8 @@ In a very large legacy system with a few applications and many batches running i
 
 In two startups with rich domain, we paired a few days to create a small-scale model, working for just one very simplified case. However, it was the opportunity to quickly get to explore and map the domain, discover the main issues and stakes, grow a vocabulary, and agree on a shared vision of the whole system. From that small-scale system, later discussions had a concrete reference code to ground the discussions, it's really a communication tool you can point at during conversations.
 
+At a big company where everything takes ages, creating a Small-Scale Model under the name of a "Proof of Concept" is a great alternative to never-ending studies delivering nothing but slides and illusions. The focus on working code helps converge and makes it harder to elude the tough questions. You probably already build Proofs of Concepts at the beginning. But do you keep them for their explanatory power for later?
+
 ## The desirable properties of a small-scale simulation
 
 A small-scale simulation must be:
