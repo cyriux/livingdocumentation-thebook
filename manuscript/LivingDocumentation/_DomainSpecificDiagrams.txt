@@ -1,5 +1,47 @@
-# Domain-Specific Diagrams
+# Domain-Specific Diagrams (Visible Tests)
 
-Cashflows over time
+*Tests that produce a visual output for human review*
 
-Results Distributions
+Good tests check the code against predefined assertions all the time. They are silent unless something goes unexpected: a failed assertion, or an error.
+
+However I've found that tests could sometime also be used to produce visible output like diagrams, in various domain-specific notations.
+
+Exploration: no assertions yet, visible outputs
+
+Non-regression: assertions expressed visually
+
+-
+
+A> Domain-Specific Notations
+
+Accounting left column sum = right column sum (tabular)
+
+Cash management timeline with cash paid or received (timeline): bonds coupons or other financial instruments, insurance contract, loan interests...
+
+Anything lifecycle: e-commence sale and return, legal agreement, ads retargeting, financial options events
+
+Geography on a real map or on a specific map: itinerary, routing, distribution
+
+Matching: orderbook, dating sites
+
+Planning:
+Équivalence relationships: chemical equations, arbitrage relations (cash carry), swap as futures, swap diagram between two parties
+Genealogy: BOM, ingredients, dependency graphs
+
+Metaphors!
+
+
+
+During exploratory development, for example during a spike, when the problems are not clear and you're not sure how to solve them, you want quick feedback anyway. Usually tests are great at providing this feedback, but in this case it's difficult to decide what to assert, and it will change a lot very soon while you discover the problem more in-depth. You need something cheaper
+
+
+Marble diagrams literally in unit tests -> alex Victoor
+
+ASCII Art Domain-specific notation
+
+   ^ ^
+   | |
+-------------------->
+
+
+## Visual Tests

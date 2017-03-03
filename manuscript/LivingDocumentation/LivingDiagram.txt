@@ -17,6 +17,15 @@ This is all frustrating, but the worst part is that important knowledge is lost 
 
 **Therefore: Whenever a diagram will be useful for the long term, for example it has already been used several times, setup a mechanism to automatically generate the diagram from the source code without any manual effort. Have your Continuous Integration trigger it on each build, or on a special build that is ran on-demand at the click of a button. Don't re-create or update the diagram manually each time.**
 
+## Diagrams help conversations
+
+Conversations and diagrams are not incompatible:
+
+> Unexpected side effect of having a living diagram of the system: it makes development more tangible. You can point to things in discussions.
+> Rinat Abdullin on Twitter @abdullin
+
+Being able at all times to refer to the latest version of a diagram reflecting the current state of the software is a catalyzer of discussions.
+
 ## Editorial Perspective
 
 When we create and maintain diagrams manually, and given the time it takes, it's tempting to put as much as possible onto the same diagram to save effort, even if this is detrimental to its users. However once the diagrams are generated, there is no reason any more to make your diagrams more complicated. Creating another diagram is not so much effort.
@@ -146,3 +155,17 @@ Diagrams types by layout complexity
 - Rich Layout (vertical + horizontal layout + containment)
 
 Of course if you want to be more creative you could also try to turn your diagram into a piece of art, doing a Photo collage, or even turn it into something animated or interactive.
+
+## Visualization guidelines:
+
+There are rules for a good document: showing or listing no more than 7+/-2 items is an important one, choosing a layout or list style or table or chart that is congruent with the structure of the problem etc.
+
+> Why do so many engineers think complicated system diagrams are impressive? What's truly impressive are simple solutions to hard problems. -- @nathanmarz
+
+> The ultimate rule of thumb: if there is at least one line crossing another in a diagram, the system is too complicated -- @pavlobaron
+
+To get the most from your diagrams, consider making everything meaningfull: 
+
+- Make the left-right and top-down axes meaningful: Manual vs Automatic, API vs SPI, Do Nothing vs Do Something, Single vs Plural, same intent beyond variety, orthogonal stuff, causality left-to-right, dependencies top-to-bottom...
+- Make the Layout meaningfull too: proximity, boundaries
+- Make the elements attributes meaningfull: size, color, texture, fill, border color...

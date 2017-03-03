@@ -1,7 +1,6 @@
 
 @abdullin: Our auto-generated domain diagrams got awesome feature from @pjvds: show events that are subscribed but not tested. http://t.co/FtpS4QGsSH
 
-@abdullin: Unexpected side effect of having a living diagram of the system: it makes development more tangible. You can point to things in discussions.
 
 
 ## Living Diagram examples
