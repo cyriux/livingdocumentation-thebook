@@ -1,0 +1,144 @@
+
+
+Stereotypes-like patterns represent intrinsic roles or properties that always belongs to the native element, regardless of any given use-case (hence the world intrinsic):
+
+@Idempotent
+void store(Customer customer);
+
+If applicable or needed, declare attributes of this instance, like textual explanations, labels, flavour etc.
+
+@Sensitive("Risk of Fraud")
+public final class CreditCard {...
+
+
+KnowledgeLevel
+
+## Where to declare a collaboration pattern
+
+To declare the collaboration pattern instance you place the annotation on an elements that participates actively to the pattern. You can check that by wondering "if I removed the pattern, should I keep this element?" If the answer is no then you can safely declare the pattern on it (the class or method is there only to realize the pattern). Often I would suggest to place the annotation of the element that role is named after the pattern.
+Participants declarations
+
+You declare the roles (participants) using the values of the annotation, for example for a pattern AggregateRoot, you would place the annotation @AggregateRoot on the type that acts as the root of the aggregate, and you would define the other role (aggregated) as a value in this annotation:
+
+@AggregateRoot
+public interface Customer {
+
+
+@Repository(aggregateRoot = Customer.class)
+public interface AllCustomers {
+
+## The pattern catalogue
+
+An important idea in Patternity is to reuse the work from others by sharing the definitions of patterns and what can be done with them, such as the corresponding tools configurations).
+
+The annotations for many common patterns are provided, and you can also create your own to complement or override the existing patterns catalogue.
+
+The catalogue already includes patterns from the GoF, DDD, Fowler (Analysis Patterns and PoEAA), EIP, some PLoP & POSA patterns, and several well-knowns and/or trivial basic patterns and idioms.
+
+## Using meta-annotations
+
+Meta-annotations are already used in Java with @Target and @Inherited, and with @Component in Spring.
+
+It's possible to introduce additional meta-annotations, for example @ModuleWide, which means that when attached on a module, the annotation is supposed to apply on every member of the module. Or
+
+For patterns with roles you define the roles using the annotation values. The default value is used when the role is not explicitly set when using the annotation.
+
+## Empower your tools
+
+Checking dependencies by using the patterns and stereotypes information:
+
+if (type.isInvolvedIn(VALUE_OBJECT)) {
+    if (dep.isInvolvedIn(ENTITY) || dep.isInvolvedIn(SERVICE) || dep.isInvolvedIn(REPOSITORY)) {
+
+Dependency Injection binding between families, by using additional or implied semantics such as "Interface-Implementation" between each two families.
+
+Design documentation, thanks to additional predefined design information (object templates) :
+
+definitions.put(AR, new Relationships().add(CONTEXT, new Role("component"), DELEGATION));
+
+definitions.put(COMPOSITE, new Relationships().add(CONTEXT, new Role("component"), DELEGATION)
+    .add(new Role("component"), CONTEXT, INHERITANCE).add(new Role("component"), new Role("leaf"), INHERITANCE));
+
+
+
+---
+
+//typically on a class or interface. Note how the name of the annotations try to avoid any technical jargon in favor of words that are accessible to non-technical audience, because in a domain model we want
+
+@Policy @BusinessRule @BusinessConcept
+@Core
+@KeyConcept
+@BusinessConvention
+@ConsistencyAggregate
+@BusinessDomain(BusinessDomain.ACCOUNTING) //on a package
+
+
+## Curation of design
+
+@Command
+@Query
+@SideEffect(SideEffect.WRITE, "Database”)
+@Internal //typically on a package
+
+## Curation of source code snippets
+
+@Tutorial("How To Setup a Datasource")
+Public void How_To_setup_a_Datasource(){
+  Context ctx = new Context("my-key", "with-some-value");
+  Datasource.init(ctx); //etc.
+}
+
+@Tutorial(DocLandscape.GETTING_STARTED)
+Public void step3(){
+  //...
+}
+
+// when the same bit of code is generic and can be reused for several different types of documentation, prefer tags that don't assume where is will be used. Instead, just tag with what it is, independently from all its possible uses:
+
+
+@Snippet()
+Public void Configuring_the_number_of_bank_holidays(){
+  //... only the content is extracted
+}
+
+
+@Snippet("Creating the method to provide the number of bank holidays")
+
+@BusinessRule
+Public int bankHolidays(BusinessCalendar calendar){
+  //... the full method is extracted, including its complete signature, comments and annotations, except the @Snippet annotation
+}
+
+
+// one can also simply use special comments, but this requires a full parser
+Int price = 12;
+Int quantity = 100;
+Boolean way = BUY;
+// @Snippet How to send an order to the market
+orderRouter.send(new Order(price, quantity, way);
+// @ Snippet How to be notified of execution
+...
+
+
+
+--
+Type & typing OR Enforced Annotations
+
+On the callback interface used to subscribe your own handlers
+
+~~~~~~~~
+// This hook guarantees at least once delivery
+@AtLeastOnceDelivery
+void onEvent(Event e);
+~~~~~~~~
+
+On each implementation:
+
+~~~~~~~~
+// See the corresponding property-based testing to enforce the idempotence property
+@Idempotent
+void onEvent(Event e){
+...}
+~~~~~~~~
+
+Typically, mocking the data source should verify that no update is being done when the same arbitrary event is delivered more than once.

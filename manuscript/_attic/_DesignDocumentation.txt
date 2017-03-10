@@ -1,5 +1,10 @@
 # Design Documentation
 
+
+
+--
+
+
 *Design is about the all decisions taken. It especially revolves between the things and how they collaborate in a valuable way*
 
 
@@ -10,18 +15,7 @@
 
 ## What is design anyway?
 
-The best answer to this question I know is from Alistair Cockburn:
 
-> If it's your decision to make, then it's 'design'; if it's not, then it is a requirement to you.
-> From [Alistair Cockburn](http://alistair.cockburn.us/A+requirement+is+a+relationship+to+a+decision)
-
-In this view, design is everywhere:
-
-- In the features which are selected, cut into smaller pieces, and how they are interpreted for implementation
-- In the code, with the classes, methods, fields and other constructs depending on your programming language
-- In the relationships between these elements, in the way they are used together or not. In other words, in the empty space between the things.
-
-![Design is between the things and how they collaborate in a valuable way](images/element_of_a_system.png)
 
 
 ---
@@ -34,7 +28,9 @@ How do we know we've done it right? How do we know it's being violated? How do w
 -> make design properties explicit!
 
 Eg. Event Sourcing: No calling the aggregate method directly from outside the domain model.
-CQRS: write model ignores the view models. Write model knows of the API in terms of commands and events.
+CQRS: write model ignores the view models.
+
+Write model knows of the API in terms of commands and events.
 
 Eg. Assumption: this decision holds as long as we don't have to touch module A whenever we touch module B (at 10%). Check that against the source control history.
 
@@ -61,11 +57,6 @@ Pen testing: the system shall not be compromised by any of the hacking technique
 
 Nice to have: include test attachments / by-product (eg generated diagram) in the reporting itself.
 --
-# Conform to an opinionated documented framework
-
-The code not written needs no documentation. Using an off the shelf framework like Axon that is documented may be a good idea, in particular for teams of limited maturity where the framework will constrain the design to follow some structure. This may sound like a bad thing, and it often is, but it can sometimes be used deliberately.
-
-If you write an app 'without a framework' you end up with an under-specified, undocumented, informal framework. bit.ly/1PMzHIP
 
 
 ---
@@ -85,13 +76,7 @@ If you write an app 'without a framework' you end up with an under-specified, un
 > - Pay attention to whether people are using them, if not throw them away.
 > -- Martin Fowler in [Is Design Dead?](http://martinfowler.com/articles/designDead.html)
 
-## Documenting errors, or avoiding errors?
 
-An important part of documentation is to describe the error cases. But there's a better way: we could avoid the error cases altogether with better design and better coding practices.
-
-Let's take the example of a function that calculates an inverse. If the divisor is zero then there is no result. This is often a case of error management, but an alternative is to make the function a Total Function.
-
-A total function is a function that works for all possible parameters values. In our case, all it takes to make our function total is to extend the number type with the NotANumber special value. Now the function can just return NotANumber when there's a division by zero, instead of going the error management road.
 
 
 
@@ -122,10 +107,6 @@ http://www.developerdotstar.com/mag/articles/reeves_13yearslater.html
 > @pavlobaron: @nathanmarz @sbtourist the ultimate rule of thumb: if there is at least one line crossing another in a diagram,the system is too complicated
 
 --
-Interfaces + chosen implem
-MongoDBAccount -> Account
-
-The implementation name prefix is a documentation
 
 --
 

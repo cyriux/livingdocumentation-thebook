@@ -1,19 +1,29 @@
 # Living Design & Architecture
 
-Design is not a phase, it's a concern we keep in mind when coding.
+The best definition of design I know is from Alistair Cockburn:
+
+> If it's your decision to make, then it's 'design'; if it's not, then it is a requirement to you.
+> From [Alistair Cockburn](http://alistair.cockburn.us/A+requirement+is+a+relationship+to+a+decision)
+
+Note that we call architecture is design too.
+
+Design is not a phase, it's about the all the concerns we decide to pay attention to while coding. We would consider the ease of evolution of the code, its readability, how it can be understood without help.
 
 Software design is about deciding carefully between all the possible ways to code the same behavior. Or in Jeremie Chassaing's words: "it's picking one in gazillions of possibilities with good reasons." Hence the frequent objection during design discussions: "but it's the same thing at the end!" Yes it is. If you just care about making it work, design is irrelevant. Design is when you care about concerns beyond just making it work.
 
 If you practice TDD, design is what you do in the third step "Refactoring", after creating a failing test (specs) and making it work with just enough code.
 
-Even if you don't, design means trying things only to change them later when we know better. Being serious about design means continuous changes of the design and the code which embodies the design.
+Design is about trying things only to change them later when we know better. Being serious about design means continuous changes of the design and the code which embodies the design.
 
 The code as you see it is a consequence of all the past design decisions. You can recognize many of these past decisions just by looking at the code base, but you'll miss many as well.
 
-Living Documentation of design is precisely about finding practices that help explain more design decisions accurately, without slowing down the continuous flow of changes that we make when we design.
+Living Documentation in the case of design is precisely about finding practices that help explain more design decisions accurately, without slowing down the continuous flow of changes that we make when we design.
+
+We've covered in previous chapters several examples of living documentation applied on design concerns: living diagrams on Hexagonal Architecture, on micro-services,
+Ready-Made Knowledge with design patterns, Code as Documentation. This section elaborates a bit on top of that.
 
 
-# The design skills pre-requisite
+## The design skills pre-requisite
 
 Even if you start a Living Documentation journey with the goal of solving the documentation problem, you'll quickly discover that your actual problem is that the design is poor or arbitrary: "design by coincidence". To solve the documentation problems you have to solve the design problems. This is all good news indeed!
 
@@ -24,3 +34,90 @@ This becomes a positive pressure to improve the design, which has benefits well 
 **Good design skills also make good living documentation skills.**
 
 Focus on living documentation, and focus on design skills. Practice both together and everything will get better!
+
+
+## Documenting errors, or avoiding errors?
+
+An important part of documentation is to describe the error cases. But there's a better way: we could avoid the error cases altogether with better design and better coding practices.
+
+Let's take the example of a function that calculates an inverse. If the divisor is zero then there is no result. This is often a case of error management, but an alternative is to make the function a Total Function.
+
+A total function is a function that works for all possible parameters values. In our case, all it takes to make our function total is to extend the number type with the NotANumber special value. Now the function can just return NotANumber when there's a division by zero, instead of going the error management road.
+
+## Naming (again)
+
+Naming style does not have to be uniform. For example in my taste I always go for business domain names within a domain model or domain layer: `Account`, `ContactBook`, `Trend`. But on the infrastructure layer or adapters (in the Hexagonal Architecture sense) I'd go for prefixes and suffixes to qualify technologies and patterns being used in the corresponding implementing sub-classes: `MongoDBAccount`, `PostgresEmailsDAOAdapter`, `RabbitMQEventPublisher`.
+
+I'd say that the name here tells all you need to know. Any additional detail can just be put in the class structured comment.
+
+## Design Annotations
+
+Any design information that can make the code more explicit is worth adding. If you follow the Layers pattern, you can document it by putting a custom annotation @Layer on the package at the root of each layer: `com.example.infrastructure/package-info.java`
+
+     @Layer(LayerType.INFRASTRUCTURE)
+     package com.example.infrastructure;
+
+Stereotypes-like patterns represent intrinsic roles or properties that qualify a language element like a method:
+
+     @Idempotent
+     void store(Customer customer);
+
+or
+
+     @SideEffect(SideEffect.WRITE, "Database”)
+     void save(Event e){...}
+
+Specific risks or concerns can also be denoted directly on the corresponding class, method or field:
+
+     @Sensitive("Risk of Fraud")
+     public final class CreditCard {...
+
+Design patterns in general are good candidates for design annotations. You place the annotation on an elements that participates actively to the pattern. You can check that by wondering "if I removed the pattern, should I keep this element?" If the answer is no then you can safely declare the pattern on it (the class or method is only there to realize the pattern). It is often the element in the role having the name of the pattern itself, like the `Adapter`, or the `Command`.
+
+Sometime you need values in your annotations. For example if you want to declare an occurrence of the DDD repository pattern that is manipulating a particular aggregate, you would do it like this:
+
+     @Repository(aggregateRoot = Customer.class)
+     public interface AllCustomers {...
+
+You can create your own patterns catalogue with the patterns you use most commonly. It would include patterns from the GoF, DDD, Fowler (Analysis Patterns and PoEAA), EIP, some PLoP & POSA patterns, and several well-knowns and/or trivial basic patterns and idioms, plus all your custom in-house patterns.
+
+In addition you may create custom annotations to classify some important sources of knowledge, like Business Rules, policies etc.
+
+~~~~~~~~
+@BusinessRule
+Public Date shiftDate(Date date, BusinessCalendar calendar){...}
+~~~~~~~~
+
+Here are some more examples to illustrate:
+
+- @Policy
+- @KeyConcept
+- @BusinessConvention
+- @Core
+- @Adapter
+- @Composite
+- @Command
+- @Query
+- @CorrelationID (on a field)
+
+## Enforced Design Decisions
+
+Thanks to the augmentation of the code with design knowledge, using annotations, naming conventions, tags in your service registry or any other mechanism, you can delegate conformity checks to tools. You can check dependencies according to the declared patterns and stereotypes knowledge. I like to raise an anomaly if a class annotated as a `Value Object` has field-level dependencies to classes annotated as `Entity` or `Service`. That's my taste, and I can ask tools to check it for me.
+
+~~~~~~~~
+if (type.isInvolvedIn(VALUE_OBJECT)) {
+  if (dependency.isInvolvedIn(ENTITY) ||
+     dependency.isInvolvedIn(SERVICE)) {
+      ... raise an anomaly
+}
+~~~~~~~~
+
+## Coding against a framework
+
+The code not written needs no documentation. When you use an off-the-shelf framework like Spring Boot (a lightweight microservice framework) or Axon-Framework (a framework for Event-Sourced applications), a lot of code is already written, and your code has to conform to what's expected by the framework. Choosing such frameworks may be a good idea for teams of limited maturity where the framework will constrain the design to follow some structure. This may sound like a bad thing, but it's a good thing from a knowledge transfer perspective: no room for surprise, once you're familiar with the framework you can understand most of the code. In addition, such frameworks are well-documented, and their use of annotations also documents your code:
+
+      @CommandHandler
+      void placePurchase(PlacePurchaseCommand c){...}
+
+>But if you write an app 'without a framework', you end up with an under-specified, undocumented, informal framework.
+> -- from Hacker News: https://news.ycombinator.com/item?id=10839081

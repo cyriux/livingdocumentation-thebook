@@ -1,0 +1,28 @@
+# Living Arch - # Documentation by Registry (Consul / Eureka)
+
+Platform-level source repository (Github)
+ README, guidelines etc.
+ Timeline service
+
+Distributed Tracing (e.g. Zipkin)
+ Distributed Tracing annotations // augmentation
+ Daily Aggregation of Distributed Traces //dependencies
+
+Discovery Registry (e.g. Consul)
+ Discovery Registry tags // augmentation: Read / Write Model, Service / Data Pump / BFF / API Gateway, Infra, Bounded Context, Proxy, Legacy, Adapter
+
+Living Diagrams
+ by Front - Back,
+ by Back && Bounded Context(services, data pumps…)
+ by Front && Audience (BFF, Gateway, Front Service like Search, TODO etc.)
+ by Domain && Service only, Infra only,
+ by integration (Proxy, Adapter, BFF, Pump),
+ Runtime Conformity Checker (Simian Army)
+ Consumer-Driven Contracts
+
+
+ spring:
+   cloud:
+     consul:
+       discovery:
+         tags: foo=bar, baz

@@ -109,9 +109,11 @@ A> You may be tempted to use this kata on real business cases, as a form of comp
 
 What I learnt from this kata is that different business problems call for a focus on different areas. The main aspect of point of sale system in the street is to be lightweight, cheap in case it is stolen, and easy to use while making hog dogs in a hurry in the middle of a little crowd. In contrast, a mobile app meant to sell itself on an app store has to be primarily visually attractive, whereas an enterprise system meant to serve millions of transactions by second should before all focus on performance as its main stake. And there are systems where the main stake is on their deeper understanding of the business domain.
 
-Therefore: **Identify early the main stake of the project: business domain, technical concern, user-experience level, integration with other systems, or anything else. You may ask the question: "What could most easily make the project a failure?". Focus everyone's attention on this main stake, in conversations, early spikes and prototypes, and in the written artifacts which are produced. In particular, make sure your documentation efforts primarily cover the main stake.**
+These key stakes of the system are what should be primarily recorded for everyone to know.
 
-To caricature, don't spend too much of your time documenting the server technology stack when the main stake of the whole project is on the UX. And by "documentation", we mean in the context of this book, i.e. using any media, from source code and annotations to short evergreen Markdown documents, not necessarily big MS Word documents.
+Therefore: **Identify early the main stake of the project: business domain challenge, technical concern, quality of the user-experience, integration with other systems... You may ask the question: "What would most easily make the project a failure?". Make sure your documentation efforts primarily cover this main stake.**
+
+To caricature, don't spend too much of your time documenting the server technology stack when the main stake of the whole project is on the UX.
 
 
 ## Explicit Assumptions
@@ -139,7 +141,9 @@ A good architecture is easy to explain succinctly and minimizes the number of de
 This means that whatever makes the architecture or its documentation hard or expensive to change must be avoided. Your team should learn how to make reversible decisions, or to defer irreversible decisions. And if you fear changing the architecture because you have a lot of static documentation about it that would have to be redone, then your documentation is harming you and you should reconsider how you do it.
 
 
-**Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better.** And keep it all evolving, removing any process or artifact which would impede continuous change.
+**Pay attention to how much words and diagrams are needed to explain the architecture, the less being probably the better.**
+
+Keep it all evolving, removing any process or artifact which would impede continuous change.
 
 
 ## Architecture Steering
@@ -287,15 +291,18 @@ In the example below, the decision log is maintained as a one single Markdown fi
 >
 >
 
-## Polyglot Architecture and Documentation Landscape
+## Fractal Polyglot Architecture
 
-In any significant system, we should give up on the idea of one single architecture. A system is made of several modules, and each should have its own architecture. Of course the design of the modules and how they are related to each other is architecture too, of a high-level kind.
+Considering a large system, we should give up on the idea of one single uniform architecture everywhere. A system is made of several sub-systems, and each should have its own architecture, plus the overall architecture of how they're inter-related.
 
 Therefore: **Consider your system as several smaller sub-systems, or "modules". They may be physical units, as components or services, or just logical modules at compile time. Document the architecture independently for each module, and describe the over-arching architecture between the modules as one system-level architecture too.**
 
 Typically you would document the architecture of each module with Internal Documentation, using a combination of package naming conventions, annotations in the source code, and a little plain text. You would document the overall architecture with more Evergreen Documents in plain text, and perhaps some specific DSL if you have one that fits. However the documentation of the overall architecture could also use some generated documents built by consolidation of the knowledge extracted from each module.
 
-At each level, ready-made architecture document templates may help, despite the fact that many of them are much too big and pretend to be one-size-fits-all solutions to all problems.
+
+## Documentation Landscape
+
+Ready-made architecture document templates may help, if you like them:
 
 - Arc42
 - IBM/Rational RUP
@@ -303,7 +310,9 @@ At each level, ready-made architecture document templates may help, despite the 
 - K's 4+1 and similar ideas like the increasingly popular Simon Brown's C4
 
 
-Most such templates try to plan for every possible architectural documentation need. This makes them terrible as a template to laboriously fill in with random rant. But this also makes them as extensive checklist on what to describe *when it makes sense* in your context. For example, the ARC 42 "Concepts" section is a nice checklist to find out what you've forgotten to think about, as shown below (the list is shortened from the [original template](http://www.arc42.org/))
+Some templates try to plan for every possible architectural documentation need. I totally hate  having to laboriously fill large templates.
+
+Another positive side of templates is as extensive checklists. For example, the ARC 42 "Concepts" section is a nice checklist to find out what you may've forgotten to consider, as shown below (the list is shortened from the [original template](http://www.arc42.org/))
 
 - Ergonomics
 - Transaction Processing
@@ -327,9 +336,9 @@ How many of these aspects do you neglect in your current project? How many of th
 
 Draw inspiration from all these established formalisms to derive your own documentation landscape, on a *module by module* basis. According to Stake-Driven Architecture Documentation, focus each documentation landscape on what matters most for the stakes of this sub-system.
 
-On a module with a rich business domain, you would focus primarily on the domain model and its behaviors as key scenarios. On a module more CRUDdy, there may be very little to say, as everything is probably standard and obvious. On a legacy system, the testability and migration may be the most challenging aspects, so you would probably deserve some documentation.
+On a module with a rich business domain, you would focus primarily on the domain model and its behaviors as key scenarios. On a module more CRUDdy, there may be very little to say, as everything is probably standard and obvious. On a legacy system, the testability and migration may be the most challenging aspects, which would probably deserve the documentation.
 
-Your documentation landscape can be a plain text file with predefined bullets and tables, but it can take the form of a small annotations library too, to directly mark the source code elements with their architectural contribution and rationale. It could be a specific DSL too. In practice you would mix all these ideas according to what works best. You may even use a Wiki, or even proprietary tools which would instantly solve all your problems...
+Your documentation landscape can be a plain text file with predefined bullets and tables, but it can take the form of a small annotations library, to directly mark the source code elements with their architectural contribution and rationale. It could be a specific DSL. In practice you would mix all these ideas according to what works best. You may even use a Wiki, or even proprietary tools which would instantly solve all your problems...
 
 A typical documentation landscape for a system would have to at least describe the following points:
 
@@ -414,7 +423,7 @@ One consequence is that this enables decentralizing the architecture and the dec
 
 For example, in a microservices architecture, a transparent architecture will make use of Living System Diagrams generated out of the working system at runtime. This knowledge is already there in the distributed tracing infrastructure (e.g. Zipkin). You may have to augment it a bit with custom annotations and binary annotations added in your instrumentation.
 
-You may as well rely on your Discovery Registry (e.g. Consul, Eureka...) and its tags to produce Living Documents. Dependencies between services can also be derived from the Consumer-Driven Contracts, if you apply this practice. And if you care about the physical infrastructure, it can be made visible through custom Living Diagrams generated with Graphviz from data you get from your Cloud through its programmatic API. Note that more "virtuous" practices also makes living documentation easier!
+You may as well rely on your Service Registry (e.g. Consul, Eureka...) and its tags to produce Living Documents. Dependencies between services can also be derived from the Consumer-Driven Contracts, if you apply this practice. And if you care about the physical infrastructure, it can be made visible through custom Living Diagrams generated with Graphviz from data you get from your Cloud through its programmatic API. Note that more "virtuous" practices also makes living documentation easier!
 
 ![Living Diagram of a Cloud infrastructure generated from cron, python, boto, pydot, graphviz - from James Lewis slides ](images/james_lewis_cloud_diagram.png)
 

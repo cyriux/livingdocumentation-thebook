@@ -1,29 +1,29 @@
 TO WRITE
 
-# Living Design - # Documentation by Registry (Consul / Eureka)
+
+
+
+
+
 # Tools addendum -> add Graphviz pure JVM!
-# Visual Tests (domain mostly )
+# Domain-Specific Diagrams
 # Metaphor
-# README, zero doc etcs
+# Zero Doc, README
 # Doc by DSL & Simon Brown?
+# Pattern oriented -> add some sample generated diagrams
+Blog: Make your design explicit using annotations
 
 _integrate tools history
 _integrate conversation with JB
 
 integrate quotes?
 
-
-
-TODO contact JB Dussault
 TODO contact Peter Hilton to quote (?)
 TODO contact Accraze.info to quote http://accraze.info/living-documentation/
 
 Living Context Map Diagram
 
-
 # Templated diagram (image map but better)
-
-# Pattern oriented -> add some sample generated diagrams
 
 
 DONE
