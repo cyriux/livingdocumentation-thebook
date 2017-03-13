@@ -147,6 +147,7 @@ Summing_it_up_Interview_Doctor_by_Reporter.txt
 
 LivingDesignArchitecture/Section------LivingDesignArchitecture.txt
 LivingDesignArchitecture/LivingDesign.txt
+LivingDesignArchitecture/SystemMetaphor.txt
 LivingDesignArchitecture/ArchitectureLandscape.txt
 LivingDesignArchitecture/TestDrivenArchitecture.txt
 LivingDesignArchitecture/SmallScaleSimulation.txt

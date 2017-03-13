@@ -90,15 +90,12 @@ Public Date shiftDate(Date date, BusinessCalendar calendar){...}
 
 Here are some more examples to illustrate:
 
-- @Policy
-- @KeyConcept
+- @Policy to highlight each company policy
 - @BusinessConvention
-- @Core
-- @Adapter
-- @Composite
-- @Command
-- @Query
-- @CorrelationID (on a field)
+- @KeyConcept, @Core to emphasize what's important
+- @Adapter, @Composite to denote the use of a pattern
+- @Command or @Query to clarify the semantics of write or read on a module or
+- @CorrelationID, or AggregateID on a field
 
 ## Enforced Design Decisions
 
@@ -112,6 +109,14 @@ if (type.isInvolvedIn(VALUE_OBJECT)) {
 }
 ~~~~~~~~
 
+You may also create custom rules in your static analysis tool. For example, using the SonarQube built-in Architectural Constraint template, you could create the rules:
+
+
+- "Persistence layer cannot depend on web code": forbid access to **.web. from **.dao.** classes
+- "Hexagonal Architecture": forbid access to **.domain.** to **.infra.**
+
+The name of the rule and its definition as access restrictions clearly documents and protects the design decision at the same time, all in one place.
+
 ## Coding against a framework
 
 The code not written needs no documentation. When you use an off-the-shelf framework like Spring Boot (a lightweight microservice framework) or Axon-Framework (a framework for Event-Sourced applications), a lot of code is already written, and your code has to conform to what's expected by the framework. Choosing such frameworks may be a good idea for teams of limited maturity where the framework will constrain the design to follow some structure. This may sound like a bad thing, but it's a good thing from a knowledge transfer perspective: no room for surprise, once you're familiar with the framework you can understand most of the code. In addition, such frameworks are well-documented, and their use of annotations also documents your code:
@@ -121,3 +126,17 @@ The code not written needs no documentation. When you use an off-the-shelf frame
 
 >But if you write an app 'without a framework', you end up with an under-specified, undocumented, informal framework.
 > -- from Hacker News: https://news.ycombinator.com/item?id=10839081
+
+## Exemplarity in the case of design
+
+If you advertise some kind of segregation of concerns in the code, you should follow the same kind of segregation in the documentation. This way the very documentation structure brings the point home.
+
+For example in functional programming we pay a lot of attention in segregating the side-effects from the pure (side-effect-free) code. When the documentation, whatever its form, follows the same structure:
+
+1. Pure domain code (XL)
+1. Side-Effects (S)
+1. Control (S)
+
+The segregation and strong preference for pure code becomes obvious through the structure, ordering and relative size of each section: most of the program is pure, making it the largest section by far. It's also where's the interesting things about the domain are represented, so this section comes first.
+
+The two other sections explain the rest, the necessary evil for the program to be useful. The code for that is kept simple and minimal, therefore these sections are small.

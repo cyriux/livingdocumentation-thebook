@@ -1,5 +1,8 @@
 Humor
 
+@ericlemerdy: To respect the Acyclic Dependencies Principle : have only one package
+
+
 ## Commit Messages
 
 @MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK

@@ -1,20 +1,18 @@
 TO WRITE
 
-
-
-
-
-
-# Tools addendum -> add Graphviz pure JVM!
 # Domain-Specific Diagrams
-# Metaphor
+_integrate conversation with JB
+
+
+# NoDoc / Examplarity by attitude, and by doc itself
+
+# Tools addendum -> Graphviz pure JVM!
 # Zero Doc, README
 # Doc by DSL & Simon Brown?
 # Pattern oriented -> add some sample generated diagrams
 Blog: Make your design explicit using annotations
 
 _integrate tools history
-_integrate conversation with JB
 
 integrate quotes?
 

@@ -106,9 +106,9 @@ This is great, because that documentation that's already there. Why write that a
 
 Compilers, Code coverage, static code analysis tools, bug detectors, duplication detectors, dependency checkers are common examples of ways to setup Enforced Guidelines in practice.
 
-Sonar is a popular tool that itself rely on many plugins to actually do its job. When the configuration of the tools is often not meant to be a documentation, with verbose XML and rules identifiers, tools like Sonar (see SonarQube) can make the configurations more accessible in a convenient UI, to the point of becoming the reference about guidelines.
+Sonar is a popular tool that itself rely on many plugins to actually do its job. When the configuration of the tools is often not meant to be a documentation, with verbose XML and rules identifiers, tools like Sonar (see SonarQube) can make the configurations of coding rules more accessible in a convenient UI, to the point of becoming the reference about guidelines.
 
-![Browsing the rules by various criteria in Sonarqube.png)
+Even when the plugins are actually configured via an XML file, Sonar displays the list of coding rules nicely on screen, and you can modify them there, along with the reference description in prose. This can also be exported in a spreadsheet format. If you really want to spend time documenting coding guidelines manually, just tell the overall intentions, priorities and preferences, and let the tools tell the details!
 
 Other guidelines may be enforced by access control. You decided that this legacy component is frozen from now on, nobody has the right to commit on it? Simply revoke the write grants to everyone. But this in itself does not explain why. So expect questions, and the knowledge transfer will happen as a conversation.
 

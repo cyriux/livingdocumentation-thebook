@@ -1,0 +1,23 @@
+Peter Naur - Programming as Theory Building
+
+as introduced by REMZI H. ARPACI-DUSSEAU in pages.cs.wisc.edu/~remzi/Naur.pdf
+
+> The quality of the designer's work is is related to the match between his theory of the problem and theory of the solution. Note that the quality of a later programmer's work is related to the match between his theories and the previous programmer's theories.
+
+> Using Naur's ideas, the designer's job is not to pass along "the design" but to pass along "the theories" driving the design. The later goal is more useful and more appropriate. It also highlights that knowledge of the theory is tacit in the owning, and so passing along the theory requires passing along both explicit and tacit knowledge.
+
+
+In the words of Peter Naur:
+
+http://www.dc.uba.ar/materias/plp/cursos/material/programmingAsTheoryBuilding
+
+> programming properly should be regarded as an activity by which the programmers form or achieve a certain kind of insight, a theory, of the matters at hand. This suggestion is in contrast to what appears to be a more common notion, that programming should be regarded as a production of a program and certain other texts.
+
+> The conclusion seems inescapable that at least with certain kinds of large programs, the continued adaption, modification, and correction of errors in them, is essentially dependent on a certain kind of knowledge possessed by a group of programmers who are closely and continuously connected with them.
+
+
+1) The programmer having the theory of the program can explain how the solution relates to the affairs of the world that it helps to handle.
+
+2) The programmer having the theory of the program can explain why each part of the program is what it is, in other words is able to support the actual program text with a justification of some sort.
+
+3) The programmer having the theory of the program is able to respond constructively to any demand for a modification of the program so as to support the affairs of the world in a new manner.

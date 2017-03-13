@@ -1,0 +1,45 @@
+# System Metaphor (XP, DDD)
+
+
+## Explaining a system by talking about another system
+
+If you happen to do trainings, you must know how hard it is to explain something to an audience you sit know. The key question is "What do they know already?", because you'll build on that.
+
+That's where metaphors take their power: by leveraging on things most people are already familiar with, we can explain new stuff more efficiently.
+
+> "It's like X"
+> "it's structured like X"
+
+When I explain monoids and how they compose, I usually take the metaphor to the tangible world, using real glasses of beers that I can stack. Or chairs that can be stacked. Or anything stackable indeed. This brings the point of monoid-esque composability, and it's fun, which is also very good for learning.
+
+Suggestive metaphors we're all familiar with: an Assembly Line, a water Pipeline, Lego Building Blocks, a Train on its Rails, or a Bill of Materials.
+
+The system Metaphor was part of Extreme Programming (XP) to unify an architecture and provide naming conventions.
+
+"A simple shared story of how the system works, a metaphor". From the [C2 Wiki](http://c2.com/cgi/wiki?SystemMetaphor)
+
+The famous eXtreme Programming project C3 "was built as a production line" while the other famous XP project VCAPS "was structured like a bill of materials". The chosen metaphor acts as a system of names, relations and roles working together towards a shared purpose. When using the metaphor, you invoke all the prior knowledge of the audience to be reused in the context of the system being considered. You know that an assembly line is typically linear, with multiple machines in line along the conveyor belt that is moving parts from one machine to the next. You also know that any defect upstream will result in defects downstream.
+
+## With or without prior knowledge
+
+Last time we built a rich cash flow calculation engine able to recreate cash from any complicated financial instrument, we used the metaphor of a modular synthesizer. Granted, not everyone is that familiar with this one, but that team was. The few who didn't were happy to learn about it.
+
+By the way that's interesting: a metaphor remains a little useful even when you don't know it just as a redundancy mechanism. Imagine you're trying to mentally picture the cash flow engine as an Interpreter pattern, and you're not fully sure you got it right; now I'll explain what's a modular synth, and it should help.
+
+A modular synth is a kind of synth made of independent modules, or "building blocks*" that we connect to each other using short Jack cords. Some modules produce simple sounds (Oscillators), some alter a sound timbre (Filters), other alter the sound intensity (Amplifier), other combines different sounds together (Mixer), other add effects. Some modules don't produce sound but modulate other module's action: for example a module continuously ramping up and down (so called LFO, for Low-Frequency Oscillator) can be wired ("patched") to the sound producer (Oscillator) to modulate its pitch, resulting in a "vibrato" effect. The patching combinations between every connector are near infinite, for a large variety of sounds to be produced.
+
+* Notice the metaphor in the metaphor here?
+
+
+Physics and mathematics regularly borrow from other fields. For example the "Simulated annealing" is a notorious method to solve optimization problems:
+
+> The name and inspiration come from annealing in metallurgy, a technique involving heating and controlled cooling of a material to increase the size of its crystals and reduce their defects
+> -- From https://en.wikipedia.org/wiki/Simulated_annealing
+
+A good metaphor is a model with some generative power: if I know that stopping a production line is very expensive, I can wonder how that would translate into our software system. Perhaps it does, and just like on a production line, we should perform strict validation of the raw materials in inputs to protect the line. But the metaphor may not stand on this aspect, and that's it.
+
+The more common culture the more inspiration available to use as a metaphor. Once you know what a Sales Funnel is, you can talk about it to explain key aspects of an e-commerce system, with its successive business stages from visitor to inquiries, to proposals, to new customer. And it's called a funnel because the volume at each stage decreases significantly.
+
+![A sales funnel](add picture)
+
+This knowledge comes in handy when doing architecture, as it informs scalability reasoning: the upstream stage like the Catalogue needs more scalability than the downstream stage like the Payment.

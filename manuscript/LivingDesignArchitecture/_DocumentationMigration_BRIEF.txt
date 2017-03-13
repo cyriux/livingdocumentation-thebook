@@ -6,7 +6,7 @@ Guidebook: a mix of evergreen and living documents covering the big picture: per
 
 @abdullin: Started developing a new module, using auto-generated diagram as first development feedback. Fast feedback FTW! http://t.co/PU0puXN2L3
 
-Documentation segregated between side effect-free stuff vs side-effect stuff (Tetris in Clojure)
+
 
 ## Enforced Architecture
 
@@ -20,7 +20,7 @@ You can spend time documenting all that in guide books and prescriptive document
 
 It's interesting to notice that this is often only possible provided that your code is well-annotated.
 
-@ericlemerdy: To respect the Acyclic Dependencies Principle : have only one package
+
 
 -----
 
