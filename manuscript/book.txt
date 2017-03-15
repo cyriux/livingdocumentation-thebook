@@ -28,6 +28,7 @@ Introduction_Overview/AccuracyMechanism.txt
 Introduction/Checklist.txt
 Introduction/CorePrinciples.txt
 Introduction/GatewayToDDD.txt
+
 Introduction_Overview/SpineModel.txt
 Introduction/Fun.txt
 
@@ -44,6 +45,14 @@ KnowledgeExploitation/Reconciliation.txt
 KnowledgeExploitation/InformationConsolidation.txt
 
 KnowledgeExploitation/ReadyMadeKnowledge.txt
+
+
+KnowledgeExploitation/ReadyMadeKnowledgeInConversation.txt
+KnowledgeExploitation/ReadyMadeKnowledge_patterns_criticism.txt
+
+KnowledgeExploitation/ToolsHistory.txt
+
+
 
 KnowledgeAugmentation/AugmentedCode.txt
 KnowledgeAugmentation/DocumentationByAnnotations.txt

@@ -60,6 +60,9 @@ Astonishment Report is a simple yet effective tool to learn both about what shou
 
 **Ask every newcomer to report all their surprises during their very first days on the job. Even if they come from the same company or from a similar background they may bring fresh perspectives. Suggest they keep a notebook to take notes immediately as they notice an astonishment, or they will forget most of them. It's paramount to preserve the candor, so keep the observation period short, like two days, or a week. Beware, two days may be long enough to get accustomed enough so that weird stuff is no longer that weird. Improve based on the remarks.
 
+
+
+
 ## Some Upfront Documentation?
 
 Sometime an on-demand documentation approach can supplemented by some upfront documentation. The danger is to create speculative documentation that may never be useful. The benefit is that obviously essential knowledge is available to help people without waiting for the Rule of 2 to trigger.
@@ -89,4 +92,37 @@ Still, there are some heuristics to help decide when a piece of knowledge should
 - It's important and there's no way it can be guessed or inferred from the code
 - It should be refactored to avoid the need for documentation, but it's not practical to do now
 
-From that it's up to the team to decide on the default choice: document by default, or don't document by default. Ok, I'm not really helping you there!
+Andy Schneider has really nice words on improving the documentation everyday, with a focus on empathy:
+
+> **Make the value you've added permanent**
+> -- Andy Schneider
+
+> - Comment code that you are working on so the next person doesn't have to go through the same pain [...]
+
+This maxim does not tell you precisely when or when not to do something documentation-related. It's still up to your judgement. But it reminds the point that it's all about protecting *value for other people*.
+
+### Knowledge Backlog
+
+Other techniques to stimulate on-demand documentation is to define the content of the documentation with the help of a skills matrix or through a knowledge backlog.
+
+Let each team member add what each piece of knowledge they'd like to have on sticky notes on a wall. Then have everyone decide by consensus or dot-voting what should be documented first. This could become your knowledge backlog. Every few weeks or every iteration you take one or two item and decide how to address it: shall we pair-program? Shall I augment the code to make this structure visible in the code itself? Shall you document your specific knowledge of this area as an Evergreen document on the Wiki?
+
+This session can be done within your retrospective.
+
+However beware of backlogs when they grow. Please don't make it into an electronic tracker, stickers at the bottom of your whiteboard are enough, and the lack of room will remind keeping the backlog small.
+
+### Skills matrix
+
+An alternative is to create a skills matrix with predefined areas, and ask each team member to declare their level of proficiency for each area. One limitation is that the matrix will reflect the views of the person creating it, and will ignore the skills areas ignored or neglected by this person.
+
+You could do use a skills matrix as a chart with many quadrants, as described by Jim Heidema in [his blog post](http://www.agileadvice.com/2013/06/18/agilemanagement/leaving-your-title-at-the-scrum-team-room-door-and-pick-up-new-skills/)
+
+> This is a chart that can be posted in the room to identify the skills needed and the people on the team. On the left column you list all the team members. Along the top you list all the various skills you need on the team. Then each person reviews their row, looking at each skill, and then identifies how many quadrants of each circle they can fill in, based on the range below the chart.  The range is from no skills through to teach all skills in a given column.
+>
+> 0: no skill
+> 1: basic knowledge
+> 2: perform basic tasks
+> 3: perform all tasks (expert)
+> 4: teach all tasks
+
+Whenever the skills matrix reveals a lack of skills, it calls for planning a training or improving the documentation in some form.

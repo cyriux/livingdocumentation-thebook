@@ -30,6 +30,8 @@ Project = Delivery + Learning
 - Keep track of what's been learnt and understood. What's has been preferred, compared to what alternatives and why. -> AUGMENTED CODE + MAINTAIN A BLOG
 - But don't try to capture every event; instead rewrite the story to make it simpler and shorter (like Git history with rebase)
 
+## ADR / Decision Log
+
 In the book *Software Craftsmanship Apprenticeship Patterns*, Dave Hoover and Adewale Oshineye advocate "Record what you learn" and "Share what you learn". A blog from the team members is a nice complement to any other kind of documentation. Though it is more personal, it tells stories that are more compelling that most documentation. It tells important bits of the adventure, with the feelings of the people that were part of it.
 
 > I like having a product and/or team blog. Journalling decisions and conversations as you have them documents history. It also shows how decisions got made, and lets you see changing tastes or learnings over time.

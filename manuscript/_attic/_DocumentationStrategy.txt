@@ -1,0 +1,8 @@
+# Defining a Documentation Strategy
+
+
+
+## When LD is not the right fit
+
+- Goals? why? Risk-Adjusted or Benefit-Adjusted: A matter of retrospective
+- Let the team decide how to implement,

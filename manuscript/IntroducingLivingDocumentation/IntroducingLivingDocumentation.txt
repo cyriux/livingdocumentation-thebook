@@ -194,3 +194,32 @@ Perhaps you do have all the knowledge because you were there before the rest of 
 > Mark Seeman (@ploeh) on Twitter
 
 Perhaps you just hate documentation, and I can totally understand that. But please acknowledge what you don't know.
+
+## Migrating legacy documentation into a Living Documentation
+
+If you have legacy documentation, you may leverage on it. This avoids the Blank Page syndrome, and offers an opportunity to review past knowledge in a new light. You have old PowerPoint documentation? Turn it into a living one! Put the knowledge from the PPT back into the source code, whenever it fits best:
+
+- Vision & goals could go into the README file, as Markdown
+- Pseudo-code / sequence diagram could be made as plain-text diagrams or ASCII diagrams, or just replaced by a reference to a test doing the same scenario
+- Description of main modules and methods could be done within the source code itself, through some class and module-level comments, annotations and naming conventions
+- Comments in config items
+
+Notice how all this knowledge escapes from shared drives and wikis to find a new home all in the source control.
+
+>A It's also striking that the old content that was all concentrated within a few slide decks or Word documents becomes spread all over the code base when moving to Living Documentation. It may sound like a bad thing. Sometime you would prefer some overview slides kept together as one document. But for most of the practical knowledge, the best location to keep it is as close as possible to the place you'd need it.
+
+
+You could perform a documentation mining on all existing written documents: emails, Word documents, reports, meeting minutes, forum posts, entries into various company tools like application catalogues... Every time a piece of knowledge *still sounds relevant after all this time*, then it's probably worth preserving.
+
+In practice you would deprecate or remove the old content, possibly with a redirection to the new location of the similar knowledge or an explanation on how to find it from now on. A former colleague Gilles Philippart (@gphilippart) calls this migration "Strangle your documentation" by comparison with the Martin Fowler Strangler Application legacy pattern
+
+
+## Marginal documentation
+
+Your documentation endeavor does not have to be complete at first attempt. It should evolve over time. One approach that's often a good idea when willing to improve something is to focus on the marginal work:
+
+**From now on, every new piece of work will follow a much higher standard.**
+
+Improve your documentation marginally. By paying close attention to what you do from now on, even the parts of the legacy that still matter will be taken care of over time. And don't worry too much about the rest.
+
+Sometime you can segregate the new addition to live in their own clean bubble context; this makes it easier to clearly set a higher standard of living documentation, which is nothing but a higher standard of everything: naming, code organization, top-level comments, clear and bold design decisions made visible in the code, plus the more "typical" Living Documentation stuff like Living Glossary and Diagrams, Enforced Guidelines etc.

@@ -46,7 +46,7 @@ Overall, my feeling so far is that documentation is a concern close to managers'
 - Anxiety related to the Truck Factor, the risk of losing key knowledge is the team is hit by a truck when going back from lunch
 - Ratio of defects and incidents caused by "I didn't know that".
 
-Lack of documentation is a hidden cost, just like the lack of test in a project. Every change needs a complete investigation and an assessment, sometime even a pre-study. The hidden knowledge has to be mined each time. Alternatively, the changes are made in a way that is fast now but that makes the application increasingly bloated, making the matter worse over time. This may show like the following:
+Lack of documentation is a hidden cost, just like the lack of tests. Every change needs a complete investigation and an assessment, sometime even a pre-study. The hidden knowledge has to be mined again each time. Alternatively, the changes are made in a way that is not in line with the previous vision of the system, which makes the application increasingly bloated, making the matter worse over time. This may show like the following:
 
 - Time to deliver a change
 - Negative trends of any code quality metrics, perhaps the most telling being the mere size of the code base. If it grows regularly, it is probably a sign that the design is too weak. There is not enough refactoring to start with, and the each change is basically an addition.
@@ -73,3 +73,44 @@ And of course you can come up with many other ideas to help realize the actual s
 Otherwise, Living Documentation can make documentation feasible again, at a reasonable cost and with an identified value added.
 
 On the value side, it is worth putting the emphasis on the biggest benefits which are not just the sharing of knowledge, but especially the side benefits in improving the software in the process, as described in "Beyond Documentation" part of the book.
+
+## Contrasting current situation to the promise of a better world
+
+## A Strategy must match people aspirations
+
+Nancy Duarte, the author of the book Resonate, offers suggestions on how stimulate excitement and enthusiasm through presentations. It starts with knowing why you want to change things. If you've decided to introduce Living Documentation into your team or company, you could start with asking yourself "Why do I want to share and promote that? Why am I excited?"
+
+Then the current situation can be used in contrast with the new practice you'd like to promote. Here are examples of common frustrations that could be contrasted with the benefits of a Living Documentation approach:
+
+- You don't write documentation, and you feel guilty about that
+- Explaining things to team members, new joiners and stakeholders outside the team takes a lot of time, on an on-going basis
+- You write documentation, and you'd prefer to write code instead
+- You're looking for documentation and when you find some you cannot trust it because it's out of date
+- When you create diagrams you're frustrated it takes so much time
+- Looking for the right document itself takes so much time for little result that you often give up and try to do the work without
+- When you collaborate the agile way with lots of conversations, you feel uncomfortable because your organization expects to deliver more traceable and archived documents
+- You do a lot of tedious work manually, including deployment, explaining stuff to external people, and paperwork, and you have the feeling that it could be avoided
+
+Of course it's up to you to customize and decide which items make the most impact in your context, and to decide what part of Living Documentation remedies that frustration most.
+
+More generally, and at the risk of being caricatural, developers usually:
+
+- Don't like writing documentation
+- Like to write code
+- Love code, doing more with code is appealing
+- Hate manual, repetitive tasks
+- Love automation
+- Are proud of beautiful code
+- Love plain text and their favorite tools
+- Love logical things: text-first, DRY
+- Love to exhibit mastery and geek culture
+- Want recognition of skills
+- Empathize with real-life messy situations (like everyone)
+
+Whereas managers usually:
+- Love to see things they usually don't see
+- Love to see things presented in ways they can feel, and understand whether it's getting better or worse
+- Love to see documentation they can themselves show someone else and be proud of
+- Love documentation to be more turnover-proof
+
+Resonate with all that. It's critical for a documentation strategy to exhibit a vision that everybody would genuinely like to happen.

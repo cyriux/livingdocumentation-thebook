@@ -1,20 +1,20 @@
 TO WRITE
 
+integrate quotes?
+integrate humor?
+
 # Domain-Specific Diagrams
-_integrate conversation with JB
+# Tools addendum -> Graphviz pure JVM!
+# Zero Doc, README, search-friendly
+# Doc by DSL & C4 Simon Brown?
 
 
 # NoDoc / Examplarity by attitude, and by doc itself
 
-# Tools addendum -> Graphviz pure JVM!
-# Zero Doc, README
-# Doc by DSL & Simon Brown?
 # Pattern oriented -> add some sample generated diagrams
 Blog: Make your design explicit using annotations
 
 _integrate tools history
-
-integrate quotes?
 
 TODO contact Peter Hilton to quote (?)
 TODO contact Accraze.info to quote http://accraze.info/living-documentation/
@@ -25,6 +25,7 @@ Living Context Map Diagram
 
 
 DONE
+_integrate conversation with JB
 # Living System Diagram
 # Unorthodox Media
 
