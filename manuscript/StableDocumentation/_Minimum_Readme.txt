@@ -1,4 +1,4 @@
-Minimum Viable Documentation, README, and Zero Documentation Policy
+Minimum Viable Documentation, README
 
 
 
@@ -34,6 +34,3 @@ The README should also contain:
 - Any other information that you’d like to share with users can go in the Wiki section of your repository.
 
 When using an online source code repository like Github, avoid linking from the README to pages on the wiki: the README is versioned whereas the wiki is not, so links will break, in particular when cloning or forking.
-
-
-"An approach to force better naming and better practice in general to share knowledge without additional prose" (BI-SAM)

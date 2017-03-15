@@ -132,6 +132,7 @@ NoDocumentation/ShamefulDocumentation.txt
 NoDocumentation/MakingMistakesImpossible.txt
 NoDocumentation/ConsistencyReplaceability.txt
 NoDocumentation/ContinuousTraining.txt
+NoDocumentation/ZeroDocumentation.txt
 
 
 EfficientDocumentation/EfficientDocumentation.txt

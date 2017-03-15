@@ -1,0 +1,16 @@
+## Zero documentation & Gamification
+
+
+**An approach to force better naming and better practice in general to share knowledge without additional prose**
+
+
+I've heard of a team who decided to forbid documentation: they're proudly doing Zero Documentation. And it isn't that stupid.
+
+Once you understand that most of the time written documentation prose or diagram is a poor substitute for expressing the knowledge better within the work product itself in the first place, it makes sense to minimize it. And because it sounds radical and a bit insane, it's stimulating and becomes a game. This makes it more likely to stick in team members mind, driving their behavior for the better, hopefully.
+
+I haven't tried it myself but what my colleague told me about it is that it's usually driving virtuous behavior in practice.
+
+Because we don't all share the same definition of the word "documentation", a game of Zero Documentation must clarify its rules.
+The above-mentioned team refuses comments in the code and on methods, all forms of written prose, external documents and traditional office documents. They happily embrace tests, Gherkin scenarios (Cucumber / Specflow), favor simple code, and enjoy working collectively as their primary mean of sharing knowledge. They're happy with all this.
+
+I think augmenting the code with annotations, a README file kept simple and generating living documents still fits within the rules of the game. You decide when to put the cursor!

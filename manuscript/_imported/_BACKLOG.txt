@@ -1,5 +1,6 @@
 TO WRITE
 
+integrate pictures
 integrate quotes?
 integrate humor?
 
@@ -14,7 +15,6 @@ integrate humor?
 # Pattern oriented -> add some sample generated diagrams
 Blog: Make your design explicit using annotations
 
-_integrate tools history
 
 TODO contact Peter Hilton to quote (?)
 TODO contact Accraze.info to quote http://accraze.info/living-documentation/
@@ -28,8 +28,7 @@ DONE
 _integrate conversation with JB
 # Living System Diagram
 # Unorthodox Media
-
-
+_integrate tools history
 ---------------
 TO MAKE MORE PLEASANT
 

@@ -1,13 +1,14 @@
-NoDocumentation is a manifesto for exploring alternatives to traditional forms of documentation.
+'#NoDocumentation' is a manifesto for exploring alternatives to traditional forms of documentation.
 
 > We acknowledge the purpose of documentation, but we disagree with the way it's usually done. #NoDocumentation is about exploring better alternatives for transferring knowledge between people and across time.
 
 T> Documentation is only a mean, not an end. It's only a tool, not a product.
 
-So far, here are some of the ideas that belong to the #NoDocumentation quest:
+Here are some ideas under the #NoDocumentation tag:
 
 - Conversations over Documentation
 - Continuous Training
+- All forms of collective work: Pair-Programming, Mob Programming, Specification Workshops, Communities of Practice
 - Declarative Automation
 - Shameful Documentation
 - Enforced Decisions
@@ -16,9 +17,9 @@ So far, here are some of the ideas that belong to the #NoDocumentation quest:
 - Scaffolding
 - On-demand Documentation
 - Throw-Away Documentation
-- All forms of collective work: Pair-Programming, Mob Programming, Specification Workshops, Communities of Practice
 
- #NoDocumentation: Make documentation redundant!
+
+'#NoDocumentation': Make documentation redundant!
 
 > We embrace documentation, but not hundreds of pages of never-maintained and rarely-used tomes. #agilemanifesto
 > -- @sgranese on Twitter
