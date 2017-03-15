@@ -2,9 +2,6 @@
 
 
 --
-I've extracted my old little Java wrapper on top of dot and moved it to Github: https://github.com/cyriux/dot-diagram #LivingDiagram
-
---
 
 At the time of writing, here are some of the available tools of particular interest for living documentation.
 
@@ -27,12 +24,7 @@ Swagger
 - Maven Tree
 - all CD tools
 
-- DocBook?
-- AsciiDoc
-- PlantUML
-- Ditaa
 
-- Dexy
 
 Svg, Graphviz, pandoc, js, neo4j, dataviz
 
@@ -47,8 +39,6 @@ Svg, Graphviz, pandoc, js, neo4j, dataviz
 
 
 - custom parser
-
-Tools like the Javadoc standard Doclet, or alternative tools like QDox or even [Google Guava] ClassPath(http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/reflect/ClassPath.html)
 
 
 --

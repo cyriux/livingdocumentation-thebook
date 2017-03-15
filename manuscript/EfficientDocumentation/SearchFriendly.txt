@@ -1,0 +1,13 @@
+## Search-First Documentation
+
+Making information available is not enough. You have to know where to find what you need when you need it, and it's a matter of being easily searchable.
+
+Being easily searchable is first of all a matter of using distinctive words.
+
+A> For example, "GO" as a name for a programming language, from a company like Google who is into search, is totally not search friendly. To make it search-friendly again it has to be actually named "golang".
+
+Then the piece of knowledge should mention clearly the user needs it addresses, since this is the most likely question that will be searched for. To help on this, keywords should be added, including words that don't really occur in the actual content but that are likely to be used when searching for it. Use the words from actual users, found from the analytics of failed searches etc.
+
+Remember to mention synonyms, antonyms, and faux-sens and common confusions, for improved discoverability by search.
+
+All this is usually considered only for written text in a traditional document, however this applies just as well in the code, considered as text too. If you use annotations, you may try to add a `keywords = {"insurance policy", "home insurance", "cover"}` to ease full text search on the code.

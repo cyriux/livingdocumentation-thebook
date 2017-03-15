@@ -136,6 +136,7 @@ NoDocumentation/ZeroDocumentation.txt
 
 
 EfficientDocumentation/EfficientDocumentation.txt
+EfficientDocumentation/SearchFriendly.txt
 EfficientDocumentation/SpecificationWorkshops.txt
 EfficientDocumentation/StackOverflowDocumentation.txt
 EfficientDocumentation/AffordableAttractive.txt

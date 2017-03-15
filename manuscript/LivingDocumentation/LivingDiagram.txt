@@ -138,19 +138,23 @@ Since we want to tell a story, here we can use the links as sentences:
 
 To do that we would have to keep some text to qualify the relationship between a class and each of its dependencies. "SimpleOrder is an implementation of Order", "CompositeOrder groups together a number of Orders" etc.
 
-There are many tools available for rendering, but not so many are able to do a smart layout of an arbitrary graph. Graphviz is probably the best, but it's a native tool. Fortunately it now also exist as a Javascript library, easy to include into a web page to render your diagram in your browser.
+There are many tools available for rendering, but not so many are able to do a smart layout of an arbitrary graph. Graphviz is probably the best, but it's a native tool. Fortunately it now also exist as a Javascript library, easy to include into a web page to render your diagram in your browser. And this Javascript library has also become a [pure Java library](https://github.com/nidi3/graphviz-java)! I used to use my [old little Java wrapper](https://github.com/cyriux/dot-diagram) on top of Graphviz dot, but `graphviz-java` now sounds like a better alternative.
 
-Here are some tools or technology that can help render a living diagram: Pandoc, pandoc, js, neo4j, dataviz and many other not well-known tools on Github or even on Sourceforge. Creating a Plain Svg file is sometime an option, it's not that hard, but you have to do the layout yourself. It may a good approach if you can use it as a template too, like you would do dynamic html pages with a template.
+T> ## A word on tooling
+T>
+T> Here are some tools or technology that can help render a living diagram: Pandoc, D3.js, neo4j, AsciiDoc, PlantUML, Ditaa, Dexy and many other not well-known tools on Github or even on Sourceforge. Creating a Plain Svg file is an option too, but you have to do the layout yourself. It may a good approach if you can use it as a template too, like you would do dynamic html pages with a template. Simon Brown's Structurizr is another tool as well.
+T>
+T> To scan the source code you need parsers. Some can only parse the metamodel, while other have access to the code comments. For example in Java, Javadoc standard Doclet or the alternative tools QDox give access to the structured comments. On the other hand, the excellent [Google Guava] ClassPath(http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/reflect/ClassPath.html) only gives access to the programming language's metamodel, which is enough in many cases.
 
 Diagrams types by layout complexity
 
 - Tables: perhaps not really a diagram, but there is a strict layout anyway
-- Pins on a fixed background: like the markers on Google Map, so all it takes is a way to map a (x, y) location for each element to pin on the background
+- Pins on a fixed background: like the markers on Google Map, it takes a way to map a (x, y) location for each element to pin on the background
 - Diagram Template: Use a template (svg, dot) that is evaluated with the actual content extract from the source code
 - Simple One-Dimension Flow (left-to-right, top-down), these are simple layouts you could even program yourself
-  - pipeline, sequence diagram, in-out ecosystem black box
+- Pipeline, sequence diagram, in-out ecosystem black box
 - Tree structure (left-to-right, top-down, radial). A tree structure is more complicated but it is still doable by yourself if you really want to.
-  - inheritance tree, layers
+- Inheritance tree, layers
 - Containment (auto layout using the cluster feature of Graphviz)
 - Rich Layout (vertical + horizontal layout + containment)
 
@@ -164,8 +168,8 @@ There are rules for a good document: showing or listing no more than 7+/-2 items
 
 > The ultimate rule of thumb: if there is at least one line crossing another in a diagram, the system is too complicated -- @pavlobaron
 
-To get the most from your diagrams, consider making everything meaningfull: 
+To get the most from your diagrams, consider making everything meaningful:
 
 - Make the left-right and top-down axes meaningful: Manual vs Automatic, API vs SPI, Do Nothing vs Do Something, Single vs Plural, same intent beyond variety, orthogonal stuff, causality left-to-right, dependencies top-to-bottom...
-- Make the Layout meaningfull too: proximity, boundaries
-- Make the elements attributes meaningfull: size, color, texture, fill, border color...
+- Make the Layout meaningful too: proximity, boundaries
+- Make the elements attributes meaningful: size, color, texture, fill, border color...

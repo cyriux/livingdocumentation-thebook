@@ -5,8 +5,8 @@ integrate quotes?
 integrate humor?
 
 # Domain-Specific Diagrams
-# Tools addendum -> Graphviz pure JVM!
-# Zero Doc, README, search-friendly
+# search-friendly
+
 # Doc by DSL & C4 Simon Brown?
 
 

@@ -2,6 +2,18 @@
 Assembly line; shop to storehouse
 
 
+---
+
+http://www.youtube.com/watch?v=ZwlrFWyeLT0
+
+Table of content: easy to index, structure hard to apply to tasks
+Vs
+Task-oriented documentation: hard to index, missing a lot of overview explanation
+Vs
+Guerrilla documentation: SO, forum... Signal to noise not too good, user-created, stale
+
+->
+
 ## Emotional Impact
 Make it dramatic! The detergent ads model
 

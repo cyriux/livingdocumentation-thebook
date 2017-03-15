@@ -176,6 +176,30 @@ leanpub-end-insert
 ...
 ~~~~~~~~
 
+## Evergreen README
+
+The README file at the root of a code repository has become the norm.
+
+> We have projects with short, badly written, or entirely missing documentation… There must be some middle ground between reams of technical specifications and no specifications at all. And in fact there is. That middle ground is the humble Readme.’
+>
+> from http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
+
+For a given project `Blabla`, the README file can be safely evergreen if it focuses on answering the following key questions:
+
+- What is Blabla?
+- How does Blabla work?
+- Who uses Blabla?
+- What is Blabla's goal?
+- How can your organization benefit from using Blabla?
+- How to get started with Blabla. But beware: keep it so simple that it should not change often. In particular, don't embed the version number, instead refer to the place where you can find the most recent version number.
+- Licensing information for Blabla (could also be detailed in the LICENCE.txt side car file)
+
+This level of key information is at the same time essential, and at the same time quite stable over time.
+
+Beware instructions on how to develop, use, test, help, contact information except permanent mailing lists.
+
+Also beware when using an online source code repository like Github: avoid linking from the README to pages on the wiki: the README is versioned whereas the wiki is not, so links will break, in particular when cloning or forking.
+
 ## In closing
 
 Even in the most fast-changing projects there is still some room for Evergreen Documents, but not for all knowledge. Paying attention to how volatile pieces of knowledge are is a good strategy to reduce your workload over time, by avoiding having to manually update stuff that changes regularly.

@@ -1,23 +1,3 @@
-## Search-First Documentation
-
-Making information available is not enough. You have to know where to find what you need when you need it (navigation and search)
-
-> "GO" as a name for a language, from a company who is into web searches, isn't that name kind of...."unfortunate". Not so search friendly.
-> @danielwertheim
-
-http://www.youtube.com/watch?v=ZwlrFWyeLT0
-
-Table of content: easy to index, structure hard to apply to tasks
-Vs
-Task-oriented documentation: hard to index, missing a lot of overview explanation
-Vs
-Guerrilla documentation: SO, forum... Signal to noise not too good, user-created, stale
-
--> search-first: users-needs-driven like guerrilla, indexed like toc, modular like tasks, with tags and keywords
-
-tags and keywords: even words that don't occur in the documentation, words like blue screen of death... Use the words from actual users, failed searches etc
-
-Remember to mention synonyms, antonyms, and faux-sens and common confusions, for improved discoverability by search.
 
 ## Navigation Path
 

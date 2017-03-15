@@ -1,7 +1,5 @@
 # Specific Notations, not only Generic Notations
 
-%% Specific Notations (Domain, Design...)
-%% Reggio Emilio: 100 languages
 
 %% an old blog to completely re-edit with the point that generic notation lack expressiveness compared to custom, dedicated diagrams where even the layout can have a carefully chosen meaning
 
