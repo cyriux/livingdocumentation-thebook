@@ -1,4 +1,7 @@
-BREAKING!!! Live Interview: Mrs Reporter Porter (RP) interviewing Mr Living Doc Doctor (LDD)
+# BREAKING!!! Live Interview: Mrs Reporter Porter interviewing Mr Living Doc Doctor!
+
+
+![Living Doc Doc interviewed by Reporter Porter](images/livingdoc_doc.png)
 
 **What is a good documentation?**
 
@@ -34,7 +37,7 @@ You just apply the same techniques, but at a different level. For example, annot
 
 **Do we really need documentation? After all, we've been living with little or no documentation for years and we're still alive!**
 
-Of course we can live without express documentation. Anyone can take an unknown system and make it work, for some definition of "work". But just "making it work" is a very low bar. And how much time does it take? Documentation accelerates delivery because it considerably shortens the time to rebuild your mental model of the system to work on. But the other effect of documentation is that trying to record the knowledge about the system is a great way to learn about what's not right about the system. Paying attention to documentation is an investment for later, obviously, but less obviously there's also a return for right now!  
+Of course we can live without express documentation. Anyone can take an unknown system and make it work, for some definition of "work". But just "making it work" is a very low bar. And how much time does it take? Documentation accelerates delivery because it considerably shortens the time to rebuild your mental model of the system to work on. But the other effect of documentation is that trying to record the knowledge about the system is a great way to learn about what's not right about the system. Paying attention to documentation is an investment for later, obviously, but less obviously there's also a return for right now!
 
 **Thank you very much!**
 

@@ -22,6 +22,8 @@ Art pieces may be displayed side by side in order to suggest comparisons between
 
 > Organization of knowledge is a key tool to add meaning to a plain collection of pieces of knowledge. We group elements by named folders, tags, or naming conventions.
 
+![The curator in the museum](images/curator.png)
+
 ## Adding what's missing when needed
 
 The curator writes a few texts explaining the big idea of each section of the exhibition. She or he also writes small labels for each art work. These labels are then displayed next to the art piece.
