@@ -58,6 +58,15 @@ Alistair Cockburn has similar findings:
 
 A face-to-face, interactive and spontaneous form of documentation is the best way to improve on the fate of miscommunication highlighted by Professor Wiio. If all your stakeholders are happy with talking with the team for all questions and feedback, then change nothing. You don't need written documentation.
 
+
+T> Agile documentation goal is to "help people interact"
+T> 
+T> - knowing who to contact
+T> - knowing how to work on the project, guidelines, style and inspirations
+T> - sharing the same vocabulary
+T> - sharing the same mental model, metaphors
+T> - sharing the same goal
+
 ## The Rule of Three Interpretations
 
 Jerry Weinberg writes in his book "Quality Software Management Vol 2 (Chapter 6)":

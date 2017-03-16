@@ -181,6 +181,10 @@ One common problem in all these cases is that this knowledge lacks structure in 
 
 Michael Nygard calls this decision log an [Architectural Decision Record](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions), or ADR in short. Nat Pryce created [ADR Tool](https://github.com/npryce/adr-tools) to support them from the command line.
 
+In practice it's not always that easy to record the rationale of major architecture decisions, for example when the decisions are done for the wrong reasons. The managements insisted to include this technology. The developers insisted to try this new library for Résumé-driven development reasons. It's hard to make that explicit in writing for everyone to see!
+
+![Decision log recording a not so good rationale...](images/why_so_complicated.png)
+
 *You can find good examples of ADR online in the [Arachne-framework
 Repository of Architecture Decision Records](https://github.com/arachne-framework/architecture)*
 
@@ -364,6 +368,8 @@ Here are from my notes on the topic some of the rationale for decisions in EcmaS
 - "Recipe for making change: figure out how similar change has been done before."
 
 Later I have been doing department-wide architecture in a bank, and I introduced this idea of a Codex of principles guiding all the architecture-sensitive decisions. The Codex was built from the accumulation of concrete cases of decision-making, by trying to elucidate formally the reasoning behind the decision. Often, the principle was already in the head of other senior architects, but it was tacit and nobody else knew about it.
+
+![The all-mighty Codex](images/codex.png)
 
 Some of these principles were like the following:
 

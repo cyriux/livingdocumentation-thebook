@@ -27,14 +27,17 @@ Ready-Made Knowledge with design patterns, Code as Documentation. This section e
 
 Even if you start a Living Documentation journey with the goal of solving the documentation problem, you'll quickly discover that your actual problem is that the design is poor or arbitrary: "design by coincidence". To solve the documentation problems you have to solve the design problems. This is all good news indeed!
 
-**Through the focus on documentation you end up with a concrete visible criteria for everyone to see the big mess that is the current state of the design.**
-
-This becomes a positive pressure to improve the design, which has benefits well exceeding the sole benefits of documentation per se. But as we've mentioned before, there's even more good news for you:
+Through the focus on documentation you end up with a concrete visible criteria for everyone to see the big mess that is the current state of the design. This becomes a positive pressure to improve the design, which has benefits well exceeding the sole benefits of documentation per se. But as we've mentioned before, there's even more good news for you:
 
 **Good design skills also make good living documentation skills.**
 
 Focus on living documentation, and focus on design skills. Practice both together and everything will get better!
 
+Conversely, with the right skills, you can recognize - reverse-engineer indeed, many of the past decisions just by noticing the happy coincidences in the code base: "it cannot happen by chance, so it must have been designed".
+
+With the right skills, the design tells out loud what it is and how it is expected to be extended. Just like this multiplug, that is visibly ready for extension by plugging additional plugs to it:
+
+![Visibly ready for extension](images/ReadyForExtension.jpg)
 
 ## Documenting errors, or avoiding errors?
 

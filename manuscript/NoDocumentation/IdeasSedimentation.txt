@@ -12,7 +12,8 @@ Once in a while, some of this knowledge remains important, even after a while. I
 
 > The sedimentation metaphor relates to ideas flowing like sand in the water flowing quickly in the water streams. The sand particles move away quickly, but some of them become sediment at the bottom of the river, where they accumulate slowly. A similar process is at work in a wine decanter.
 
-![Some of the sand in suspension in the river streams becomes sediment at the bottom of the river](images/sedimentation.jpg)
+
+![Particles of the wine decanting](images/decantation.png)
 
 - Start from Napkin sketch to document a design aspect , later if it proves essential turn it into something maintainable like a plain text diagram or a living diagram, or a Visible Test.
 
@@ -22,7 +23,7 @@ Once in a while, some of this knowledge remains important, even after a while. I
 > Memory is the residue of thought." - simple but profound realization that is so important to my work. I intend to honor it more fully.
 > Tim Ottinger on Twitter.
 
-
+![Conversations to Traces](images/ConversationsTraces.jpg)
 
 ## Throw-Away Documentation
 
