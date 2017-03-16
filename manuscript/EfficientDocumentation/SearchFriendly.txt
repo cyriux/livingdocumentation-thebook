@@ -1,4 +1,4 @@
-## Search-First Documentation
+## Search-Friendly Documentation
 
 Making information available is not enough. You have to know where to find what you need when you need it, and it's a matter of being easily searchable.
 

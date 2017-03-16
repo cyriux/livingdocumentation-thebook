@@ -4,12 +4,9 @@ integrate pictures
 integrate quotes?
 integrate humor?
 
-# Domain-Specific Diagrams
-# search-friendly
+# Theory passing
 
 # Doc by DSL & C4 Simon Brown?
-
-
 # NoDoc / Examplarity by attitude, and by doc itself
 
 # Pattern oriented -> add some sample generated diagrams

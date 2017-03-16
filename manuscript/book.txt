@@ -80,6 +80,8 @@ LivingDocumentation/BusinessDomainDiagram.txt
 LivingDocumentation/LivingServicesDiagram.txt
 
 LivingDocumentation/ContextDiagram.txt
+
+LivingDocumentation/DomainSpecificDiagrams.txt
 LivingDocumentation/PatternOrientedLivingDiagram.txt
 
 

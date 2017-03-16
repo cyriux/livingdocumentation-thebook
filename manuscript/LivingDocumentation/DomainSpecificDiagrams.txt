@@ -1,0 +1,66 @@
+# Domain-Specific Diagrams (aka Visible Tests)
+
+*Tests that produce a visual output for human review in a domain-specific notation*
+
+Good tests check the code against predefined assertions all the time. They are silent unless something goes unexpected: a failed assertion, or an error.
+
+However I've found that tests could sometime also be used to produce visible output like diagrams, in various domain-specific notations.
+
+When starting in exploration mode, for example during a spike, when the problems are not clear and you're not sure how to solve them, it's hard to define accurate assertions at this stage. However a visible output gives a fast feedback on whether it works as expected or not.
+
+Later, as the tests turn into non-regression tools, we add actual assertions, but we may still decide to keep some of the visible outputs, as a way to show what's happening.
+
+## Domain-Specific Notations
+
+Many business domains have grown their own specific notations over time. Domain experts use it naturally, usually with pen and paper.
+
+For example in supply chain we tend to draw trees from the upstream producers to the distributors downstream:
+
+![supply-chain tree](images/supplychain.png)
+
+In stock exchange, we often have to draw order books when it comes to decide how the matching happens:
+
+![order book for matching orders](images/orderbook_table.jpg)
+
+In finance, financial instruments pay and receive cash flows (amounts of money) over a timeline, which we draw using vertical arrows on a timeline:
+
+![Cash flows over a timeline](images/cash_timeline.png)
+
+
+
+## Generating custom domain-specific diagrams to get visual feedback
+
+
+I used to create simple tests with no assertions at the beginning that simply generate basic, ugly Svg files like the following:
+
+
+![generating an Svg file](images/domain-specific-svg2.png)
+
+Compare that to a spreadsheet table:
+
+      EUR13469  20/06/2010
+      EUR13161  20/09/2010
+      EUR12715  20/12/2010
+      EUR12280  20/03/2011
+      EUR12247  20/06/2011
+      EUR11939  20/09/2011
+      EUR11507  20/12/2011
+      EUR11205  20/03/2012
+      EUR11021  20/06/2012
+      EUR8266   20/09/2012
+      EUR5450   20/12/2012
+      EUR2695   20/03/2013
+
+It's much easier to check the evolution of the amounts paid over time visually.
+
+Of course you could also dump a .csv file and graph it in your favorite spreadsheet application. Or you could even generate an .xls file with the graph inside programmatically (in Java you could use Apache POI for example to do that).
+
+Here is a fairly more complicated example of generated diagram, showing how the cash flows are conditioned by market factors:
+
+![generating an Svg file](images/domain-specific-svg1.png)
+
+As you can see, I'm not an expert of Svg and it was a quick graphing to get visual feedback during the initial spike of a bigger project. Nowadays you would use a modern js library to produce beautiful diagrams!
+
+## A complement to Gherkin scenarios?
+
+I haven't tried it yet, but I'd love to have some key scenarios in Cucumber or Specflow produce such domain-specific diagrams in addition to the test results for their assertions. This sounds quite feasible, so if you happen to try it, please let us know!
