@@ -177,9 +177,11 @@ Sometime it only survives in the mind of the attendees. Sometime it is quickly w
 
 One common problem in all these cases is that this knowledge lacks structure in the way it is organized
 
-**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any. Never update the entries in the decision log; instead, add a new entry that supersedes the previous one, with a link to it.**
+**Therefore: Maintain a Decision Log of the most important architectural decisions. It can be as simple as structured text files in a folder at the root of the code repository. Keep the Decision Log versioned with the code base. For each important decision, record the decision, its rationale (why it was taken), the main alternatives considered, and the main consequences, if any. Never update the entries in the decision log; instead, add a new entry that supersedes the previous one, with a reference to it.**
 
 Michael Nygard calls this decision log an [Architectural Decision Record](http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions), or ADR in short. Nat Pryce created [ADR Tool](https://github.com/npryce/adr-tools) to support them from the command line.
+
+The structuring assumptions that shape the solution are part of the decision log, as part of the rationale for an important decision. For example, if you assume that articles published in the last 24 hours represent over 80% of the visits on your website, then it will show in the rationale for the decision to partition *recent news* vs "archived news" as two distinct sub-systems, each with a different local architecture.
 
 In practice it's not always that easy to record the rationale of major architecture decisions, for example when the decisions are done for the wrong reasons. The managements insisted to include this technology. The developers insisted to try this new library for Résumé-driven development reasons. It's hard to make that explicit in writing for everyone to see!
 

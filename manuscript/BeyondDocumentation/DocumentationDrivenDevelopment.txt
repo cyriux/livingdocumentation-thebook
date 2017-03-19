@@ -1,10 +1,10 @@
-# Documentation-First Development
+# Documentation-Driven Development
 
-*Start by focusing on your goals or end result, and let it drive the rest of the work*
+*Start by explaining your goal or end result, e.g. how your system will be used, in order to drive the construction and to help notice early potential inconsistencies*
 
 It is often a good idea to start with a focus on the end result we are aiming for. By focusing on the end, we first focus on where the value is, to make sure it's really there. Then we can derive what's really necessary to achieve the goal, no less and no more, avoiding unnecessary work.
 
-Chris Matts in a talk at the BDD eXchange conference had a great example on a typical british goal: having a cup of tea. Starting with this goal, we can then derive the need for hot water, a clean cup, and a tea bag, and so on.
+Chris Matts in a talk at the BDD eXchange conference had a great example on the most typical British goal of *having a cup of tea*. Starting with this goal, we can then derive the need for hot water, a clean cup, and a tea bag, and so on.
 
 > Here's a secret about documentation. It's not just useful to read. It's the act of writing that pushes for quality in the same way as tests
 > @giorgiosironi
@@ -13,9 +13,12 @@ Some developer find that starting with a piece of documentation helps do that, l
 
 > I can start by documenting only that which is important. That satisfies the "write this down before I forget” part of documentation, and frees me up to improve it in later drafts.
 
-Test-Driven Development and its close cousin BDD exploit that effect by focusing on the desired behavior first, as a test, or a scenario or example written before starting the coding. So if you're practicing TDD or BDD you're already doing documentation-first development too.
 
-Regardless of your practices, it remains a good idea to dump the inception ideas for the project into a little text file, e.g. the README file, in order to flesh out your expectations. Once materialized on paper, ideas become objects of deeper scrutiny, they can be criticized, reviewed, shared with other people early. And if you are alone, just let the time pass for a few days before going back to these notes: when you see them again with a fresh look, you can review your own work in a more objective fashion, thanks to the documentation from yourself to your future self.
+Test-Driven Development and its close cousin BDD exploit that effect by focusing on the desired behavior first, as a test, or a scenario or example written before starting the coding. So if you're practicing TDD or BDD you're already doing a form of documentation-driven development too.
+
+When uncertainty is very high, at the very inception of an idea, writing the README file *as if the project was done* helps clarify the purpose and flesh out your expectations. Once materialized on paper, ideas become objects of deeper scrutiny, they can be criticized, reviewed, shared with other people early.
+
+If you are alone, just let the time pass for a few days before going back to these notes: when you see them again with a fresh look, you can review your own work in a more objective fashion, thanks to the documentation from yourself to your future self.
 
 ## Documentation to keep you honest
 
@@ -24,3 +27,15 @@ Continuous improvement starts with honest retrospectives on how well we performe
 Therefore: **Document early what you assume and the experiments you try in order to have reliable and honest data when it is time for retrospective.**
 
 This is a way to be a little more data-driven. And there are tools for that! For example growth.founders.as offers a tool to declare your assumptions and to describe your experiments.
+
+## The apparent contradiction between Documentation-Driven and "NoDocumentation"
+
+At this stage you may confused at the apparent contradiction between being *Documentation-Driven* avoiding documentation as expressed in the earlier part of the book and in the *No Documentation* section in particular.
+
+The contradiction is one of words indeed. When talking about documentation-driven development, even though we use the word *documentation*, we don't mean it as a way to share knowledge between people. Instead, it's just a cheap media to start working with at the very inception of a project, before we move on to more expensive material like tests and source code.
+
+The fundamental idea is that it can be desirable to use a different material at different levels of unknown and uncertainty: at the very start, conversations are usually the best material; at the early stages, conversations, notes and sketches on paper, low-fi mockups, README file with intentions and scenarios, code exploration in a REPL, writing code in a spike without tests, perhaps using a scripting or dynamic language may be the idea material to learn and explore. A bit later, when things start to stabilize, another programming language with tests and even with TDD becomes the material of choice. In this view, documentation early is just a material to get started.
+
+Appart from this case, documentation must not drive the development, it must explain what has been developed and that the system itself and its code cannot explain themselves. Making the code as self-documenting as possible is the goal. Whenever we fail despite our best attempts, then we have to resort to some documentation effort, and we keep it to the minimum.
+
+There's no contradiction. We're just talking different meanings of the word *documentation*.
