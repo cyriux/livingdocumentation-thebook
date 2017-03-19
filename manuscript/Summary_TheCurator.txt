@@ -2,13 +2,13 @@
 
 ## Selecting and organizing existing knowledge
 
-The curator of an exhibition primarily decides on a key editorial focus. The focus usually becomes the title of the event. Sometimes the focus is trivial: "Claude Monet, the surrealism", but even in this case there is a decision for example to exclude prior art from the artist which was not surrealism.
+The curator of an exhibition primarily decides on a key editorial focus. The focus usually becomes the title of the event. Sometimes the focus is trivial: "Claude Monet, the surrealism", but even in this case there is an opiniated decision, for example the parti to exclude prior art from the artist which was not yet surrealism.
 
-> Any documentation initiative has deliver clearly one key message
+> Any documentation initiative has to deliver clearly one key message
 
-Good exhibitions try to bring an amount of surprise: "You've always thought Kandinsky paintings were fully abstract, but we'll show how the abstract shapes evolved from his prior figurative paintings". You just come to watch the art pieces, but to also grow your culture and understand relationships between artists, art pieces and their era.
+Good exhibitions try to bring an amount of surprise to create interest: "You've always thought Kandinsky paintings were fully abstract, but we'll show how the abstract shapes evolved from his prior figurative paintings". You just come to watch the art pieces, but to also grow your culture and understand relationships between artists, art pieces and their era.
 
-> Good documentation brings value added with new knowledge, emphasis on relationships, and a by offering a different perspective of things
+> Good documentation brings value added with new knowledge, emphasis on relationships, and by offering a different perspective of things
 
 ## Selecting and organizing existing knowledge
 
@@ -26,15 +26,15 @@ Art pieces may be displayed side by side in order to suggest comparisons between
 
 ## Adding what's missing when needed
 
-The curator writes a few texts explaining the big idea of each section of the exhibition. She or he also writes small labels for each art work. These labels are then displayed next to the art piece.
+The curator writes a few texts explaining the big idea of each section of the exhibition. She or he also writes small labels for each art work. These labels are then displayed on the wall directly next to the art piece.
 
 > Documentation needs an augmentation of knowledge, using annotations, DSL or naming conventions. Some limited amount of text is useful too in some places. This knowledge is attached to the related code elements whenever possible.
 
 When a work considered essential for the exhibition is not in the collection, it will be borrowed from another museum or from a private collection, or sometime even commissioned to the living artist. Sometimes the artist also contributes to the organizing of his or her pieces directly.
 
-Sometime an information is missing. The curator can mandates researchers to conduct investigations, chemical on the painting or by looking at written archives, to find the missing piece in the puzzle of knowledge. For example Le Louvre museum exploits research results on the style of brushing colors on the canvas in order to tell the visitors how much Raphael really participated to each of his paintings. The Master did not touch many of them indeed!
+Sometime an information is missing. The curator can mandates researchers to conduct investigations, chemical analysis on the painting or by looking at written archives, to find the missing piece in the puzzle of knowledge. For example Le Louvre museum exploits research results on the style of brushing colors on the canvas in order to tell the visitors how much Raphael really participated to each of his paintings. And it reveals that the famous Master did not touch many of them indeed!
 
-> Documentation is a feedback mechanism which helps notice something is missing or wrong in the code, or in the related knowledge.
+> Documentation is a feedback mechanism which helps notice that something is missing or wrong in the code, or in the related knowledge.
 
 ## Accessible for people who can't attend, and for posterity
 
@@ -42,4 +42,4 @@ The curator also creates a catalogue of the exhibition, which recaps all the con
 
 Museums now offer exhibition catalogues in a full form, expensive and heavyweight, and also as a shorter form, with just a digest of the major pieces. I usually buy the shorter catalogue, which is a more attractive read by far!
 
-> Documentation also cares about making accessible knowledge that is not, and for making sure the important pieces are persisted for the future. We publish content as documents and on an interactive website, targeted for different audiences and different needs.
+> Documentation also cares about making knowledge accessible, and for making sure the important pieces are persisted for the future. We publish content as documents and on an interactive website, targeted for different audiences and different needs.

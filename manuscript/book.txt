@@ -175,6 +175,8 @@ IntroducingLivingDocumentation/DocumentationCompliance.txt
 IntroducingLivingDocumentation/DocumentationInLegacy.txt
 
 
-BeyondDocumentation/Summary_TheCurator.txt
+Summary_TheCurator.txt
+
+Closing.txt
 
 backmatter.txt
