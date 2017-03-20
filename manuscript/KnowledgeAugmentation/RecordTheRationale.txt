@@ -61,7 +61,7 @@ There are many smaller decisions where the thinking process is already solved an
 ## Recording the rationale as an enabler for change
 
 
-![What were they thinking?](images/without_why_same_mistake_again.png)
+![Without the why, they will make the same mistake again](images/without_why_same_mistake_again.png)
 
 
 It's easier to dare making changes when you know all the reasons behind the past decisions, so that you can respect then or reject them deliberately. The best way to know them in a reliable way is to have them recorded, otherwise the reasoning will be forgotten. Without the explicit rationale behind the past decisions, one can just wonder if a change may have unexpected impacts with respect to a concern we don't have in mind. If you're prudent, you'll never be sure enough to decide to change, and the status quo dominates, even though the opportunity to improve is there in front of your eyes. If you're not prudent, you may actually cause harm inadvertently because of a forgotten concern that we cannot see as it was not recorded.

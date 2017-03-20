@@ -40,6 +40,6 @@ A good metaphor is a model with some generative power: if I know that stopping a
 
 The more common culture the more inspiration available to use as a metaphor. Once you know what a Sales Funnel is, you can talk about it to explain key aspects of an e-commerce system, with its successive business stages from visitor to inquiries, to proposals, to new customer. And it's called a funnel because the volume at each stage decreases significantly.
 
-![A sales funnel](add picture)
+![A sales funnel](images/sales_funnel.png)
 
 This knowledge comes in handy when doing architecture, as it informs scalability reasoning: the upstream stage like the Catalogue needs more scalability than the downstream stage like the Payment.

@@ -32,10 +32,12 @@ This is a way to be a little more data-driven. And there are tools for that! For
 
 At this stage you may confused at the apparent contradiction between being *Documentation-Driven* avoiding documentation as expressed in the earlier part of the book and in the *No Documentation* section in particular.
 
-The contradiction is one of words indeed. When talking about documentation-driven development, even though we use the word *documentation*, we don't mean it as a way to share knowledge between people. Instead, it's just a cheap media to start working with at the very inception of a project, before we move on to more expensive material like tests and source code.
+The contradiction is a matter of ambiguity of words indeed. When talking about documentation-driven development, even though we use the word *documentation*, we don't mean it as a way to share knowledge between people. Instead, it's just a cheap media to explore the requirements at the very inception of a project, before we move on to more expensive material like tests and source code.
 
 The fundamental idea is that it can be desirable to use a different material at different levels of unknown and uncertainty: at the very start, conversations are usually the best material; at the early stages, conversations, notes and sketches on paper, low-fi mockups, README file with intentions and scenarios, code exploration in a REPL, writing code in a spike without tests, perhaps using a scripting or dynamic language may be the idea material to learn and explore. A bit later, when things start to stabilize, another programming language with tests and even with TDD becomes the material of choice. In this view, documentation early is just a material to get started.
 
-Appart from this case, documentation must not drive the development, it must explain what has been developed and that the system itself and its code cannot explain themselves. Making the code as self-documenting as possible is the goal. Whenever we fail despite our best attempts, then we have to resort to some documentation effort, and we keep it to the minimum.
+Appart from this case, documentation must not drive the development, it must capture and help present the ideas which happened and what has been developed that the system itself and its code cannot explain themselves. Making the code as self-documenting as possible is the goal. Whenever we fail despite our best attempts, then we have to resort to some documentation effort, and we keep it to the minimum.
+
+![Explore vs Capture & Present](images/explore-capture-present.png)
 
 There's no contradiction. We're just talking different meanings of the word *documentation*.

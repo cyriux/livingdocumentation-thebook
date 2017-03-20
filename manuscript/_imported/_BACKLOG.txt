@@ -1,44 +1,33 @@
 
 TO DRAW
-
-3 amigos
+- red white hiking trail signs
+- investigation wall
 
 TO WRITE
 
 integrate quotes?
 integrate humor?
 
-# Theory passing
-
-# Doc by DSL & C4 Simon Brown?
 # NoDoc / Examplarity by attitude, and by doc itself
 
 # Pattern oriented -> add some sample generated diagrams
 Blog: Make your design explicit using annotations
 
-
 TODO contact Peter Hilton to quote (?)
 TODO contact Accraze.info to quote http://accraze.info/living-documentation/
 
 Living Context Map Diagram
-
 # Templated diagram (image map but better)
 
 
-DONE
-_integrate conversation with JB
-# Living System Diagram
-# Unorthodox Media
-_integrate tools history
----------------
+
 TO MAKE MORE PLEASANT
 
 # Spread quotes & humor a bit everywhere
 
 # Add illustrations & Comics
 
-- red white hiking trail signs
-- investigation wall
+
 
 An introductory comics on living documentation that goes through most concepts
 

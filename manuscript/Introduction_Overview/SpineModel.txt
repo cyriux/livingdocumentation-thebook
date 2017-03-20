@@ -52,6 +52,6 @@ We have the following practices available to deliver value:
 
 ## Tools:
 
-To get the work done, we use tools.
+To get the work done, we use tools. Most of them are primarily mental tools, but tools that we can download also help of course!
 
-A complete list of tools of interest for a Living Documentation is available in the addendum. This list of tools starts with your regular programming languages, to automation tools on top of your practice of BDD, like Cucumber or SpecFlow, and includes rendering engines for Markdown or AsciiDoc, and automatic layout engine for diagrams like Graphviz.
+There are many tools of interest for a Living Documentation, and they evolve quickly. This list of tools starts with your regular programming languages, and extends to automation tools on top of your practice of BDD, like Cucumber or SpecFlow, and includes rendering engines for Markdown or AsciiDoc, and automatic layout engine for diagrams like Graphviz.
