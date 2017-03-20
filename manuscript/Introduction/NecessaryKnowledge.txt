@@ -1,6 +1,6 @@
 # The reasons why knowledge is necessary
 
-When creating software
+When creating software, we go through a lot of questions, decisions and adjustments as we learn:
 
 - What problem are we trying to solve?
 - Oh no, what problem are we really trying to solve? (got it wrong the previous time)
@@ -10,12 +10,12 @@ When creating software
 - We found out that this feature is useless, we'll delete the code next month (note: we'll forget and this code will become a mystery from now on)
 - We found out late that we had to comply to this official process for our change management and our delivery process (we didn't know before)
 
-On existing software
+On existing software, when missing the knowledge developed before, we end up:
 
 - Redoing what's already done, because we don't know it's there
 - Putting a feature in an unrelated component, for lack of knowing where it should be, making it bloated, while the code about the feature is now fragmented across various components
 
-And in particular to answer everyday questions like listed below
+If only we had the knowledge available to answer everyday questions like the ones listed below!
 
 - Where shall I fix that issue safely?
 - Where shall I add this enhancement?
@@ -36,4 +36,4 @@ The cost of lack of knowledge mainly manifests itself in the form of:
 
 These two expenses compound for the worst over time: the time spent on finding the missing knowledge is time not spent on taking better decisions. In turn, sub-optimal decisions will compound to make our life progressively more miserable, until we have no choice but to decide that the software is no longer maintainable, and start again.
 
-As a consequence, it sounds like a good idea to be able to access the knowledge that is useful to perform the development tasks.
+It sounds like a good idea to be able to access the knowledge that is useful to perform the development tasks.

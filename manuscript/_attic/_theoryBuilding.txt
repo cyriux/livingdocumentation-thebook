@@ -1,0 +1,29 @@
+Peter Naur - Programming as Theory Building
+
+as introduced by REMZI H. ARPACI-DUSSEAU in pages.cs.wisc.edu/~remzi/Naur.pdf
+
+> The quality of the designer's work is is related to the match between his theory of the problem and theory of the solution. Note that the quality of a later programmer's work is related to the match between his theories and the previous programmer's theories.
+
+> Using Naur's ideas, the designer's job is not to pass along "the design" but to pass along "the theories" driving the design. The later goal is more useful and more appropriate. It also highlights that knowledge of the theory is tacit in the owning, and so passing along the theory requires passing along both explicit and tacit knowledge.
+
+
+(Peter Naur, Programming as Theory Building, 1985)
+
+The key aspect of programming "is to have the programmers build a theory of the way the matters at hand may be supported by the execution of a program."
+
+
+--
+
+- Interactive: tweakable tests, Visible Workings, Small-Scale Models
+- Redundancy of media: Source Code, Integrated Documentation in IDE, generated living Diagrams, Domain-Specific sketches (Smoke & Mirror, Ruth Malan?)
+- Background: influences from the literature, dominant styles of code, design and architecture
+- Recorded decisions and their Rationales
+- Metaphors
+- Tribal knowledge by Working Collectively with veterans of the system
+
+--
+Project = Delivery + Learning
+
+- Keep it all versioned together
+- Keep track of what's been learnt and understood. What's has been preferred, compared to what alternatives and why. -> AUGMENTED CODE + MAINTAIN A BLOG
+- But don't try to capture every event; instead rewrite the story to make it simpler and shorter (like Git history with rebase)

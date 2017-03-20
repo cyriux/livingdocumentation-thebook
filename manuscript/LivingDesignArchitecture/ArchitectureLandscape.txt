@@ -170,7 +170,7 @@ There are tools available that can help with architecture visualization and chec
 > Technology is about tradeoffs and choices @simonbrown from Twitter
 
 Why does the project use this particular heavyweight technology? Hopefully it was chosen because of some requirements, following some evaluation. Who remembers that? Now that the works has changed could you switch to something simpler?
--
+
 What do you talk about during meetings with the stakeholders? From inception meetings to sprint planning meetings and other impromptu meetings, a lot of concepts, thinking and decisions are taken. What happens to all this knowledge?
 
 Sometime it only survives in the mind of the attendees. Sometime it is quickly written as minutes of the meeting and sent by email. Sometime a snapshot of the whiteboard is taken and shared. Some put everything into the tracker tool, or in their wiki.
@@ -296,6 +296,17 @@ In the example below, the decision log is maintained as a one single Markdown fi
 >We chose [Lombok framework](https://projectlombok.org) to help generate the boilerplate code for value objects and their builders in Java.
 >
 >
+
+## Journal or Blog as a Brain Dump
+
+An alternative to a formal Decision Log is to dump your brain by telling the full story of what happened, what you learnt and how the team came up with the decisions, tradeoff or a particular implementation detail.
+
+In the book *Software Craftsmanship Apprenticeship Patterns*, Dave Hoover and Adewale Oshineye advocate "Record what you learn" and "Share what you learn". A blog from the team members is a nice complement to any other kind of documentation. Though it is more personal, it tells stories that are more compelling that most documentation. It tells important bits of the adventure, with the feelings of the people that were part of it.
+
+[Dan North](https://twitter.com/tastapod) seems to agree on Twitter, talking to [Liz Kheogh](https://twitter.com/lunivore) and [Jeff Sussna](https://twitter.com/jeffsussna):
+
+> I like having a product and/or team blog. Journalling decisions and conversations as you have them documents history. It also shows how decisions got made, and lets you see changing tastes or learnings over time.
+
 
 ## Fractal Polyglot Architecture
 

@@ -18,6 +18,7 @@ Introduction/Problem.txt
 Introduction/AllAboutKnowledge.txt
 Introduction/KnowledgeOrigination.txt
 Introduction/NecessaryKnowledge.txt
+Introduction/PeterNaurTheoryPassing.txt
 Introduction/KnowledgeTransfer.txt
 Introduction/SpecificVsGeneric.txt
 Introduction/KnowledgeIsAlreadyThere.txt

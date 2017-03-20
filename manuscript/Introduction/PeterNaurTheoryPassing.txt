@@ -1,0 +1,38 @@
+# Software Programming as Theory Building and Passing
+
+Long ago, in 1985, Peter Naur's [famous paper *Programming As Theory Building* **](http://www.dc.uba.ar/materias/plp/cursos/material/programmingAsTheoryBuilding) perfectly revealed the truth about programming as a collective endeavor: it's not so much about telling the computer what to do, but its more about sharing with other developers the *theory of the world* (think "mental model") that has been patiently elaborated by learning, experiment, conversations and deep reflections.
+
+In the words of Peter Naur:
+
+> Programming properly should be regarded as an activity by which the programmers form or achieve a certain kind of insight, a theory, of the matters at hand. This suggestion is in contrast to what appears to be a more common notion, that programming should be regarded as a production of a program and certain other texts.
+
+
+The problem is that most of the theory is *tacit*. The code only represents the tip of iceberg. It's more a consequence of the theory in the mind of the developers than a representation of the theory itself.
+
+In Peter Naur's view, this theory encompasses three main areas of knowledge, the first being the **mapping** between code and the world it represents:
+
+> 1/ The programmer having the theory of the program can explain how the solution relates to the affairs of the world that it helps to handle.
+
+The second is about the **rationale** of the program:
+
+> 2/ The programmer having the theory of the program can explain why each part of the program is what it is, in other words is able to support the actual program text with a justification of some sort.
+
+And the third is about the **potential** of extension or evolution of the program:
+
+> 3/ The programmer having the theory of the program is able to respond constructively to any demand for a modification of the program so as to support the affairs of the world in a new manner.
+
+Over time we've learnt a number of techniques to help passing theories between people in a durable way. Clean Code and Eric Evans' Domain-Driven Design encourage to find ways of expressing more of the theory in your head literally into the code. For example DDD's Ubiquitous Language bridges the gap between the language of the world and the language of the code, helping solve the *mapping* problem. I hope future programming languages will recognize the need to represent not only the behavior of the code but also the bigger mental model of the programmers, of which the code is a consequence.
+
+Patterns and patterns languages also come to mind, as literal attempts to package nuggets of theories. The more patterns we know, the more we can encode the tacit theory, making it explicit and transferable to a wider extent. Patterns embody in the description of their forces the key elements of the *rationale* in choosing them, and they sometime hint at how extension should happen, i.e. hinting at the *potential* of the program: for example a Strategy pattern is meant to be extended by adding new strategies.
+
+But as we progress in the codification of our understanding, we also tackle more ambitious challenges, so our frustration remains the same. I believe his sentence from 1985 will still hold in the next decades:
+
+
+> For a new programmer to come to possess an existing theory of a program it is insufficient that he or she has the opportunity to become familiar with the program text and other documentation.
+
+We'll never completely solve that knowledge transfer problem, but we can accept it as a fact and learn to live with it. The theory as a mental model in programmers' head can never be fully shared if you weren't part of the thought process that led to build it.
+
+> The conclusion seems inescapable that at least with certain kinds of large programs, the continued adaption, modification, and correction of errors in them, is essentially dependent on a certain kind of knowledge possessed by a group of programmers who are closely and continuously connected with them.
+
+
+It's worth nothing that permanent teams who regularly work collectively don't suffer that much from this issue of theory-passing.
