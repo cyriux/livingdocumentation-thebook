@@ -2,6 +2,8 @@
 
 > We acknowledge the purpose of documentation, but we disagree with the way it's usually done. #NoDocumentation is about exploring better alternatives for transferring knowledge between people and across time.
 
+![No Documentation!](images/nodocumentation.jpg)
+
 T> Documentation is only a mean, not an end. It's only a tool, not a product.
 
 Here are some ideas under the #NoDocumentation tag:

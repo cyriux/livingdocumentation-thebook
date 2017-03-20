@@ -10,6 +10,8 @@ Before going any further, let's quickly precise what BDD is, and what it's not.
 
 If you think BDD is about testing, forget all you know about it. BDD is about sharing knowledge efficiently. This means that you can do BDD without any tool. Before anything else, BDD promotes deep conversations between the 3 amigos (or more) and the use of concrete scenarios to detect misunderstandings and ambiguities early. These scenarios must use the language of the business domain.
 
+![The 3 amigos](images/3amigos.png)
+
 BDD with just conversations and no automation is already BDD, and there's already a lot of value of doing just that. However with additional effort to setup automation, you can reach even more benefits.
 
 ## BDD with automation is all about Living Documentation
