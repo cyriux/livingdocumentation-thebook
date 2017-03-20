@@ -39,11 +39,11 @@ This suggests that you may be [programming by coincidence](Pragmatic Programmers
 
 A> I love the essays of this guy. In fact I don't like the writing style much, but I like the way he writes about his mind musing on hard and deep matters of software development. Some crazy ideas, some stretched metaphors, but a lot of insights to spark my imagination, envisioning future breakthroughs in our field.
 
-
 Building software is about continuous decision-making. Big decisions usually get a lot of attention, with dedicated meetings and several written documents, while other "less important" decisions are somewhat neglected. The problem is that many of these decisions end up being arbitrary rather than well-thought about, and their accumulated effect (perhaps even a compounding effect) is what will make the source code hostile to work with.
 
 Why does this function return null instead of an empty list? Why are they not even consistent? Why are most of the DAO, but not all, in this package? Such neglected decisions sometime get close to better solutions but miss them, for lack of properly thinking about the matter. Why do you have the same method signature in 5 different classes, but without a common interface to unify them? All these examples represent lost opportunities for a better design.
 
+T> Whenever you find out something unexpected in the code and its design, consider asking yourself the question: "what would it take to come back to the standard situations in the literature?"
 
 We want to encourage deliberate thinking. Documenting decisions as they are taken is one way to encourage a deeper thinking because trying to explain a decision often reveals its weaknesses.
 
@@ -55,12 +55,10 @@ Sometime it's frustrating when working with a team at a customer site to observe
 >
 > Instead, we're going to live with the continuous confusion. Each contributor will interpret as he or she wishes. And it will bite us.
 
-Now I can tell that coming back one year later, the team has matured and now this discussion would be probably converge to a sound reasoning. 
+Now I can tell that coming back one year later, the team has matured and now this discussion would be probably converge to a sound reasoning.
 
 ## Deliberate Decisions
 
-> If there is no choice to be made, you're not doing design."
-> -- from  Design, Structure, and Decisions @sbpankevich http://t.co/rQsufqyKC2
 
 It is very hard to document random decisions. It is like attempting to describe noise: there is at the same time too many low-levels details, and almost nothing to tell at a higher-level. In contrast, when the decisions are deliberate, they are clear and conscious, so documentation is basically about putting that into words.
 

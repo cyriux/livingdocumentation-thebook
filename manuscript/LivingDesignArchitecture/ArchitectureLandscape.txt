@@ -324,7 +324,6 @@ Ready-made architecture document templates may help, if you like them:
 - Arc42
 - IBM/Rational RUP
 - Company-specific set of templates, as a Documentation landscape
-- K's 4+1 and similar ideas like the increasingly popular Simon Brown's C4
 
 
 Some templates try to plan for every possible architectural documentation need. I totally hate  having to laboriously fill large templates.
@@ -367,6 +366,20 @@ A typical documentation landscape for a system would have to at least describe t
 This does not mean at all that you need to create documents with all that. Living documentation is all about reducing the need for manually written documents, thanks to alternatives which are cheaper and remain up-to-date.
 
 For example, we could use plain text Evergreen Documents for the first point, system-level acceptance tests for the point 2, a BDD approach with automation for point 3, and a mix of a README, a Codex and custom annotations in the source code for point 4.
+
+
+## Architecture Diagrams & Notations
+
+Many authors have proposed formalisms to describe software architecture since a long time. A number of standards is available, like IEEE 1471 "Recommended Practice for Architecture Description of Software-Intensive Systems", ISO/IEC/IEEE 42010 "Systems and software engineering — Architecture description", while the Philippe Kruchten's "4+1 model" has gained recognition in the enterprise world. However all these approaches are not precisely *ligthtweigh* and require some learning curve to be understood. The provide a set of "views" to describe different aspects of the software system, with a logical view, a physical view etc. Overall, these approaches are not particularly popular among developers.
+
+Simon Brown acknowledged this need and consequently proposed the [C4 Model](http://www.codingthearchitecture.com/2014/08/24/c4_model_poster.html), a lightweight approach to architecture diagrams which is becoming increasingly popular among developers. This approach draws in particular from the work of Eoin Woods and Nick Rozanski in their book [Software Systems Architecture](http://www.viewpoints-and-perspectives.info), and has the benefit of being usable without prior training. It suggests 4 simple types of diagrams to describe a software architecture:
+
+- **System Context Diagram**: A starting point for diagramming and documenting a software system, allowing you to step back and look at the big picture
+- **Container Diagram**: To illustrate the high-level technology choices, showing web application, desktop application, mobile app, database, file system
+- **Components Diagram**: A way to zoom into a container, by decomposing in a way that makes sense to you: services, subsystems, layers, workflows etc.
+- **Classes Diagrams**: (Optional) To illustrate any specific implementation detail with one or more UML class diagram(s).
+
+My favorite is the Context Diagram, both simple, obvious but so often neglected.
 
 ## Architecture Codex
 
@@ -431,6 +444,16 @@ public enum Codex {
 	}
 }
 ~~~~~~~~
+
+Sam Newman in his book "Building Microservices" mentions his colleague Evan Bottcher created a big poster on the wall displaying the key principles visibly on the wall, organized in three columns from left to right:
+
+> ## Principles on a poster on the wall
+>
+> - Strategic Goals, like "Enable Scalable Business", "Support Entry into new Markets"
+> - Architectural Principles, like "Consistent Interfaces and Data Flow", "No Silver Bullet".
+> - Design & Delivery Practices, like "Standard REST/http", "Encapsulate Legacy", or "Minimal Customization of COTS/SAAS".
+
+That's a nice way to sum up the system vision, principles and practices in one place!
 
 ## Transparent Architecture
 

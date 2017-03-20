@@ -9,6 +9,18 @@ Or you could invest into changing the environment:
 - **Providing good self-service CI/CD tools**: By making it easy to setup a new build and deployment pipeline, you make it more likely that developers will create new separate modules rather than putting all new code into the same big ball of mud that we know how to build and deploy.
 - **Providing a good Micro-Services Chassis** (from [Chris Richardson website](http://microservices.io/patterns/microservice-chassis.html)) encourage modularity by making it easy to bootstrap a new micro-service without spending time wiring together all the necessary libraries and frameworks.
 
+In his book "Building Microservice", Sam Newman write on making it easy to do the right thing, with what he calls a *Tailored Service Templates*:
+
+> Wouldn't it be great if you could make it really easy for all developers to follow most of the guidelines you have with very little work? What if, out of the box, the developers had most of the code in place to implement the core attributes that each service needs?
+
+> (...)
+
+> For example, you might want to mandate the use of circuit breakers. In that case, you might integrate a circuit breaker library like Hystrix. Or you might have a practice that all your metrics need to be sent to a central ￼Graphite server, so perhaps pull in an open source library like Dropwizard's Metrics and configure it so that, out of the box, response times and error rates are pushed automatically to a known location.
+
+The most famous tech companies embrace this approach with open-source libraries that you too can use. In the words of Sam Newman: 
+
+> Netflix, for example, is especially concerned with aspects like fault tolerance, to ensure that the outage of one part of its system cannot take everything down. To handle this, a large amount of work has been done to ensure that there are client libraries on the JVM to provide teams with the tools they need to keep their services well behaved.
+
 The environment is also passing information. It's implicit, passive and we don't often pay attention to that. You can make it deliberate and decide what message to pass by designing the path of least resistance in the environment to be the one that you favor.
 
 More generally, it's about making behavior not just *easier* but also more *rewarding*. By showing the commit history as a nice pixel art diagram, Github makes it rewarding to commit often. Developers pride is powerful!

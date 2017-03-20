@@ -246,4 +246,43 @@ It has been one of my favorite maxims in a big legacy project. It was meant to r
 
 This was the counterpart to the single work site maxim. When you happen to walk outside of the main work site, don't innovate or change much, just do the minimum in the local style, even if you don't like it. Be conservative when working in the legacy code that will not be rewritten.
 
+Another legacy maxim which was proposed by Gilles Philippart (him again!) was an extremely powerful one:
+
+> Don't feed the monster! (Don't improve the legacy Big Ball of Mud, it would only make it live longer)
+
 I've found maxims to be a valuable form of documentation. The point is to repeat them often, whenever it makes sense, ideally at least once a day. The maxim format is made to stick, and that is why you may want to give it a try next time. Maxims can also help share the conclusions of your team retrospectives, as agreed upon by the team.
+
+## Enforced Legacy Rules
+
+In a legacy application you've decided that some method should not be called anymore, except from one specific place. For example you decided to turn a read-write legacy application into a *Legacy Read Model*, which should not accept any request to update it, except from the listener responsible to sync this read model from the other authoritative model.
+
+The design decision can be stated in a Decision Log:
+
+> ”This model is a Read Model. It is therefore read-only. Don’t call this Save method, unless you are the listener which syncs this Read Model from the events sent from the Authoritative Write Model.”a
+
+With the following rationale:
+
+> The legacy system has proven to be unmaintenable so we don’t want to develop anymore in it. This is why we’re building a replacement as another system. But because so many external systems are integrated to it we can simply remove it in one go. This is why we decide to keep this old system just as a Legacy Read Model for integration purposes.
+
+We could also document it directly into the code itself:
+
+- Mark the design decision with a custom annotation @LegacyReadModel with the message and the rationale
+- Mark the method as @Deprecated
+
+However being in a legacy system also means we have legacy teams around, some of them remote or in other departments, and we can never be sure they will read our documentation or email, or that they will pay attention when we mention that in our daily standup. And you know that if some developers don’t respect the design decision then bad things will happen. We'll get bugs and pay the cost of extra accidental complexity due to the inconsistent data management strategies.
+
+My colleague Igor Lovich came up with a simple way to document that decision as an Enforced Guideline. Let's express the design decision as:
+
+> ”Never call this deprecated method unless you’re in the White-List of the one or two classes responsible for the sync."
+
+This is a custom design rule that can then enforce at runtime with some additional code:
+
+- Capture the stack trace in the method to find out who's calling it and check it's the allowed piece of code (e.g. throw an exception within a try-catch and extract its stack trace in Java)
+- Check that at least one caller in the stack trace belongs to the White-List of allowed callers methods
+- Make the check into a Java ‘assert', if you want to fail-fast in some environments but not all of them
+- Log when the check fails in a way that will trigger specific follow-up (if it gets fired then it’s actually a defect)
+
+
+Coming back to the last maxim mentioned before: "Don't feed the monster! (Don't improve the legacy)", this maxim can be turned into Enforced Legacy Rule too, by forbidding commits into a particular area of the codebase. Or you may raise a warning when a commit is done there. Such enforcement is simple and more effective than long explanations that people miss or ignore all too often.
+
+In practice legacy makes everything more complicated than expected. It takes courage and some creativity to come up with relatively "not too bad" solutions!
