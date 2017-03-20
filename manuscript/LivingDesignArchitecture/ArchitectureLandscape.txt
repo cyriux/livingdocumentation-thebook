@@ -18,6 +18,8 @@ The first definition in itself admits that architecture is totally a matter of s
 
 Architecture always starts with really understanding all the objectives and constraints of the problem to solve. You won't build the same point-of-sale system for a brand with 50 hot dog stands in the street as you would for a 1500 high-end pret-à-porter shops around the world, even if they have the same high-level basic features.
 
+![Architecture is about things that everybody should know](images/megaphone.png)
+
 The high-level goals, and the main constraints are "things that everybody should know", and as such they are always part of the architecture.
 
 Therefore: **Whatever your definition of architecture, make sure it is considered as much a documentation challenge as a technical one. Focus the discussions and their written records on the problems to solve, not just on the solutions. Make sure the essential knowledge about the problem is well described in a persistent form, and ensure it is in everybody's mind.**

@@ -59,7 +59,7 @@ A Living Documentation is a set of principles and techniques for high-quality do
 
 A Living Documentation also brings the fun back for developers and other team members. They can focus on doing a better job, and at the same time they get the Living Documentation out of this work.
 
-![Principles of a living documentation](images/4_principles.jpg)
+![Principles of a living documentation](images/4-principles.png)
 
 The term "Living Documentation" first became popular in the book "Specifications by Examples" by Gojko Adzic. In this particular context it described a key benefit of teams doing BDD, where their scenarios created for specifications and testing were also very useful as a documentation of the business behaviors. Thanks to the test automation, this documentation is always up-to-date, as long as the tests are all passing.
 

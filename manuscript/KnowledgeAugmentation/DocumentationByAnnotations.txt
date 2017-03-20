@@ -4,6 +4,8 @@ This is my favorite method to augment code in languages like Java or C#. Annotat
 
 The main strength of annotations is that they are Refactoring-friendly: they are robust to renaming of the element they are attached to, they move with it when it moves, and they get deleted when it's deleted. This means no extra effort to maintain them, event the code changes a lot.
 
+![Augmented Code = Code + Annotations](images/augmented_code.png)
+
 **Explain the design and its purpose using structured annotations. Create, grow and maintain a catalogue of predefined annotations, then simply include these annotations to enrich the semantic of the classes, methods and modules.**
 
 You can then create little tools that can exploit the additional information in the annotations, for example to enforce constraints, or to extract knowledge into another format.
@@ -139,4 +141,4 @@ You may also use the good old Marker Interface pattern: implementing an interfac
 		    ...
 		 }
 
-Note that this is quite an intrusive way to tag a class, and it pollutes the type hierarchy. 
+Note that this is quite an intrusive way to tag a class, and it pollutes the type hierarchy.

@@ -14,6 +14,9 @@ You can point your colleagues to the exemplars during conversations, for example
 
 Conversations are perfect for that, but some additional documentation can have benefits too, when you are not present to point people to the exemplars, or when people are working on their own.
 
+
+![Good example of code here!](images/exemplar.png)
+
 Therefore: *Highlight directly in the actual production code the places which are particularly good exemplars of a style or of a best practice you would like to encourage. Point your colleagues to these exemplars, and advertise how to find them on their own. Take care of the exemplars so that they remain exemplary, for everyone to imitate in a way that will improve the overall codebase.*
 
 Annotations are of course a perfect fit for that: you can create a custom `@Exemplar` annotation to put on the few classes or methods which are the most exemplary. Of course exemplars are only useful if there is only a handful of them.

@@ -36,7 +36,7 @@ Diagram real estate is in limited supply, and so is the time and cognitive resou
 
 A document whose purpose is to clarify the external actors of the system for a non-technical audience should hide everything except the system as a black box and each actor with its non-technical name and the business relationship with the system. It should not show anything about JBoss, http or Json. It should not show components or service name. The Editorial Perspective is what makes a document relevant or not. A document that tries to show different things at the same time requires more work from its audience and does not convey a clear message.
 
-![1 diagram, 1 story](images/living-diagram-1-story.png)
+![1 diagram, 1 story](images/one-diagram-one-story.png)
 
 **Therefore: Remember each diagram should have one and only one purpose. Resist the temptation to add extra information to an existing diagram. Instead, create another diagram that focus on the extra information while removing other information that is less valuable for this new different purpose. Filter superfluous information aggressively; only the essential elements deserve to make it onto the diagram.**
 
