@@ -31,3 +31,8 @@ To be refactoring-proof, this information should reside within the module or pro
 A> Style is also useful for tools; for example the declared style can be linked to specific rulesets for static analysis.
 
 Declaring your style also helps enforce consistency within area of the code base.
+
+A> ![LOL](images/fool.png)
+A>
+A> Coined Gierke's law yesterday: from the structure of a software system you can derive the book the architect read most recently...
+A> From Oliver Gierke [@olivergierke](https://twitter.com/olivergierke) on Twitter

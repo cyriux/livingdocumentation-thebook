@@ -107,6 +107,8 @@ Developers opinions are often suspect to managers. In contrast, they appreciate 
 
 As such, the ideas behind living documentation are not just to document for the team, they are also part of the toolbox to convince. Once everybody sees the disturbing reality, the mess, the cyclic dependencies, the unbearable coupling, the obscurity of the code, it becomes harder to tolerate that much longer.
 
-
+A> ![LOL](images/fool.png)
+A>
+A> To respect the Acyclic Dependencies Principle : have only one package!
 
 Living documentation suggests to make the internal problems of the code visible to everyone, as a positive pressure to encourage cleaning the internal quality.

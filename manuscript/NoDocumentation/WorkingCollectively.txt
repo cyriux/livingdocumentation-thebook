@@ -14,6 +14,11 @@ Pair-Programming is a key technique from Extreme Programming. If code reviews ar
 >
 > https://en.wikipedia.org/wiki/Pair_programming
 
+Or in a more evocative form:
+ 
+> OH: "Mob programming. It's like 'pair programming meets RAID6'"
+> From Phil Calcado [@olivergierke](https://twitter.com/pcalcado) on Twitter
+
 
 In Pair-programming, the driver writing code talks his or her mind out loud for the observer to follow what's happening, who's in turn replies with acknowledgement, remarks, corrections or any other kind of feedback. The observer, also known as the *navigator*, talks to the driver to guide the work in progress, suggesting possible next steps and expressing the strategy for solving the task.
 
@@ -23,6 +28,10 @@ For sharing the knowledge as much as possible in order to have true Collective O
 
 > Pair programming: the best way to do less email, attend fewer meetings, AND write less documentation!
 > -- @sarahmei on Twitter
+
+
+
+
 
 ## Cross-Programming
 

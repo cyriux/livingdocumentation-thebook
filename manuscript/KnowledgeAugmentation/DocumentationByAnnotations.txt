@@ -142,3 +142,47 @@ You may also use the good old Marker Interface pattern: implementing an interfac
 		 }
 
 Note that this is quite an intrusive way to tag a class, and it pollutes the type hierarchy.
+
+---
+## When annotations go too far...
+
+[Google Annotations Gallery](https://code.google.com/p/gag/) is a retired little open-source project from 2010 which proposed a collection of neat annotations to augment your code with you design decision, intentions, honest feelings, and even shame.
+
+Discovering stupid code? Leave a @LOL or @Facepalm or @WTF annotation:
+
+     @Facepalm
+     if(found == true){...}
+
+Or all of them with an explanation:
+
+>     @LOL @Facepalm @WTF("just use Collections.reverse()")
+     <T> void invertOrdering(List<T> list) {...
+
+
+> You can also use Remark annotations to preemptively qualify your own miserable code:
+>
+>     @Hack public String  unescapePseudoEscapedCommasAndSemicolons(String url) {
+
+Or justify it:
+
+     @BossMadeMeDoIt
+     String extractSQLRequestFromFormParameter(String params){...}
+
+You may warn your team members with the `@CantTouchThis` annotation.
+
+Stumble across code that somehow works beyond all reason? Life's short. Mark it with @Magic and move on:
+
+>      @Magic
+      public static int negate(int n) {
+        return new Byte((byte) 0xFF).hashCode() / (int) (short) '\uFFFF' * ~0 * Character.digit ('0', 0) * n * (Integer.MAX_VALUE * 2 + 1) / (Byte.MIN_VALUE >> 7) * (~1 | 1);
+      }
+
+And when you've done a good job of design, let the world know your brilliance with the Literary Annotations:
+
+>      @Metaphor public interface Life extends Box { }
+
+Or
+
+>      @Oxymoron public interface DisassemblerFactory { Disassembler createDisassembler(); }
+
+---

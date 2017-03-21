@@ -1,13 +1,9 @@
 Humor
 
-@ericlemerdy: To respect the Acyclic Dependencies Principle : have only one package
 
 
-## Commit Messages
 
-@MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK
 
---
 @James_R_Holmes: @tottinge Our standard joke is that "It's on the intranet" leads to the response, "Did you just tell me to go screw myself?"
 --
 @ploeh: If you're having lots of technical meetings, it MAY indicate that your internal documentation could be better :)
@@ -15,7 +11,7 @@ Humor
 --
 Joke fun humor
 
-> Sorry this is taking so long, I lost my bash history and therefore have no idea how we fixed this last time. -- @honest status page
+> Sorry this is taking so long, I lost my bash history and therefore have no idea how we fixed this last time. -- [Honest Status Page](https://twitter.com/honest_update)‏
 
 
 --
@@ -30,19 +26,10 @@ Now you are an architect
 --
 # Introduction
 
-#Documentation is the castor oil of #programming —managers think it is good for programmers, & #programmers hate it!
-
-Gerald Weinberg Psychology of Computer Programming
---
-
 ---
 
 On many cases a wiki is just a hipster version of sharepoint. Where information goes to die.
 @tastapod #gotoams
---
-I've spent one week working on a Software Architecture Document, friendly called SAD. No acronym would be more appropriate.
-@weppos
-
 --
 Engineers arguing about where to store documents: wiki, gdocs, github, etc The new vi vs emacs
 -- Camille Fournier @skamille
@@ -71,16 +58,9 @@ Claire: It makes our life better if he can't read the code anymore!
 --
 # Architecture / Ready-made knowledge? / Ackowledge the references
 
-> Coined Gierke's law yesterday: from the structure of a software system you can derive the book the architect read most recently...
--- @olivergierke Oliver Gierke
 
 --
-# Working collectively
 
-> OH: "Mob programming. It's like 'pair programming meets RAID6'" via Phil Calcado
-
-
---
 "And now for a pedantic word...""
 
 > Stigmergy is a mechanism of indirect coordination, through the environment, between agents or actions. The principle is that the trace left in the environment by an action stimulates the performance of a next action, by the same or a different agent.
@@ -109,7 +89,9 @@ Claire: It makes our life better if he can't read the code anymore!
 
 Why do you insist on UML? UML is standard, but it's not popular. UML is fine, as long as it's kept simple like using only the 10% that everybody knows. It will not make things much clearer all by itself. TODO: show small code with 2-3 classes and their equivalent UML, to show it's pretty much the same.
 
-- What about case tools? - I don't want to use that tool, it's a time sink! - But you must use it, we have already bought an unlimited enterprise license and there's a support team of 4 people to help!
+- What about case tools? - I don't want to use that tool, it's a time sink! -
+
+
 
 - But with Enterprise Architect it's different! No.
 
@@ -156,16 +138,7 @@ Why do you insist on UML? UML is standard, but it's not popular. UML is fine, as
 @dwhelan: Puts lots of comments in your code so you don't have to spend time thinking how to make code more understandable. #shittyprogrammertips
 
 
---
-@MattRussellUK: The Queen's speech is like the release notes for a minor new version of the UK
 
----
-A> ### When annotations go too far...
-A>
-A> [Google Annotations Gallery](https://code.google.com/p/gag/)
-
-@Thragor: The perfect annotation for #socrates14 code-retreat: LegacySucks from Google Annotations Gallery https//t.co/HtfKYeK9oR :-)
---
 --
 # Comments
 

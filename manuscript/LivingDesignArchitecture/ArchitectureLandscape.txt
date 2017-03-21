@@ -328,7 +328,14 @@ Ready-made architecture document templates may help, if you like them:
 - Company-specific set of templates, as a Documentation landscape
 
 
-Some templates try to plan for every possible architectural documentation need. I totally hate  having to laboriously fill large templates.
+Some templates try to plan for every possible architectural documentation need. I totally hate having to laboriously fill large templates.
+
+
+A> ![LOL](images/fool.png)
+A>
+A> I've spent one week working on a Software Architecture Document, friendly called SAD. No acronym would be more appropriate.
+A> From [@weppos](https://twitter.com/weppos) on Twitter
+
 
 Another positive side of templates is as extensive checklists. For example, the ARC 42 "Concepts" section is a nice checklist to find out what you may've forgotten to consider, as shown below (the list is shortened from the [original template](http://www.arc42.org/))
 

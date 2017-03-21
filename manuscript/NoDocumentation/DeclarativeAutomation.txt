@@ -110,6 +110,12 @@ Configuration Management is much more complex than dependency management. It's a
 
 The most popular tools to manage configuration are *Ansible*, *Puppet*, *CfEngine*, *Chef* and *Salt*. However among them some are imperative (Chef) while others are declarative (Puppet, Ansible).
 
+
+A> ![LOL](images/fool.png)
+A>
+A> Sorry this is taking so long, I lost my bash history and therefore have no idea how we fixed this last time.
+A> From [@honest status page](https://twitter.com/honest_update) on Twitter
+
 For example, Ansible states:
 
 > Ansible's philosophy is that playbooks (whether for server provisioning, server orchestration or application deployment) should be declarative. This means that writing a playbook does not require any knowledge of the current state of the server, only its desirable state.

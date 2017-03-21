@@ -88,6 +88,13 @@ If you need a diagram only once and then you can throw it away immediately after
 
 If you need a beautiful diagram to convince or sell, then a generated diagram is probably not a good fit. Generated diagrams seldom look particularly attractive. As soon as the diagram becomes a stake in itself, it becomes worth doing it well, using the right tools to make it shiny. You may try commercial Proprietary CASE tools, but you will probably resort to graphical design tools, or even call a graphic designer to do the job.
 
+
+A> ![LOL](images/fool.png)
+A>
+A> I know this tool is not friendly and you hate it, but you must use it, we have already bought an unlimited enterprise license and there's a support team of 4 people to help!
+
+
+
 ## Rendering
 
 I won't detail every possible way to create a diagram using a programming language, and it could be the topic for many other books, for various technologies and each context.

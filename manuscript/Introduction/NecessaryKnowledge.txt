@@ -37,3 +37,22 @@ The cost of lack of knowledge mainly manifests itself in the form of:
 These two expenses compound for the worst over time: the time spent on finding the missing knowledge is time not spent on taking better decisions. In turn, sub-optimal decisions will compound to make our life progressively more miserable, until we have no choice but to decide that the software is no longer maintainable, and start again.
 
 It sounds like a good idea to be able to access the knowledge that is useful to perform the development tasks.
+
+
+---
+### "And now for a pedantic word: Stigmergy"
+
+Michael Feather recently shared a link to a fantastic [article online](http://ubiquity.acm.org/blog/why-cant-programmers-be-more-like-ants-or-a-lesson-in-stigmergy) by Ted Lewis who introduces the concept of stygmergy in relation to our work in software as a team:
+
+> Stigmergy is a mechanism of indirect coordination, through the environment, between agents or actions. The principle is that the trace left in the environment by an action stimulates the performance of a next action, by the same or a different agent.
+> [Stigmergy on Wikipedia](https://en.wikipedia.org/wiki/Stigmergy)
+>
+> The French entomologist Pierre-Paul Grassé described a mechanism of insect coordination he called "stigmergy" —work performed by an actor stimulates subsequent work by the same or other actors. That is, the state of a building, code base, highway, or other physical construction determines what needs to be done next without central planning or autocratic rule. The actors —insects or programmers- know what to do next, based on what has already been done. This intuitive urge to extend the work of others becomes the organizing principle of modern software development.
+>
+> Ants use a special type of chemical marker —pheromones— to highlight the results of their activity. (...)
+
+Similarly, programmers manufacture their own markers through emails, Github issues and all kinds of documentation that augments the code itself. As Ted concludes:
+
+> The essence of modern software development is stigmergic intellect and markers embedded within the code base. Markers make stigmergy more efficient, by more reliably focusing a programmer’s attention on the most relevant aspects of the work that needs to be done.
+
+----

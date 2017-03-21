@@ -1,5 +1,9 @@
 # The problem with traditional documentation
 
+> Documentation is the castor oil of programming —managers think it is good for programmers, and programmers hate it!
+>
+> Gerald Weinberg in *Psychology of Computer Programming*
+
 Documentation is such a boring topic. I don't know about you, but in my work experience so far documentation has mostly been a great source of frustration.
 
 When I'm trying to consume documentation, the one I need is always missing. When it's there is often obsolete and misleading, so I can't even trust it.
