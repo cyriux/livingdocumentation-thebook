@@ -2,10 +2,10 @@ Writing conventions in the manuscript folder
 
 # Current state of the book
 
-- content is mostly there (unless a file is almost empty), but a lot is still not publish nor publish-able yet
-- content has to be totally reviewed and edited for better sentences
+- content is all there
+- content has yet to be reviewed and edited for better sentences
 - every todo and work in progress has to be done
-- most pictures need cleaning or plain re-doing
+- some pictures need cleaning or plain re-doing
 
 # Published content
 
@@ -31,10 +31,9 @@ Files with TODO in the same mean these files are todo list in some aspect:
 
 Files with lines starting with %% TODO also need some action
 
-# Interviews and contributions
+## Writing this book
 
-Pierre Irmann (RFQHub -> various documentation approaches, literate-programming style)
-Jeremie Chassaing (AvailPro -> BDD with Event Sourcing)
-Gilles Philippart (SGCIB/FCC -> Declarative Puppet)
-Romeu Moura (Arolla -> Mob-Programming, Literate Programming?)
-Arnauld Loyer (Arolla -> BDD to living documentation)
+All the preparatory material and many sections of book have been written on the notepad of my iPhone 5, standing up in the Paris metro while commuting to and from customers. The majority of the actual writing was done on the Atom editor, on top of the excellent Leanpub + Github toolchain.
+
+
+Many pictures in this book were drawn by Yunshan Xia on 53 Paper with the 53 Pencil on Ipad Mini.

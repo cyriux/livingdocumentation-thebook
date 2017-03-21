@@ -48,3 +48,12 @@ An introductory comics on living documentation that goes through most concepts
 TO FIX
 
 - markdown in markdown in Architecture landscape / Decision Log
+
+
+# Interviews and contributions
+
+Pierre Irmann (RFQHub -> various documentation approaches, literate-programming style)
+Jeremie Chassaing (AvailPro -> BDD with Event Sourcing)
+Gilles Philippart (SGCIB/FCC -> Declarative Puppet)
+Romeu Moura (Arolla -> Mob-Programming, Literate Programming?)
+Arnauld Loyer (Arolla -> BDD to living documentation)

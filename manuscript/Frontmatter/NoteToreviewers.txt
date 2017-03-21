@@ -1,8 +1,8 @@
 # Note to reviewers
 
-Many thanks for reading this early draft of the book! This is work-in-progress, so everything can change at anytime, although the more it will change the more work for me.
+Many thanks for reading this first version of my book!
 
-I need your feedback. Please, don't hesitate to send me your feedback, even if you only read one chapter.
+Don't hesitate to share your feedback, even if on one single part or section.
 
 I especially need feedback on:
 
@@ -11,17 +11,16 @@ I especially need feedback on:
 - **What you strongly disagree with, or you think is plain wrong**
 - Suggestions of any additional examples
 - Suggestions of any additional illustrations
-- More generally, overall feedback on the content, not form
+- More generally, overall feedback on the content more than on form
 
 Also if you have already put in practice some of the ideas of the book and want to be quoted about it, don't hesitate to tell me about it.
 
-Please **don't** send me feedback (not yet) about:
+I know the current book has a lot of :
 
-- Poorly written sentences
-- Typos
-- Low-quality images
+- Poorly written sentences (English is not my native language, and the text has not be edited yet)
+- Typos (not fully spell-checked yet)
+- Low-quality images or too large images
 
-There would be too many issues to raise (I'm not English-native). The copy-editing will be done later.
 
 Please send all feedback or other comment through the Leanpub feedback form:
 
