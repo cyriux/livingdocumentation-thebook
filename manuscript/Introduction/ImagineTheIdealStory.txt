@@ -44,9 +44,9 @@ Scenario: Recent loyal customers have bought 3 times in the last week
 
 The next day Michelle has another question: what is the difference between a 'purchase' and an 'order'?
 
-Usually she would just ask the developers to look in the code and explain the difference. However this team has anticipated that and the website of the project displays a glossary. "Is this glossary up-to-date?" she asks. "Yes, it's updated during every build, automatically from the code," you reply. She's surprised. Why doesn't everybody do that? "You need to have your code closely in line with the business domain for that,, " you say, while you're tempted to elaborate on the Ubiquitous Language of DDD.
+Usually she would just ask the developers to look in the code and explain the difference. However this team has anticipated that and the website of the project displays a glossary. "Is this glossary up-to-date?" she asks. "Yes, it's updated during every build, automatically from the code," you reply. She's surprised. Why doesn't everybody do that? "You need to have your code closely in line with the business domain for that, " you say, while you're tempted to elaborate on the Ubiquitous Language of DDD.
 
-Looking at the glossary she discovers a confusion that nobody has spotted before in the naming, and she suggests to fix the glossary with the correct name. But this is not the way it works here. You want to fix the name first and foremost in the code. So you rename the cla and run the build again, and voila, the glossary is now fixed as well. Everybody is happy, and you just learnt something new about the business of e-commerce.
+Looking at the glossary she discovers a confusion that nobody has spotted before in the naming, and she suggests to fix the glossary with the correct name. But this is not the way it works here. You want to fix the name first and foremost in the code. So you rename the class and run the build again, and voila, the glossary is now fixed as well. Everybody is happy, and you just learnt something new about the business of e-commerce.
 
 ## Show me the big picture, and you'll see what's wrong there
 
