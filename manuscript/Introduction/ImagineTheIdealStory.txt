@@ -4,19 +4,19 @@
 
 Imagine a software project to develop a new application as part of a bigger information system in your company. You are a developer in this project.
 
-You have a task to add a new kind of discount to recent loyal customers. You meet Franck, from the marketing team, and Lisa, a professional tester. Together you start talking about the new feature, ask questions, and ask for concrete examples. At some point Lisa asks "Why this feature?", and Franck explains that the rationale is to reward recent loyal customers in order to increase the customer retention, in a Gamification approach, and suggests a link on Wikipedia about that topic. Lisa takes some notes, just notes of the most important points and main scenarios.
+You have a task to add a new kind of discount to recent loyal customers. You meet Franck, from the marketing team, and Lisa, a professional tester. Together you start talking about the new feature, ask questions, and ask for concrete examples. At some point, Lisa asks "Why this feature?" Franck explains that the rationale is to reward recent loyal customers in order to increase the customer retention, in a Gamification approach, and suggests a link on Wikipedia about that topic. Lisa takes some notes, just notes of the main points and main scenarios.
 
-All this goes quickly because everyone is around the table so communication is easy. Also the concrete examples make it easier to understand and clarify what was unclear. Once it's all clear, everyone gets back to their desk. Lisa writes down the most important scenarios and sends them to everyone. It's Lisa doing it because last time it was Franck, and you do turns. Now you can start coding from that.
+All this goes quickly because everyone is around the table, so communication is easy. Also the concrete examples make it easier to understand and clarify what was unclear. Once it's all clear, everyone gets back to their desk. Lisa writes down the most important scenarios and sends them to everyone. It's Lisa doing it because last time it was Franck, and you do turns. Now you can start coding from that.
 
-You remember your previous work experience where it was not like that. Teams were talking to each other through hard-to-read documents full of ambiguities. You smile. You quickly turn the first scenario into an automated acceptance test, watch it fail, and you start writing code to make it pass to green.
+You remember your previous work experience where it was not like that. Teams were talking to each other through hard-to-read documents full of ambiguities. You smile. You quickly turn the first scenario into an automated acceptance test, watch it fail, and you start writing code to make it pass to Green.
 
-You have the nice feeling to spend your valuable time on what really matters and nothing else.
+You have the nice feeling to spend your valuable time on what matters and nothing else.
 
 ## Tomorrow you won't need this sketch anymore
 
-In the after-noon a pair of colleagues Georges and Esther ask the team about a design decision to make. You meet around the whiteboard and quickly evaluate each option while sketching. Not much of UML, some custom boxes and arrows, as long as everybody understands it right now. A few minutes later a solution is chosen : we'll use two different topics in the messaging system because we need "full isolation between the incoming orders and the shipment requests". That's the rationale for this decision.
+In the afternoon a pair of colleagues Georges and Esther ask the team about a design decision to make. You meet around the whiteboard and quickly evaluate each option while sketching. Not much of UML, some custom boxes and arrows, as long as everybody understands it right now. A few minutes later a solution is chosen: we'll use two different topics in the messaging system because we need "full isolation between the incoming orders and the shipment requests". That's the rationale for this decision.
 
-Esther takes a picture of the whiteboard with her phone just in case someone would erase the whiteboard during the day. But she knows that in half a day it will be implemented and she can then safely delete the picture in her phone. One hour later, when she commits the creation of the new messaging topic, she takes care to add the rationale "isolation between incoming orders and shipment requests" in the commit comment.
+Esther takes a picture of the whiteboard with her phone just in case someone would erase the whiteboard during the day. But she knows that in half a day it will be implemented, and she can then safely delete the picture stored in her phone. One hour later, when she commits the creation of the new messaging topic, she takes care to add the rationale "isolation between incoming orders and shipment requests" in the commit comment.
 
 The next day, Dragos, who was away yesterday, notices the new code and wonders why it's like that. He does 'git blame' on the line and immediately gets the answer.
 
@@ -24,7 +24,7 @@ The next day, Dragos, who was away yesterday, notices the new code and wonders w
 
 The week after, a new marketing manager, Michelle, replaces Franck. Michelle is deep into customer retention, more than Franck. She wants to know what's already implemented in the application in the area of customer retention, so she asks for the corresponding marketing document, and she is surprised to learn there is none.
 
-"It's not serious!", she first says. But you quickly show her the website with all the acceptance tests that is produced during each build. There's a search area on top so she can enter "customer retention". She clicks submit, and what a nice surprise! The scenarios about the special discount for recent loyal customers appears in the result list! Michelle smiles. She didn't even had to browse a marketing document to find what she wanted:
+"It's not serious!", she first says. But you quickly show her the website with all the acceptance tests that is produced during each build. There's a search area on top so she can enter "customer retention". She clicks submit, and what a pleasant surprise! The scenarios about the special discount for recent loyal customers appears in the result list! Michelle smiles. She didn't even have to browse a marketing document to find what she wanted:
 
 ~~~~~~~~
 In order to increase customer retention
@@ -38,21 +38,21 @@ Scenario: Recent loyal customers have bought 3 times in the last week
 ...
 ~~~~~~~~
 
-"Could we do the same discount for purchases in euro?" she asks. "I'm not sure the code manages currencies well, but let's just try" you reply. In your IDE, you change the currency in the acceptance test, and you run the tests again. They fail, so you know there is something to do in order to support that. Michelle has her answer within minutes. She begins to think that your team has something special compared to her former work environments.
+"Could we do the same discount for purchases in euro?" she asks. "I'm not sure the code manages currencies well, but let's just try" you reply. In your IDE, you change the currency in the acceptance test, and you run the tests again. They fail, so you know there is something to do to support that. Michelle has her answer within minutes. She begins to think that your team has something special compared to her former work environments.
 
-## You keep using this word, but this is not what it really means
+## You keep using this word, but this is not what it means
 
 The next day Michelle has another question: what is the difference between a 'purchase' and an 'order'?
 
-Usually she would just ask the developers to look in the code and explain the difference. However this team has anticipated that and the website of the project displays a glossary. "Is this glossary up-to-date?" she asks. "Yes, it's updated during every build, automatically from the code." you reply. She's surprised. Why not everybody does that? "You need to have your code closely in line with the business domain for that" you say, while you're tempted to elaborate on the Ubiquitous Language of DDD.
+Usually she would just ask the developers to look in the code and explain the difference. However this team has anticipated that and the website of the project displays a glossary. "Is this glossary up-to-date?" she asks. "Yes, it's updated during every build, automatically from the code," you reply. She's surprised. Why doesn't everybody do that? "You need to have your code closely in line with the business domain for that,, " you say, while you're tempted to elaborate on the Ubiquitous Language of DDD.
 
-Looking at the glossary she discovers a confusion that nobody has spotted before in the naming, and she suggests to fix the glossary with the correct name. But this is not the way it works here. You want to fix the name first and foremost in the code. So you rename the class, and run the build again, and voila, the glossary is now fixed as well. Everybody is happy, and you just learnt something new about the business of e-commerce.
+Looking at the glossary she discovers a confusion that nobody has spotted before in the naming, and she suggests to fix the glossary with the correct name. But this is not the way it works here. You want to fix the name first and foremost in the code. So you rename the cla and run the build again, and voila, the glossary is now fixed as well. Everybody is happy, and you just learnt something new about the business of e-commerce.
 
 ## Show me the big picture, and you'll see what's wrong there
 
-Now you'd like to remove a toxic dependency between two modules, but you're not so familiar with the full codebase, so you ask for a dependency diagram to Esther, who has most knowledge of that in the team. But even her does not remember every dependency. "I'll generate a diagram of the dependencies from the code. It's something I've long wanted to do. This will take me a few hours, but then it'll be done forever", she says.
+Now you'd like to remove a toxic dependency between two modules, but you're not so familiar with the full codebase, so you ask for a dependency diagram to Esther, who has the most knowledge of that in the team. But even her does not remember every dependency. "I'll generate a diagram of the dependencies from the code. It's something I've long wanted to do. This will take me a few hours, but then it'll be done forever", she says.
 
-Esther already knows a few open-source libraries to easily extract the dependencies from a class or from a package, so it's rather quick for her to wire that to Graphviz, the magical diagram generator that does the layout automatically. A few hours later, her little tool generates the diagram of dependencies. You get what you wanted and you're happy. She then spends one extra half-hour to integrate this tool into the build.
+Esther already knows a few open-source libraries to easily extract the dependencies from a class or a package, so it's rather quick for her to wire that to Graphviz, the magical diagram generator that does the layout automatically. A few hours later, her little tool generates the diagram of dependencies. You get what you wanted and you're happy. She then spends one extra half-hour to integrate this tool into the build.
 
 But the funny thing is that when Esther first looks at the generated diagram she immediately notices something intriguing: "I didn't know there was this dependency between these two modules, it should not be there". By comparing her mental view of the system with the generated view of the actual system, it was easy to spot the design weakness.
 
@@ -62,6 +62,6 @@ In the next project iteration, the design weakness is fixed, and in the next bui
 
 This tale is not about the future. It is already there, right now, and it has been there for years already. This "future has already happened, it's just not very evenly distributed" yet, to quote William Gibson.
 
-The tools are there. The techniques are there. People have been doing all that for ages, it's just not mainstream yet. It's a pity, because these are powerful ideas for software development teams.
+The tools are there. The techniques are there. People have been doing all that for ages, and it's just not mainstream yet. It's a pity because these are powerful ideas for software development teams.
 
-*In the next chapters, we'll go through all these approaches, and many other, and you'll learn how to implement them in your own projects.*
+*In the next chapters, we'll go through all these approaches, and many other, and you'll learn how to implement them in your projects.*
