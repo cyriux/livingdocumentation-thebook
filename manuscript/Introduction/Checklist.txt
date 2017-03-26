@@ -71,7 +71,7 @@ It's important to keep in mind that any effort around documentation right now al
 Assuming that there's a genuine need for additional documentation, for an identified purpose and for an identified audience, we're now ready for **The Second Question of Documentation**.
 
 T> ### The Second Question of Documentation
-t>
+T>
 T> Could we just share knowledge through conversations or working together?
 
 Documentation should never be the default choice, as it's too wasteful unless absolutely necessary. When we say that we need additional documentation, we mean that there's a need for knowledge transfer from some people to other people. Most of the time, this is best done by simply talking, asking and answering questions instead of written documents.
@@ -85,7 +85,7 @@ Conversations and working collectively are the preferred form of documentation, 
 Sometime there's a genuine need to have formalized knowledge.
 
 T> ### Challenging the need for Formalized Documentation
-t>
+T>
 T> Does it have to be persistent? Does it have to be shared to a large audience? Is it critical knowledge?
 
 If the answer is three times no, conversations and working collectively should be enough, no need for more formal documentation.

@@ -14,7 +14,8 @@ From one brain to other brains, it's a matter of **transmission**, or diffusion,
 
 From brains now to brains later, it's about persisting the knowledge and it's a matter of **memory**.
 
-A> The development tenure half-life is 3.1 years, whereas the code half-life is 13 years [Rob Smallshire in his blog]( http://sixty-north.com/blog/predictive-models-of-development-teams-and-the-systems-they-build)
+A> The development tenure half-life is 3.1 years, whereas the code half-life is 13 years
+A> [Rob Smallshire in his blog]( http://sixty-north.com/blog/predictive-models-of-development-teams-and-the-systems-they-build)
 
 From the brain of a technical person to the brains of non technical people, it's a matter of **making the knowledge accessible**. Another case of making knowledge accessible is to make it efficiently **searchable**.
 

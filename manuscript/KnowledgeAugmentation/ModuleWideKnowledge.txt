@@ -28,15 +28,10 @@ Collaboration patterns such as *Model-View-Controller* and *Knowledge Level* als
 
 Design patterns also define logical groupings by the role played within the pattern, e.g. "Every abstract role in the Abstract Factory pattern":  @AbstractFactory.Abstract.*.
 
-There are many other modules or quasi-modules implied by concepts like layers, domains, bounded contexts and aggregate roots. They can be orthogonal to each others, sometime nested.
+There are many other modules or quasi-modules implied by concepts like layers, domains, bounded contexts and aggregate roots.
 
-## Module Arithmetics
 
-The only operations available for modules are Union and Intersection. Of course named modules also need a mechanism to resolve them by name.
-
-Some modules are naturally nested: packages -> packages, classes -> member fields, methods, classes; domains -> subdomains, bounded contexts -> aggregates. In this case we have an order relation between them.
-
-The problem with large modules is their huge number of items, which often necessitates filtering, ranking and paging.
+The problem with large modules is their huge number of items, which often necessitates aggressive filtering, which may even require ranking to only consider the N-most important elements out of many more.
 
 
 ## In practice
@@ -50,4 +45,4 @@ In C# modules are often projects, which can have AssemblyInfoDescriptions:
      AssemblyInfoDescription("package comment")
 
 
-In most programming languages, package or namespace naming convention can also be used to declare a design decision. For example *something.domain*, can be used to mark the package or namespace as a domain model. 
+In most programming languages, package or namespace naming convention can also be used to declare a design decision. For example *something.domain*, can be used to mark the package or namespace as a domain model.

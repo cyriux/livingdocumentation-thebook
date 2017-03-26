@@ -4,13 +4,11 @@ There is knowledge that is specific to your company, your particular system or y
 
 ## Generic Knowledge
 
-Knowledge about programming languages, developers tools, software patterns and practices belongs to the Generic knowledge category.
-
-Examples: DDD, patterns, CI, using Puppet, Git tutorial
+Knowledge about programming languages, developers tools, software patterns and practices belongs to the Generic knowledge category. Examples include: DDD, patterns, CI, using Puppet, Git tutorial etc.
 
 Knowledge about mature sectors of the business industries is also generic knowledge. Even in very competitive areas like Pricing in finance or Supply Chain Optimization in e-commerce, most of the knowledge is public and available in industry-standard books, and only a small part of the business is specific and confidential for a while.
 
-Examples: essential reading lists by business domain, with books often referred to as "The Bible of the field": Options, Futures, and Other Derivatives (9th Edition) by John C Hull, Logistics and Supply Chain Management (4th Edition) by Martin Christopher etc.
+For example each business domain has its essential reading lists, with books often referred to as "The Bible of the field": Options, Futures, and Other Derivatives (9th Edition) by John C Hull, Logistics and Supply Chain Management (4th Edition) by Martin Christopher etc.
 
 The good news is that generic knowledge is already documented in the industry literature. There are books, blog posts, conference talks that describe it quite well. There are standard vocabularies to talk about it. There are trainings available to learn it faster with knowledgable people.
 
