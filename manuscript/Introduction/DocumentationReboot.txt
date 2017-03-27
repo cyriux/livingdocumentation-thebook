@@ -1,6 +1,6 @@
 # Documentation Reboot
 
-This book as a whole could actually be named *Documentation 2.0*, *Living Documentation*, *Continuous Documentation* or *No Documentation*. The key driver is to reconsider the way we do documentation from scratch, starting from the bare purpose. From there the universe of applicable solutions is near infinite. This book describes examples in various categories of approaches, and I expect the readers to go far beyond. Let's go through these categories now.
+This book as a whole could actually be named *Documentation 2.0*, *Living Documentation*, *Continuous Documentation* or *No Documentation*. The key driver is to reconsider the way we do documentation, starting from the purpose. From there the universe of applicable solutions is near infinite. This book describes examples in various categories of approaches, and I expect the readers to go far beyond. Let's go through these categories now.
 
 ## Approaches to better documentation
 
@@ -8,15 +8,15 @@ There are many ways to consider the topic of documentation in its wide definitio
 
 This cycle goes crescendo in intensity, from *avoiding documentation* to *documentation to the max*, and beyond, where we question the need for documentation again and loop the cycle to less documentation again. We could say it also goes from rather lightweight approaches to more heavyweight ones.
 
-This cycle also goes crescendo with respect to the rate of change (volatility) of the knowledge, from stable knowledge to knowledge that changes all the time, continuously.
+This cycle primarily goes crescendo with respect to the rate of change (volatility) of the knowledge, from stable knowledge to knowledge that changes all the time, continuously.
 
-At 1 o'clock on this cycle we start with *No Documentation*, that also includes *Less Documentation*. This is about how to avoid or replace documentation with something more appropriate or with more benefits.
+At 1 o'clock on this cycle we start with *No Documentation*, that also includes *Less Documentation*. This is about how to avoid or replace documentation with alternatives more appropriate or offering more benefits.
 
 Then we move to *Stable Documentation*, for the lucky cases where it's possible to have stable knowledge that needs no maintenance.
 
-Then there is the area of knowledge that changes often, but with the ability to have the documented knowledge follow the changes as they happen: *Refactor-Proof Knowledge*.
+Then comes the area of knowledge that changes often, but with the ability to have the documented knowledge follow the changes as they happen: *Refactoring-Friendly Knowledge*.
 
-Further on the cycle we find *Living Documentation*, for more heavyweight documentation that evolves in real-time with the changes in the software.
+Further on the cycle we find *Automated Documentation*, for more heavyweight documentation that evolves in real-time with the changes in the software. *Runtime Documentation* is another flavor of such automation, but embedded in the working software.
 
 Finally we reach the *Beyond Documentation* area, the opportunity to question everything and recognize that the topic of documentation can have benefits well beyond just transferring and storing knowledge. This is where we reach enlightenment and reconsider every other approach and technique in a more critical way.
 
@@ -28,23 +28,28 @@ The best documentation is often no documentation, because the knowledge is not w
 
 
 ## Stable Documentation
+
 Not all knowledge changes all the time. When it's stable enough documentation becomes much simpler, and much more useful at the same time. Sometime it just takes one step forward to go from a changing piece of knowledge to a more stable one, an opportunity we want to exploit.
 
-## Integrated Documentation
+## Refactor-Friendly Documentation
+
 Code, tests, plain text, and a mix of all that have particular opportunities to evolve continuously in sync thanks to the refactoring abilities of the modern IDE and tools. This makes it possible to have accurate documentation for little to no cost.
 
 ## Automated Documentation
+
 This is the most geek area, with its specific tooling to produce documentation automatically in a living fashion, following the changes in the software construction.
 
 ## Runtime Documentation
+
 A particular flavor of Living Documentation involves every approach that operates at runtime, when the software is running. This is in contrast with other approaches that work at build time.
 
 ## Beyond Documentation
+
 Beyond the approaches on how to do better documentation, there's the even more important topic of "why and what for we do documentation". This is more meta, but this is where the biggest benefits are hidden. However, much like the *agile values* this is more abstract and this is better appreciated by people with some past experience.
 
-These categories structure the main chapters of this book, in the reverse order. This reverse ordering follows a progression from more technical and rather 'easy to grasp', to more abstract and people-oriented considerations. However this also means the chapters go from the less important to the more important.
+These categories structure the main chapters of this book, in the reverse order. This reverse ordering follows a progression from more technical and rather 'easy to grasp', to more abstract and people-oriented considerations. However this also means the chapters progress from the less important to the more important.
 
-Across these categories of approaches, there are some core principles (or values, the jury is still out on this) that frame a guidance on how to do documentation efficiently.
+Across these categories of approaches, there are some core principles that guide on how to do documentation efficiently.
 
 
 # Core Principles of Living Documentation

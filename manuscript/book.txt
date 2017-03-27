@@ -27,30 +27,26 @@ Introduction_Overview/ExternalInternalDocumentation.txt
 Introduction_Overview/AccuracyMechanism.txt
 
 Introduction/Checklist.txt
-Introduction/CorePrinciples.txt
+Introduction/DocumentationReboot.txt
 Introduction/GatewayToDDD.txt
 
 Introduction_Overview/SpineModel.txt
 Introduction/Fun.txt
 
-
-LivingDocumentation/Section------LivingDocumentation.txt
+bdd/Section------LivingDocumentationBDDExample.txt
 bdd/BDD.txt
 bdd/RichDomainDescription.txt
 
 
-KnowledgeExploitation/KnowledgeExploitation.txt
 
+KnowledgeExploitation/Section------KnowledgeExploitationAugmentation.txt
+KnowledgeExploitation/KnowledgeExploitation.txt
 KnowledgeExploitation/SingleSourcing.txt
 KnowledgeExploitation/Reconciliation.txt
 KnowledgeExploitation/InformationConsolidation.txt
-
 KnowledgeExploitation/ReadyMadeKnowledge.txt
-
-
 KnowledgeExploitation/ReadyMadeKnowledgeInConversation.txt
 KnowledgeExploitation/ReadyMadeKnowledge_patterns_criticism.txt
-
 KnowledgeExploitation/ToolsHistory.txt
 
 
@@ -73,18 +69,17 @@ KnowledgeAugmentation/Curation.txt
 KnowledgeAugmentation/HighlightedCore.txt
 KnowledgeAugmentation/SightseeingMap.txt
 
+
+LivingDocumentation/Section------LivingDocumentation.txt
 LivingDocumentation/LivingDocument.txt
 LivingDocumentation/LivingGlossary.txt
 LivingDocumentation/LivingDiagram.txt
 LivingDocumentation/HexagonalArchitectureDiagram.txt
 LivingDocumentation/BusinessDomainDiagram.txt
 LivingDocumentation/LivingServicesDiagram.txt
-
 LivingDocumentation/ContextDiagram.txt
-
 LivingDocumentation/DomainSpecificDiagrams.txt
 LivingDocumentation/PatternOrientedLivingDiagram.txt
-
 
 
 VisibleWorkings/Section------RuntimeDocumentation.txt
@@ -119,15 +114,15 @@ StableDocumentation/DomainImmersion.txt
 
 
 
+
+
 NoDocumentation/Section------NoDocumentation.txt
 NoDocumentation/NoDocumentation.txt
 NoDocumentation/Conversations.txt
 NoDocumentation/WorkingCollectively.txt
 NoDocumentation/CoffeeMachineCommunication.txt
-
 NoDocumentation/IdeasSedimentation.txt
 NoDocumentation/On-DemandDocumentation.txt
-
 NoDocumentation/DeclarativeAutomation.txt
 NoDocumentation/EnforcedGuidelines.txt
 NoDocumentation/MakeItEasytoDotheRightThing.txt
@@ -138,12 +133,7 @@ NoDocumentation/ContinuousTraining.txt
 NoDocumentation/ZeroDocumentation.txt
 
 
-EfficientDocumentation/EfficientDocumentation.txt
-EfficientDocumentation/SearchFriendly.txt
-EfficientDocumentation/SpecificationWorkshops.txt
-EfficientDocumentation/StackOverflowDocumentation.txt
-EfficientDocumentation/AffordableAttractive.txt
-EfficientDocumentation/UnorthodoxMedia.txt
+
 
 
 
@@ -156,6 +146,8 @@ BeyondDocumentation/HygienicTransparency.txt
 BeyondDocumentation/LivingDocumentationGoingWild.txt
 
 
+
+
 Summing_it_up_Interview_Doctor_by_Reporter.txt
 
 
@@ -166,6 +158,15 @@ LivingDesignArchitecture/ArchitectureLandscape.txt
 LivingDesignArchitecture/TestDrivenArchitecture.txt
 LivingDesignArchitecture/SmallScaleSimulation.txt
 
+
+
+EfficientDocumentation/Section------EfficientDocumentation.txt
+EfficientDocumentation/EfficientDocumentation.txt
+EfficientDocumentation/SearchFriendly.txt
+EfficientDocumentation/SpecificationWorkshops.txt
+EfficientDocumentation/StackOverflowDocumentation.txt
+EfficientDocumentation/AffordableAttractive.txt
+EfficientDocumentation/UnorthodoxMedia.txt
 
 
 IntroducingLivingDocumentation/Section------IntroducingLivingDocumentation.txt

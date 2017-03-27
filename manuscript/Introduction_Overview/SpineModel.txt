@@ -4,7 +4,7 @@ To better organize what is Living Documentation, its values and principles, here
 
 By keeping the needs, the main values and the principles in mind, in this order of importance, we can then apply practices and use tools to get the work done in an effective fashion.
 
-## Need:
+## Need
 
 **Evolve software continuously, collectively and over the long run.**
 
@@ -12,7 +12,7 @@ We want to deliver software quickly now, and at least as quickly in the future. 
 
 We want to take the best possible decisions based on the most relevant knowledge, in order to make the work on the software sustainable in the long run.
 
-## Values:
+## Values
 
 We optimize for the following values:
 
@@ -22,7 +22,7 @@ We optimize for the following values:
 1. Honest Feedback
 1. Fun
 
-## Principles:
+## Principles
 
 We leverage the following principles to change the way we work:
 
@@ -39,7 +39,7 @@ We leverage the following principles to change the way we work:
 1. Make Documentation Unnecessary
 1. A Whole Activity (carefully done, with multiple benefits)
 
-## Practices:
+## Practices
 
 We have the following practices available to deliver value:
 
@@ -50,7 +50,7 @@ We have the following practices available to deliver value:
 - Small-Scale Model
 - and many others that are the focus of this book.
 
-## Tools:
+## Tools
 
 To get the work done, we use tools. Most of them are primarily mental tools, but tools that we can download also help of course!
 

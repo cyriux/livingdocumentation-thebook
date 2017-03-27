@@ -1,1 +1,1 @@
--# Part 4 Refactorable Documentation
+-# Part 6 Refactoring-Friendly Documentation

@@ -2,7 +2,7 @@
 
 > What about documenting the business behavior? (because as you know, business people never change their mind.)
 
-Behavior-Driven Development (BDD) is the first example of a Living Documentation. In the book *Specification by Example*, Gojko Adzic explains that when interviewing many teams doing BDD, one of the biggest benefit them mention is having this Living Documentation always up-to-date that explains what the application is doing.
+Behavior-Driven Development (BDD) is the first example of a Living Documentation. In the book *Specification by Example*, Gojko Adzic explains that when interviewing many teams doing BDD, one of the biggest benefit they mention is having this Living Documentation always up-to-date that explains what the application is doing.
 
 Before going any further, let's quickly precise what BDD is, and what it's not.
 
@@ -161,7 +161,7 @@ The website shows a navigation pane that is organized by chapter, provided that 
 
 ### Boring paper document
 
-The interactive website is convenient for the team, for fast access to the business behavior knowledge. However there are cases where you have to provide a boring paper document (BPD) e.g for mandatory Compliance requirements.
+The interactive website is convenient for the team, for fast access to the business behavior knowledge. However there are cases where you have to provide a boring paper document (a "BPD" as some call it) e.g for mandatory Compliance requirements.
 
 There are tools for that too. One was developed by my Arolla colleague Arnauld Loyer (@aloyer) and it's called Tzatziki, because it's a Cucumber sauce. It exports a beautiful PDF document out of the feature files. It goes a bit further than what's covered in this section. For example it also includes markdown files and images that are stored alongside the feature files into the document. This helps create nice explanations at the beginning of each functional area chapter.
 
@@ -210,6 +210,38 @@ Examples:
 |--------------------------------------------------------------------|
 
 ~~~~~~~~
+
+## How does it work?
+
+With the support of tools, all the business scenarios become automated tests and a living documentation at the same time.
+
+The scenarios are just plain text in the "feature files". To bridge the gap between the text in the scenarios and the actual production code, you create a little set of "steps". Each step is triggered on a particular text sentence, matched by regular expressions, and calls the production code. The text sentence may have parameters that are parsed and used to call the production code in many different ways.
+
+~~~~~~~~
+For example:
+Given the VAT rate is 9.90%
+When I but a book at a ex-VAT price of EUR 25
+Then I have to pay an inc-VAT price of EUR 2.49
+~~~~~~~~
+
+To automate this scenario you need a step definite for each line. For example:
+
+The sentence:
+
+~~~~~~~~
+"When I but a book at a ex-VAT price of EUR <exVATPrice>"
+~~~~~~~~
+
+Triggers the glue code:
+
+~~~~~~~~
+Book(number exVATPrice)
+Service = LookupOrderService();
+Service.sendOrder(exVATPrice);
+~~~~~~~~
+
+The result of this plumbery is that the scenarios become automated tests. These tests are driven by the scenarios and the values they declare. If you change the rounding mode of the price in the scenario without changing the code the test will fail. If you change the rounding mode of the price in the code without changing the scenario the test will fail too: this is a reconciliation mechanism to signal inconsistencies between both sides of the redundancy.
+
 
 ## A canonical case of Living Documentation in every aspect
 

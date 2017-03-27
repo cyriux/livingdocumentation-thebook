@@ -41,7 +41,7 @@ It sounds like a good idea to be able to access the knowledge that is useful to 
 
 ---
 
-## "And now for a pedantic word: Stigmergy"
+## And now for a pedantic word: Stigmergy
 
 Michael Feather recently shared a link to a fantastic [article online](http://ubiquity.acm.org/blog/why-cant-programmers-be-more-like-ants-or-a-lesson-in-stigmergy) by Ted Lewis who introduces the concept of stygmergy in relation to our work in software as a team:
 

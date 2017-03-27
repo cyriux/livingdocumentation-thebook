@@ -1,5 +1,7 @@
 frontmatter.txt
 
+Frontmatter/NoteToreviewers.txt
+
 Frontmatter/IntroductoryQuestions.txt
 Frontmatter/preface.txt
 Frontmatter/about.txt
@@ -10,24 +12,32 @@ mainmatter.txt
 
 
 Introduction/Section------Introduction.txt
-
-
 Introduction/ImagineTheIdealStory.txt
 Introduction/Problem.txt
 
 Introduction/AllAboutKnowledge.txt
-Introduction/NecessaryKnowledge.txt
-Introduction/KnowledgeTransfer.txt
-
-Introduction/SpecificVsGeneric.txt
 Introduction/KnowledgeOrigination.txt
+Introduction/NecessaryKnowledge.txt
+Introduction/PeterNaurTheoryPassing.txt
+Introduction/KnowledgeTransfer.txt
+Introduction/SpecificVsGeneric.txt
 Introduction/KnowledgeIsAlreadyThere.txt
 
+Introduction_Overview/ExternalInternalDocumentation.txt
+Introduction_Overview/AccuracyMechanism.txt
 
 Introduction/Checklist.txt
-Introduction/CorePrinciples.txt
+Introduction/DocumentationReboot.txt
+Introduction/GatewayToDDD.txt
 
-BDD/BDD.txt
+Introduction_Overview/SpineModel.txt
+Introduction/Fun.txt
+
+bdd/Section------LivingDocumentationBDDExample.txt
+bdd/BDD.txt
+bdd/RichDomainDescription.txt
+
+
 
 
 LivingDocumentation/Section------LivingDocumentation.txt
@@ -38,7 +48,6 @@ LivingDocumentation/BusinessDomainDiagram.txt
 
 NoDocumentation/Section------NoDocumentation.txt
 NoDocumentation/NoDocumentation.txt
-
 
 BeyondDocumentation/Section------BeyondDocumentation.txt
 BeyondDocumentation/HygienicTransparency.txt
