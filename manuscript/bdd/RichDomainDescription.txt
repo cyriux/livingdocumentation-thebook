@@ -112,11 +112,11 @@ Tools like [Pickle](http://www.picklesdoc.com/), [Relish](http://www.relishapp.c
 
 ## Property-Based Testing and BDD
 
-Requirements often come naturally as properties: "The sum of all amounts paid and received must be zero at all times", or "nobody can ever be a lawyer and a judge at once". When doing BDD or TDD, we must clarify these properties into concrete examples aka scenarios, which will help find out issues and build code incrementally.
+Requirements often come naturally as properties: "The sum of all amounts paid and received must be zero at all times", or "nobody can ever be a lawyer and a judge at once". When doing BDD or TDD, we must clarify these general properties into specific concrete examples, which will help find out issues and build code incrementally.
 
-It's a good idea to keep track of the general properties for their documentation value, and we usually do that as plain text in the feature file. But it happens that the technique of Property-Based Testing is precisely about exercising these properties against randomly generated samples. this is performed with a property-based testing framework that runs the same test over and over with inputs generated from generators that you control. The canonical framework is QuickCheck in Haskell, and there are now similar tools in most programming languages.
+It's a good idea to keep track of the general properties for their documentation value. We usually do that as plain text comment in the feature file as described before. But it happens that the technique of Property-Based Testing is precisely about exercising these properties against randomly generated samples. This is performed with a property-based testing framework that runs the same test over and over with inputs generated from generators of samples. The canonical framework is QuickCheck in Haskell, and there are now similar tools in most programming languages.
 
-Integrating property-based testing into your feature files is a matter of adding special scenarios describing the general property, invoking the property-based testing framework underneath:
+Integrating property-based testing into your feature files eventually makes the general properties executable too. In practice it's a matter of adding special scenarios describing the general property, invoking the property-based testing framework underneath:
 
 ~~~~~~~~
 Scenario: The sum of all cash amounts exchanged must be zero for derivatives
@@ -126,6 +126,7 @@ Scenario: The sum of all cash amounts exchanged must be zero for derivatives
  Then the sum of the cash flows of the payer and the receiver is exactly zero
 ~~~~~~~~
 
+Such scenarios typically use sentences like "given ANY shopping cart...". This wording is a code smell for regular scenarios, but it's ok for property-oriented scenarios on top of property-based testing tooling, supplementing the regular concrete scenarios.
 
 
 ## Manual glossary
@@ -155,7 +156,3 @@ You may also use bookmarked searches to link to places that include the related 
 
 
 This way you can have a resilient way to link to related content, at the expense of letting the reader select the most relevant results each time.
-
-
-
-# Property-based testing

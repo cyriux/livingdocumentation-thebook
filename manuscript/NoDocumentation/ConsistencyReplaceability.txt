@@ -1,9 +1,11 @@
+# Design principles for documentation avoidance
+
 During QCon 2015, Dan North talked about a model where code is either so old and well established that everybody knows how to deal with it, or that's so young that the people doing it are still there so they know well about it. Problems happen when you're in in the grey zone between these two modes.
 
 This thinking emphasizes the central role of knowledge sharing and knowledge preservation as a key ingredient of successful teams. But Dan also goes further and suggests alternative ways to deal with this issue.
 
 
-# Replaceability-First
+## Replaceability-First
 
 You don't need much documentation for components you can replace easily. Sure, you need to know *what* the components were doing, but you don't have to know *how* they were doing it.
 
@@ -15,7 +17,7 @@ When the team does not care enough about design, the components just grow and ge
 
 Even with an approach that favors Replaceability, design skills remain necessary. For example the Open-Close Principle is indeed a case of making the implementation replaceable easily, along with it's good friend the Liskov Substitution Principle. The other SOLID principles also help. They are usually discussed at the class and interface level. Yet, they also apply at the bigger granularity of components or services. But to be really replaceable at low cost they have to be small, hence the idea of "micro"-services.
 
-# Consistency-First
+## Consistency-First
 
 Consistency in the code base is when code that you've never seen looks familiar so that you can deal with it easily (Dan North).
 

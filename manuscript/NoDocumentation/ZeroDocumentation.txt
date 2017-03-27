@@ -1,4 +1,4 @@
-## Zero documentation & Gamification
+# Zero documentation & Gamification
 
 
 **An approach to force better naming and better practice in general to share knowledge without additional prose**

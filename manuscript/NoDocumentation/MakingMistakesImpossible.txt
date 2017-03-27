@@ -1,4 +1,4 @@
-# Making Mistakes Impossible - Error-Proof API
+## Making Mistakes Impossible - Error-Proof API
 
 *Design your API in a way that makes it impossible to misuse. This reduces the need for documentation, since there's nothing to warn the user of.*
 

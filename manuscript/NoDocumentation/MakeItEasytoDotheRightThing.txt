@@ -1,4 +1,7 @@
-# Make It Easy to Do the Right Thing
+# Don't document, influence or constraint behavior instead!
+
+
+## Make It Easy to Do the Right Thing
 
 Enforcing guidelines is not the only approach to bring the right piece of knowledge at the right time to the developers; an interesting alternative is to make it easy to do the right thing in the first place.
 
@@ -17,7 +20,7 @@ In his book "Building Microservice", Sam Newman write on making it easy to do th
 
 > For example, you might want to mandate the use of circuit breakers. In that case, you might integrate a circuit breaker library like Hystrix. Or you might have a practice that all your metrics need to be sent to a central ￼Graphite server, so perhaps pull in an open source library like Dropwizard's Metrics and configure it so that, out of the box, response times and error rates are pushed automatically to a known location.
 
-The most famous tech companies embrace this approach with open-source libraries that you too can use. In the words of Sam Newman: 
+The most famous tech companies embrace this approach with open-source libraries that you too can use. In the words of Sam Newman:
 
 > Netflix, for example, is especially concerned with aspects like fault tolerance, to ensure that the outage of one part of its system cannot take everything down. To handle this, a large amount of work has been done to ensure that there are client libraries on the JVM to provide teams with the tools they need to keep their services well behaved.
 

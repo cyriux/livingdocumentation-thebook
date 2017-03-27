@@ -1,11 +1,26 @@
 Writing conventions in the manuscript folder
 
+# Structure
+
+Part 1 Reconsidering Documentation
+Part 2 Living Documentation exemplified by Behavior-Driven Development
+Part 3 Knowledge Exploitation & Augmentation
+Part 4 Automated Documentation
+Part 5 Runtime Documentation
+Part 6 Refactoring-Friendly Documentation
+Part 7 Stable Documentation
+Part 8 No Documentation
+Part 9 Beyond Documentation
+Part 10 Living Design & Architecture Documentation
+Part 11 Efficient Documentation
+Part 12 Introducing Living Documentation
+
+
 # Current state of the book
 
 - content is all there
 - content has yet to be reviewed and edited for better sentences
-- every todo and work in progress has to be done
-- some pictures need cleaning or plain re-doing
+- few pictures need cleaning or plain re-doing
 
 # Published content
 
@@ -13,7 +28,7 @@ The magic file *book.txt* decides what goes into the published book. Only what's
 
 # Work in progress
 
-Files in progress, not to be published as-is, have their name starting with '_', which is handy to have them sorted first in each folder
+Files in progress, not to be published as-is, have their name starting with '_', which is handy to have them sorted first in each folder, except the ones in the _attic, or in the _imported which will not be used anymore.
 
 # Images management
 
