@@ -58,7 +58,8 @@ Even some architectural decisions can be made as rules
 - DomainModelElementsMustNotDependOnInfrastructure
 - ValueObjectMustNotDependOnServices
 
-![The Guidelines Enforcement force](images/EnforcedArchitecture.jpg)
+![The Guidelines Enforcement force](images/EnforcedArchitecture.png)
+
 
 
 ## Evolving the guidelines

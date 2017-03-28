@@ -20,7 +20,7 @@ Further on the cycle we find *Automated Documentation*, for more heavyweight doc
 
 Finally we reach the *Beyond Documentation* area, the opportunity to question everything and recognize that the topic of documentation can have benefits well beyond just transferring and storing knowledge. This is where we reach enlightenment and reconsider every other approach and technique in a more critical way.
 
-![The cycle of Living Documentation](images/living_documentation_map.jpg)
+![The cycle of Living Documentation](images/living_documentation_map.png)
 
 
 ## No Documentation
